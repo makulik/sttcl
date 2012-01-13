@@ -14,6 +14,10 @@
 namespace sttcl
 {
 
+namespace internal
+{
+namespace boost_impl
+{
 class SttclBoostSemaphore
 {
 public:
@@ -29,6 +33,8 @@ private:
 	NativeSemaphoreType semaphore;
 };
 
+}
+}
 }
 
 #endif /* STTCLBOOSTSEMAPHORE_H_ */

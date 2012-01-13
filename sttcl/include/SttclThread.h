@@ -10,10 +10,10 @@
 
 #if defined(STTCL_POSIX_THREADS)
 #include "../PosixThreads/SttclPosixThread.h"
-#define DEFAULT_THREADIMPL sttcl::SttclPosixThread
+#define DEFAULT_THREADIMPL sttcl::internal::posix_impl::SttclPosixThread
 #elif defined(STTCL_BOOST_THREADS)
 #include "../BoostThreads/SttclBoostThread.h"
-#define DEFAULT_THREADIMPL sttcl::SttclBoostThread
+#define DEFAULT_THREADIMPL sttcl::internal::boost_impl::SttclBoostThread
 #endif
 
 #ifndef DEFAULT_THREADIMPL

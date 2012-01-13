@@ -233,7 +233,9 @@ protected:
 	InnerStateType* lastState;
 };
 
-template<CompositeStateHistoryType::Values, class InnerStateType>
+namespace internal
+{
+template<CompositeStateHistoryType::Values HistoryType, class InnerStateType>
 struct CompositeStateBaseSelector
 {
 	typedef CompositeStateBase<InnerStateType> RESULT_TYPE;
@@ -250,6 +252,7 @@ struct CompositeStateBaseSelector<CompositeStateHistoryType::Shallow,InnerStateT
 {
 	typedef CompositeStateBaseWithShallowHistory<InnerStateType> RESULT_TYPE;
 };
+}
 
 template
 < class CompositeStateImpl
@@ -262,7 +265,7 @@ template
 class CompositeState
 : public StateBaseImpl
 , public StateMachineBaseImpl
-, public CompositeStateBaseSelector<HistoryType,typename StateMachineBaseImpl::StateBaseClass>::RESULT_TYPE
+, public internal::CompositeStateBaseSelector<HistoryType,typename StateMachineBaseImpl::StateBaseClass>::RESULT_TYPE
 {
 public:
     /**
@@ -287,7 +290,7 @@ public:
     /**
      * The composite state base class regarding state history policy.
      */
-	typedef typename CompositeStateBaseSelector<HistoryType,typename StateMachineBaseImpl::StateBaseClass>::RESULT_TYPE CompositeStateHistoryBaseClass;
+	typedef typename internal::CompositeStateBaseSelector<HistoryType,typename StateMachineBaseImpl::StateBaseClass>::RESULT_TYPE CompositeStateHistoryBaseClass;
 
 	/**
 	 * The inner state class.
@@ -316,7 +319,7 @@ public:
 	/**
 	 * Destructor for class CompositeState.
 	 */
-	~CompositeState()
+	virtual ~CompositeState()
 	{
 	}
 

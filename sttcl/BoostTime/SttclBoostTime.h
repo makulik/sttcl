@@ -16,6 +16,10 @@ using namespace boost::date_time;
 namespace sttcl
 {
 
+namespace internal
+{
+namespace boost_impl
+{
 class SttclBoostTimeDuration
 {
 public:
@@ -173,5 +177,7 @@ public:
 private:
 	NativeTimeDuration td;
 };
+}
+}
 }
 #endif /* STTCLBOOSTTIME_H_ */

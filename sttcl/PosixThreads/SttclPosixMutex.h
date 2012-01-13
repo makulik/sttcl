@@ -15,7 +15,10 @@
 
 namespace sttcl
 {
-
+namespace internal
+{
+namespace posix_impl
+{
 class SttclPosixMutex
 {
 public:
@@ -31,6 +34,8 @@ private:
 	bool valid;
 };
 
+}
+}
 }
 #endif
 #endif /* STTCLPOSIXMUTEX_H_ */

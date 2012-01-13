@@ -11,7 +11,9 @@
 #include <time.h>
 
 using namespace sttcl;
-using sttcl::SttclPosixMutex;
+using namespace sttcl::internal;
+using namespace sttcl::internal::posix_impl;
+using sttcl::internal::posix_impl::SttclPosixMutex;
 
 SttclPosixMutex::SttclPosixMutex()
 : mutexHandle()

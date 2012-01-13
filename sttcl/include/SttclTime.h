@@ -11,7 +11,7 @@
 #if defined(STTCL_POSIX_TIME)
 #elif defined(STTCL_BOOST_TIME)
 #include "../BoostTime/SttclBoostTime.h"
-#define DEFAULT_TIMEDURATION_IMPL sttcl::SttclBoostTimeDuration
+#define DEFAULT_TIMEDURATION_IMPL sttcl::internal::boost_impl::SttclBoostTimeDuration
 #endif
 
 namespace sttcl

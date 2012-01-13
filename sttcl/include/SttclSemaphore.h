@@ -12,10 +12,10 @@
 
 #if defined(STTCL_POSIX_SEMAPHORE)
 #include "../PosixThreads/SttclPosixSemaphore.h"
-#define DEFAULT_SEMAPHOREIMPL sttcl::SttclPosixSemaphore
+#define DEFAULT_SEMAPHOREIMPL sttcl::internal::posix_impl::SttclPosixSemaphore
 #elif defined(STTCL_BOOST_SEMAPHORE)
 #include "../BoostThreads/SttclBoostSemaphore.h"
-#define DEFAULT_SEMAPHOREIMPL sttcl::SttclBoostSemaphore
+#define DEFAULT_SEMAPHOREIMPL sttcl::internal::boost_impl::SttclBoostSemaphore
 #endif
 
 #ifndef DEFAULT_SEMAPHOREIMPL

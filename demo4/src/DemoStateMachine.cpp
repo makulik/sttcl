@@ -64,9 +64,10 @@ void DemoStateMachine::event4()
 	}
 }
 
-void DemoStateMachine::subStateMachineCompletedImpl()
+void DemoStateMachine::subStateMachineCompletedImpl(StateMachineBase::StateBaseClass* state)
 {
 	cout << "DemoStateMachine, sub statemachine completed ..." << endl;
+	StateMachineBase::subStateMachineCompletedImpl(state);
 	finalize();
 }
 

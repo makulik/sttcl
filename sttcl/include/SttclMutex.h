@@ -12,10 +12,10 @@
 
 #if defined(STTCL_POSIX_THREADS)
 #include "../PosixThreads/SttclPosixMutex.h"
-#define DEFAULT_MUTEXIMPL sttcl::SttclPosixMutex
+#define DEFAULT_MUTEXIMPL sttcl::internal::posix_impl::SttclPosixMutex
 #elif defined(STTCL_BOOST_THREADS)
 #include "../BoostThreads/SttclBoostMutex.h"
-#define DEFAULT_MUTEXIMPL sttcl::SttclBoostMutex
+#define DEFAULT_MUTEXIMPL sttcl::internal::boost_impl::SttclBoostMutex
 #endif
 
 #ifndef DEFAULT_MUTEXIMPL

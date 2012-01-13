@@ -8,7 +8,9 @@
 #include "../SttclBoostThread.h"
 
 using namespace sttcl;
-using sttcl::SttclBoostThread;
+using namespace sttcl::internal;
+using namespace sttcl::internal::boost_impl;
+using sttcl::internal::boost_impl::SttclBoostThread;
 
 
 SttclBoostThread::SttclBoostThread(ThreadMethodPtr argThreadMethod)

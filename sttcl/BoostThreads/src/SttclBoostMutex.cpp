@@ -9,8 +9,10 @@
 #include <boost/date_time/posix_time/ptime.hpp>
 
 using namespace sttcl;
+using namespace sttcl::internal;
+using namespace sttcl::internal::boost_impl;
 using namespace boost::posix_time;
-using sttcl::SttclBoostMutex;
+using sttcl::internal::boost_impl::SttclBoostMutex;
 
 SttclBoostMutex::SttclBoostMutex()
 : mutex()

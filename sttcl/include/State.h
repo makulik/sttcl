@@ -156,6 +156,10 @@ protected:
     {
     }
 
+    virtual ~State()
+    {
+    }
+
     /**
      * Changes \em context state machine to another sibling state.
      * @param context

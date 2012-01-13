@@ -10,7 +10,9 @@
 #ifdef STTCL_POSIX_THREADS
 
 using namespace sttcl;
-using sttcl::SttclPosixThread;
+using namespace sttcl::internal;
+using namespace sttcl::internal::posix_impl;
+using sttcl::internal::posix_impl::SttclPosixThread;
 
 SttclPosixThread::SttclPosixThread(ThreadMethodPtr argThreadMethod)
 : threadMethod(argThreadMethod)

@@ -14,6 +14,10 @@
 namespace sttcl
 {
 
+namespace internal
+{
+namespace boost_impl
+{
 class SttclBoostMutex
 {
 public:
@@ -29,6 +33,8 @@ private:
 	NativeMutexType mutex;
 };
 
+}
+}
 }
 
 #endif /* STTCLBOOSTMUTEX_H_ */

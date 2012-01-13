@@ -11,6 +11,10 @@
 #include <boost/thread.hpp>
 namespace sttcl
 {
+namespace internal
+{
+namespace boost_impl
+{
 class SttclBoostThread
 {
 public:
@@ -31,6 +35,8 @@ private:
 	ThreadNativeType thread;
 
 };
+}
+}
 }
 
 #endif /* STTCLBOOSTTHREAD_H_ */

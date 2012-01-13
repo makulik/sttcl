@@ -30,9 +30,9 @@ public:
 	void event3();
 	void event4();
 
-    sttcl::StateBase<DemoStateMachine,IDemoState>* getInitialStateImpl() const;
+	StateMachineBase::StateBaseClass* getInitialStateImpl() const;
 
-    void subStateMachineCompletedImpl();
+    void subStateMachineCompletedImpl(StateMachineBase::StateBaseClass* state);
 
 private:
     ConcurrentStateMachine* concurrentStateMachine;

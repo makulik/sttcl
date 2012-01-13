@@ -54,7 +54,10 @@ public:
     	StateImplementationBase::entryImpl(context);
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			regions[i]->enterRegion(context);
+			if(regions[i]->isRegionInitialized())
+			{
+				regions[i]->enterRegion(context);
+			}
 		}
     }
 
@@ -67,7 +70,10 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			regions[i]->exitRegion(context);
+			if(regions[i]->isRegionInitialized())
+			{
+				regions[i]->exitRegion(context);
+			}
 		}
     	StateImplementationBase::exitImpl(context);
     }
@@ -95,7 +101,10 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			regions[i]->finalizeRegion(recursive);
+			if(!regions[i]->isRegionFinalized())
+			{
+				regions[i]->finalizeRegion(recursive);
+			}
 		}
     }
 
@@ -121,7 +130,10 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			regions[i]->endDoRegion(context);
+			if(regions[i]->isRegionThreadRunning())
+			{
+				regions[i]->endDoRegion(context);
+			}
 		}
     }
 
@@ -139,12 +151,16 @@ protected:
 			}
 			else
 			{
-				regions[i]->joinRegionThread();
+				if(regions[i]->isRegionThreadRunning())
+				{
+					regions[i]->endDoRegion(context);
+					regions[i]->joinRegionThread();
+				}
 			}
 		}
 		if(allRegionsFinalized)
 		{
-			context->subStateMachineCompletedImpl();
+			context->subStateMachineCompleted(this);
 		}
 	}
 

@@ -14,7 +14,10 @@
 
 namespace sttcl
 {
-
+namespace internal
+{
+namespace posix_impl
+{
 class SttclPosixThread
 {
 public:
@@ -32,6 +35,8 @@ private:
 	bool valid;
 };
 
+}
+}
 }
 #endif
 #endif /* STTCLPOSIXTHREAD_H_ */

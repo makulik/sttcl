@@ -119,7 +119,7 @@ public:
     	if(!StateThreadType::isSelf(stateThread))
     	{
     		endDoActionSemaphore.post();
-    		if(getDoActionRunning())
+    		if(isDoActionRunning())
     		{
     			static_cast<StateImpl*>(this)->unblockDoActionImpl();
     		}
@@ -147,6 +147,12 @@ public:
         }
     }
 
+    bool isDoActionRunning() const
+    {
+		AutoLocker<SttclMutex<> > lock(activeStateMutex);
+		return doActionRunning;
+    }
+
 protected:
     /**
      * Constructor for class State.
@@ -163,9 +169,9 @@ protected:
     {
     }
 
-    ~ActiveState()
+    virtual ~ActiveState()
     {
-    	if(doActionRunning)
+    	if(isDoActionRunning())
     	{
     		endDo(currentContext);
     	}
@@ -226,12 +232,6 @@ private:
     {
 		AutoLocker<SttclMutex<> > lock(activeStateMutex);
 		doActionRunning = value;
-    }
-
-    bool getDoActionRunning() const
-    {
-		AutoLocker<SttclMutex<> > lock(activeStateMutex);
-		return doActionRunning;
     }
 
     void runDoAction(Context* context)

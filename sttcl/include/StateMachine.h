@@ -85,9 +85,12 @@ public:
      */
     void finalize(bool finalizeSubStateMachines = true)
     {
-        flags.finalizing = true;
-        static_cast<Context*>(this)->finalizeImpl(finalizeSubStateMachines);
-        flags.finalizing = false;
+    	if(!isFinalizing())
+    	{
+			flags.finalizing = true;
+			static_cast<Context*>(this)->finalizeImpl(finalizeSubStateMachines);
+			flags.finalizing = false;
+    	}
     }
 
     /**
@@ -182,7 +185,7 @@ public:
      */
     inline void finalizeImpl(bool finalizeSubStateMachines)
     {
-        if(!isFinalized() && !isFinalizing() && state)
+        if(!isFinalized() && state)
         {
             if(finalizeSubStateMachines)
             {
@@ -195,7 +198,12 @@ public:
         flags.initialized = false;
     }
 
-    inline void subStateMachineCompletedImpl()
+    inline void subStateMachineCompleted(StateBaseClass* state)
+    {
+    	static_cast<StateMachineImpl*>(this)->subStateMachineCompletedImpl(state);
+    }
+
+    inline void subStateMachineCompletedImpl(StateBaseClass* state)
     {
     }
 

@@ -28,7 +28,8 @@ public:
 	RegionBase()
 	{
 	}
-	~RegionBase()
+
+	virtual ~RegionBase()
 	{
 	}
 
@@ -42,7 +43,9 @@ public:
 	virtual bool initializeRegion(bool recursive) = 0;
 	virtual void startDoRegion(StateMachineImpl* context) = 0;
 	virtual void endDoRegion(StateMachineImpl* context) = 0;
+	virtual bool isRegionInitialized() = 0;
 	virtual bool isRegionFinalized() = 0;
+	virtual bool isRegionThreadRunning() const = 0;
 	virtual void joinRegionThread() = 0;
 
 	template<class RegionImpl>
@@ -148,15 +151,19 @@ public:
 	, checkEventFrequency(argDoActionFrequency)
 	{
 	}
+
 	virtual ~Region()
 	{
 	}
 
 	void dispatchEvent(IInnerState* state, InnerEventHandler eventHandler, const EventArgs* eventArgs)
 	{
-		AutoLocker<SttclMutex<> > lock(eventDispatchMutex);
-		eventDispatchQueue.push_back(DispatchedEvent(state,eventHandler,eventArgs));
-		unblockEventsAvailable();
+		if(state)
+		{
+			AutoLocker<SttclMutex<> > lock(eventDispatchMutex);
+			eventDispatchQueue.push_back(DispatchedEvent(state,eventHandler,eventArgs));
+			unblockEventsAvailable();
+		}
 	}
 
 	void dispatchInternalEvent(InternalEventHandler internalEventHandler, bool recursive)
@@ -205,8 +212,15 @@ public:
      */
     inline void finalizeImpl(bool finalizeSubStateMachines)
     {
-    	// dispatch finalization to region thread
-    	dispatchInternalEvent(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::internalFinalize,finalizeSubStateMachines);
+    	if(!RegionThreadImpl::isSelf(static_cast<StateImplementationBase*>(this)->getStateThread()))
+    	{
+			// dispatch finalization to region thread
+			dispatchInternalEvent(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::internalFinalize,finalizeSubStateMachines);
+    	}
+    	else
+    	{
+    		internalFinalize(finalizeSubStateMachines);
+    	}
     }
 
     bool endDoActionRequestedImpl()
@@ -246,29 +260,23 @@ private:
 
 	virtual void enterRegion(StateMachineImpl* context)
 	{
-		static_cast<RegionImpl*>(this)->entryImpl(context);
+		static_cast<StateBase<StateMachineImpl,OuterStateInterface>*>(this)->entry(context);
 	}
 
 	virtual void exitRegion(StateMachineImpl* context)
 	{
-		static_cast<RegionImpl*>(this)->exitImpl(context);
+		static_cast<StateBase<StateMachineImpl,OuterStateInterface>*>(this)->exit(context);
 	}
 
 	virtual void startDoRegion(StateMachineImpl* context)
 	{
-		if(static_cast<RegionImpl*>(this)->isReady())
-		{
-			static_cast<RegionImpl*>(this)->startingRegionThread();
-			static_cast<StateBase<StateMachineImpl,OuterStateInterface>*>(this)->startDo(context);
-		}
+		static_cast<RegionImpl*>(this)->startingRegionThread();
+		static_cast<StateBase<StateMachineImpl,OuterStateInterface>*>(this)->startDo(context);
 	}
 
 	virtual void endDoRegion(StateMachineImpl* context)
 	{
-		if(static_cast<RegionImpl*>(this)->isReady())
-		{
-			static_cast<StateBase<StateMachineImpl,OuterStateInterface>*>(this)->endDo(context);
-		}
+		static_cast<StateBase<StateMachineImpl,OuterStateInterface>*>(this)->endDo(context);
 	}
 
 	virtual void finalizeRegion(bool recursive)
@@ -282,14 +290,24 @@ private:
 		return static_cast<RegionImpl*>(this)->isReady();
 	}
 
+	virtual bool isRegionInitialized()
+	{
+		return static_cast<RegionImpl*>(this)->isInitialized();
+	}
+
 	virtual bool isRegionFinalized()
 	{
 		return static_cast<RegionImpl*>(this)->isFinalized();
 	}
 
+	virtual bool isRegionThreadRunning() const
+	{
+		return static_cast<const RegionImpl*>(this)->isDoActionRunning();
+	}
+
 	virtual void joinRegionThread()
 	{
-		return static_cast<RegionImpl*>(this)->joinDoActionThreadImpl();
+		static_cast<RegionImpl*>(this)->joinDoActionThreadImpl();
 	}
 
 	void internalInitialize(bool recursive)
