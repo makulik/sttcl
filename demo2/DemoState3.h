@@ -33,7 +33,7 @@ public:
 	static DemoState3& getInstance();
 
 private:
-	void doAction(DemoStateMachine* context);
+	void doAction(DemoStateMachine* context, bool firstCall);
 
 };
 

@@ -8,43 +8,76 @@
 #ifndef STTCLTHREAD_H_
 #define STTCLTHREAD_H_
 
-#if defined(STTCL_POSIX_THREADS)
+#ifndef STTCL_DEFAULT_THREADIMPL
+#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 #include "../PosixThreads/SttclPosixThread.h"
-#define DEFAULT_THREADIMPL sttcl::internal::posix_impl::SttclPosixThread
-#elif defined(STTCL_BOOST_THREADS)
+#define STTCL_DEFAULT_THREADIMPL sttcl::internal::posix_impl::SttclPosixThread
+#elif defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 #include "../BoostThreads/SttclBoostThread.h"
-#define DEFAULT_THREADIMPL sttcl::internal::boost_impl::SttclBoostThread
+#define STTCL_DEFAULT_THREADIMPL sttcl::internal::boost_impl::SttclBoostThread
 #endif
 
-#ifndef DEFAULT_THREADIMPL
+#ifndef STTCL_DEFAULT_THREADIMPL
 #error "You need to define a default thread implementation for sttcl"
+#endif
 #endif
 
 namespace sttcl
 {
 
-template<class Impl = DEFAULT_THREADIMPL>
+/**
+ * Adapter class for a (OS-)specific thread implementation.
+ * @tparam Impl Selects a (OS-)specific thread implementation.
+ */
+template<class Impl = STTCL_DEFAULT_THREADIMPL>
 class SttclThread
 : public Impl
 {
 public:
+	/**
+	 * Defines the method pointer signature used for the thread method.
+	 */
 	typedef void* (*ThreadMethodPtr)(void*);
 
+	/**
+	 * Constructor for class SttclThread.
+	 * @param argThreadMethod A pointer tor the method that should be executed as thread method.
+	 */
 	SttclThread(ThreadMethodPtr argThreadMethod) : Impl(argThreadMethod) {}
+	/**
+	 * Destructor for class SttclThread.
+	 */
 	~SttclThread() {}
 
+	/**
+	 * Runs the thread method within a separate thread.
+	 */
 	bool run(void* args)
 	{
 		return static_cast<Impl*>(this)->run(args);
 	}
+
+	/**
+	 * Waits blocking forever until the thread method exits.
+	 */
 	void join()
 	{
 		static_cast<Impl*>(this)->join();
 	}
+
+	/**
+	 * Kills the thread method.
+	 */
 	void detach()
 	{
 		static_cast<Impl*>(this)->detach();
 	}
+
+	/**
+	 * Returns \c true if the other thread reference represents the thread method path, \c false
+	 * otherwise.
+	 * @param otherThread A thread reference.
+	 */
 	static bool isSelf(const Impl& otherThread)
 	{
 		return Impl::isSelf(otherThread);

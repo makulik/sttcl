@@ -24,13 +24,31 @@ namespace sttcl
 template<class StateMachineImpl, class IState>
 class StateMachine
 {
+	/**
+	 * State machine flags bitfield.
+	 */
     struct StateMachineFlags
     {
+    	/**
+    	 * Indicates that the state machine is initialized.
+    	 */
         unsigned char initialized:1;
+    	/**
+    	 * Indicates that the state machine is currently initializing.
+    	 */
         unsigned char initializing:1;
+    	/**
+    	 * Indicates that the state machine is finalized.
+    	 */
         unsigned char finalized:1;
+    	/**
+    	 * Indicates that the state machine is currently finalizing.
+    	 */
         unsigned char finalizing:1;
 
+        /**
+         * Constructor for StateMachineFlags.
+         */
         inline StateMachineFlags()
         : initialized(false)
         , initializing(false)
@@ -148,6 +166,11 @@ public:
         return state;
     }
 
+    /**
+     * Default implementation for the initialize() method.
+     * @param force Indicates to finalize the state machine before (re-)initializing.
+     * @return The ready state of the state machine.
+     */
     inline bool initializeImpl(bool force)
     {
         if(force || (!isInitialized() && !isInitalizing()))
@@ -179,7 +202,7 @@ public:
     }
 
     /**
-     * Default implementation for finalize().
+     * Default implementation for the finalize() method.
      *
      * @param finalizeSubStateMachines Indicates to finalize any sub state machines.
      */
@@ -198,11 +221,19 @@ public:
         flags.initialized = false;
     }
 
+    /**
+     * Called by a contained (composite) state when its sub state machine is completed (finalized).
+     * @param state A pointer to the contained (composite) state.
+     */
     inline void subStateMachineCompleted(StateBaseClass* state)
     {
     	static_cast<StateMachineImpl*>(this)->subStateMachineCompletedImpl(state);
     }
 
+    /**
+     * The default implementation of the subStateMachineCompleted method.
+     * @param state A pointer to the contained (composite) state.
+     */
     inline void subStateMachineCompletedImpl(StateBaseClass* state)
     {
     }

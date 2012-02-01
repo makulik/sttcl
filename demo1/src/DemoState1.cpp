@@ -63,7 +63,7 @@ void DemoState1::exitImpl(DemoStateMachine* context)
 	StateBaseClass::exitImpl(context);
 }
 
-void DemoState1::doAction(DemoStateMachine* context)
+void DemoState1::doAction(DemoStateMachine* context, bool firstCall)
 {
 	cout << "DemoState1, do Action called ..." << endl;
 }

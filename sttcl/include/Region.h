@@ -17,6 +17,12 @@
 namespace sttcl
 {
 
+/**
+ * Represents the abstract Region base class.
+ * @tparam StateMachineImpl
+ * @tparam StateInterface
+ * @tparam EventArgs
+ */
 template
 < class StateMachineImpl
 , class StateInterface
@@ -25,36 +31,96 @@ template
 class RegionBase
 {
 public:
+	/**
+	 * Constructor for class RegionBase.
+	 */
 	RegionBase()
 	{
 	}
 
+	/**
+	 * Destructor for class RegionBase.
+	 */
 	virtual ~RegionBase()
 	{
 	}
 
+	/**
+	 * The inner states event handler signature. All methods of the IInnerState interface
+	 * must have this signature. The first parameter is a pointer to the containing state
+	 * machine. The second parameter is a pointer to additional event arguments as specified
+	 * with the EventArgs template parameter.
+	 */
     typedef void (StateInterface::*EventHandler)(StateMachineImpl*, const EventArgs*);
 
-
+    /**
+     * Called to handle an event broadcasted from the containing ConcurrentCompositeState instance.
+     * @param context A pointer to the containing state machine.
+     * @param eventHandler The event handler to call inside the region thread.
+     * @param eventArgs The event arguments to pass to the event handler call.
+     */
 	virtual void handleBroadcastedEvent(StateMachineImpl* context,EventHandler eventHandler, const EventArgs* eventArgs) = 0;
+	/**
+	 * Called when the region is entered.
+     * @param context A pointer to the containing state machine.
+	 */
 	virtual void enterRegion(StateMachineImpl* context) = 0;
+	/**
+	 * Called when the region is left.
+     * @param context A pointer to the containing state machine.
+	 */
 	virtual void exitRegion(StateMachineImpl* context) = 0;
+	/**
+	 * Called to finalize the region.
+	 * @param recursive Indicates to finalize nested sub state machines recursively.
+	 */
 	virtual void finalizeRegion(bool recursive) = 0;
+	/**
+	 * Called to initialize the region.
+	 * @param recursive Indicates to initialize nested sub state machines recursively.
+	 * @return \c true when the region was successfully initialized, \c false otherwise.
+	 */
 	virtual bool initializeRegion(bool recursive) = 0;
+	/**
+	 * Called to start the region thread.
+     * @param context A pointer to the containing state machine.
+	 */
 	virtual void startDoRegion(StateMachineImpl* context) = 0;
+	/**
+	 * Called to stop the region thread.
+     * @param context A pointer to the containing state machine.
+	 */
 	virtual void endDoRegion(StateMachineImpl* context) = 0;
+	/**
+	 * Indicates that the region is initialized.
+	 * @return \c true if the region is initialized, \c false otherwise.
+	 */
 	virtual bool isRegionInitialized() = 0;
+	/**
+	 * Indicates that the region is finalized.
+	 * @return \c true if the region is finalized, \c false otherwise.
+	 */
 	virtual bool isRegionFinalized() = 0;
+	/**
+	 * Indicates that the region thread is currently running.
+	 * @return \c true if the region thread is running, \c false otherwise.
+	 */
 	virtual bool isRegionThreadRunning() const = 0;
+	/**
+	 * Called to join the region thread after stopping it.
+	 */
 	virtual void joinRegionThread() = 0;
 
-	template<class RegionImpl>
-	RegionImpl* getRegionContext()
-	{
-		return static_cast<RegionImpl*>(this);
-	}
 };
 
+/**
+ * Represents a region within a matching ConcurrentCompositeState implementation.
+ * @tparam RegionImpl
+ * @tparam StateMachineImpl
+ * @tparam IInnerState
+ * @tparam EventArgs
+ * @tparam HistoryType
+ */
 template
 < class RegionImpl
 , class StateMachineImpl
@@ -90,6 +156,9 @@ public:
      */
     typedef StateMachineImpl Context;
 
+    /**
+     * The region composites state base class type.
+     */
     typedef CompositeState
     	  	< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>
     		, StateMachineImpl
@@ -102,16 +171,35 @@ public:
     			>
     		, StateMachine<RegionImpl, IInnerState>
     		> CompositeStateBase;
+
+    /**
+     * The RegionBase class type.
+     */
     typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs> RegionBaseClass;
 
+    /**
+     * The outer event handler signature.
+     */
     typedef typename RegionBaseClass::EventHandler OuterEventHandler;
 
+    /**
+     * The inner event handler signature.
+     */
     typedef void (IInnerState::*InnerEventHandler)(RegionBaseClass*,const EventArgs*);
 
+    /**
+     * The internal event handler signature.
+     */
     typedef void (Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::*InternalEventHandler)(bool);
 
+    /**
+     * The (composite) state implementation base class type.
+     */
     typedef typename CompositeStateBase::StateImplementationBase StateImplementationBase;
 
+    /**
+     * The (composite) state machine base class type.
+     */
     typedef typename CompositeStateBase::StateMachineImplementationBase StateMachineImplementationBase;
 
     /**
@@ -139,12 +227,25 @@ public:
 	 */
 	typedef typename CompositeStateBase::StateInterface StateInterface;
 
+	/**
+	 * The StateBase class type.
+	 */
 	typedef StateBase<RegionImpl,IInnerState> RegionStateBase;
 
+	/**
+	 * The StateBase class type.
+	 */
 	typedef RegionStateBase StateBaseClass;
 
+	/**
+	 * The region state thread class type.
+	 */
     typedef typename StateImplementationBase::StateThreadImpl RegionThreadImpl;
 
+    /**
+     * Constructor for class Region.
+     * @param argDoActionFrequency
+     */
 	Region(sttcl::TimeDuration<> argDoActionFrequency = sttcl::TimeDuration<>::Zero)
 	: CompositeStateBase(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::regionDoAction)
 	, eventsAvailable(0)
@@ -152,10 +253,20 @@ public:
 	{
 	}
 
+	/**
+	 * Destructor for class Region.
+	 */
 	virtual ~Region()
 	{
 	}
 
+	/**
+	 * Dispatches an event to a state inside the region. The state event handler will be executed
+	 * within the context of the internal region thread.
+	 * @param state
+	 * @param eventHandler
+	 * @param eventArgs
+	 */
 	void dispatchEvent(IInnerState* state, InnerEventHandler eventHandler, const EventArgs* eventArgs)
 	{
 		if(state)
@@ -166,6 +277,12 @@ public:
 		}
 	}
 
+	/**
+	 * Dispatches an internal event to be executed within the context of the internal region
+	 * thread.
+	 * @param internalEventHandler
+	 * @param recursive
+	 */
 	void dispatchInternalEvent(InternalEventHandler internalEventHandler, bool recursive)
 	{
 		AutoLocker<SttclMutex<> > lock(eventDispatchMutex);
@@ -173,31 +290,54 @@ public:
 		unblockEventsAvailable();
 	}
 
+	/**
+	 * Changes the region composite state machine to \em newState.
+	 * @param newState
+	 */
 	void changeState(RegionStateBase* newState)
 	{
 		StateMachineImplementationBase::changeState(newState);
 	}
 
+	/**
+	 * Called when the region thread is started.
+	 */
 	void startingRegionThread()
 	{
 
 	}
 
+	/**
+	 * Called when the region thread is stopped.
+	 */
 	void endingRegionThread()
 	{
 
 	}
 
+	/**
+	 * Default entry() method implementation.
+	 * @param context
+	 */
     void entryImpl(Context* context)
     {
     	CompositeStateBase::entryImpl(context);
     }
 
+	/**
+	 * Default exit() method implementation.
+	 * @param context
+	 */
     void exitImpl(Context* context)
     {
     	CompositeStateBase::exitImpl(context);
     }
 
+    /**
+     * Default initialize() method implementation.
+     * @param force
+     * @return
+     */
     bool initializeImpl(bool force)
     {
     	// dispatch initialization to region thread
@@ -223,28 +363,46 @@ public:
     	}
     }
 
+    /**
+     * Default implementation for the endDoActionRequested() method.
+     * @return
+     */
     bool endDoActionRequestedImpl()
     {
     	return //static_cast<StateMachineImplementationBase*>(this)->isFinalized() ||
     		   static_cast<StateImplementationBase*>(this)->endDoActionRequestedImpl();
     }
 
+    /**
+     * Default implementation for the exitingDoAction() method.
+     */
     void exitingDoActionImpl()
     {
 		static_cast<RegionImpl*>(this)->endingRegionThread();
     }
 
+    /**
+     * Called when the ActiveState::endDoImpl() method is called.
+     */
     void joinDoActionThreadImpl()
     {
 		static_cast<StateImplementationBase*>(this)->joinDoActionThreadImpl();
     }
 
+    /**
+     * Called by the ActiveState::endDoImpl() method to unblock any blocking methods
+     * waiting in the internal region thread.
+     */
     void unblockDoActionImpl()
     {
  		static_cast<StateImplementationBase*>(this)->unblockDoActionImpl();
 		unblockEventsAvailable();
     }
 
+    /**
+     * Default implementation of the ActiveState::endDo() method.
+     * @param context
+     */
     void endDoImpl(StateMachineImpl* context)
     {
 	   if(!RegionThreadImpl::isSelf(static_cast<StateImplementationBase*>(this)->getStateThread()))
@@ -252,6 +410,7 @@ public:
 		   static_cast<StateImplementationBase*>(this)->endDoImpl(context);
 	   }
     }
+
 private:
 	virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, const EventArgs* eventArgs)
 	{
