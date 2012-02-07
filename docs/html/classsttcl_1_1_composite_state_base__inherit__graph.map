@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classsttcl_1_1_composite_state.html" title="sttcl::CompositeState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface \&gt;, StateMachine\&lt; RegionImpl, IInnerState \&gt; \&gt;" alt="" coords="344,5,2339,32"/>
+<area shape="rect" id="node7" href="$classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation." alt="" coords="950,56,1733,83"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation." alt="" coords="2387,5,2896,32"/>
+</map>
