@@ -103,16 +103,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 	<META NAME="AUTHOR" CONTENT="G&uuml;nther Makulik">
 	<META NAME="CREATED" CONTENT="20120201;21433300">
 	<META NAME="CHANGEDBY" CONTENT="G&uuml;nther Makulik">
-	<META NAME="CHANGED" CONTENT="20120205;13515300">
+	<META NAME="CHANGED" CONTENT="20120208;521800">
+	<META NAME="CHANGEDBY" CONTENT="Günther Makulik">
 	<STYLE TYPE="text/css">
 	<!--
-		TD P.western { font-family: "Arial", sans-serif }
 		P.western { font-family: "Arial", sans-serif }
-		TH P.western { font-family: "Arial", sans-serif }
+		TD P.western { font-family: "Arial", sans-serif }
 		P.sdfootnote-western { margin-left: 0.5cm; text-indent: -0.5cm; margin-bottom: 0cm; font-family: "Arial", sans-serif; font-size: 10pt }
 		P.sdfootnote-cjk { margin-left: 0.5cm; text-indent: -0.5cm; margin-bottom: 0cm; font-size: 10pt }
 		P.sdfootnote-ctl { margin-left: 0.5cm; text-indent: -0.5cm; margin-bottom: 0cm; font-size: 10pt }
-		A.sdfootnoteanc { font-size: 57% }
+		TH P.western { font-family: "Arial", sans-serif }
+		A.sdfootnoteanc { font-size: 100% }
 	-->
 	</STYLE>
 </HEAD>
@@ -137,24 +138,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 	<TBODY>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=210>
-				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/StateDiagram.png" NAME="Grafik2" ALIGN=LEFT WIDTH=321 HEIGHT=212 BORDER=0>The
+				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/StateDiagram.png" NAME="Grafik2" ALIGN=LEFT WIDTH=225 HEIGHT=148 BORDER=0>The
 				state machine diagram itself</P>
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT><FONT FACE="Times New Roman, serif">A
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
 				class instance.</FONT></P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=212>
-				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/State.png" NAME="Grafik3" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0><FONT FACE="Arial, sans-serif">A
+				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/State.png" NAME="Grafik3" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0><FONT FACE="Arial, sans-serif">A
 				state (atomic)</FONT></P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>A <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				class instance (<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>ConcreteStateA</B></SPAN></FONT></FONT>,
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>ConcreteStateB</B></SPAN></FONT></FONT>).</P>
+				<P CLASS="western" ALIGN=LEFT>A <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				class instance (<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>ConcreteStateA</B></FONT></FONT></SPAN>,
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>ConcreteStateB</B></FONT></FONT></SPAN>).</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
@@ -166,33 +167,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 				the internal enter event.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>A call to the <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				classes <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>entry()</B></SPAN></FONT></FONT>,
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>exit()</B></SPAN></FONT></FONT>
-				or <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>do()</B></SPAN></FONT></FONT>
+				<P CLASS="western" ALIGN=LEFT>A call to the <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				classes <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>entry()</B></FONT></FONT></SPAN>,
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>exit()</B></FONT></FONT></SPAN>
+				or <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>do()</B></FONT></FONT></SPAN>
 				operation.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=213>
-				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/CompositeState.png" NAME="Grafik4" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0>A
+				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/CompositeState.png" NAME="Grafik4" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0>A
 				composite state. The internal states are modeled in a sub-state
 				machine diagram</P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>A <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				class instance, that also serves as another <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
+				<P CLASS="western" ALIGN=LEFT>A <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				class instance, that also serves as another <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
 				classes instance.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=212>
-				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/Transition.png" NAME="Grafik5" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0>A
+				<P CLASS="western" ALIGN=LEFT><IMG SRC="img/Transition.png" NAME="Grafik5" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0>A
 				transition between two states</P>
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT>A call of the
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context::changeState()</B></SPAN></FONT></FONT>
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context::changeState()</B></FONT></FONT></SPAN>
 				operation.</P>
 			</TD>
 		</TR>
@@ -204,72 +205,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT>A call to a public
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">::operation()</SPAN></B></SPAN></FONT></FONT>
-				operation, that delegates behavior to a <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State::handleEvent()</I></B></SPAN></FONT></FONT>
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>::operation()</B></SPAN></FONT></FONT></SPAN>
+				operation, that delegates behavior to a <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State::handleEvent()</B></I></FONT></FONT></SPAN>
 				operation.</P>
 				<P CLASS="western" ALIGN=LEFT>All events visible in the state
-				machine diagram can be triggered via the public 
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">::operation()</SPAN></B></SPAN></FONT></FONT>
+				machine diagram can be triggered via the public
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>::operation()</B></SPAN></FONT></FONT></SPAN>
 				operations.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
 				<P CLASS="western" ALIGN=LEFT><FONT SIZE=2 STYLE="font-size: 9pt">[guard]</FONT></P>
-				<P CLASS="western" ALIGN=LEFT><FONT SIZE=3>A conditional
+				<P CLASS="western" ALIGN=LEFT><FONT SIZE=2>A conditional
 				expression, that must return true to execute the associated
 				transition. Guard conditions that are associated to the same
 				source state must be mutually exclusive.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT>A conditional statement inside the
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">::operation()</SPAN></B></SPAN></FONT></FONT>
-				 or <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State::handle()</I></B></SPAN></FONT></FONT>
-				operations, that decides to call <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context::changeState()</B></SPAN></FONT></FONT>.</P>
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>::operation()</B></SPAN></FONT></FONT></SPAN>
+				or <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State::handle()</B></I></FONT></FONT></SPAN>
+				operations, that decides to call <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context::changeState()</B></FONT></FONT></SPAN>.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
 				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><FONT SIZE=2 STYLE="font-size: 9pt">:
 				action, &hellip;</FONT></P>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><FONT SIZE=2 STYLE="font-size: 9pt"><BR><FONT SIZE=3>A
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><FONT SIZE=2 STYLE="font-size: 9pt"><BR><FONT SIZE=2>A
 				list of specified event triggered operations</FONT></FONT></P>
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT>The specified action operations are
-				called inside the implementation <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State::handleEvent()</I></B></SPAN></FONT></FONT>
+				called inside the implementation <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State::handleEvent()</B></I></FONT></FONT></SPAN>
 				event handler operation<A CLASS="sdfootnoteanc" NAME="sdfootnote1anc" HREF="#sdfootnote1sym"><SUP>1</SUP></A>.
-				The calling  order may be unspecified.</P>
+				The calling order may be unspecified.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
-				<P CLASS="western" ALIGN=LEFT STYLE="page-break-after: auto"><IMG SRC="img/Regions.png" NAME="Grafik1" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0>Separates
+				<P CLASS="western" ALIGN=LEFT STYLE="page-break-after: auto"><IMG SRC="img/Regions.png" NAME="Grafik1" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0>Separates
 				concurrently active regions within a composite state or state
 				machine diagram.</P>
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western">This requires concurrent program execution
 				mechanisms (e.g. threading) supported by an operating system.</P>
-				<P CLASS="western">Each region defines an associated <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
+				<P CLASS="western">Each region defines an associated <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
 				class reference, to delegate the event handling to a
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State::handleEvent()</I></B></SPAN></FONT></FONT>
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State::handleEvent()</B></I></FONT></FONT></SPAN>
 				operation concurrently.<BR><BR>A single region can also be
 				considered as a concrete composite state implementation, that
-				supports a non blocking  <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State::do()</I></B></SPAN></FONT></FONT>
+				supports a non blocking <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State::do()</B></I></FONT></FONT></SPAN>
 				operation, that executes asynchronously in a loop. Further it is
 				necessary to have a mechanism to propagate events to the
 				asynchronously executed operation loop.</P>
-				<P CLASS="western">STTCL provides the <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><FONT COLOR="#000000"><SPAN STYLE="font-style: normal">ConcurrentCompositeState&lt;&gt;</SPAN></FONT></B></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">
-				and </SPAN></SPAN></FONT></FONT></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><FONT COLOR="#000000"><SPAN STYLE="font-style: normal">Region&lt;&gt;</SPAN></FONT></B></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><FONT COLOR="#000000"><FONT FACE="Arial, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">
-				template base classes to design these UML features.</SPAN></SPAN></FONT></FONT></SPAN></FONT></FONT></P>
+				<P CLASS="western">STTCL provides the <FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>ConcurrentCompositeState&lt;&gt;</B></SPAN></FONT></FONT></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">
+				</SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Arial, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">and
+				</SPAN></SPAN></FONT></FONT></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>Region&lt;&gt;</B></SPAN></FONT></FONT></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">
+				</SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Arial, sans-serif"><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">template
+				base classes to design these UML features.</SPAN></SPAN></FONT></FONT></SPAN></FONT></P>
 			</TD>
 		</TR>
 	</TBODY>
 </TABLE>
 <P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
 </P>
-<P CLASS="western" STYLE="margin-bottom: 0cm; page-break-before: auto">
+<P CLASS="western" STYLE="margin-bottom: 0cm; page-break-before: auto; page-break-after: auto">
 <BR>
 </P>
 <TABLE WIDTH=1050 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0 STYLE="page-break-before: auto; page-break-after: avoid; page-break-inside: auto">
@@ -291,109 +294,111 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 		<TR>
 			<TD COLSPAN=2 WIDTH=1040 VALIGN=TOP BGCOLOR="#e6e6ff">
 				<P CLASS="western" ALIGN=LEFT STYLE="page-break-inside: avoid; page-break-after: auto">
-				<FONT SIZE=3><B>Pseudo-States</B></FONT></P>
+				<FONT SIZE=2><B>Pseudo-States</B></FONT></P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
 				<P CLASS="western" ALIGN=LEFT STYLE="background: transparent; font-weight: normal; page-break-inside: avoid; page-break-after: avoid">
-				<IMG SRC="img/Initial.png" NAME="Grafik6" ALIGN=LEFT WIDTH=321 HEIGHT=109 BORDER=0><FONT SIZE=3>An
+				<IMG SRC="img/Initial.png" NAME="Grafik6" ALIGN=LEFT WIDTH=225 HEIGHT=76 BORDER=0><FONT SIZE=2>An
 				entry point of the state machine diagram. Initial pseudo-states
 				never have the target role of a transition.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT STYLE="background: transparent; page-break-inside: avoid; page-break-after: avoid">
-				A constructor call to create a <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
+				A constructor call to create a <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
 				class instance in the simplest case. The constructor calls the
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context::changeState()
-				</B></SPAN></FONT></FONT>operation to set the initial <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context::changeState()
+				</B></FONT></FONT></SPAN>operation to set the initial <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
 				reference.</P>
 				<P CLASS="western" ALIGN=LEFT STYLE="background: transparent; page-break-inside: avoid; page-break-after: avoid">
 				<BR><BR>
 				</P>
 				<P CLASS="western" ALIGN=LEFT STYLE="background: transparent; page-break-inside: avoid; page-break-after: avoid">
 				If any events and/or guards are specified for the associated
-				outgoing transitions,  the <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
+				outgoing transitions, the <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
 				class should provide a property attribute to check it's
-				initialization status, and leave the decision, which  initial
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				reference to set, to the associated  <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">::operation()</SPAN></B></SPAN></FONT></FONT>
+				initialization status, and leave the decision, which initial
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				reference to set, to the associated <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>::operation()</B></SPAN></FONT></FONT></SPAN>
 				event operations. This behavior may be encapsulated in a
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">::initialize()</SPAN></B></SPAN></FONT></FONT>
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>::initialize()</B></SPAN></FONT></FONT></SPAN>
 				operation.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=96>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Final.png" NAME="Grafik7" ALIGN=LEFT WIDTH=321 HEIGHT=95 BORDER=0><FONT SIZE=3>An
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Final.png" NAME="Grafik7" ALIGN=LEFT WIDTH=225 HEIGHT=66 BORDER=0><FONT SIZE=2>An
 				exit point of the state machine diagram. Final pseudo-states
 				never have the source role of a transition.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>A <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				class implementation, that never calls the 
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context::changeState()
-				</B></SPAN></FONT></FONT>operation.</P>
+				<P CLASS="western" ALIGN=LEFT>A <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				class implementation, that never calls the <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context::changeState()
+				</B></FONT></FONT></SPAN>operation.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=105>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/ExitPoint.png" NAME="Grafik8" ALIGN=LEFT WIDTH=321 HEIGHT=105 BORDER=0><FONT SIZE=3>An
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/ExitPoint.png" NAME="Grafik8" ALIGN=LEFT WIDTH=225 HEIGHT=74 BORDER=0><FONT SIZE=2>An
 				exit point of a state machine or composite state triggered by the
 				incoming transition's event.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>A  <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context::finalize()
-				</B></SPAN></FONT></FONT>operation, that calls the actual<FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">
-				</SPAN></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				references  </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">exit()</SPAN></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				operation.</SPAN></P>
+				<P CLASS="western" ALIGN=LEFT>A <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context::finalize()
+				</B></FONT></FONT></SPAN>operation, that calls the actual <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">references </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>exit()</B></SPAN></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">operation.</SPAN></P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=101>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Terminate.png" NAME="Grafik9" ALIGN=LEFT WIDTH=323 HEIGHT=100 BORDER=0><FONT SIZE=3>Exits
-				the composite state  or state machine triggered by the incoming
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Terminate.png" NAME="Grafik9" ALIGN=LEFT WIDTH=226 HEIGHT=70 BORDER=0><FONT SIZE=2>Exits
+				the composite state or state machine triggered by the incoming
 				transition's event.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>A destructor call to a  <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
+				<P CLASS="western" ALIGN=LEFT>A destructor call to a <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
 				class instance in the simplest case.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/History_Deep.png" NAME="Grafik10" ALIGN=LEFT WIDTH=323 HEIGHT=111 BORDER=0><FONT SIZE=3>Represents
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/History_Deep.png" NAME="Grafik10" ALIGN=LEFT WIDTH=226 HEIGHT=77 BORDER=0><FONT SIZE=2>Represents
 				the most recent active configuration of a composite state. In
 				opposite to the shallow history pseudo-state, this includes all
 				sub states of all regions and their recently active sub states
 				recursively.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>The composite <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
-				class instance must keep track of the most <FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">recent
-				sub </SPAN></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				reference, when the composite </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				classes </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">exit()</SPAN></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				operation is called. </SPAN>
+				<P CLASS="western" ALIGN=LEFT>The composite <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
+				class instance must keep track of the most <FONT SIZE=2><SPAN STYLE="font-weight: normal">recent
+				sub </SPAN></FONT><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">reference, when the composite
+				</SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">classes </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>exit()</B></SPAN></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">operation is called. </SPAN>
 				</P>
 				<P CLASS="western" ALIGN=LEFT><SPAN STYLE="font-style: normal">When
-				the  composite </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				classes </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">enter()</SPAN></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				operation is called later on, the composite </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">Context</SPAN></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				class directly transits to the remembered most recent </SPAN><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">sub
-				</SPAN></SPAN></FONT><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				reference.</SPAN></P>
+				the composite </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">classes </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>enter()</B></SPAN></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">operation is called later on,
+				the composite </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>Context</B></SPAN></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">class directly transits to the
+				remembered most recent </SPAN><FONT SIZE=2><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">sub
+				</SPAN></SPAN></FONT><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">reference.</SPAN></P>
 				<P CLASS="western" ALIGN=LEFT><BR><BR>
 				</P>
 				<P CLASS="western" ALIGN=LEFT><SPAN STYLE="font-style: normal">STTCL
-				composite state classes provide the </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>HistoryType</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				template parameter to determine the history behavior.</SPAN></P>
+				composite state classes provide the </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>HistoryType</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">template parameter to determine
+				the history behavior.</SPAN></P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/History_Shallow.png" NAME="Grafik11" ALIGN=LEFT WIDTH=323 HEIGHT=108 BORDER=0><FONT SIZE=3>Represents
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/History_Shallow.png" NAME="Grafik11" ALIGN=LEFT WIDTH=226 HEIGHT=76 BORDER=0><FONT SIZE=2>Represents
 				the most recent sub state of a composite state. A composite state
 				can have at most one history pseudo-state. At most one transition
 				to the default sub state may originate the history pseudo-state.
@@ -403,20 +408,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT><SPAN STYLE="font-style: normal">The
 				same behavior as described for the deep History. But In case,
-				that a reentered sub </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				reference also represents a composite state, it's composite
-				</SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">Context</SPAN></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				class must be (re-)initialized.</SPAN></P>
+				that a reentered sub </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">reference also represents a
+				composite state, it's composite </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>Context</B></SPAN></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">class must be (re-)initialized.</SPAN></P>
 				<P CLASS="western" ALIGN=LEFT><BR><BR>
 				</P>
 				<P CLASS="western" ALIGN=LEFT><SPAN STYLE="font-style: normal">STTCL
-				composite state classes provide the </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>HistoryType</I></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				template parameter to determine the history behavior.</SPAN></P>
+				composite state classes provide the </SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>HistoryType</B></I></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">template parameter to determine
+				the history behavior.</SPAN></P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=211>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Fork.png" NAME="Grafik12" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0><FONT SIZE=3>A
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Fork.png" NAME="Grafik12" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0><FONT SIZE=2>A
 				Fork. Serves to split a single incoming transition into
 				concurrently executed outgoing transitions. No guards are allowed
 				on any associated transitions.</FONT></P>
@@ -424,7 +430,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT>A fork represents the initiation of
 				concurrently executed operations (i.e. tasks, threads) of a
-				composite <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
+				composite <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
 				class.<BR>This can be implemented as a non blocking operation
 				that starts all of the associated concurrently executed
 				operations.</P>
@@ -432,15 +438,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=212>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Join.png" NAME="Grafik16" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0><FONT SIZE=3>A
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Join.png" NAME="Grafik16" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0><FONT SIZE=2>A
 				Join. Serves to synchronize multiple concurrently executed
 				incoming transitions into a single outgoing transitions. No
 				guards are allowed on any associated transitions.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT>A join represents a synchronization
-				point (i.e. semaphore, mutex) for formerly initiated 
-				concurrently executed operations of a composite <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context</B></SPAN></FONT></FONT>
+				point (i.e. semaphore, mutex) for formerly initiated concurrently
+				executed operations of a composite <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context</B></FONT></FONT></SPAN>
 				class.<BR>This can be implemented in a blocking operation, that
 				waits on completion of all the associated concurrently executed
 				operations.</P>
@@ -448,8 +454,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Choice.png" NAME="Grafik14" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0><FONT SIZE=3>A
-				Choice. Serves  to select the outgoing transitions according
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Choice.png" NAME="Grafik14" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0><FONT SIZE=2>A
+				Choice. Serves to select the outgoing transitions according
 				runtime conditions represented by the guards, associated to them.
 				The guard conditions must be mutually exclusive, to choose a
 				certain transition path. The model requires at least one of the
@@ -459,13 +465,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 				concurrently executed transitions.</FONT></P>
 			</TD>
 			<TD WIDTH=374>
-				<P CLASS="western" ALIGN=LEFT>A Choice can be implemented as a <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>if
-				...else if ..else</B></SPAN></FONT></FONT> or <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>switch</B></SPAN></FONT></FONT>
-				conditional block in a <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				classes implementation (<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>ConcreteStateA</B></SPAN></FONT></FONT>,
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>ConcreteStateB</B></SPAN></FONT></FONT>).,
-				that  choose the appropriate target <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				reference parameter for a call to the <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context::changeState()</B></SPAN></FONT></FONT>
+				<P CLASS="western" ALIGN=LEFT>A Choice can be implemented as a <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>if
+				...else if ..else</B></FONT></FONT></SPAN> or <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>switch</B></FONT></FONT></SPAN>
+				conditional block in a <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				classes implementation (<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>ConcreteStateA</B></FONT></FONT></SPAN>,
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>ConcreteStateB</B></FONT></FONT></SPAN>).,
+				that choose the appropriate target <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				reference parameter for a call to the <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context::changeState()</B></FONT></FONT></SPAN>
 				operation.</P>
 				<P CLASS="western" ALIGN=LEFT><BR><BR>
 				</P>
@@ -477,7 +483,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658 HEIGHT=212>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Merge.png" NAME="Grafik13" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0><FONT SIZE=3>A
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Merge.png" NAME="Grafik13" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0><FONT SIZE=2>A
 				Merge. Serves to combine alternate execution flows into a single
 				outgoing transition.<BR>Unlike the Join pseudo-state, a Merge
 				node doesn't provide synchronization of concurrently executed
@@ -486,18 +492,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 			</TD>
 			<TD WIDTH=374>
 				<P CLASS="western" ALIGN=LEFT>A Merge can be implemented as an
-				operation, that is shared by a number of  <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				class implementations (<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>ConcreteStateA</B></SPAN></FONT></FONT>,
-				<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>ConcreteStateB</B></SPAN></FONT></FONT>),
-				and ends up in a single call of  <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B>Context::changeState()</B></SPAN></FONT></FONT>
+				operation, that is shared by a number of <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				class implementations (<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>ConcreteStateA</B></FONT></FONT></SPAN>,
+				<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>ConcreteStateB</B></FONT></FONT></SPAN>),
+				and ends up in a single call of <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>Context::changeState()</B></FONT></FONT></SPAN>
 				operation. The decision to call this operation is done in the
-				implementation of the <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State::handleEvent()</I></B></SPAN></FONT></FONT>
+				implementation of the <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State::handleEvent()</B></I></FONT></FONT></SPAN>
 				operation, according the associated guard condition.</P>
 			</TD>
 		</TR>
 		<TR VALIGN=TOP>
 			<TD WIDTH=658>
-				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Junction.png" NAME="Grafik15" ALIGN=LEFT WIDTH=323 HEIGHT=212 BORDER=0><FONT SIZE=3>A
+				<P CLASS="western" ALIGN=LEFT STYLE="font-weight: normal"><IMG SRC="img/Junction.png" NAME="Grafik15" ALIGN=LEFT WIDTH=226 HEIGHT=148 BORDER=0><FONT SIZE=2>A
 				Junction. Serves to share transition paths for the incoming
 				transitions. The incoming and or outgoing transitions have guard
 				conditions associated. Incoming transitions are shared between
@@ -513,11 +519,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 				specification restricts the guard conditions to be static
 				(actively waiting for all incoming events). IMHO this can be
 				interpreted, that the Junction node should be another
-				implementation of the<I> </I><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><I>State</I></B></SPAN></FONT></FONT>
-				class. Such implementation should not affect the <FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">Context</SPAN></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				classes attributes, but just serve to forward incoming events to
-				outgoing transitions (i.e. </SPAN><FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><B><SPAN STYLE="font-style: normal">Context::changeState()</SPAN></B></SPAN></FONT></FONT><SPAN STYLE="font-style: normal">
-				calls).</SPAN></P>
+				implementation of the <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><I><B>State</B></I></FONT></FONT></SPAN>
+				class. Such implementation should not affect the <SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>Context</B></SPAN></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">classes attributes, but just
+				serve to forward incoming events to outgoing transitions (i.e.
+				</SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>Context::changeState()</B></SPAN></FONT></FONT></SPAN>
+				<SPAN STYLE="font-style: normal">calls).</SPAN></P>
 			</TD>
 		</TR>
 	</TBODY>
@@ -525,12 +532,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <P CLASS="western" STYLE="margin-bottom: 0cm"><BR>
 </P>
 <DIV ID="sdfootnote1">
-	<P CLASS="sdfootnote-western"><A CLASS="sdfootnotesym" NAME="sdfootnote1sym" HREF="#sdfootnote1anc">1</A>action
-	operations that appear on a transition are not allowed to access the
-	contexts state. In fact these operations should be performed after
-	the current state was exited and before the new state is entered.
-	That's difficult to achieve with the GoF State design pattern, since
-	changing state is an atomic operation in the Context class.</P>
+	<P CLASS="sdfootnote-western" STYLE="margin-bottom: 0.5cm"><A CLASS="sdfootnotesym" NAME="sdfootnote1sym" HREF="#sdfootnote1anc">1&nbsp;</A>
+	Action operations that appear on a transition are not allowed to
+	access the contexts current state. In fact these operations should be
+	performed after the current state was exited and before the new
+	state is entered. That's difficult to achieve with the GoF State
+	design pattern, since changing state is an atomic operation in the
+	Context class. Anyway additionl behaviors can be implemented before calling the 
+	<SPAN STYLE="text-decoration: none"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>sttcl::State<>::changeState()</B></SPAN></FONT></FONT></SPAN> operation.</P>
 </DIV>
 </BODY>
 </HTML>
@@ -553,7 +562,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Tue Feb 7 2012 22:18:35 for sttcl by
+    <li class="footer">Generated on Wed Feb 8 2012 01:14:07 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -122,6 +122,7 @@ void MyStateMachine::event1()
  * \page uml2gof_page Mapping of the state diagram notation elements
  * \section uml2gof_sec 3 Mapping of the UML state diagram notation elements to the GoF State pattern
  * \htmlinclude UMLStateGoFStateMapping.html
+ *
  */
 
 /**
