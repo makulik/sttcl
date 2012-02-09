@@ -18,6 +18,9 @@ namespace internal
 {
 namespace boost_impl
 {
+/**
+ * The boost default implementation for sttcl::SttclMutex<>.
+ */
 class SttclBoostMutex
 {
 public:

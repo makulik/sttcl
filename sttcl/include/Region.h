@@ -111,15 +111,35 @@ public:
 	 */
 	virtual void joinRegionThread() = 0;
 
+	template<class RegionImpl>
+	RegionImpl* getRegionContext()
+	{
+		return static_cast<RegionImpl*>(this);
+	}
+
 };
+
 
 /**
  * Represents a region within a matching ConcurrentCompositeState implementation.
- * @tparam RegionImpl
- * @tparam StateMachineImpl
- * @tparam IInnerState
- * @tparam EventArgs
- * @tparam HistoryType
+ * @tparam RegionImpl The inheriting class.
+ * @tparam StateMachineImpl The sttcl::StateMachine class that contains the matching
+ *         ConcurrentCompositeState implementation.
+ * @tparam IInnerState The inner state event handler interface for the states contained in
+ *                     the implementing region.
+ * @tparam EventArgs The type of event arguments passed to the inner state event handler
+ *                   methods.
+ * @tparam HistoryType Specifies the composite state history behavior (see also
+ *                     CompositeStateHistoryType::Values), default is
+ *                     CompositeStateHistoryType::None.
+ * @tparam StateThreadType The thread implementation class, default is
+ *                         \link sttcl::SttclThread\endlink<>.
+ * @tparam EndDoActionSemaphoreType The semaphore implementation class, default is
+ *                                  \link sttcl::SttclSemaphore\endlink<>.
+ * @tparam TimeDurationType The time duration representation implementation class, default
+ *                          is \link sttcl::TimeDuration\endlink<>.
+ * @tparam ActiveStateMutexType The mutex implementation class, default
+ *                              is \link sttcl::SttclMutex\endlink<>.
  */
 template
 < class RegionImpl
@@ -127,18 +147,26 @@ template
 , class IInnerState
 , class EventArgs = void
 , CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None
+, class StateThreadType = SttclThread<>
+, class EndDoActionSemaphoreType = SttclSemaphore<>
+, class TimeDurationType = TimeDuration<>
+, class ActiveStateMutexType = SttclMutex<>
 >
 class Region
 : public CompositeState
-  	< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>
+  	< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>
 	, StateMachineImpl
 	, IInnerState
 	, HistoryType
 	, ActiveState
-		< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>
-		, StateMachineImpl
-		, typename StateMachineImpl::StateInterface
-		>
+	  < Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>
+	  , StateMachineImpl
+	  , typename StateMachineImpl::StateInterface
+	  , StateThreadType
+	  , EndDoActionSemaphoreType
+	  , TimeDurationType
+	  , ActiveStateMutexType
+	  >
 	, StateMachine<RegionImpl, IInnerState>
 	>
 , public RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs>
@@ -157,18 +185,28 @@ public:
     typedef StateMachineImpl Context;
 
     /**
+     * The \link sttcl::ActiveState\endlink<> implementation to use as state implementation
+     * base of the CompositeState base class.
+     */
+    typedef ActiveState
+    		  < Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>
+    		  , StateMachineImpl
+    		  , typename StateMachineImpl::StateInterface
+    		  , StateThreadType
+    		  , EndDoActionSemaphoreType
+    		  , TimeDurationType
+    		  , ActiveStateMutexType
+    		  > ActiveStateImpl;
+
+    /**
      * The region composites state base class type.
      */
     typedef CompositeState
-    	  	< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>
+    	  	< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>
     		, StateMachineImpl
     		, IInnerState
     		, HistoryType
-    		, ActiveState
-    			< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>
-    			, StateMachineImpl
-    			, typename StateMachineImpl::StateInterface
-    			>
+    		, ActiveStateImpl
     		, StateMachine<RegionImpl, IInnerState>
     		> CompositeStateBase;
 
@@ -190,7 +228,7 @@ public:
     /**
      * The internal event handler signature.
      */
-    typedef void (Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::*InternalEventHandler)(bool);
+    typedef void (Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>::*InternalEventHandler)(bool);
 
     /**
      * The (composite) state implementation base class type.
@@ -247,7 +285,7 @@ public:
      * @param argDoActionFrequency
      */
 	Region(sttcl::TimeDuration<> argDoActionFrequency = sttcl::TimeDuration<>::Zero)
-	: CompositeStateBase(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::regionDoAction)
+	: CompositeStateBase(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>::regionDoAction)
 	, eventsAvailable(0)
 	, checkEventFrequency(argDoActionFrequency)
 	{
@@ -341,7 +379,7 @@ public:
     bool initializeImpl(bool force)
     {
     	// dispatch initialization to region thread
-    	dispatchInternalEvent(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::internalInitialize,force);
+    	dispatchInternalEvent(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>::internalInitialize,force);
     	return true;
     }
 
@@ -355,7 +393,7 @@ public:
     	if(!RegionThreadImpl::isSelf(static_cast<StateImplementationBase*>(this)->getStateThread()))
     	{
 			// dispatch finalization to region thread
-			dispatchInternalEvent(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType>::internalFinalize,finalizeSubStateMachines);
+			dispatchInternalEvent(&Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType>::internalFinalize,finalizeSubStateMachines);
     	}
     	else
     	{
@@ -525,7 +563,7 @@ private:
 		return eventsAvailable.try_wait(checkEventFrequency);
 	}
 
-	void regionDoAction(Context* context, bool firstCall)
+	void regionDoAction(typename ActiveStateImpl::Context* context, bool firstCall)
 	{
 		if(checkEventsAvailable())
 		{

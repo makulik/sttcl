@@ -15,6 +15,9 @@
 #elif defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 #include "../BoostThreads/SttclBoostThread.h"
 #define STTCL_DEFAULT_THREADIMPL sttcl::internal::boost_impl::SttclBoostThread
+#elif defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
+#include "../C++11Threads/SttclCx11Thread.h"
+#define STTCL_DEFAULT_THREADIMPL sttcl::internal::cx11_impl::SttclCx11Thread
 #endif
 
 #ifndef STTCL_DEFAULT_THREADIMPL

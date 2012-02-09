@@ -18,6 +18,9 @@ namespace internal
 {
 namespace posix_impl
 {
+/**
+ * The POSIX default implementation for sttcl::SttclThread<>.
+ */
 class SttclPosixThread
 {
 public:

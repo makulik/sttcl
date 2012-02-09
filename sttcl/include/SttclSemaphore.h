@@ -17,12 +17,15 @@
 #elif defined(STTCL_BOOST_SEMAPHORE) or defined(STTCL_BOOST_IMPL)
 #include "../BoostThreads/SttclBoostSemaphore.h"
 #define STTCL_DEFAULT_SEMAPHOREIMPL sttcl::internal::boost_impl::SttclBoostSemaphore
+#elif defined(STTCL_CX11_SEMAPHORE) or defined(STTCL_CX11_IMPL)
+#include "../C++11Threads/SttclCx11Semaphore.h"
+#define STTCL_DEFAULT_SEMAPHOREIMPL sttcl::internal::cx11_impl::SttclCx11Semaphore
 #endif
 
 #ifndef STTCL_DEFAULT_SEMAPHOREIMPL
 #error "You need to define a default semaphore implementation for sttcl"
 #endif
-#endif STTCL_DEFAULT_SEMAPHOREIMPL
+#endif
 
 namespace sttcl
 {

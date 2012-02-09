@@ -7,7 +7,7 @@
 
 #ifndef STTCLPOSIXTIME_H_
 #define STTCLPOSIXTIME_H_
-
+#if defined(STTCL_POSIX_TIME) or defined(STTCL_POSIX_IMPL)
 
 namespace sttcl
 {
@@ -16,6 +16,10 @@ namespace internal
 {
 namespace posix_impl
 {
+
+/**
+ * The POSIX default implementation for sttcl::TimeDuration<>.
+ */
 class SttclPosixTimeDuration
 {
 public:
@@ -38,6 +42,7 @@ public:
 
 	bool operator==(const SttclPosixTimeDuration& rhs) const
 	{
+
 	}
 	bool operator!=(const SttclPosixTimeDuration& rhs) const
 	{
@@ -126,4 +131,5 @@ private:
 }
 }
 }
+#endif
 #endif /* STTCLPOSIXTIME_H_ */
