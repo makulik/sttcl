@@ -35,14 +35,24 @@ struct ThreadFunctionHelper
 {
 	/**
 	 * Defines a static method that can be passed to a thread implementation.
-	 * @tparam StateImpl
-	 * @tparam StateMachineImpl
-	 * @tparam IState
-	 * @tparam StateThreadType
-	 * @tparam EndDoActionSemaphoreType
-	 * @tparam TimeDurationType
-	 * @tparam ActiveStateMutexType
-	 * @param args
+	 * @tparam StateImpl The \link sttcl::ActiveState\endlink<>
+	 *                   implementation class.
+	 * @tparam StateMachineImpl The \link sttcl::StateMachine\endlink<> implementation
+	 *                          class that contains the \link sttcl::ActiveState\endlink<>
+	 *                          implementation.
+	 * @tparam IState The inner event handler interface of the
+	 *                \link sttcl::StateMachine\endlink<> implementation
+	 * @tparam StateThreadType The thread implementation class, default is
+	 *                         \link sttcl::SttclThread\endlink<>.
+	 * @tparam EndDoActionSemaphoreType The semaphore implementation class, default is
+	 *                                  \link sttcl::SttclSemaphore\endlink<>.
+	 * @tparam TimeDurationType The time duration representation implementation class, default
+	 *                          is \link sttcl::TimeDuration\endlink<>.
+	 * @tparam ActiveStateMutexType The mutex implementation class, default
+	 *                              is \link sttcl::SttclMutex\endlink<>.
+	 * @param args A pointer to the thread args. Implicitely \em args is casted to
+	 *             \link sttcl::ActiveState\endlink<> and the
+	 *             \link sttcl::ActiveState::runDoAction\endlink method is called.
 	 */
 	template
 	< class StateImpl
@@ -55,16 +65,16 @@ struct ThreadFunctionHelper
 	>
     static void* stateThreadMethod(void* args)
     {
-    	ActiveState<StateMachineImpl
-    	           ,StateImpl
+    	ActiveState<StateImpl
+    	           ,StateMachineImpl
     	           ,IState
     	           ,StateThreadType
     	           ,EndDoActionSemaphoreType
     	           ,TimeDurationType
     	           ,ActiveStateMutexType
     	           >* pThis =
-    			reinterpret_cast<ActiveState<StateMachineImpl
-    			                            ,StateImpl
+    			reinterpret_cast<ActiveState<StateImpl
+    			                            ,StateMachineImpl
     			                            ,IState
     			                            ,StateThreadType
     			                            ,EndDoActionSemaphoreType
@@ -84,10 +94,14 @@ struct ThreadFunctionHelper
  * @tparam StateMachineImpl The state machine implementation type.
  * @tparam IState Specifies the internal interface of state implementations for the state
  *                machine.
- * @tparam StateThreadType The thread class implementation to use.
- * @tparam EndDoActionSemaphoreType The semaphore class implementation to use for ending the do
- *                                  action call loop.
- * @tparam TimeDurationType The time duration class to use for specifying the do action call rate.
+ * @tparam StateThreadType The thread implementation class, default is
+ *                         \link sttcl::SttclThread\endlink<>.
+ * @tparam EndDoActionSemaphoreType The semaphore implementation class, default is
+ *                                  \link sttcl::SttclSemaphore\endlink<>.
+ * @tparam TimeDurationType The time duration representation implementation class, default
+ *                          is \link sttcl::TimeDuration\endlink<>.
+ * @tparam ActiveStateMutexType The mutex implementation class, default
+ *                              is \link sttcl::SttclMutex\endlink<>.
  */
 template
 < class StateImpl
@@ -288,7 +302,14 @@ protected:
     : doAction(argDoAction)
     , doFrequency(argDoFrequency)
     , currentContext(0)
-    , stateThread(&ThreadFunctionHelper::stateThreadMethod<StateMachineImpl,StateImpl,IState,StateThreadType,EndDoActionSemaphoreType,ActiveStateMutexType>)
+    , stateThread(&ThreadFunctionHelper::stateThreadMethod
+					< StateImpl
+					, StateMachineImpl
+					, IState
+					, StateThreadType
+					, EndDoActionSemaphoreType
+					, TimeDurationType
+					, ActiveStateMutexType>)
     , endDoActionSemaphore(0)
     , doActionRunning(false)
     , runDoActionOnce(argRunDoActionOnce)
@@ -322,7 +343,7 @@ protected:
      */
     bool endDoActionRequested()
     {
-    	return static_cast<StateImpl*>(this)->endDoActionRequestedImpl();
+    	return static_cast<Implementation*>(this)->endDoActionRequestedImpl();
     }
 
 private:

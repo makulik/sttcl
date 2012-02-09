@@ -17,7 +17,10 @@
  * \ref usage_sec_2 "2.2 Declare State implementations"\n
  * \ref usage_sec_3 "2.3 Implement the state machine interfaces"\n
  * \ref usage_sec_4 "2.4 Implement state actions and transitions"\n
- * \ref uml2gof_sec "3 Mapping of the UML state diagram notation elements to the GoF State pattern"
+ * \ref uml2gof_sec "3 Mapping of the UML state diagram notation elements to the GoF State pattern"\n
+ * \ref sttcl_config_sec "4 Configuring the STTCL library for a specific OS/build environment"\n
+ * \ref sttcl_config_sec_1 "4.1 Configuring STTCL builtin concurrency implementations"\n
+ * \ref sttcl_config_sec_2 "4.2 Providing custom implementations for concurrency"\n
  *
  * \section intro_sec 1 Introduction
  *
@@ -116,12 +119,47 @@ void MyStateMachine::event1()
  * \subsection usage_sec_4 2.4 Implement state actions and transitions
  *
  * Transition actions are implemented within the event handler methods of the state classes.
+ * See the table in \ref uml2gof_sec "3 Mapping of the UML state diagram notation elements to the GoF State pattern"
+ * for more details how UML2.2 state diagram elements can be implemented using the GoF state pattern and STTCL.
  */
 
 /**
  * \page uml2gof_page Mapping of the state diagram notation elements
  * \section uml2gof_sec 3 Mapping of the UML state diagram notation elements to the GoF State pattern
  * \htmlinclude UMLStateGoFStateMapping.html
+ *
+ */
+
+/**
+ * \page sttcl_config_page Configuring the STTCL library for a specific OS/build environment
+ * \section sttcl_config_sec 4 Configuring the STTCL library for a specific OS/build environment
+ * \ref sttcl_config_sec_1 "4.1 Configuring STTCL builtin concurrency implementations"\n
+ * \ref sttcl_config_sec_2 "4.2 Providing custom implementations for concurrency"\n
+ *
+ * STTCL uses wrapper classes (adapters) for the environment specific implementations of the above mentioned capabilities:
+ * \li \link sttcl::SttclThread\endlink<> as thread adapter
+ * \li \link sttcl::SttclMutex\endlink<> as mutex abstraction (needs timed/unblocking try_lock() implementation)
+ * \li \link sttcl::SttclSemaphore\endlink<> as semaphore abstraction (needs timed/unblocking try_wait() implementation)
+ * \li \link sttcl::TimeDuration\endlink<> as abstraction for a &quot;real&quot;-time duration</LI>
+ *
+ * \subsection sttcl_config_sec_1 4.1 Configuring STTCL builtin concurrency implementations
+ *
+ * To use the builtin implementations you need to build the STTCL source files using one of the following defines (add -D<config> to your compiler flags):
+ * \li \c STTCL_BOOST_IMPL to select the boost implementation as default
+ * \li \c STTCL_POSIX_IMPL to select the POSIX implementation as default
+ * \li \c STTCL_CX11_IMPL to select the C++ 11 standard implementation as default
+ *
+ * \subsection sttcl_config_sec_2 4.2 Providing custom implementations for concurrency
+ * You may implement your own abstractions for threads, mutexes, semaphores and time duration representation. Provide the following defines to set your custom implementation as defaults (these must be seen by the STTCL header files):
+ *
+ * \code
+#define STTCL_DEFAULT_THREADIMPL MyThreadImpl
+#define STTCL_DEFAULT_MUTEXDIMPL MyMutexImpl
+#define STTCL_DEFAULT_SEMAPHOREIMPL MySemaphoreImpl
+#define STTCL_DEFAULT_TIMEDURATIONIMPL MyTimeDurationImpl
+\endcode
+ *
+ * Alternatively you can provide your implementations directly as template parameters of the STTCL template base classes.
  */
 
 /**
