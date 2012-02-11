@@ -6,8 +6,6 @@
  */
 
 #include <iostream>
-#include <unistd.h>
-#include <stddef.h>
 
 #include "../DemoStateMachine.h"
 #include "../DemoState1.h"
@@ -19,7 +17,7 @@ using namespace Application;
 using Application::DemoState1;
 
 DemoState1::DemoState1()
-: StateBaseClass(&DemoState1::doAction,false,sttcl::TimeDuration<>(0,0,20))
+: StateBaseClass(&DemoState1::doAction)
 {
 }
 
@@ -40,7 +38,7 @@ void DemoState1::handleEvent2(DemoStateMachine* context)
 	if(context->getX() >= 3)
 	{
 		cout << "DemoState1, guard [x >= 3] passed" << endl;
-		changeState(context,&DemoState3::getInstance());
+		changeState(context,context->getDemoState3());
 	}
 	else
 	{
@@ -65,14 +63,14 @@ void DemoState1::exitImpl(DemoStateMachine* context)
 	StateBaseClass::exitImpl(context);
 }
 
-void DemoState1::doAction(DemoStateMachine* context, bool initialCall)
+void DemoState1::doAction(DemoStateMachine* context, bool firstCall)
 {
-	if(initialCall)
-	{
-		cout << "DemoState1, do Action called 1st time after entering ..." << endl;
-	}
-	else
-	{
-		cout << "DemoState1, do Action called ..." << endl;
-	}
+	cout << "DemoState1, do Action called ..." << endl;
+}
+
+
+DemoState1& DemoState1::getInstance()
+{
+	static DemoState1 theInstance;
+	return theInstance;
 }
