@@ -18,21 +18,17 @@ var NAVTREE =
       [ "sttcl::CompositeStateBaseWithShallowHistory< InnerStateType >", "classsttcl_1_1_composite_state_base_with_shallow_history.html", null ],
       [ "sttcl::CompositeStateHistoryType", "structsttcl_1_1_composite_state_history_type.html", null ],
       [ "sttcl::ConcurrentCompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1_concurrent_composite_state.html", null ],
-      [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >", "classsttcl_1_1_region.html", null ],
+      [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_region.html", null ],
       [ "sttcl::RegionBase< StateMachineImpl, StateInterface, EventArgs >", "classsttcl_1_1_region_base.html", null ],
       [ "sttcl::State< StateImpl, StateMachineImpl, IState >", "classsttcl_1_1_state.html", null ],
       [ "sttcl::StateBase< StateMachineImpl, IState >", "classsttcl_1_1_state_base.html", null ],
       [ "StateInterface", "class_state_machine_impl_1_1_state_interface.html", null ],
       [ "sttcl::StateMachine< StateMachineImpl, IState >", "classsttcl_1_1_state_machine.html", null ],
-      [ "STTCL_DEFAULT_MUTEXIMPL", "class_s_t_t_c_l___d_e_f_a_u_l_t___m_u_t_e_x_i_m_p_l.html", null ],
-      [ "STTCL_DEFAULT_SEMAPHOREIMPL", "class_s_t_t_c_l___d_e_f_a_u_l_t___s_e_m_a_p_h_o_r_e_i_m_p_l.html", null ],
-      [ "STTCL_DEFAULT_THREADIMPL", "class_s_t_t_c_l___d_e_f_a_u_l_t___t_h_r_e_a_d_i_m_p_l.html", null ],
       [ "sttcl::internal::boost_impl::SttclBoostMutex", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html", null ],
       [ "sttcl::internal::boost_impl::SttclBoostSemaphore", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html", null ],
       [ "sttcl::internal::boost_impl::SttclBoostThread", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_thread.html", null ],
       [ "sttcl::internal::boost_impl::SttclBoostTimeDuration", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_time_duration.html", null ],
       [ "sttcl::SttclMutex< Impl >", "classsttcl_1_1_sttcl_mutex.html", null ],
-      [ "sttcl::internal::posix_impl::SttclPosixTimeDuration", "classsttcl_1_1internal_1_1posix__impl_1_1_sttcl_posix_time_duration.html", null ],
       [ "sttcl::SttclSemaphore< Impl >", "classsttcl_1_1_sttcl_semaphore.html", null ],
       [ "sttcl::SttclThread< Impl >", "classsttcl_1_1_sttcl_thread.html", null ],
       [ "sttcl::ThreadFunctionHelper", "structsttcl_1_1_thread_function_helper.html", null ],
@@ -42,8 +38,8 @@ var NAVTREE =
     [ "Class Hierarchy", "hierarchy.html", [
       [ "sttcl::AutoLocker< Lockable >", "classsttcl_1_1_auto_locker.html", null ],
       [ "sttcl::CompositeStateBase< InnerStateType >", "classsttcl_1_1_composite_state_base.html", [
-        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >, StateMachineImpl, StateMachineImpl::StateInterface >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", [
-          [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >", "classsttcl_1_1_region.html", null ]
+        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", [
+          [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_region.html", null ]
         ] ],
         [ "sttcl::CompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl >", "classsttcl_1_1_composite_state.html", null ]
       ] ],
@@ -56,7 +52,7 @@ var NAVTREE =
       [ "sttcl::ConcurrentCompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1_concurrent_composite_state.html", null ],
       [ "sttcl::RegionBase< StateMachineImpl, StateInterface, EventArgs >", "classsttcl_1_1_region_base.html", null ],
       [ "sttcl::RegionBase< StateMachineImpl, StateMachineImpl::StateInterface, EventArgs >", "classsttcl_1_1_region_base.html", [
-        [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >", "classsttcl_1_1_region.html", null ]
+        [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_region.html", null ]
       ] ],
       [ "sttcl::StateBase< StateMachineImpl, IState >", "classsttcl_1_1_state_base.html", [
         [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
@@ -64,30 +60,20 @@ var NAVTREE =
       ] ],
       [ "StateInterface", "class_state_machine_impl_1_1_state_interface.html", [
         [ "sttcl::StateBase< StateMachineImpl, StateMachineImpl::StateInterface >", "classsttcl_1_1_state_base.html", [
-          [ "sttcl::ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >, StateMachineImpl, StateMachineImpl::StateInterface >", "classsttcl_1_1_active_state.html", [
-            [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >, StateMachineImpl, StateMachineImpl::StateInterface >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
+          [ "sttcl::ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", [
+            [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
           ] ]
         ] ]
       ] ],
       [ "sttcl::StateMachine< StateMachineImpl, IState >", "classsttcl_1_1_state_machine.html", null ],
       [ "sttcl::StateMachine< RegionImpl, IInnerState >", "classsttcl_1_1_state_machine.html", [
-        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType >, StateMachineImpl, StateMachineImpl::StateInterface >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
-      ] ],
-      [ "STTCL_DEFAULT_MUTEXIMPL", "class_s_t_t_c_l___d_e_f_a_u_l_t___m_u_t_e_x_i_m_p_l.html", [
-        [ "sttcl::SttclMutex<>", "classsttcl_1_1_sttcl_mutex.html", null ]
-      ] ],
-      [ "STTCL_DEFAULT_SEMAPHOREIMPL", "class_s_t_t_c_l___d_e_f_a_u_l_t___s_e_m_a_p_h_o_r_e_i_m_p_l.html", [
-        [ "sttcl::SttclSemaphore<>", "classsttcl_1_1_sttcl_semaphore.html", null ]
-      ] ],
-      [ "STTCL_DEFAULT_THREADIMPL", "class_s_t_t_c_l___d_e_f_a_u_l_t___t_h_r_e_a_d_i_m_p_l.html", [
-        [ "sttcl::SttclThread<>", "classsttcl_1_1_sttcl_thread.html", null ]
+        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
       ] ],
       [ "sttcl::internal::boost_impl::SttclBoostMutex", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html", null ],
       [ "sttcl::internal::boost_impl::SttclBoostSemaphore", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html", null ],
       [ "sttcl::internal::boost_impl::SttclBoostThread", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_thread.html", null ],
       [ "sttcl::internal::boost_impl::SttclBoostTimeDuration", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_time_duration.html", null ],
       [ "sttcl::SttclMutex< Impl >", "classsttcl_1_1_sttcl_mutex.html", null ],
-      [ "sttcl::internal::posix_impl::SttclPosixTimeDuration", "classsttcl_1_1internal_1_1posix__impl_1_1_sttcl_posix_time_duration.html", null ],
       [ "sttcl::SttclSemaphore< Impl >", "classsttcl_1_1_sttcl_semaphore.html", null ],
       [ "sttcl::SttclThread< Impl >", "classsttcl_1_1_sttcl_thread.html", null ],
       [ "sttcl::ThreadFunctionHelper", "structsttcl_1_1_thread_function_helper.html", null ],
@@ -108,10 +94,21 @@ var NAVTREE =
       [ "sttcl/BoostThreads/src/SttclBoostSemaphore.cpp", "_sttcl_boost_semaphore_8cpp.html", null ],
       [ "sttcl/BoostThreads/src/SttclBoostThread.cpp", "_sttcl_boost_thread_8cpp.html", null ],
       [ "sttcl/BoostTime/SttclBoostTime.h", "_sttcl_boost_time_8h.html", null ],
+      [ "sttcl/C++11Threads/SttclCx11Mutex.h", "_sttcl_cx11_mutex_8h.html", null ],
+      [ "sttcl/C++11Threads/SttclCx11Semaphore.h", "_sttcl_cx11_semaphore_8h.html", null ],
+      [ "sttcl/C++11Threads/SttclCx11Thread.h", "_sttcl_cx11_thread_8h.html", null ],
+      [ "sttcl/C++11Threads/src/SttclCx11Mutex.cpp", "_sttcl_cx11_mutex_8cpp.html", null ],
+      [ "sttcl/C++11Threads/src/SttclCx11Semaphore.cpp", "_sttcl_cx11_semaphore_8cpp.html", null ],
+      [ "sttcl/C++11Threads/src/SttclCx11Thread.cpp", "_sttcl_cx11_thread_8cpp.html", null ],
+      [ "sttcl/C++11Time/SttclCx11Time.h", "_sttcl_cx11_time_8h.html", null ],
       [ "sttcl/Debug/BoostThreads/src/SttclBoostMutex.d", "_sttcl_boost_mutex_8d.html", null ],
       [ "sttcl/Debug/BoostThreads/src/SttclBoostSemaphore.d", "_sttcl_boost_semaphore_8d.html", null ],
       [ "sttcl/Debug/BoostThreads/src/SttclBoostThread.d", "_sttcl_boost_thread_8d.html", null ],
+      [ "sttcl/Debug/C++11Threads/src/SttclCx11Mutex.d", "_sttcl_cx11_mutex_8d.html", null ],
+      [ "sttcl/Debug/C++11Threads/src/SttclCx11Semaphore.d", "_sttcl_cx11_semaphore_8d.html", null ],
+      [ "sttcl/Debug/C++11Threads/src/SttclCx11Thread.d", "_sttcl_cx11_thread_8d.html", null ],
       [ "sttcl/Debug/PosixThreads/src/SttclPosixMutex.d", "_sttcl_posix_mutex_8d.html", null ],
+      [ "sttcl/Debug/PosixThreads/src/SttclPosixSemaphore.d", "_sttcl_posix_semaphore_8d.html", null ],
       [ "sttcl/Debug/PosixThreads/src/SttclPosixThread.d", "_sttcl_posix_thread_8d.html", null ],
       [ "sttcl/include/ActiveState.h", "_active_state_8h.html", null ],
       [ "sttcl/include/CompositeState.h", "_composite_state_8h.html", null ],
@@ -125,8 +122,10 @@ var NAVTREE =
       [ "sttcl/include/SttclThread.h", "_sttcl_thread_8h.html", null ],
       [ "sttcl/include/SttclTime.h", "_sttcl_time_8h.html", null ],
       [ "sttcl/PosixThreads/SttclPosixMutex.h", "_sttcl_posix_mutex_8h.html", null ],
+      [ "sttcl/PosixThreads/SttclPosixSemaphore.h", "_sttcl_posix_semaphore_8h.html", null ],
       [ "sttcl/PosixThreads/SttclPosixThread.h", "_sttcl_posix_thread_8h.html", null ],
       [ "sttcl/PosixThreads/src/SttclPosixMutex.cpp", "_sttcl_posix_mutex_8cpp.html", null ],
+      [ "sttcl/PosixThreads/src/SttclPosixSemaphore.cpp", "_sttcl_posix_semaphore_8cpp.html", null ],
       [ "sttcl/PosixThreads/src/SttclPosixThread.cpp", "_sttcl_posix_thread_8cpp.html", null ],
       [ "sttcl/PosixTime/SttclPosixTime.h", "_sttcl_posix_time_8h.html", null ]
     ] ]

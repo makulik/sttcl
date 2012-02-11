@@ -140,19 +140,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>changeState()
 : <a class="el" href="classsttcl_1_1_active_state.html#a7cf1417be1005fd4c6064ff0be5a7a4d">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
 , <a class="el" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#a92bae868dec78ee320e32bc1d8084be2">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;</a>
-, <a class="el" href="classsttcl_1_1_state.html#aaa42ce3d929dffaecb969b06752b219e">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#a864b2222acd816d037e5d77667cabdf4">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
+, <a class="el" href="classsttcl_1_1_state.html#ae0cc0ada45cfedee822bcdb3ef65253a">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a>
 , <a class="el" href="classsttcl_1_1_composite_state.html#a55c38272b610bbea7235f30d448a398f">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1_state_machine.html#ab7fed2ed9825e40648cbdceb68ff4daf">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
 </li>
 <li>changeStateImpl()
 : <a class="el" href="classsttcl_1_1_state_base.html#a06157b34ada9e41e7846b6b282d682b3">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a>
 </li>
+<li>checkDirectTransitionImpl()
+: <a class="el" href="classsttcl_1_1_active_state.html#adefe13cec24b580d153b0befa6e8751d">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
+, <a class="el" href="classsttcl_1_1_state.html#ac1291f83fd1c4fb13b0f2de847150a7a">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a>
+</li>
 <li>CompositeState()
 : <a class="el" href="classsttcl_1_1_composite_state.html#a7977b693898a461e866ee785891e9e59">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 </li>
 <li>CompositeStateBase
-: <a class="el" href="classsttcl_1_1_region.html#a43f9a24dfeb3780b241b394158ce3c7f">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;</a>
+: <a class="el" href="classsttcl_1_1_region.html#ae86ea748b846713bcaf7842d73bd1c24">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
 , <a class="el" href="classsttcl_1_1_composite_state_base.html#a7e0c54fb5153f5d3324cad0dd180f84b">sttcl::CompositeStateBase&lt; InnerStateType &gt;</a>
 </li>
 <li>CompositeStateBaseWithDeepHistory()
@@ -163,18 +167,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>CompositeStateHistoryBaseClass
 : <a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#a81b228a2315726f4b9639ea84e4df666">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#ade3bddb9c101391312d01c490323bc3a">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
 </li>
 <li>ConcurrentCompositeState()
 : <a class="el" href="classsttcl_1_1_concurrent_composite_state.html#a48b54ddd5293bf404b5082d3d78e8087">sttcl::ConcurrentCompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 </li>
 <li>Context
-: <a class="el" href="classsttcl_1_1_state_machine.html#a8e6b1685c5e778c25f994ea9b228684d">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
-, <a class="el" href="classsttcl_1_1_concurrent_composite_state.html#aaed0dd83b350441ae6cc369dec1a7186">sttcl::ConcurrentCompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#a71c8b4822ac8c03f2c1b5932d8861549">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;</a>
+: <a class="el" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
 , <a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
+, <a class="el" href="classsttcl_1_1_concurrent_composite_state.html#aaed0dd83b350441ae6cc369dec1a7186">sttcl::ConcurrentCompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1_state_machine.html#a8e6b1685c5e778c25f994ea9b228684d">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
 , <a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#a5e427c0df1dd999e04926254213b40a1">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>
 , <a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a>
 </li>
 </ul>
@@ -197,7 +201,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Wed Feb 8 2012 05:29:11 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 15:12:38 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -1,11 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsttcl_1_1_composite_state_base.html" title="Represents the default base class for a composite state." alt="" coords="962,107,1251,133"/>
-<area shape="rect" id="node3" href="$classsttcl_1_1_composite_state.html" title="sttcl::CompositeState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface \&gt;, StateMachine\&lt; RegionImpl, IInnerState \&gt; \&gt;" alt="" coords="1611,56,3605,83"/>
-<area shape="rect" id="node7" href="$classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation." alt="" coords="2217,107,2999,133"/>
-<area shape="rect" id="node5" href="$classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation." alt="" coords="3653,107,4163,133"/>
-<area shape="rect" id="node8" href="$classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs \&gt;" alt="" coords="2348,157,2868,184"/>
-<area shape="rect" id="node10" href="$class_state_machine_impl_1_1_state_interface.html" title="StateInterface" alt="" coords="6,5,109,32"/>
-<area shape="rect" id="node12" href="$classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="158,5,602,32"/>
-<area shape="rect" id="node14" href="$classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="651,5,1562,32"/>
-<area shape="rect" id="node16" href="$classsttcl_1_1_state_machine.html" title="sttcl::StateMachine\&lt; RegionImpl, IInnerState \&gt;" alt="" coords="960,56,1253,83"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine." alt="" coords="6,5,311,32"/>
 </map>

@@ -129,6 +129,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the region is left.  <a href="#aaee2d52f5d0ffd96b7ce379aff1cb387"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a43b4d5d395f040b37a6e59c392de94a0">finalizeRegion</a> (bool recursive)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to finalize the region.  <a href="#a43b4d5d395f040b37a6e59c392de94a0"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class RegionImpl &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">RegionImpl *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8dd9b5f106c984b897f4b41df25eb861">getRegionContext</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a2f315db10631cb03c0b46c6baea71839">handleBroadcastedEvent</a> (StateMachineImpl *context, <a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">EventHandler</a> eventHandler, const EventArgs *eventArgs)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to handle an event broadcasted from the containing <a class="el" href="classsttcl_1_1_concurrent_composite_state.html" title="Represents a concurrent composite state implementation base class.">ConcurrentCompositeState</a> instance.  <a href="#a2f315db10631cb03c0b46c6baea71839"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8da085feb2d6b8847961b22b19dbd0f7">initializeRegion</a> (bool recursive)=0</td></tr>
@@ -323,6 +325,26 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a8dd9b5f106c984b897f4b41df25eb861"></a><!-- doxytag: member="sttcl::RegionBase::getRegionContext" ref="a8dd9b5f106c984b897f4b41df25eb861" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+<div class="memtemplate">
+template&lt;class RegionImpl &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">RegionImpl* <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::getRegionContext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -533,7 +555,7 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 </div>
 
 
-    <li class="footer">Generated on Wed Feb 8 2012 05:29:12 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 15:12:39 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>sttcl: sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt; Class Template Reference</title>
+<title>sttcl: sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -102,27 +102,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt; Class Template Reference</div>  </div>
+<div class="title">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt; Class Template Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="sttcl::Region" --><!-- doxytag: inherits="CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;,RegionBase&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs &gt;" -->
+<!-- doxytag: class="sttcl::Region" --><!-- doxytag: inherits="CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;,RegionBase&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs &gt;" -->
 <p>Represents a region within a matching <a class="el" href="classsttcl_1_1_concurrent_composite_state.html" title="Represents a concurrent composite state implementation base class.">ConcurrentCompositeState</a> implementation.  
  <a href="classsttcl_1_1_region.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_region_8h_source.html">Region.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;:</div>
+Inheritance diagram for sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classsttcl_1_1_region__inherit__graph.png" border="0" usemap="#sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_01_4_inherit__map" id="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_01_4_inherit__map">
-<area shape="rect" id="node2" href="classsttcl_1_1_composite_state.html" title="sttcl::CompositeState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface \&gt;, StateMachine\&lt; RegionImpl, IInnerState \&gt; \&gt;" alt="" coords="1723,56,3717,83"/><area shape="rect" id="node4" href="classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="763,5,1674,32"/><area shape="rect" id="node6" href="classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="270,5,714,32"/><area shape="rect" id="node8" href="class_state_machine_impl_1_1_state_interface.html" title="StateMachineImpl::StateInterface" alt="" coords="6,5,221,32"/><area shape="rect" id="node10" href="classsttcl_1_1_state_machine.html" title="sttcl::StateMachine\&lt; RegionImpl, IInnerState \&gt;" alt="" coords="1072,56,1365,83"/><area shape="rect" id="node12" href="classsttcl_1_1_composite_state_base.html" title="Represents the default base class for a composite state." alt="" coords="831,107,1606,133"/><area shape="rect" id="node14" href="classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs \&gt;" alt="" coords="2460,107,2980,133"/></map>
+<div class="center"><img src="classsttcl_1_1_region__inherit__graph.png" border="0" usemap="#sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_00_01_state_thread_type_00_01_end_do_action_semaphore_type_00_01_time_duration_type_00_01_active_state_mutex_type_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_00_01_state_thread_type_00_01_end_do_action_semaphore_type_00_01_time_duration_type_00_01_active_state_mutex_type_01_4_inherit__map" id="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_00_01_state_thread_type_00_01_end_do_action_semaphore_type_00_01_time_duration_type_00_01_active_state_mutex_type_01_4_inherit__map">
+<area shape="rect" id="node2" href="classsttcl_1_1_composite_state.html" title="sttcl::CompositeState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachine\&lt; RegionImpl, IInnerState \&gt; \&gt;" alt="" coords="2789,56,6387,83"/><area shape="rect" id="node4" href="classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;" alt="" coords="763,5,2741,32"/><area shape="rect" id="node6" href="classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="270,5,714,32"/><area shape="rect" id="node8" href="class_state_machine_impl_1_1_state_interface.html" title="StateMachineImpl::StateInterface" alt="" coords="6,5,221,32"/><area shape="rect" id="node10" href="classsttcl_1_1_state_machine.html" title="sttcl::StateMachine\&lt; RegionImpl, IInnerState \&gt;" alt="" coords="1605,56,1899,83"/><area shape="rect" id="node12" href="classsttcl_1_1_composite_state_base.html" title="Represents the default base class for a composite state." alt="" coords="1365,107,2139,133"/><area shape="rect" id="node14" href="classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs \&gt;" alt="" coords="4328,107,4848,133"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
-Collaboration diagram for sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;:</div>
+Collaboration diagram for sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classsttcl_1_1_region__coll__graph.png" border="0" usemap="#sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_01_4_coll__map" id="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_01_4_coll__map">
-<area shape="rect" id="node2" href="classsttcl_1_1_composite_state.html" title="sttcl::CompositeState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface \&gt;, StateMachine\&lt; RegionImpl, IInnerState \&gt; \&gt;" alt="" coords="1723,56,3717,83"/><area shape="rect" id="node4" href="classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="763,5,1674,32"/><area shape="rect" id="node6" href="classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="270,5,714,32"/><area shape="rect" id="node8" href="class_state_machine_impl_1_1_state_interface.html" title="StateMachineImpl::StateInterface" alt="" coords="6,5,221,32"/><area shape="rect" id="node10" href="classsttcl_1_1_state_machine.html" title="sttcl::StateMachine\&lt; RegionImpl, IInnerState \&gt;" alt="" coords="1072,56,1365,83"/><area shape="rect" id="node12" href="classsttcl_1_1_composite_state_base.html" title="Represents the default base class for a composite state." alt="" coords="831,107,1606,133"/><area shape="rect" id="node14" href="classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs \&gt;" alt="" coords="2460,107,2980,133"/></map>
+<div class="center"><img src="classsttcl_1_1_region__coll__graph.png" border="0" usemap="#sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_00_01_state_thread_type_00_01_end_do_action_semaphore_type_00_01_time_duration_type_00_01_active_state_mutex_type_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_00_01_state_thread_type_00_01_end_do_action_semaphore_type_00_01_time_duration_type_00_01_active_state_mutex_type_01_4_coll__map" id="sttcl_1_1_region_3_01_region_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_event_args_00_01_history_type_00_01_state_thread_type_00_01_end_do_action_semaphore_type_00_01_time_duration_type_00_01_active_state_mutex_type_01_4_coll__map">
+<area shape="rect" id="node2" href="classsttcl_1_1_composite_state.html" title="sttcl::CompositeState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachine\&lt; RegionImpl, IInnerState \&gt; \&gt;" alt="" coords="2789,56,6387,83"/><area shape="rect" id="node4" href="classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType \&gt;" alt="" coords="763,5,2741,32"/><area shape="rect" id="node6" href="classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface \&gt;" alt="" coords="270,5,714,32"/><area shape="rect" id="node8" href="class_state_machine_impl_1_1_state_interface.html" title="StateMachineImpl::StateInterface" alt="" coords="6,5,221,32"/><area shape="rect" id="node10" href="classsttcl_1_1_state_machine.html" title="sttcl::StateMachine\&lt; RegionImpl, IInnerState \&gt;" alt="" coords="1605,56,1899,83"/><area shape="rect" id="node12" href="classsttcl_1_1_composite_state_base.html" title="Represents the default base class for a composite state." alt="" coords="1365,107,2139,133"/><area shape="rect" id="node14" href="classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs \&gt;" alt="" coords="4328,107,4848,133"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classsttcl_1_1_region-members.html">List of all members.</a></p>
@@ -132,131 +132,166 @@ Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>DispatchedEvent</b></td></tr>
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_active_state.html">ActiveState</a>&lt; <a class="el" href="classsttcl_1_1_region.html">Region</a><br class="typebreak"/>
+&lt; RegionImpl, StateMachineImpl, <br class="typebreak"/>
+IInnerState, EventArgs, <br class="typebreak"/>
+HistoryType, StateThreadType, <br class="typebreak"/>
+EndDoActionSemaphoreType, <br class="typebreak"/>
+TimeDurationType, <br class="typebreak"/>
+ActiveStateMutexType &gt;<br class="typebreak"/>
+, StateMachineImpl, typename <br class="typebreak"/>
+StateMachineImpl::StateInterface, <br class="typebreak"/>
+StateThreadType, <br class="typebreak"/>
+EndDoActionSemaphoreType, <br class="typebreak"/>
+TimeDurationType, <br class="typebreak"/>
+ActiveStateMutexType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a0a3194ead4561f087a2737545ff52af2">ActiveStateImpl</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState</a>&lt;&gt; implementation to use as state implementation base of the <a class="el" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a> base class.  <a href="#a0a3194ead4561f087a2737545ff52af2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_composite_state.html">CompositeState</a>&lt; <a class="el" href="classsttcl_1_1_region.html">Region</a><br class="typebreak"/>
 &lt; RegionImpl, StateMachineImpl, <br class="typebreak"/>
 IInnerState, EventArgs, <br class="typebreak"/>
-HistoryType &gt;<br class="typebreak"/>
+HistoryType, StateThreadType, <br class="typebreak"/>
+EndDoActionSemaphoreType, <br class="typebreak"/>
+TimeDurationType, <br class="typebreak"/>
+ActiveStateMutexType &gt;<br class="typebreak"/>
 , StateMachineImpl, <br class="typebreak"/>
 IInnerState, HistoryType, <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_active_state.html">ActiveState</a>&lt; <a class="el" href="classsttcl_1_1_region.html">Region</a><br class="typebreak"/>
-&lt; RegionImpl, StateMachineImpl, <br class="typebreak"/>
-IInnerState, EventArgs, <br class="typebreak"/>
-HistoryType &gt;<br class="typebreak"/>
-, StateMachineImpl, typename <br class="typebreak"/>
-StateMachineImpl::StateInterface &gt;<br class="typebreak"/>
-, <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a>&lt; RegionImpl, <br class="typebreak"/>
-IInnerState &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a43f9a24dfeb3780b241b394158ce3c7f">CompositeStateBase</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The region composites state base class type.  <a href="#a43f9a24dfeb3780b241b394158ce3c7f"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_region.html#a0a3194ead4561f087a2737545ff52af2">ActiveStateImpl</a>, <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a><br class="typebreak"/>
+&lt; RegionImpl, IInnerState &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ae86ea748b846713bcaf7842d73bd1c24">CompositeStateBase</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The region composites state base class type.  <a href="#ae86ea748b846713bcaf7842d73bd1c24"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">CompositeStateBase::CompositeStateHistoryBaseClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a81b228a2315726f4b9639ea84e4df666">CompositeStateHistoryBaseClass</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The composite state base class regarding state history policy.  <a href="#a81b228a2315726f4b9639ea84e4df666"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a71c8b4822ac8c03f2c1b5932d8861549">Context</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state machine implementation type.  <a href="#a71c8b4822ac8c03f2c1b5932d8861549"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef RegionImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a53d04677d1603dc5bb7187f747a64e20">Implementation</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The implementation class type.  <a href="#a53d04677d1603dc5bb7187f747a64e20"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef void(IInnerState::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a6da8eee9022e10ed4d1cf3a7df068952">InnerEventHandler</a> )(<a class="el" href="classsttcl_1_1_region.html#a4ee2e9285637fa2ed3f501e09c8c89eb">RegionBaseClass</a> *, const EventArgs *)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The inner event handler signature.  <a href="#a6da8eee9022e10ed4d1cf3a7df068952"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">CompositeStateBase::CompositeStateHistoryBaseClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ade3bddb9c101391312d01c490323bc3a">CompositeStateHistoryBaseClass</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The composite state base class regarding state history policy.  <a href="#ade3bddb9c101391312d01c490323bc3a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a5e427c0df1dd999e04926254213b40a1">Context</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state machine implementation type.  <a href="#a5e427c0df1dd999e04926254213b40a1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef RegionImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#aeac42e66e4c1e9032ccf49095049ff00">Implementation</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The implementation class type.  <a href="#aeac42e66e4c1e9032ccf49095049ff00"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void(IInnerState::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a49aba7bd12dd657301be075d7963420e">InnerEventHandler</a> )(<a class="el" href="classsttcl_1_1_region.html#ab9391377345edb87298de21c2269ab15">RegionBaseClass</a> *, const EventArgs *)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The inner event handler signature.  <a href="#a49aba7bd12dd657301be075d7963420e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">CompositeStateBase::InnerStateClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a4bf56a6e2a4f59c99e42b7340af59a66">InnerStateClass</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The inner state class.  <a href="#a4bf56a6e2a4f59c99e42b7340af59a66"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">CompositeStateBase::InnerStateClass</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#abd784aeeee5c521ba139a1318ed39f72">InnerStateClass</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The inner state class.  <a href="#abd784aeeee5c521ba139a1318ed39f72"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void(<a class="el" href="classsttcl_1_1_region.html">Region</a><br class="typebreak"/>
 &lt; RegionImpl, StateMachineImpl, <br class="typebreak"/>
 IInnerState, EventArgs, <br class="typebreak"/>
-HistoryType &gt;::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#adc59ebce3457a61e585740a917cc109e">InternalEventHandler</a> )(bool)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal event handler signature.  <a href="#adc59ebce3457a61e585740a917cc109e"></a><br/></td></tr>
+HistoryType, StateThreadType, <br class="typebreak"/>
+EndDoActionSemaphoreType, <br class="typebreak"/>
+TimeDurationType, <br class="typebreak"/>
+ActiveStateMutexType &gt;::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a40f59b3221a66365d843df23fc86b86a">InternalEventHandler</a> )(bool)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal event handler signature.  <a href="#a40f59b3221a66365d843df23fc86b86a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">RegionBaseClass::EventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a8195decb3b9420f86544573054c1e13c">OuterEventHandler</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The outer event handler signature.  <a href="#a8195decb3b9420f86544573054c1e13c"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">RegionBaseClass::EventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a0c799b577ad84d7a2cf1274983bf74b9">OuterEventHandler</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The outer event handler signature.  <a href="#a0c799b577ad84d7a2cf1274983bf74b9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">CompositeStateBase::OuterStateInterface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a7271bd18afef56342f5b2294aed7196d">OuterStateInterface</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The outer state interface.  <a href="#a7271bd18afef56342f5b2294aed7196d"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">CompositeStateBase::OuterStateInterface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ab80d3338863e574b86cc9be2f97f351e">OuterStateInterface</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The outer state interface.  <a href="#ab80d3338863e574b86cc9be2f97f351e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a><br class="typebreak"/>
 &lt; StateMachineImpl, typename <br class="typebreak"/>
 StateMachineImpl::StateInterface, <br class="typebreak"/>
-EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a4ee2e9285637fa2ed3f501e09c8c89eb">RegionBaseClass</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classsttcl_1_1_region_base.html" title="Represents the abstract Region base class.">RegionBase</a> class type.  <a href="#a4ee2e9285637fa2ed3f501e09c8c89eb"></a><br/></td></tr>
+EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ab9391377345edb87298de21c2269ab15">RegionBaseClass</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classsttcl_1_1_region_base.html" title="Represents the abstract Region base class.">RegionBase</a> class type.  <a href="#ab9391377345edb87298de21c2269ab15"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt; RegionImpl, <br class="typebreak"/>
-IInnerState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a0e4cf41a0146b5fdf013f934ec861240">RegionStateBase</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a> class type.  <a href="#a0e4cf41a0146b5fdf013f934ec861240"></a><br/></td></tr>
+IInnerState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ab7f58b04f5542406744edb2058bb049d">RegionStateBase</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a> class type.  <a href="#ab7f58b04f5542406744edb2058bb049d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-StateImplementationBase::StateThreadImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ab03424ae8b1d7dff86254f002f7ed685">RegionThreadImpl</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The region state thread class type.  <a href="#ab03424ae8b1d7dff86254f002f7ed685"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_region.html#a0e4cf41a0146b5fdf013f934ec861240">RegionStateBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a98201c1c559d193a87290f02365a355f">StateBaseClass</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a> class type.  <a href="#a98201c1c559d193a87290f02365a355f"></a><br/></td></tr>
+StateImplementationBase::StateThreadImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a9597d8367cbdbe1dfe13efb9dfbd54c9">RegionThreadImpl</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The region state thread class type.  <a href="#a9597d8367cbdbe1dfe13efb9dfbd54c9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_region.html#ab7f58b04f5542406744edb2058bb049d">RegionStateBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#aa3f007a98e686b42112c57303044ff32">StateBaseClass</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a> class type.  <a href="#aa3f007a98e686b42112c57303044ff32"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">CompositeStateBase::StateDoAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a763e14a344118201e86cc67da9e4cf6d">StateDoAction</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state do action type.  <a href="#a763e14a344118201e86cc67da9e4cf6d"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">CompositeStateBase::StateDoAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#abe06e461c3d50d87961bbf202079c765">StateDoAction</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state do action type.  <a href="#abe06e461c3d50d87961bbf202079c765"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">CompositeStateBase::StateImplementationBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ae8838b7ec3a310c65a5b8d923b7e2d14">StateImplementationBase</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The (composite) state implementation base class type.  <a href="#ae8838b7ec3a310c65a5b8d923b7e2d14"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">CompositeStateBase::StateImplementationBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a48efbcf21b2c9e37b503df0cbc50d2c8">StateImplementationBase</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The (composite) state implementation base class type.  <a href="#a48efbcf21b2c9e37b503df0cbc50d2c8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">CompositeStateBase::StateInterface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ab0fa70295a5e81b396a4b807400d72d9">StateInterface</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state interface.  <a href="#ab0fa70295a5e81b396a4b807400d72d9"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">CompositeStateBase::StateInterface</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a0a1eca4094bea2303b3be05b2fd8a3cd">StateInterface</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state interface.  <a href="#a0a1eca4094bea2303b3be05b2fd8a3cd"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">CompositeStateBase::StateMachineImplementationBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#aeb65f62239b96627936097774acacd10">StateMachineImplementationBase</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The (composite) state machine base class type.  <a href="#aeb65f62239b96627936097774acacd10"></a><br/></td></tr>
+<a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">CompositeStateBase::StateMachineImplementationBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a7ca8b50c048c21e4305791a7818bdc36">StateMachineImplementationBase</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The (composite) state machine base class type.  <a href="#a7ca8b50c048c21e4305791a7818bdc36"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a4ba4d80ca4b2a6a005ee8f9de5a866df">Region</a> (<a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt; argDoActionFrequency=<a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt;::Zero)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a>.  <a href="#a4ba4d80ca4b2a6a005ee8f9de5a866df"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a3d8e7160d4bfc91bb5b2f12717f5c554">~Region</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a>.  <a href="#a3d8e7160d4bfc91bb5b2f12717f5c554"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a92bae868dec78ee320e32bc1d8084be2">changeState</a> (<a class="el" href="classsttcl_1_1_region.html#a0e4cf41a0146b5fdf013f934ec861240">RegionStateBase</a> *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the region composite state machine to <em>newState</em>.  <a href="#a92bae868dec78ee320e32bc1d8084be2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a221a611bffee74e88d4c8a5c4f3b42fc">dispatchEvent</a> (IInnerState *state, <a class="el" href="classsttcl_1_1_region.html#a6da8eee9022e10ed4d1cf3a7df068952">InnerEventHandler</a> eventHandler, const EventArgs *eventArgs)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches an event to a state inside the region.  <a href="#a221a611bffee74e88d4c8a5c4f3b42fc"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#aa2ca3e1b08185fc9e9568e08833da093">dispatchInternalEvent</a> (<a class="el" href="classsttcl_1_1_region.html#adc59ebce3457a61e585740a917cc109e">InternalEventHandler</a> internalEventHandler, bool recursive)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches an internal event to be executed within the context of the internal region thread.  <a href="#aa2ca3e1b08185fc9e9568e08833da093"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ac4a905ced96d29a0dd5756122dd2a9bb">endDoActionRequestedImpl</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the <a class="el" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f" title="Indicates that the do action thread should stop.">endDoActionRequested()</a> method.  <a href="#ac4a905ced96d29a0dd5756122dd2a9bb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a73ec5e12bbb560f68b866cf7937055a4">endDoImpl</a> (StateMachineImpl *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of the ActiveState::endDo() method.  <a href="#a73ec5e12bbb560f68b866cf7937055a4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a468cd3a06c5b89fadaed23d8cb73e0f3">endingRegionThread</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the region thread is stopped.  <a href="#a468cd3a06c5b89fadaed23d8cb73e0f3"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#adc27de7e1bd9cf667c94c992e9524448">entryImpl</a> (<a class="el" href="classsttcl_1_1_region.html#a71c8b4822ac8c03f2c1b5932d8861549">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default entry() method implementation.  <a href="#adc27de7e1bd9cf667c94c992e9524448"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a2e17505bfc8a9799d6be7e7edfef4d37">exitImpl</a> (<a class="el" href="classsttcl_1_1_region.html#a71c8b4822ac8c03f2c1b5932d8861549">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default exit() method implementation.  <a href="#a2e17505bfc8a9799d6be7e7edfef4d37"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a525f6892f3c8c2ca0d863beb26a9765f">exitingDoActionImpl</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the exitingDoAction() method.  <a href="#a525f6892f3c8c2ca0d863beb26a9765f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a3f39482a10dd5ef0cf4800c51f488e46">finalizeImpl</a> (bool finalizeSubStateMachines)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d" title="Finalizes the state machine.">finalize()</a>.  <a href="#a3f39482a10dd5ef0cf4800c51f488e46"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a8c50411e4f955480fef227815eee97a0">initializeImpl</a> (bool force)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e" title="Initializes the state machine.">initialize()</a> method implementation.  <a href="#a8c50411e4f955480fef227815eee97a0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a706ad41db23428fcadb45c3cf3b37b66">joinDoActionThreadImpl</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">ActiveState::endDoImpl()</a> method is called.  <a href="#a706ad41db23428fcadb45c3cf3b37b66"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a5c35d03d672f657562faaa37792ff73b">startingRegionThread</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the region thread is started.  <a href="#a5c35d03d672f657562faaa37792ff73b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a52dcd6f69807d3bdebfe3e1d5d20727e">unblockDoActionImpl</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">ActiveState::endDoImpl()</a> method to unblock any blocking methods waiting in the internal region thread.  <a href="#a52dcd6f69807d3bdebfe3e1d5d20727e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a3779c536558bd837268eb3b1acd3fbbb">Region</a> (<a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt; argDoActionFrequency=<a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt;::Zero)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a>.  <a href="#a3779c536558bd837268eb3b1acd3fbbb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#af0dccc62f2e9c976b729794026aacb95">~Region</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a>.  <a href="#af0dccc62f2e9c976b729794026aacb95"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a864b2222acd816d037e5d77667cabdf4">changeState</a> (<a class="el" href="classsttcl_1_1_region.html#ab7f58b04f5542406744edb2058bb049d">RegionStateBase</a> *newState)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the region composite state machine to <em>newState</em>.  <a href="#a864b2222acd816d037e5d77667cabdf4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a133afb263392117b6c25e435feeab250">dispatchEvent</a> (IInnerState *state, <a class="el" href="classsttcl_1_1_region.html#a49aba7bd12dd657301be075d7963420e">InnerEventHandler</a> eventHandler, const EventArgs *eventArgs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches an event to a state inside the region.  <a href="#a133afb263392117b6c25e435feeab250"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ab35d0ea6b902c958bbc492f7ecec4355">dispatchInternalEvent</a> (<a class="el" href="classsttcl_1_1_region.html#a40f59b3221a66365d843df23fc86b86a">InternalEventHandler</a> internalEventHandler, bool recursive)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches an internal event to be executed within the context of the internal region thread.  <a href="#ab35d0ea6b902c958bbc492f7ecec4355"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a079eac1cb4083f3f9aa597859befc6e5">endDoActionRequestedImpl</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the <a class="el" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f" title="Indicates that the do action thread should stop.">endDoActionRequested()</a> method.  <a href="#a079eac1cb4083f3f9aa597859befc6e5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ab51e4de48e37c543dc0433a02a4416b1">endDoImpl</a> (StateMachineImpl *context)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation of the ActiveState::endDo() method.  <a href="#ab51e4de48e37c543dc0433a02a4416b1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#ae1436db737c53e95658f28af9c0ff474">endingRegionThread</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the region thread is stopped.  <a href="#ae1436db737c53e95658f28af9c0ff474"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a26a0fb05436ab8491957fc104d14548a">entryImpl</a> (<a class="el" href="classsttcl_1_1_region.html#a5e427c0df1dd999e04926254213b40a1">Context</a> *context)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default entry() method implementation.  <a href="#a26a0fb05436ab8491957fc104d14548a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#af8ad577891cae0826373fbc1a272ab31">exitImpl</a> (<a class="el" href="classsttcl_1_1_region.html#a5e427c0df1dd999e04926254213b40a1">Context</a> *context)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default exit() method implementation.  <a href="#af8ad577891cae0826373fbc1a272ab31"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a6875262dae2af8780e315ee5a9ebe1f2">exitingDoActionImpl</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the exitingDoAction() method.  <a href="#a6875262dae2af8780e315ee5a9ebe1f2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#af216d3a5a956fea884dbe756507c48e9">finalizeImpl</a> (bool finalizeSubStateMachines)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d" title="Finalizes the state machine.">finalize()</a>.  <a href="#af216d3a5a956fea884dbe756507c48e9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a57d192b243b21abae09d3f66afbb4a1b">initializeImpl</a> (bool force)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e" title="Initializes the state machine.">initialize()</a> method implementation.  <a href="#a57d192b243b21abae09d3f66afbb4a1b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a1089494ad9235af2eafd74376aa6c72b">joinDoActionThreadImpl</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">ActiveState::endDoImpl()</a> method is called.  <a href="#a1089494ad9235af2eafd74376aa6c72b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#af92af57f3c05b9afe8ff337e8eb65756">startingRegionThread</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the region thread is started.  <a href="#af92af57f3c05b9afe8ff337e8eb65756"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a5788415085386720398603d0767a228b">unblockDoActionImpl</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">ActiveState::endDoImpl()</a> method to unblock any blocking methods waiting in the internal region thread.  <a href="#a5788415085386720398603d0767a228b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a62144633e69ed353e9992ebc97a5a143">RegionBase&lt; StateMachineImpl, typename StateMachineImpl::StateInterface, EventArgs &gt;</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class RegionImpl, class StateMachineImpl, class IInnerState, class EventArgs = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt;<br/>
-class sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;</h3>
+<div class="textblock"><h3>template&lt;class RegionImpl, class StateMachineImpl, class IInnerState, class EventArgs = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType = SttclThread&lt;&gt;, class EndDoActionSemaphoreType = SttclSemaphore&lt;&gt;, class TimeDurationType = TimeDuration&lt;&gt;, class ActiveStateMutexType = SttclMutex&lt;&gt;&gt;<br/>
+class sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</h3>
 
 <p>Represents a region within a matching <a class="el" href="classsttcl_1_1_concurrent_composite_state.html" title="Represents a concurrent composite state implementation base class.">ConcurrentCompositeState</a> implementation. </p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">RegionImpl</td><td></td></tr>
-    <tr><td class="paramname">StateMachineImpl</td><td></td></tr>
-    <tr><td class="paramname">IInnerState</td><td></td></tr>
-    <tr><td class="paramname">EventArgs</td><td></td></tr>
-    <tr><td class="paramname">HistoryType</td><td></td></tr>
+    <tr><td class="paramname">RegionImpl</td><td>The inheriting class. </td></tr>
+    <tr><td class="paramname">StateMachineImpl</td><td>The <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">sttcl::StateMachine</a> class that contains the matching <a class="el" href="classsttcl_1_1_concurrent_composite_state.html" title="Represents a concurrent composite state implementation base class.">ConcurrentCompositeState</a> implementation. </td></tr>
+    <tr><td class="paramname">IInnerState</td><td>The inner state event handler interface for the states contained in the implementing region. </td></tr>
+    <tr><td class="paramname">EventArgs</td><td>The type of event arguments passed to the inner state event handler methods. </td></tr>
+    <tr><td class="paramname">HistoryType</td><td>Specifies the composite state history behavior (see also <a class="el" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9">CompositeStateHistoryType::Values</a>), default is <a class="el" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8" title="Default behavior of the history pseudo state.">CompositeStateHistoryType::None</a>. </td></tr>
+    <tr><td class="paramname">StateThreadType</td><td>The thread implementation class, default is <a class="el" href="classsttcl_1_1_sttcl_thread.html">sttcl::SttclThread</a>&lt;&gt;. </td></tr>
+    <tr><td class="paramname">EndDoActionSemaphoreType</td><td>The semaphore implementation class, default is <a class="el" href="classsttcl_1_1_sttcl_semaphore.html">sttcl::SttclSemaphore</a>&lt;&gt;. </td></tr>
+    <tr><td class="paramname">TimeDurationType</td><td>The time duration representation implementation class, default is <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt;. </td></tr>
+    <tr><td class="paramname">ActiveStateMutexType</td><td>The mutex implementation class, default is <a class="el" href="classsttcl_1_1_sttcl_mutex.html">sttcl::SttclMutex</a>&lt;&gt;. </td></tr>
   </table>
   </dd>
 </dl>
 </div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a43f9a24dfeb3780b241b394158ce3c7f"></a><!-- doxytag: member="sttcl::Region::CompositeStateBase" ref="a43f9a24dfeb3780b241b394158ce3c7f" args="" -->
+<a class="anchor" id="a0a3194ead4561f087a2737545ff52af2"></a><!-- doxytag: member="sttcl::Region::ActiveStateImpl" ref="a0a3194ead4561f087a2737545ff52af2" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html">CompositeState</a>&lt; <a class="el" href="classsttcl_1_1_region.html">Region</a>&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType&gt; , StateMachineImpl , IInnerState , HistoryType , <a class="el" href="classsttcl_1_1_active_state.html">ActiveState</a> &lt; <a class="el" href="classsttcl_1_1_region.html">Region</a>&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType&gt; , StateMachineImpl , typename StateMachineImpl::StateInterface &gt; , <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a>&lt;RegionImpl, IInnerState&gt; &gt; <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a43f9a24dfeb3780b241b394158ce3c7f">CompositeStateBase</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_active_state.html">ActiveState</a>&lt; <a class="el" href="classsttcl_1_1_region.html">Region</a>&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType&gt; , StateMachineImpl , typename StateMachineImpl::StateInterface , StateThreadType , EndDoActionSemaphoreType , TimeDurationType , ActiveStateMutexType &gt; <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a0a3194ead4561f087a2737545ff52af2">ActiveStateImpl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The <a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState</a>&lt;&gt; implementation to use as state implementation base of the <a class="el" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a> base class. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae86ea748b846713bcaf7842d73bd1c24"></a><!-- doxytag: member="sttcl::Region::CompositeStateBase" ref="ae86ea748b846713bcaf7842d73bd1c24" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html">CompositeState</a>&lt; <a class="el" href="classsttcl_1_1_region.html">Region</a>&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType&gt; , StateMachineImpl , IInnerState , HistoryType , <a class="el" href="classsttcl_1_1_region.html#a0a3194ead4561f087a2737545ff52af2">ActiveStateImpl</a> , <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a>&lt;RegionImpl, IInnerState&gt; &gt; <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#ae86ea748b846713bcaf7842d73bd1c24">CompositeStateBase</a></td>
         </tr>
       </table>
 </div>
@@ -266,14 +301,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a81b228a2315726f4b9639ea84e4df666"></a><!-- doxytag: member="sttcl::Region::CompositeStateHistoryBaseClass" ref="a81b228a2315726f4b9639ea84e4df666" args="" -->
+<a class="anchor" id="ade3bddb9c101391312d01c490323bc3a"></a><!-- doxytag: member="sttcl::Region::CompositeStateHistoryBaseClass" ref="ade3bddb9c101391312d01c490323bc3a" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">CompositeStateBase::CompositeStateHistoryBaseClass</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a81b228a2315726f4b9639ea84e4df666">CompositeStateHistoryBaseClass</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">CompositeStateBase::CompositeStateHistoryBaseClass</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#ade3bddb9c101391312d01c490323bc3a">CompositeStateHistoryBaseClass</a></td>
         </tr>
       </table>
 </div>
@@ -281,18 +316,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The composite state base class regarding state history policy. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a71c8b4822ac8c03f2c1b5932d8861549"></a><!-- doxytag: member="sttcl::Region::Context" ref="a71c8b4822ac8c03f2c1b5932d8861549" args="" -->
+<a class="anchor" id="a5e427c0df1dd999e04926254213b40a1"></a><!-- doxytag: member="sttcl::Region::Context" ref="a5e427c0df1dd999e04926254213b40a1" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef StateMachineImpl <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a71c8b4822ac8c03f2c1b5932d8861549">Context</a></td>
+          <td class="memname">typedef StateMachineImpl <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a5e427c0df1dd999e04926254213b40a1">Context</a></td>
         </tr>
       </table>
 </div>
@@ -300,18 +335,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The state machine implementation type. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a53d04677d1603dc5bb7187f747a64e20"></a><!-- doxytag: member="sttcl::Region::Implementation" ref="a53d04677d1603dc5bb7187f747a64e20" args="" -->
+<a class="anchor" id="aeac42e66e4c1e9032ccf49095049ff00"></a><!-- doxytag: member="sttcl::Region::Implementation" ref="aeac42e66e4c1e9032ccf49095049ff00" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef RegionImpl <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a53d04677d1603dc5bb7187f747a64e20">Implementation</a></td>
+          <td class="memname">typedef RegionImpl <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#aeac42e66e4c1e9032ccf49095049ff00">Implementation</a></td>
         </tr>
       </table>
 </div>
@@ -319,18 +354,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The implementation class type. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6da8eee9022e10ed4d1cf3a7df068952"></a><!-- doxytag: member="sttcl::Region::InnerEventHandler" ref="a6da8eee9022e10ed4d1cf3a7df068952" args=")(RegionBaseClass *, const EventArgs *)" -->
+<a class="anchor" id="a49aba7bd12dd657301be075d7963420e"></a><!-- doxytag: member="sttcl::Region::InnerEventHandler" ref="a49aba7bd12dd657301be075d7963420e" args=")(RegionBaseClass *, const EventArgs *)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(IInnerState::* <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a6da8eee9022e10ed4d1cf3a7df068952">InnerEventHandler</a>)(<a class="el" href="classsttcl_1_1_region.html#a4ee2e9285637fa2ed3f501e09c8c89eb">RegionBaseClass</a> *, const EventArgs *)</td>
+          <td class="memname">typedef void(IInnerState::* <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a49aba7bd12dd657301be075d7963420e">InnerEventHandler</a>)(<a class="el" href="classsttcl_1_1_region.html#ab9391377345edb87298de21c2269ab15">RegionBaseClass</a> *, const EventArgs *)</td>
         </tr>
       </table>
 </div>
@@ -340,14 +375,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a4bf56a6e2a4f59c99e42b7340af59a66"></a><!-- doxytag: member="sttcl::Region::InnerStateClass" ref="a4bf56a6e2a4f59c99e42b7340af59a66" args="" -->
+<a class="anchor" id="abd784aeeee5c521ba139a1318ed39f72"></a><!-- doxytag: member="sttcl::Region::InnerStateClass" ref="abd784aeeee5c521ba139a1318ed39f72" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">CompositeStateBase::InnerStateClass</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a4bf56a6e2a4f59c99e42b7340af59a66">InnerStateClass</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">CompositeStateBase::InnerStateClass</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#abd784aeeee5c521ba139a1318ed39f72">InnerStateClass</a></td>
         </tr>
       </table>
 </div>
@@ -355,18 +390,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The inner state class. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="adc59ebce3457a61e585740a917cc109e"></a><!-- doxytag: member="sttcl::Region::InternalEventHandler" ref="adc59ebce3457a61e585740a917cc109e" args=")(bool)" -->
+<a class="anchor" id="a40f59b3221a66365d843df23fc86b86a"></a><!-- doxytag: member="sttcl::Region::InternalEventHandler" ref="a40f59b3221a66365d843df23fc86b86a" args=")(bool)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(<a class="el" href="classsttcl_1_1_region.html">Region</a>&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType&gt;::* <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#adc59ebce3457a61e585740a917cc109e">InternalEventHandler</a>)(bool)</td>
+          <td class="memname">typedef void(<a class="el" href="classsttcl_1_1_region.html">Region</a>&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,EndDoActionSemaphoreType,TimeDurationType,ActiveStateMutexType&gt;::* <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a40f59b3221a66365d843df23fc86b86a">InternalEventHandler</a>)(bool)</td>
         </tr>
       </table>
 </div>
@@ -376,14 +411,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a8195decb3b9420f86544573054c1e13c"></a><!-- doxytag: member="sttcl::Region::OuterEventHandler" ref="a8195decb3b9420f86544573054c1e13c" args="" -->
+<a class="anchor" id="a0c799b577ad84d7a2cf1274983bf74b9"></a><!-- doxytag: member="sttcl::Region::OuterEventHandler" ref="a0c799b577ad84d7a2cf1274983bf74b9" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">RegionBaseClass::EventHandler</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a8195decb3b9420f86544573054c1e13c">OuterEventHandler</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">RegionBaseClass::EventHandler</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a0c799b577ad84d7a2cf1274983bf74b9">OuterEventHandler</a></td>
         </tr>
       </table>
 </div>
@@ -393,14 +428,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a7271bd18afef56342f5b2294aed7196d"></a><!-- doxytag: member="sttcl::Region::OuterStateInterface" ref="a7271bd18afef56342f5b2294aed7196d" args="" -->
+<a class="anchor" id="ab80d3338863e574b86cc9be2f97f351e"></a><!-- doxytag: member="sttcl::Region::OuterStateInterface" ref="ab80d3338863e574b86cc9be2f97f351e" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">CompositeStateBase::OuterStateInterface</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a7271bd18afef56342f5b2294aed7196d">OuterStateInterface</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">CompositeStateBase::OuterStateInterface</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#ab80d3338863e574b86cc9be2f97f351e">OuterStateInterface</a></td>
         </tr>
       </table>
 </div>
@@ -408,18 +443,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The outer state interface. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4ee2e9285637fa2ed3f501e09c8c89eb"></a><!-- doxytag: member="sttcl::Region::RegionBaseClass" ref="a4ee2e9285637fa2ed3f501e09c8c89eb" args="" -->
+<a class="anchor" id="ab9391377345edb87298de21c2269ab15"></a><!-- doxytag: member="sttcl::Region::RegionBaseClass" ref="ab9391377345edb87298de21c2269ab15" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs&gt; <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a4ee2e9285637fa2ed3f501e09c8c89eb">RegionBaseClass</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs&gt; <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#ab9391377345edb87298de21c2269ab15">RegionBaseClass</a></td>
         </tr>
       </table>
 </div>
@@ -429,14 +464,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a0e4cf41a0146b5fdf013f934ec861240"></a><!-- doxytag: member="sttcl::Region::RegionStateBase" ref="a0e4cf41a0146b5fdf013f934ec861240" args="" -->
+<a class="anchor" id="ab7f58b04f5542406744edb2058bb049d"></a><!-- doxytag: member="sttcl::Region::RegionStateBase" ref="ab7f58b04f5542406744edb2058bb049d" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt;RegionImpl,IInnerState&gt; <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a0e4cf41a0146b5fdf013f934ec861240">RegionStateBase</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt;RegionImpl,IInnerState&gt; <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#ab7f58b04f5542406744edb2058bb049d">RegionStateBase</a></td>
         </tr>
       </table>
 </div>
@@ -446,14 +481,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="ab03424ae8b1d7dff86254f002f7ed685"></a><!-- doxytag: member="sttcl::Region::RegionThreadImpl" ref="ab03424ae8b1d7dff86254f002f7ed685" args="" -->
+<a class="anchor" id="a9597d8367cbdbe1dfe13efb9dfbd54c9"></a><!-- doxytag: member="sttcl::Region::RegionThreadImpl" ref="a9597d8367cbdbe1dfe13efb9dfbd54c9" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef StateImplementationBase::StateThreadImpl <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#ab03424ae8b1d7dff86254f002f7ed685">RegionThreadImpl</a></td>
+          <td class="memname">typedef StateImplementationBase::StateThreadImpl <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a9597d8367cbdbe1dfe13efb9dfbd54c9">RegionThreadImpl</a></td>
         </tr>
       </table>
 </div>
@@ -463,14 +498,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a98201c1c559d193a87290f02365a355f"></a><!-- doxytag: member="sttcl::Region::StateBaseClass" ref="a98201c1c559d193a87290f02365a355f" args="" -->
+<a class="anchor" id="aa3f007a98e686b42112c57303044ff32"></a><!-- doxytag: member="sttcl::Region::StateBaseClass" ref="aa3f007a98e686b42112c57303044ff32" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region.html#a0e4cf41a0146b5fdf013f934ec861240">RegionStateBase</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a98201c1c559d193a87290f02365a355f">StateBaseClass</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region.html#ab7f58b04f5542406744edb2058bb049d">RegionStateBase</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#aa3f007a98e686b42112c57303044ff32">StateBaseClass</a></td>
         </tr>
       </table>
 </div>
@@ -482,14 +517,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a763e14a344118201e86cc67da9e4cf6d"></a><!-- doxytag: member="sttcl::Region::StateDoAction" ref="a763e14a344118201e86cc67da9e4cf6d" args="" -->
+<a class="anchor" id="abe06e461c3d50d87961bbf202079c765"></a><!-- doxytag: member="sttcl::Region::StateDoAction" ref="abe06e461c3d50d87961bbf202079c765" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">CompositeStateBase::StateDoAction</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#a763e14a344118201e86cc67da9e4cf6d">StateDoAction</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">CompositeStateBase::StateDoAction</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#abe06e461c3d50d87961bbf202079c765">StateDoAction</a></td>
         </tr>
       </table>
 </div>
@@ -497,18 +532,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The state do action type. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae8838b7ec3a310c65a5b8d923b7e2d14"></a><!-- doxytag: member="sttcl::Region::StateImplementationBase" ref="ae8838b7ec3a310c65a5b8d923b7e2d14" args="" -->
+<a class="anchor" id="a48efbcf21b2c9e37b503df0cbc50d2c8"></a><!-- doxytag: member="sttcl::Region::StateImplementationBase" ref="a48efbcf21b2c9e37b503df0cbc50d2c8" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">CompositeStateBase::StateImplementationBase</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#ae8838b7ec3a310c65a5b8d923b7e2d14">StateImplementationBase</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">CompositeStateBase::StateImplementationBase</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a48efbcf21b2c9e37b503df0cbc50d2c8">StateImplementationBase</a></td>
         </tr>
       </table>
 </div>
@@ -516,18 +551,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The (composite) state implementation base class type. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab0fa70295a5e81b396a4b807400d72d9"></a><!-- doxytag: member="sttcl::Region::StateInterface" ref="ab0fa70295a5e81b396a4b807400d72d9" args="" -->
+<a class="anchor" id="a0a1eca4094bea2303b3be05b2fd8a3cd"></a><!-- doxytag: member="sttcl::Region::StateInterface" ref="a0a1eca4094bea2303b3be05b2fd8a3cd" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">CompositeStateBase::StateInterface</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#ab0fa70295a5e81b396a4b807400d72d9">StateInterface</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">CompositeStateBase::StateInterface</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a0a1eca4094bea2303b3be05b2fd8a3cd">StateInterface</a></td>
         </tr>
       </table>
 </div>
@@ -535,18 +570,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The state interface. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aeb65f62239b96627936097774acacd10"></a><!-- doxytag: member="sttcl::Region::StateMachineImplementationBase" ref="aeb65f62239b96627936097774acacd10" args="" -->
+<a class="anchor" id="a7ca8b50c048c21e4305791a7818bdc36"></a><!-- doxytag: member="sttcl::Region::StateMachineImplementationBase" ref="a7ca8b50c048c21e4305791a7818bdc36" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">CompositeStateBase::StateMachineImplementationBase</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html#aeb65f62239b96627936097774acacd10">StateMachineImplementationBase</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">CompositeStateBase::StateMachineImplementationBase</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html#a7ca8b50c048c21e4305791a7818bdc36">StateMachineImplementationBase</a></td>
         </tr>
       </table>
 </div>
@@ -554,19 +589,19 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>The (composite) state machine base class type. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4ba4d80ca4b2a6a005ee8f9de5a866df"></a><!-- doxytag: member="sttcl::Region::Region" ref="a4ba4d80ca4b2a6a005ee8f9de5a866df" args="(sttcl::TimeDuration&lt;&gt; argDoActionFrequency=sttcl::TimeDuration&lt;&gt;::Zero)" -->
+<a class="anchor" id="a3779c536558bd837268eb3b1acd3fbbb"></a><!-- doxytag: member="sttcl::Region::Region" ref="a3779c536558bd837268eb3b1acd3fbbb" args="(sttcl::TimeDuration&lt;&gt; argDoActionFrequency=sttcl::TimeDuration&lt;&gt;::Zero)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::<a class="el" href="classsttcl_1_1_region.html">Region</a> </td>
+          <td class="memname"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_region.html">Region</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt;&#160;</td>
           <td class="paramname"><em>argDoActionFrequency</em> = <code><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt;::Zero</code></td><td>)</td>
@@ -586,14 +621,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a3d8e7160d4bfc91bb5b2f12717f5c554"></a><!-- doxytag: member="sttcl::Region::~Region" ref="a3d8e7160d4bfc91bb5b2f12717f5c554" args="()" -->
+<a class="anchor" id="af0dccc62f2e9c976b729794026aacb95"></a><!-- doxytag: member="sttcl::Region::~Region" ref="af0dccc62f2e9c976b729794026aacb95" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::~<a class="el" href="classsttcl_1_1_region.html">Region</a> </td>
+          <td class="memname">virtual <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::~<a class="el" href="classsttcl_1_1_region.html">Region</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline, virtual]</code></td>
@@ -607,16 +642,16 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a92bae868dec78ee320e32bc1d8084be2"></a><!-- doxytag: member="sttcl::Region::changeState" ref="a92bae868dec78ee320e32bc1d8084be2" args="(RegionStateBase *newState)" -->
+<a class="anchor" id="a864b2222acd816d037e5d77667cabdf4"></a><!-- doxytag: member="sttcl::Region::changeState" ref="a864b2222acd816d037e5d77667cabdf4" args="(RegionStateBase *newState)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::changeState </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::changeState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a0e4cf41a0146b5fdf013f934ec861240">RegionStateBase</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#ab7f58b04f5542406744edb2058bb049d">RegionStateBase</a> *&#160;</td>
           <td class="paramname"><em>newState</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -634,14 +669,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a221a611bffee74e88d4c8a5c4f3b42fc"></a><!-- doxytag: member="sttcl::Region::dispatchEvent" ref="a221a611bffee74e88d4c8a5c4f3b42fc" args="(IInnerState *state, InnerEventHandler eventHandler, const EventArgs *eventArgs)" -->
+<a class="anchor" id="a133afb263392117b6c25e435feeab250"></a><!-- doxytag: member="sttcl::Region::dispatchEvent" ref="a133afb263392117b6c25e435feeab250" args="(IInnerState *state, InnerEventHandler eventHandler, const EventArgs *eventArgs)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::dispatchEvent </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::dispatchEvent </td>
           <td>(</td>
           <td class="paramtype">IInnerState *&#160;</td>
           <td class="paramname"><em>state</em>, </td>
@@ -649,7 +684,7 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a6da8eee9022e10ed4d1cf3a7df068952">InnerEventHandler</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a49aba7bd12dd657301be075d7963420e">InnerEventHandler</a>&#160;</td>
           <td class="paramname"><em>eventHandler</em>, </td>
         </tr>
         <tr>
@@ -680,16 +715,16 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="aa2ca3e1b08185fc9e9568e08833da093"></a><!-- doxytag: member="sttcl::Region::dispatchInternalEvent" ref="aa2ca3e1b08185fc9e9568e08833da093" args="(InternalEventHandler internalEventHandler, bool recursive)" -->
+<a class="anchor" id="ab35d0ea6b902c958bbc492f7ecec4355"></a><!-- doxytag: member="sttcl::Region::dispatchInternalEvent" ref="ab35d0ea6b902c958bbc492f7ecec4355" args="(InternalEventHandler internalEventHandler, bool recursive)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::dispatchInternalEvent </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::dispatchInternalEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#adc59ebce3457a61e585740a917cc109e">InternalEventHandler</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a40f59b3221a66365d843df23fc86b86a">InternalEventHandler</a>&#160;</td>
           <td class="paramname"><em>internalEventHandler</em>, </td>
         </tr>
         <tr>
@@ -718,14 +753,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="ac4a905ced96d29a0dd5756122dd2a9bb"></a><!-- doxytag: member="sttcl::Region::endDoActionRequestedImpl" ref="ac4a905ced96d29a0dd5756122dd2a9bb" args="()" -->
+<a class="anchor" id="a079eac1cb4083f3f9aa597859befc6e5"></a><!-- doxytag: member="sttcl::Region::endDoActionRequestedImpl" ref="a079eac1cb4083f3f9aa597859befc6e5" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::endDoActionRequestedImpl </td>
+          <td class="memname">bool <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::endDoActionRequestedImpl </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -737,18 +772,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 <p>Default implementation for the <a class="el" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f" title="Indicates that the do action thread should stop.">endDoActionRequested()</a> method. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd></dd></dl>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#a5b6285005a00db6a2b845ad11e710d85">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#a5b6285005a00db6a2b845ad11e710d85">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a73ec5e12bbb560f68b866cf7937055a4"></a><!-- doxytag: member="sttcl::Region::endDoImpl" ref="a73ec5e12bbb560f68b866cf7937055a4" args="(StateMachineImpl *context)" -->
+<a class="anchor" id="ab51e4de48e37c543dc0433a02a4416b1"></a><!-- doxytag: member="sttcl::Region::endDoImpl" ref="ab51e4de48e37c543dc0433a02a4416b1" args="(StateMachineImpl *context)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::endDoImpl </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::endDoImpl </td>
           <td>(</td>
           <td class="paramtype">StateMachineImpl *&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
@@ -766,18 +801,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a468cd3a06c5b89fadaed23d8cb73e0f3"></a><!-- doxytag: member="sttcl::Region::endingRegionThread" ref="a468cd3a06c5b89fadaed23d8cb73e0f3" args="()" -->
+<a class="anchor" id="ae1436db737c53e95658f28af9c0ff474"></a><!-- doxytag: member="sttcl::Region::endingRegionThread" ref="ae1436db737c53e95658f28af9c0ff474" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::endingRegionThread </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::endingRegionThread </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -790,16 +825,16 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="adc27de7e1bd9cf667c94c992e9524448"></a><!-- doxytag: member="sttcl::Region::entryImpl" ref="adc27de7e1bd9cf667c94c992e9524448" args="(Context *context)" -->
+<a class="anchor" id="a26a0fb05436ab8491957fc104d14548a"></a><!-- doxytag: member="sttcl::Region::entryImpl" ref="a26a0fb05436ab8491957fc104d14548a" args="(Context *context)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::entryImpl </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::entryImpl </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a71c8b4822ac8c03f2c1b5932d8861549">Context</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a5e427c0df1dd999e04926254213b40a1">Context</a> *&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -815,20 +850,20 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2e17505bfc8a9799d6be7e7edfef4d37"></a><!-- doxytag: member="sttcl::Region::exitImpl" ref="a2e17505bfc8a9799d6be7e7edfef4d37" args="(Context *context)" -->
+<a class="anchor" id="af8ad577891cae0826373fbc1a272ab31"></a><!-- doxytag: member="sttcl::Region::exitImpl" ref="af8ad577891cae0826373fbc1a272ab31" args="(Context *context)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::exitImpl </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::exitImpl </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a71c8b4822ac8c03f2c1b5932d8861549">Context</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_region.html#a5e427c0df1dd999e04926254213b40a1">Context</a> *&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -844,18 +879,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a525f6892f3c8c2ca0d863beb26a9765f"></a><!-- doxytag: member="sttcl::Region::exitingDoActionImpl" ref="a525f6892f3c8c2ca0d863beb26a9765f" args="()" -->
+<a class="anchor" id="a6875262dae2af8780e315ee5a9ebe1f2"></a><!-- doxytag: member="sttcl::Region::exitingDoActionImpl" ref="a6875262dae2af8780e315ee5a9ebe1f2" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::exitingDoActionImpl </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::exitingDoActionImpl </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -866,18 +901,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>Default implementation for the exitingDoAction() method. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3f39482a10dd5ef0cf4800c51f488e46"></a><!-- doxytag: member="sttcl::Region::finalizeImpl" ref="a3f39482a10dd5ef0cf4800c51f488e46" args="(bool finalizeSubStateMachines)" -->
+<a class="anchor" id="af216d3a5a956fea884dbe756507c48e9"></a><!-- doxytag: member="sttcl::Region::finalizeImpl" ref="af216d3a5a956fea884dbe756507c48e9" args="(bool finalizeSubStateMachines)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::finalizeImpl </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::finalizeImpl </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>finalizeSubStateMachines</em></td><td>)</td>
@@ -895,18 +930,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8c50411e4f955480fef227815eee97a0"></a><!-- doxytag: member="sttcl::Region::initializeImpl" ref="a8c50411e4f955480fef227815eee97a0" args="(bool force)" -->
+<a class="anchor" id="a57d192b243b21abae09d3f66afbb4a1b"></a><!-- doxytag: member="sttcl::Region::initializeImpl" ref="a57d192b243b21abae09d3f66afbb4a1b" args="(bool force)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::initializeImpl </td>
+          <td class="memname">bool <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::initializeImpl </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>force</em></td><td>)</td>
@@ -925,18 +960,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd></dd></dl>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a706ad41db23428fcadb45c3cf3b37b66"></a><!-- doxytag: member="sttcl::Region::joinDoActionThreadImpl" ref="a706ad41db23428fcadb45c3cf3b37b66" args="()" -->
+<a class="anchor" id="a1089494ad9235af2eafd74376aa6c72b"></a><!-- doxytag: member="sttcl::Region::joinDoActionThreadImpl" ref="a1089494ad9235af2eafd74376aa6c72b" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::joinDoActionThreadImpl </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::joinDoActionThreadImpl </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -947,18 +982,18 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>Called when the <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">ActiveState::endDoImpl()</a> method is called. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5c35d03d672f657562faaa37792ff73b"></a><!-- doxytag: member="sttcl::Region::startingRegionThread" ref="a5c35d03d672f657562faaa37792ff73b" args="()" -->
+<a class="anchor" id="af92af57f3c05b9afe8ff337e8eb65756"></a><!-- doxytag: member="sttcl::Region::startingRegionThread" ref="af92af57f3c05b9afe8ff337e8eb65756" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::startingRegionThread </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::startingRegionThread </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -971,14 +1006,14 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 </div>
 </div>
-<a class="anchor" id="a52dcd6f69807d3bdebfe3e1d5d20727e"></a><!-- doxytag: member="sttcl::Region::unblockDoActionImpl" ref="a52dcd6f69807d3bdebfe3e1d5d20727e" args="()" -->
+<a class="anchor" id="a5788415085386720398603d0767a228b"></a><!-- doxytag: member="sttcl::Region::unblockDoActionImpl" ref="a5788415085386720398603d0767a228b" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;::unblockDoActionImpl </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::unblockDoActionImpl </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -989,7 +1024,7 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 
 <p>Called by the <a class="el" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">ActiveState::endDoImpl()</a> method to unblock any blocking methods waiting in the internal region thread. </p>
 
-<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;</a>.</p>
+<p>Reimplemented from <a class="el" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>.</p>
 
 </div>
 </div>
@@ -998,7 +1033,7 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None&gt; </div>
+template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = SttclThread&lt;&gt;, class EndDoActionSemaphoreType  = SttclSemaphore&lt;&gt;, class TimeDurationType  = TimeDuration&lt;&gt;, class ActiveStateMutexType  = SttclMutex&lt;&gt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">friend class <a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt; StateMachineImpl, typename StateMachineImpl::StateInterface, EventArgs &gt;<code> [friend]</code></td>
@@ -1033,7 +1068,7 @@ template&lt;class RegionImpl , class StateMachineImpl , class IInnerState , clas
 </div>
 
 
-    <li class="footer">Generated on Wed Feb 8 2012 05:29:11 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 15:12:39 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

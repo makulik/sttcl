@@ -140,6 +140,8 @@ Public Types</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state do action type.  <a href="#ac67278739ee90115ff424413c5e381f0"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ac1291f83fd1c4fb13b0f2de847150a7a">checkDirectTransitionImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context, bool &amp;finalize, <a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *&amp;nextState)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the getDirectTransitionImpl() method.  <a href="#ac1291f83fd1c4fb13b0f2de847150a7a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a22e611f477dc5d61b4c1ad9cce06fea2">endDoImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the endDo() method.  <a href="#a22e611f477dc5d61b4c1ad9cce06fea2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a834f0b722d5a762a414d96c7bfbf25bf">entryImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context)</td></tr>
@@ -158,8 +160,8 @@ Protected Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State</a>.  <a href="#a30849dfc50ef3b3fb1dc1ac486567ece"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#af151e95a927b3479abcc715018ba9cc7">~State</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State</a>.  <a href="#af151e95a927b3479abcc715018ba9cc7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#aaa42ce3d929dffaecb969b06752b219e">changeState</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context, <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt; StateMachineImpl, IState &gt; *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes <em>context</em> state machine to another sibling state.  <a href="#aaa42ce3d929dffaecb969b06752b219e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ae0cc0ada45cfedee822bcdb3ef65253a">changeState</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context, <a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *newState)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes <em>context</em> state machine to another sibling state.  <a href="#ae0cc0ada45cfedee822bcdb3ef65253a"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state.html#ac67278739ee90115ff424413c5e381f0">StateDoAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a0b6156ce3a0e7afad2b18d26827f8341">doAction</a></td></tr>
@@ -299,7 +301,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aaa42ce3d929dffaecb969b06752b219e"></a><!-- doxytag: member="sttcl::State::changeState" ref="aaa42ce3d929dffaecb969b06752b219e" args="(Context *context, StateBase&lt; StateMachineImpl, IState &gt; *newState)" -->
+<a class="anchor" id="ae0cc0ada45cfedee822bcdb3ef65253a"></a><!-- doxytag: member="sttcl::State::changeState" ref="ae0cc0ada45cfedee822bcdb3ef65253a" args="(Context *context, StateBaseType *newState)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -314,7 +316,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt; StateMachineImpl, IState&lt; StateImpl, StateMachineImpl, IState &gt; &gt; *&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *&#160;</td>
           <td class="paramname"><em>newState</em>&#160;</td>
         </tr>
         <tr>
@@ -334,6 +336,52 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ac1291f83fd1c4fb13b0f2de847150a7a"></a><!-- doxytag: member="sttcl::State::checkDirectTransitionImpl" ref="ac1291f83fd1c4fb13b0f2de847150a7a" args="(Context *context, bool &amp;finalize, StateBaseType *&amp;nextState)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classsttcl_1_1_state.html">sttcl::State</a>&lt; StateImpl, StateMachineImpl, IState &gt;::checkDirectTransitionImpl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>finalize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *&amp;&#160;</td>
+          <td class="paramname"><em>nextState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Default implementation for the getDirectTransitionImpl() method. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>A pointer to the containing state machine. </td></tr>
+    <tr><td class="paramname">nextState</td><td>Receives a pointer to the next sibling state to appear on a direct transition. </td></tr>
+    <tr><td class="paramname">finalize</td><td>Receives <code>true</code> to finalize the containing state machine. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if a direct transition should be performed, <code>false</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -541,7 +589,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Wed Feb 8 2012 05:29:12 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 15:12:39 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

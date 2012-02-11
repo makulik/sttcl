@@ -105,8 +105,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 This inheritance list is sorted roughly, but not completely, alphabetically:</div><ul>
 <li><a class="el" href="classsttcl_1_1_auto_locker.html">sttcl::AutoLocker&lt; Lockable &gt;</a></li>
 <li><a class="el" href="classsttcl_1_1_composite_state_base.html">sttcl::CompositeStateBase&lt; InnerStateType &gt;</a><ul>
-<li><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a><ul>
-<li><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;</a></li>
+<li><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a><ul>
+<li><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a></li>
 </ul>
 </li>
 <li><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a></li>
@@ -121,7 +121,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 <li><a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a></li>
 <li><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, EventArgs &gt;</a></li>
 <li><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase&lt; StateMachineImpl, StateMachineImpl::StateInterface, EventArgs &gt;</a><ul>
-<li><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;</a></li>
+<li><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a></li>
 </ul>
 </li>
 <li><a class="el" href="classsttcl_1_1_state_base.html">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a><ul>
@@ -131,8 +131,8 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 </li>
 <li><a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a><ul>
 <li><a class="el" href="classsttcl_1_1_state_base.html">sttcl::StateBase&lt; StateMachineImpl, StateMachineImpl::StateInterface &gt;</a><ul>
-<li><a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;</a><ul>
-<li><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a></li>
+<li><a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a><ul>
+<li><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a></li>
 </ul>
 </li>
 </ul>
@@ -141,19 +141,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 </li>
 <li><a class="el" href="classsttcl_1_1_state_machine.html">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a></li>
 <li><a class="el" href="classsttcl_1_1_state_machine.html">sttcl::StateMachine&lt; RegionImpl, IInnerState &gt;</a><ul>
-<li><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType &gt;, StateMachineImpl, StateMachineImpl::StateInterface &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a></li>
-</ul>
-</li>
-<li><a class="el" href="class_s_t_t_c_l___d_e_f_a_u_l_t___m_u_t_e_x_i_m_p_l.html">STTCL_DEFAULT_MUTEXIMPL</a><ul>
-<li><a class="el" href="classsttcl_1_1_sttcl_mutex.html">sttcl::SttclMutex&lt;&gt;</a></li>
-</ul>
-</li>
-<li><a class="el" href="class_s_t_t_c_l___d_e_f_a_u_l_t___s_e_m_a_p_h_o_r_e_i_m_p_l.html">STTCL_DEFAULT_SEMAPHOREIMPL</a><ul>
-<li><a class="el" href="classsttcl_1_1_sttcl_semaphore.html">sttcl::SttclSemaphore&lt;&gt;</a></li>
-</ul>
-</li>
-<li><a class="el" href="class_s_t_t_c_l___d_e_f_a_u_l_t___t_h_r_e_a_d_i_m_p_l.html">STTCL_DEFAULT_THREADIMPL</a><ul>
-<li><a class="el" href="classsttcl_1_1_sttcl_thread.html">sttcl::SttclThread&lt;&gt;</a></li>
+<li><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a></li>
 </ul>
 </li>
 <li><a class="el" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html">sttcl::internal::boost_impl::SttclBoostMutex</a></li>
@@ -161,7 +149,6 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 <li><a class="el" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_thread.html">sttcl::internal::boost_impl::SttclBoostThread</a></li>
 <li><a class="el" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_time_duration.html">sttcl::internal::boost_impl::SttclBoostTimeDuration</a></li>
 <li><a class="el" href="classsttcl_1_1_sttcl_mutex.html">sttcl::SttclMutex&lt; Impl &gt;</a></li>
-<li><a class="el" href="classsttcl_1_1internal_1_1posix__impl_1_1_sttcl_posix_time_duration.html">sttcl::internal::posix_impl::SttclPosixTimeDuration</a></li>
 <li><a class="el" href="classsttcl_1_1_sttcl_semaphore.html">sttcl::SttclSemaphore&lt; Impl &gt;</a></li>
 <li><a class="el" href="classsttcl_1_1_sttcl_thread.html">sttcl::SttclThread&lt; Impl &gt;</a></li>
 <li><a class="el" href="structsttcl_1_1_thread_function_helper.html">sttcl::ThreadFunctionHelper</a></li>
@@ -186,7 +173,7 @@ This inheritance list is sorted roughly, but not completely, alphabetically:</di
 </div>
 
 
-    <li class="footer">Generated on Wed Feb 8 2012 05:29:11 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 15:12:38 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -116,60 +116,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00017"></a>00017 <span class="preprocessor"></span><span class="preprocessor">#elif defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)</span>
 <a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../BoostThreads/SttclBoostMutex.h&quot;</span>
 <a name="l00019"></a>00019 <span class="preprocessor">#define STTCL_DEFAULT_MUTEXIMPL sttcl::internal::boost_impl::SttclBoostMutex</span>
-<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span>
-<a name="l00022"></a>00022 <span class="preprocessor">#ifndef STTCL_DEFAULT_MUTEXIMPL</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default mutex implementation for sttcl&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00026"></a>00026 <span class="preprocessor"></span>
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>sttcl
-<a name="l00028"></a>00028 {
-<a name="l00029"></a>00029 
-<a name="l00034"></a>00034 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Impl = STTCL_DEFAULT_MUTEXIMPL&gt;
-<a name="l00035"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html">00035</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_sttcl_mutex.html" title="Adapter class for a (OS-)specific mutex implementation.">SttclMutex</a>
-<a name="l00036"></a>00036 : <span class="keyword">public</span> Impl
-<a name="l00037"></a>00037 {
-<a name="l00038"></a>00038 <span class="keyword">public</span>:
-<a name="l00042"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5cf2f4104b90a1455014923a75e002f6">00042</a>         <a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5cf2f4104b90a1455014923a75e002f6" title="Constructor for class SttclMutex.">SttclMutex</a>() : Impl() {}
-<a name="l00046"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#a8a82cf3f56908ebc9b6a61f67e4d844a">00046</a>         <a class="code" href="classsttcl_1_1_sttcl_mutex.html#a8a82cf3f56908ebc9b6a61f67e4d844a" title="Destructor for class SttclMutex.">~SttclMutex</a>() {}
-<a name="l00047"></a>00047 
-<a name="l00051"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#adea7a136902c020a0b082cc8d03259b3">00051</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_sttcl_mutex.html#adea7a136902c020a0b082cc8d03259b3" title="Locks the mutex.">lock</a>()
-<a name="l00052"></a>00052         {
-<a name="l00053"></a>00053                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_sttcl_mutex.html#adea7a136902c020a0b082cc8d03259b3" title="Locks the mutex.">lock</a>();
-<a name="l00054"></a>00054         }
-<a name="l00055"></a>00055 
-<a name="l00064"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#aebb200e709fcb91c4570df08f501e0f8">00064</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_sttcl_mutex.html#aebb200e709fcb91c4570df08f501e0f8" title="Tries to lock the mutex within the specified timeout parameter.">try_lock</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;</a>&amp; timeout = <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;::Zero</a>)
-<a name="l00065"></a>00065         {
-<a name="l00066"></a>00066                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_sttcl_mutex.html#aebb200e709fcb91c4570df08f501e0f8" title="Tries to lock the mutex within the specified timeout parameter.">try_lock</a>(timeout);
-<a name="l00067"></a>00067         }
-<a name="l00068"></a>00068 
-<a name="l00072"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5f239a0ff180c59658c11118a2864841">00072</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5f239a0ff180c59658c11118a2864841" title="Unlocks the mutex.">unlock</a>()
-<a name="l00073"></a>00073         {
-<a name="l00074"></a>00074                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5f239a0ff180c59658c11118a2864841" title="Unlocks the mutex.">unlock</a>();
-<a name="l00075"></a>00075         }
-<a name="l00076"></a>00076 };
-<a name="l00077"></a>00077 
-<a name="l00082"></a>00082 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Lockable&gt;
-<a name="l00083"></a><a class="code" href="classsttcl_1_1_auto_locker.html">00083</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_auto_locker.html" title="Helper class to create a properly scoped lock of a mutex object.">AutoLocker</a>
-<a name="l00084"></a>00084 {
-<a name="l00085"></a>00085 <span class="keyword">public</span>:
-<a name="l00090"></a><a class="code" href="classsttcl_1_1_auto_locker.html#a58f3d2eec82aefccb6a76fc4db3c8ed0">00090</a>         <a class="code" href="classsttcl_1_1_auto_locker.html#a58f3d2eec82aefccb6a76fc4db3c8ed0" title="Constructor for class AutoLocker.">AutoLocker</a>(Lockable&amp; argLockableRef)
-<a name="l00091"></a>00091         : ref(argLockableRef)
-<a name="l00092"></a>00092         {
-<a name="l00093"></a>00093                 ref.lock();
-<a name="l00094"></a>00094         }
-<a name="l00095"></a>00095 
-<a name="l00099"></a><a class="code" href="classsttcl_1_1_auto_locker.html#a7fdb7714f58ec8efe971718ea26ffff4">00099</a>         <a class="code" href="classsttcl_1_1_auto_locker.html#a7fdb7714f58ec8efe971718ea26ffff4" title="Destructor for class AutoLocker.">~AutoLocker</a>()
-<a name="l00100"></a>00100         {
-<a name="l00101"></a>00101                 ref.unlock();
-<a name="l00102"></a>00102         }
-<a name="l00103"></a>00103 <span class="keyword">private</span>:
-<a name="l00104"></a>00104         Lockable&amp; ref;
-<a name="l00105"></a>00105 };
-<a name="l00106"></a>00106 }
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108 <span class="preprocessor">#endif </span><span class="comment">/* STTCLMUTEX_H_ */</span>
+<a name="l00020"></a>00020 <span class="preprocessor"></span><span class="preprocessor">#elif defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)</span>
+<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../C++11Threads/SttclCx11Mutex.h&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#define STTCL_DEFAULT_MUTEXIMPL sttcl::internal::cx11_impl::SttclCx11tMutex</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00024"></a>00024 <span class="preprocessor"></span>
+<a name="l00025"></a>00025 <span class="preprocessor">#ifndef STTCL_DEFAULT_MUTEXIMPL</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default mutex implementation for sttcl&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span>
+<a name="l00030"></a>00030 <span class="keyword">namespace </span>sttcl
+<a name="l00031"></a>00031 {
+<a name="l00032"></a>00032 
+<a name="l00037"></a>00037 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Impl = STTCL_DEFAULT_MUTEXIMPL&gt;
+<a name="l00038"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html">00038</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_sttcl_mutex.html" title="Adapter class for a (OS-)specific mutex implementation.">SttclMutex</a>
+<a name="l00039"></a>00039 : <span class="keyword">public</span> Impl
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041 <span class="keyword">public</span>:
+<a name="l00045"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5cf2f4104b90a1455014923a75e002f6">00045</a>         <a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5cf2f4104b90a1455014923a75e002f6" title="Constructor for class SttclMutex.">SttclMutex</a>() : Impl() {}
+<a name="l00049"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#a8a82cf3f56908ebc9b6a61f67e4d844a">00049</a>         <a class="code" href="classsttcl_1_1_sttcl_mutex.html#a8a82cf3f56908ebc9b6a61f67e4d844a" title="Destructor for class SttclMutex.">~SttclMutex</a>() {}
+<a name="l00050"></a>00050 
+<a name="l00054"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#adea7a136902c020a0b082cc8d03259b3">00054</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_sttcl_mutex.html#adea7a136902c020a0b082cc8d03259b3" title="Locks the mutex.">lock</a>()
+<a name="l00055"></a>00055         {
+<a name="l00056"></a>00056                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_sttcl_mutex.html#adea7a136902c020a0b082cc8d03259b3" title="Locks the mutex.">lock</a>();
+<a name="l00057"></a>00057         }
+<a name="l00058"></a>00058 
+<a name="l00067"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#aebb200e709fcb91c4570df08f501e0f8">00067</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_sttcl_mutex.html#aebb200e709fcb91c4570df08f501e0f8" title="Tries to lock the mutex within the specified timeout parameter.">try_lock</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;</a>&amp; timeout = <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;::Zero</a>)
+<a name="l00068"></a>00068         {
+<a name="l00069"></a>00069                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_sttcl_mutex.html#aebb200e709fcb91c4570df08f501e0f8" title="Tries to lock the mutex within the specified timeout parameter.">try_lock</a>(timeout);
+<a name="l00070"></a>00070         }
+<a name="l00071"></a>00071 
+<a name="l00075"></a><a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5f239a0ff180c59658c11118a2864841">00075</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5f239a0ff180c59658c11118a2864841" title="Unlocks the mutex.">unlock</a>()
+<a name="l00076"></a>00076         {
+<a name="l00077"></a>00077                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_sttcl_mutex.html#a5f239a0ff180c59658c11118a2864841" title="Unlocks the mutex.">unlock</a>();
+<a name="l00078"></a>00078         }
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00085"></a>00085 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Lockable&gt;
+<a name="l00086"></a><a class="code" href="classsttcl_1_1_auto_locker.html">00086</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_auto_locker.html" title="Helper class to create a properly scoped lock of a mutex object.">AutoLocker</a>
+<a name="l00087"></a>00087 {
+<a name="l00088"></a>00088 <span class="keyword">public</span>:
+<a name="l00093"></a><a class="code" href="classsttcl_1_1_auto_locker.html#a58f3d2eec82aefccb6a76fc4db3c8ed0">00093</a>         <a class="code" href="classsttcl_1_1_auto_locker.html#a58f3d2eec82aefccb6a76fc4db3c8ed0" title="Constructor for class AutoLocker.">AutoLocker</a>(Lockable&amp; argLockableRef)
+<a name="l00094"></a>00094         : ref(argLockableRef)
+<a name="l00095"></a>00095         {
+<a name="l00096"></a>00096                 ref.lock();
+<a name="l00097"></a>00097         }
+<a name="l00098"></a>00098 
+<a name="l00102"></a><a class="code" href="classsttcl_1_1_auto_locker.html#a7fdb7714f58ec8efe971718ea26ffff4">00102</a>         <a class="code" href="classsttcl_1_1_auto_locker.html#a7fdb7714f58ec8efe971718ea26ffff4" title="Destructor for class AutoLocker.">~AutoLocker</a>()
+<a name="l00103"></a>00103         {
+<a name="l00104"></a>00104                 ref.unlock();
+<a name="l00105"></a>00105         }
+<a name="l00106"></a>00106 <span class="keyword">private</span>:
+<a name="l00107"></a>00107         Lockable&amp; ref;
+<a name="l00108"></a>00108 };
+<a name="l00109"></a>00109 }
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111 <span class="preprocessor">#endif </span><span class="comment">/* STTCLMUTEX_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -190,7 +193,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Wed Feb 8 2012 05:29:10 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 15:12:37 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
