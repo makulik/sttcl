@@ -192,6 +192,13 @@ namespace posix_impl
 {
 }
 
+/**
+ * @namespace sttcl::internal::cx11_impl
+ * @brief Contains C++ 11 standard based implementation classes for STTCL.
+ */
+namespace cx11_impl
+{
+}
 }
 }
 

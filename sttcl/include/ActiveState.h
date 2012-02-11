@@ -128,6 +128,11 @@ public:
     typedef StateImpl Implementation;
 
     /**
+     * The state base class type.
+     */
+    typedef StateBase<StateMachineImpl,IState> StateBaseType;
+
+    /**
      * The state do action type.
      */
     typedef void (Implementation::*StateDoAction)(Context*, bool);
@@ -391,6 +396,7 @@ private:
     {
     	bool initialCall = true;
     	setDoActionRunning(true);
+    	bool directTransitionTriggered = false;
     	do
     	{
             (static_cast<Implementation*>(this)->*doAction)(context,initialCall);
@@ -402,7 +408,7 @@ private:
             // Handle direct transitions
             StateBaseType* nextState = 0;
             bool finalize = false;
-            if(static_cast<Implementation*>(this)->getDirectTransitionImpl(context,finalize,nextState))
+            if(static_cast<Implementation*>(this)->checkDirectTransitionImpl(context,finalize,nextState))
     		{
     			if(finalize)
     			{
@@ -411,9 +417,10 @@ private:
     			else if(nextState)
     			{
     				changeState(context,nextState);
+    				directTransitionTriggered = true;
     			}
     		}
-    	} while(!endDoActionRequested() || runDoActionOnce);
+    	} while(!endDoActionRequested() && !runDoActionOnce && !directTransitionTriggered);
         static_cast<Implementation*>(this)->exitingDoActionImpl();
     	setDoActionRunning(false);
     }
