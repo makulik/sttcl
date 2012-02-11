@@ -287,6 +287,20 @@ public:
     {
     }
 
+    /**
+     * Default implementation for the getDirectTransitionImpl() method.
+     * @param context A pointer to the containing state machine.
+     * @param nextState Receives a pointer to the next sibling state to appear on a direct transition.
+     * @param finalize Receives \c true to finalize the containing state machine.
+     * @return \c true if a direct transition should be performed, \c false otherwise.
+     */
+    bool checkDirectTransitionImpl(Context* context, bool& finalize, StateBaseType*& nextState)
+    {
+    	nextState = 0;
+    	finalize = false;
+    	return false;
+    }
+
 protected:
 	/**
      * Constructor for class ActiveState.
@@ -384,6 +398,21 @@ private:
             {
             	initialCall = false;
             }
+
+            // Handle direct transitions
+            StateBaseType* nextState = 0;
+            bool finalize = false;
+            if(static_cast<Implementation*>(this)->getDirectTransitionImpl(context,finalize,nextState))
+    		{
+    			if(finalize)
+    			{
+    				context->finalize();
+    			}
+    			else if(nextState)
+    			{
+    				changeState(context,nextState);
+    			}
+    		}
     	} while(!endDoActionRequested() || runDoActionOnce);
         static_cast<Implementation*>(this)->exitingDoActionImpl();
     	setDoActionRunning(false);
