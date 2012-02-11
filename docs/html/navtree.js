@@ -4,7 +4,8 @@ var NAVTREE =
     [ "STTCL state machine template class framework", "index.html", null ],
     [ "Related Pages", "pages.html", [
       [ "Usage of the STTCL state machine template class framework", "usage_page.html", null ],
-      [ "Mapping of the state diagram notation elements", "uml2gof_page.html", null ]
+      [ "Mapping of the state diagram notation elements", "uml2gof_page.html", null ],
+      [ "Configuring the STTCL library for a specific OS/build environment", "sttcl_config_page.html", null ]
     ] ],
     [ "Class List", "annotated.html", [
       [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
