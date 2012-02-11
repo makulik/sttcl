@@ -8,6 +8,7 @@
 #ifndef STTCLBOOSTTHREAD_H_
 #define STTCLBOOSTTHREAD_H_
 
+#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 #include <boost/thread.hpp>
 namespace sttcl
 {
@@ -42,4 +43,5 @@ private:
 }
 }
 
+#endif
 #endif /* STTCLBOOSTTHREAD_H_ */

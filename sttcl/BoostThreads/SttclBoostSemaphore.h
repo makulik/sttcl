@@ -8,6 +8,7 @@
 #ifndef STTCLBOOSTSEMAPHORE_H_
 #define STTCLBOOSTSEMAPHORE_H_
 
+#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 #include <boost/interprocess/sync/interprocess_semaphore.hpp>
 #include "../include/SttclTime.h"
 
@@ -40,4 +41,5 @@ private:
 }
 }
 
+#endif
 #endif /* STTCLBOOSTSEMAPHORE_H_ */

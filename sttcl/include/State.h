@@ -250,7 +250,7 @@ private:
         // Handle direct transitions
         StateBaseType* nextState = 0;
         bool finalize = false;
-        if(static_cast<Implementation*>(this)->getDirectTransitionImpl(context,finalize,nextState))
+        if(static_cast<Implementation*>(this)->checkDirectTransitionImpl(context,finalize,nextState))
 		{
 			if(finalize)
 			{

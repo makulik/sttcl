@@ -8,6 +8,7 @@
 #ifndef STTCLBOOSTMUTEX_H_
 #define STTCLBOOSTMUTEX_H_
 
+#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 #include <boost/thread.hpp>
 #include "../include/SttclTime.h"
 
@@ -40,4 +41,5 @@ private:
 }
 }
 
+#endif
 #endif /* STTCLBOOSTMUTEX_H_ */

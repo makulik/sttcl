@@ -8,6 +8,7 @@
 #ifndef STTCLBOOSTTIME_H_
 #define STTCLBOOSTTIME_H_
 
+#if defined(STTCL_BOOST_TIME) or defined(STTCL_BOOST_IMPL)
 #include <boost/date_time/posix_time/posix_time.hpp>
 using namespace boost;
 using namespace boost::posix_time;
@@ -183,4 +184,6 @@ private:
 }
 }
 }
+
+#endif
 #endif /* STTCLBOOSTTIME_H_ */
