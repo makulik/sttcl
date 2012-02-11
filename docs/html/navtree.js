@@ -25,10 +25,6 @@ var NAVTREE =
       [ "sttcl::StateBase< StateMachineImpl, IState >", "classsttcl_1_1_state_base.html", null ],
       [ "StateInterface", "class_state_machine_impl_1_1_state_interface.html", null ],
       [ "sttcl::StateMachine< StateMachineImpl, IState >", "classsttcl_1_1_state_machine.html", null ],
-      [ "sttcl::internal::boost_impl::SttclBoostMutex", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html", null ],
-      [ "sttcl::internal::boost_impl::SttclBoostSemaphore", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html", null ],
-      [ "sttcl::internal::boost_impl::SttclBoostThread", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_thread.html", null ],
-      [ "sttcl::internal::boost_impl::SttclBoostTimeDuration", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_time_duration.html", null ],
       [ "sttcl::SttclMutex< Impl >", "classsttcl_1_1_sttcl_mutex.html", null ],
       [ "sttcl::SttclSemaphore< Impl >", "classsttcl_1_1_sttcl_semaphore.html", null ],
       [ "sttcl::SttclThread< Impl >", "classsttcl_1_1_sttcl_thread.html", null ],
@@ -70,10 +66,6 @@ var NAVTREE =
       [ "sttcl::StateMachine< RegionImpl, IInnerState >", "classsttcl_1_1_state_machine.html", [
         [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
       ] ],
-      [ "sttcl::internal::boost_impl::SttclBoostMutex", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html", null ],
-      [ "sttcl::internal::boost_impl::SttclBoostSemaphore", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html", null ],
-      [ "sttcl::internal::boost_impl::SttclBoostThread", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_thread.html", null ],
-      [ "sttcl::internal::boost_impl::SttclBoostTimeDuration", "classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_time_duration.html", null ],
       [ "sttcl::SttclMutex< Impl >", "classsttcl_1_1_sttcl_mutex.html", null ],
       [ "sttcl::SttclSemaphore< Impl >", "classsttcl_1_1_sttcl_semaphore.html", null ],
       [ "sttcl::SttclThread< Impl >", "classsttcl_1_1_sttcl_thread.html", null ],
@@ -85,6 +77,7 @@ var NAVTREE =
       [ "sttcl", "namespacesttcl.html", null ],
       [ "sttcl::internal", "namespacesttcl_1_1internal.html", null ],
       [ "sttcl::internal::boost_impl", "namespacesttcl_1_1internal_1_1boost__impl.html", null ],
+      [ "sttcl::internal::cx11_impl", "namespacesttcl_1_1internal_1_1cx11__impl.html", null ],
       [ "sttcl::internal::posix_impl", "namespacesttcl_1_1internal_1_1posix__impl.html", null ]
     ] ],
     [ "File List", "files.html", [

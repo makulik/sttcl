@@ -137,6 +137,9 @@ Public Types</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The semaphore class type to use for ending the do action call loop.  <a href="#aa409418bd7f36dacb706cebdd8c1d4e1"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef StateImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db">Implementation</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The implementation class type.  <a href="#a4ea0ef62090262e1f8040ebbc3caf5db"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a><br class="typebreak"/>
+&lt; StateMachineImpl, IState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_active_state.html#a5c659bfad3d3de57b6a6f4d83e1438be">StateBaseType</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state base class type.  <a href="#a5c659bfad3d3de57b6a6f4d83e1438be"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void(Implementation::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_active_state.html#aa8ec91fb559d8c150b9b0298120bbea8">StateDoAction</a> )(<a class="el" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5">Context</a> *, bool)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state do action type.  <a href="#aa8ec91fb559d8c150b9b0298120bbea8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef StateThreadType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_active_state.html#a396df939e59176ea47fe1fe5b4908bee">StateThreadImpl</a></td></tr>
@@ -145,7 +148,7 @@ Public Types</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The time duration class type to use for specifying the do action call rate.  <a href="#a4064e3c8e893cc6f510d512a0fd82b1b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_active_state.html#adefe13cec24b580d153b0befa6e8751d">checkDirectTransitionImpl</a> (<a class="el" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5">Context</a> *context, bool &amp;finalize, StateBaseType *&amp;nextState)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_active_state.html#adefe13cec24b580d153b0befa6e8751d">checkDirectTransitionImpl</a> (<a class="el" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5">Context</a> *context, bool &amp;finalize, <a class="el" href="classsttcl_1_1_active_state.html#a5c659bfad3d3de57b6a6f4d83e1438be">StateBaseType</a> *&amp;nextState)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the getDirectTransitionImpl() method.  <a href="#adefe13cec24b580d153b0befa6e8751d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_active_state.html#a5b6285005a00db6a2b845ad11e710d85">endDoActionRequestedImpl</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for checking if endDo() was requested.  <a href="#a5b6285005a00db6a2b845ad11e710d85"></a><br/></td></tr>
@@ -278,6 +281,23 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 <p>The implementation class type. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>, and <a class="el" href="classsttcl_1_1_region.html#aeac42e66e4c1e9032ccf49095049ff00">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c659bfad3d3de57b6a6f4d83e1438be"></a><!-- doxytag: member="sttcl::ActiveState::StateBaseType" ref="a5c659bfad3d3de57b6a6f4d83e1438be" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateImpl, class StateMachineImpl, class IState, class StateThreadType = SttclThread&lt;&gt;, class EndDoActionSemaphoreType = SttclSemaphore&lt;&gt;, class TimeDurationType = TimeDuration&lt;&gt;, class ActiveStateMutexType = SttclMutex&lt;&gt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt;StateMachineImpl,IState&gt; <a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState</a>&lt; StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::<a class="el" href="classsttcl_1_1_active_state.html#a5c659bfad3d3de57b6a6f4d83e1438be">StateBaseType</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The state base class type. </p>
 
 </div>
 </div>
@@ -462,7 +482,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">StateBaseType *&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_active_state.html#a5c659bfad3d3de57b6a6f4d83e1438be">StateBaseType</a> *&amp;&#160;</td>
           <td class="paramname"><em>nextState</em>&#160;</td>
         </tr>
         <tr>
@@ -886,7 +906,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 </div>
 
 
-    <li class="footer">Generated on Sat Feb 11 2012 15:42:54 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 18:37:38 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

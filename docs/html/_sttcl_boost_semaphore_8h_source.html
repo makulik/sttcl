@@ -107,36 +107,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00008"></a>00008 <span class="preprocessor">#ifndef STTCLBOOSTSEMAPHORE_H_</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define STTCLBOOSTSEMAPHORE_H_</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;boost/interprocess/sync/interprocess_semaphore.hpp&gt;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;../include/SttclTime.h&quot;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="keyword">namespace </span>sttcl
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016 
-<a name="l00017"></a>00017 <span class="keyword">namespace </span>internal
-<a name="l00018"></a>00018 {
-<a name="l00019"></a>00019 <span class="keyword">namespace </span>boost_impl
-<a name="l00020"></a>00020 {
-<a name="l00024"></a><a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html">00024</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html" title="The boost default implementation for sttcl::SttclSemaphore&lt;&gt;.">SttclBoostSemaphore</a>
-<a name="l00025"></a>00025 {
-<a name="l00026"></a>00026 <span class="keyword">public</span>:
-<a name="l00027"></a><a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#a925a2560a1c642db558a976775ab44f0">00027</a>         <span class="keyword">typedef</span> boost::interprocess::interprocess_semaphore <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#a925a2560a1c642db558a976775ab44f0">NativeSemaphoreType</a>;
-<a name="l00028"></a>00028         <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#adb06ab7031c345f6bf828ccaf14819ad">SttclBoostSemaphore</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initialCount);
-<a name="l00029"></a>00029         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#a245b8720015e0a079361ae0027e96a77">~SttclBoostSemaphore</a>();
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#a41c9b83b0b4d3695a0d30d79519f9e8b">wait</a>();
-<a name="l00032"></a>00032         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#a166de48e21a92bf0f673d2fa5595a458">try_wait</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;</a>&amp; timeout);
-<a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#af9d571aa9afbcc0e67a928e1eccccce7">post</a>();
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">private</span>:
-<a name="l00036"></a>00036         <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_semaphore.html#a925a2560a1c642db558a976775ab44f0">NativeSemaphoreType</a> semaphore;
-<a name="l00037"></a>00037 };
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 }
+<a name="l00011"></a>00011 <span class="preprocessor">#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#include &lt;boost/interprocess/sync/interprocess_semaphore.hpp&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;../include/SttclTime.h&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>sttcl
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>internal
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020 <span class="keyword">namespace </span>boost_impl
+<a name="l00021"></a>00021 {
+<a name="l00025"></a>00025 <span class="keyword">class </span>SttclBoostSemaphore
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027 <span class="keyword">public</span>:
+<a name="l00028"></a>00028         <span class="keyword">typedef</span> boost::interprocess::interprocess_semaphore NativeSemaphoreType;
+<a name="l00029"></a>00029         SttclBoostSemaphore(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initialCount);
+<a name="l00030"></a>00030         <span class="keyword">virtual</span> ~SttclBoostSemaphore();
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> wait();
+<a name="l00033"></a>00033         <span class="keywordtype">bool</span> try_wait(<span class="keyword">const</span> TimeDuration&lt;&gt;&amp; timeout);
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> post();
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">private</span>:
+<a name="l00037"></a>00037         NativeSemaphoreType semaphore;
+<a name="l00038"></a>00038 };
+<a name="l00039"></a>00039 
 <a name="l00040"></a>00040 }
 <a name="l00041"></a>00041 }
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#endif </span><span class="comment">/* STTCLBOOSTSEMAPHORE_H_ */</span>
+<a name="l00042"></a>00042 }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#endif</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* STTCLBOOSTSEMAPHORE_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -157,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sat Feb 11 2012 15:42:52 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 18:37:37 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

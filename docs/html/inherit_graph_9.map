@@ -1,3 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html" title="Specializes CompositeStateBaseSelector for deep history pseudo state behavior." alt="" coords="5,5,600,32"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class." alt="" coords="6,31,293,57"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1_active_state.html" title="Represents a particular state machines active state implementation base class." alt="" coords="341,5,1229,32"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class." alt="" coords="626,56,945,83"/>
 </map>

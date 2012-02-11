@@ -107,36 +107,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00008"></a>00008 <span class="preprocessor">#ifndef STTCLBOOSTMUTEX_H_</span>
 <a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define STTCLBOOSTMUTEX_H_</span>
 <a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;boost/thread.hpp&gt;</span>
-<a name="l00012"></a>00012 <span class="preprocessor">#include &quot;../include/SttclTime.h&quot;</span>
-<a name="l00013"></a>00013 
-<a name="l00014"></a><a class="code" href="namespacesttcl.html">00014</a> <span class="keyword">namespace </span>sttcl
-<a name="l00015"></a>00015 {
-<a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="namespacesttcl_1_1internal.html">00017</a> <span class="keyword">namespace </span>internal
-<a name="l00018"></a>00018 {
-<a name="l00019"></a><a class="code" href="namespacesttcl_1_1internal_1_1boost__impl.html">00019</a> <span class="keyword">namespace </span>boost_impl
-<a name="l00020"></a>00020 {
-<a name="l00024"></a><a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html">00024</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html" title="The boost default implementation for sttcl::SttclMutex&lt;&gt;.">SttclBoostMutex</a>
-<a name="l00025"></a>00025 {
-<a name="l00026"></a>00026 <span class="keyword">public</span>:
-<a name="l00027"></a><a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#a052fba69e72995aaccf9087e4edb8408">00027</a>         <span class="keyword">typedef</span> boost::timed_mutex <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#a052fba69e72995aaccf9087e4edb8408">NativeMutexType</a>;
-<a name="l00028"></a>00028         <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#a4347f1ede1fbe2c4d24db8eaae500820">SttclBoostMutex</a>();
-<a name="l00029"></a>00029         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#a4e9ee998129a0691ab0038a2e0a0089e">~SttclBoostMutex</a>();
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#a6c6b0571bd18c6951d10e32c7f188afe">lock</a>();
-<a name="l00032"></a>00032         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#aa0cdbc4be5b5962488484df60ee02868">try_lock</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;</a>&amp; timeout);
-<a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#a26c89d0eafee92fce3705741d2ff435b">unlock</a>();
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">private</span>:
-<a name="l00036"></a>00036         <a class="code" href="classsttcl_1_1internal_1_1boost__impl_1_1_sttcl_boost_mutex.html#a052fba69e72995aaccf9087e4edb8408">NativeMutexType</a> mutex;
-<a name="l00037"></a>00037 };
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 }
+<a name="l00011"></a>00011 <span class="preprocessor">#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#include &lt;boost/thread.hpp&gt;</span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &quot;../include/SttclTime.h&quot;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="keyword">namespace </span>sttcl
+<a name="l00016"></a>00016 {
+<a name="l00017"></a>00017 
+<a name="l00018"></a>00018 <span class="keyword">namespace </span>internal
+<a name="l00019"></a>00019 {
+<a name="l00020"></a>00020 <span class="keyword">namespace </span>boost_impl
+<a name="l00021"></a>00021 {
+<a name="l00025"></a>00025 <span class="keyword">class </span>SttclBoostMutex
+<a name="l00026"></a>00026 {
+<a name="l00027"></a>00027 <span class="keyword">public</span>:
+<a name="l00028"></a>00028         <span class="keyword">typedef</span> boost::timed_mutex NativeMutexType;
+<a name="l00029"></a>00029         SttclBoostMutex();
+<a name="l00030"></a>00030         <span class="keyword">virtual</span> ~SttclBoostMutex();
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> lock();
+<a name="l00033"></a>00033         <span class="keywordtype">bool</span> try_lock(<span class="keyword">const</span> TimeDuration&lt;&gt;&amp; timeout);
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> unlock();
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">private</span>:
+<a name="l00037"></a>00037         NativeMutexType mutex;
+<a name="l00038"></a>00038 };
+<a name="l00039"></a>00039 
 <a name="l00040"></a>00040 }
 <a name="l00041"></a>00041 }
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="preprocessor">#endif </span><span class="comment">/* STTCLBOOSTMUTEX_H_ */</span>
+<a name="l00042"></a>00042 }
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 <span class="preprocessor">#endif</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* STTCLBOOSTMUTEX_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -157,7 +159,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sat Feb 11 2012 15:42:52 for sttcl by
+    <li class="footer">Generated on Sat Feb 11 2012 18:37:37 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
