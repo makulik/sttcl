@@ -17,6 +17,9 @@
 #elif defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 #include "../BoostThreads/SttclBoostMutex.h"
 #define STTCL_DEFAULT_MUTEXIMPL sttcl::internal::boost_impl::SttclBoostMutex
+#elif defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
+#include "../C++11Threads/SttclCx11Mutex.h"
+#define STTCL_DEFAULT_MUTEXIMPL sttcl::internal::cx11_impl::SttclCx11tMutex
 #endif
 
 #ifndef STTCL_DEFAULT_MUTEXIMPL

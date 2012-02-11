@@ -13,6 +13,9 @@
 #elif defined(STTCL_BOOST_TIME) or defined(STTCL_BOOST_IMPL)
 #include "../BoostTime/SttclBoostTime.h"
 #define STTCL_DEFAULT_TIMEDURATION_IMPL sttcl::internal::boost_impl::SttclBoostTimeDuration
+#elif defined(STTCL_CX11_TIME) or defined(STTCL_CX11_IMPL)
+#include "../C++Time/SttclCx11Time.h"
+#define STTCL_DEFAULT_TIMEDURATION_IMPL sttcl::internal::cx11_impl::SttclCx11TimeDuration
 #endif
 
 #ifndef STTCL_DEFAULT_TIMEDURATION_IMPL

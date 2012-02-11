@@ -1,34 +1,30 @@
 /*
- * SttclBoostTime.h
+ * SttclCx11Time.h
  *
  *  Created on: 29.12.2011
  *      Author: Admin
  */
 
-#ifndef STTCLBOOSTTIME_H_
-#define STTCLBOOSTTIME_H_
+#ifndef STTCLCX11TIME_H_
+#define STTCLCX11TIME_H_
 
-#include <boost/date_time/posix_time/posix_time.hpp>
-using namespace boost;
-using namespace boost::posix_time;
-using namespace boost::date_time;
-
+#if defined(STTCL_CX11_TIME) or defined(STTCL_CX11_IMPL)
 namespace sttcl
 {
 
 namespace internal
 {
-namespace boost_impl
+namespace cx11_impl
 {
 /**
- * The boost default implementation for sttcl::TimeDuration<>.
+ * The C++ 11 standard default implementation for sttcl::TimeDuration<>.
  */
-class SttclBoostTimeDuration
+class SttclCx11TimeDuration
 {
 public:
 	typedef boost::posix_time::time_duration NativeTimeDuration;
 
-	SttclBoostTimeDuration(unsigned int argHours, unsigned int argMinutes, unsigned int argSeconds = 0, unsigned int argMilliSeconds = 0, unsigned long argMicroSeconds = 0, unsigned long argNanoSeconds = 0)
+	SttclCx11TimeDuration(unsigned int argHours, unsigned int argMinutes, unsigned int argSeconds = 0, unsigned int argMilliSeconds = 0, unsigned long argMicroSeconds = 0, unsigned long argNanoSeconds = 0)
 	: td(argHours,argMinutes,argSeconds,NativeTimeDuration::fractional_seconds_type(0))
 	{
 		td += boost::posix_time::milliseconds(argMilliSeconds);
@@ -37,65 +33,65 @@ public:
 		td += boost::posix_time::nanoseconds(argNanoSeconds);
 #endif
 	}
-	SttclBoostTimeDuration(const SttclBoostTimeDuration& rhs)
+	SttclCx11TimeDuration(const SttclCx11TimeDuration& rhs)
 	: td(rhs.td)
 	{
 	}
-	~SttclBoostTimeDuration()
+	~SttclCx11TimeDuration()
 	{
 	}
 
-	SttclBoostTimeDuration& operator=(const SttclBoostTimeDuration& rhs)
+	SttclCx11TimeDuration& operator=(const SttclCx11TimeDuration& rhs)
 	{
 		td = rhs.td;
 		return *this;
 	}
 
-	bool operator==(const SttclBoostTimeDuration& rhs) const
+	bool operator==(const SttclCx11TimeDuration& rhs) const
 	{
 		return td == rhs.td;
 	}
-	bool operator!=(const SttclBoostTimeDuration& rhs) const
+	bool operator!=(const SttclCx11TimeDuration& rhs) const
 	{
 		return td != rhs.td;
 	}
-	bool operator<(const SttclBoostTimeDuration& rhs) const
+	bool operator<(const SttclCx11TimeDuration& rhs) const
 	{
 		return td < rhs.td;
 	}
-	bool operator<=(const SttclBoostTimeDuration& rhs) const
+	bool operator<=(const SttclCx11TimeDuration& rhs) const
 	{
 		return td <= rhs.td;
 	}
 
-	bool operator>(const SttclBoostTimeDuration& rhs) const
+	bool operator>(const SttclCx11TimeDuration& rhs) const
 	{
 		return td > rhs.td;
 	}
-	bool operator>=(const SttclBoostTimeDuration& rhs) const
+	bool operator>=(const SttclCx11TimeDuration& rhs) const
 	{
 		return td >= rhs.td;
 	}
 
-	SttclBoostTimeDuration& operator+=(const SttclBoostTimeDuration& rhs)
+	SttclCx11TimeDuration& operator+=(const SttclCx11TimeDuration& rhs)
 	{
 		td += rhs.td;
 		return *this;
 	}
 
-	SttclBoostTimeDuration& operator-=(const SttclBoostTimeDuration& rhs)
+	SttclCx11TimeDuration& operator-=(const SttclCx11TimeDuration& rhs)
 	{
 		td -= rhs.td;
 		return *this;
 	}
 
-	SttclBoostTimeDuration& operator*=(int factor)
+	SttclCx11TimeDuration& operator*=(int factor)
 	{
 		td *=factor;
 		return *this;
 	}
 
-	SttclBoostTimeDuration& operator/=(int divider)
+	SttclCx11TimeDuration& operator/=(int divider)
 	{
 		td /= divider;
 		return *this;
@@ -183,4 +179,5 @@ private:
 }
 }
 }
-#endif /* STTCLBOOSTTIME_H_ */
+#endif
+#endif /* STTCLCX11TIME_H_ */

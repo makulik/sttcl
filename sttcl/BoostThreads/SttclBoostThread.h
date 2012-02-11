@@ -15,6 +15,9 @@ namespace internal
 {
 namespace boost_impl
 {
+/**
+ * The boost default implementation for sttcl::SttclThread<>.
+ */
 class SttclBoostThread
 {
 public:
