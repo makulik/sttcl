@@ -131,10 +131,14 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to finalize the region.  <a href="#a43b4d5d395f040b37a6e59c392de94a0"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class RegionImpl &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">RegionImpl *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8dd9b5f106c984b897f4b41df25eb861">getRegionContext</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the actual <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a> implementation context.  <a href="#a8dd9b5f106c984b897f4b41df25eb861"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a2f315db10631cb03c0b46c6baea71839">handleBroadcastedEvent</a> (StateMachineImpl *context, <a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">EventHandler</a> eventHandler, const EventArgs *eventArgs)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to handle an event broadcasted from the containing <a class="el" href="classsttcl_1_1_concurrent_composite_state.html" title="Represents a concurrent composite state implementation base class.">ConcurrentCompositeState</a> instance.  <a href="#a2f315db10631cb03c0b46c6baea71839"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8da085feb2d6b8847961b22b19dbd0f7">initializeRegion</a> (bool recursive)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called to initialize the region.  <a href="#a8da085feb2d6b8847961b22b19dbd0f7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a87140e57eb356962b68b7a537954e106">internalFinalize</a> (bool recursive)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a359ca49d2dae0c188d3012fb47f4c106">internalInitialize</a> (bool recursive)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to call the <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e" title="Initializes the state machine.">Region::initialize()</a> method, when initialize() should run inside the region thread.  <a href="#a359ca49d2dae0c188d3012fb47f4c106"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#adffbbc9bb8799df134feb64394d0a302">isRegionFinalized</a> ()=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that the region is finalized.  <a href="#adffbbc9bb8799df134feb64394d0a302"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8992e99e6a4e7ed365529faba9949c5a">isRegionInitialized</a> ()=0</td></tr>
@@ -346,6 +350,9 @@ template&lt;class RegionImpl &gt; </div>
 </div>
 <div class="memdoc">
 
+<p>Gets the actual <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a> implementation context. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A pointer to the actual <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a> implementation. </dd></dl>
+
 </div>
 </div>
 <a class="anchor" id="a2f315db10631cb03c0b46c6baea71839"></a><!-- doxytag: member="sttcl::RegionBase::handleBroadcastedEvent" ref="a2f315db10631cb03c0b46c6baea71839" args="(StateMachineImpl *context, EventHandler eventHandler, const EventArgs *eventArgs)=0" -->
@@ -418,6 +425,52 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
   </dd>
 </dl>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> when the region was successfully initialized, <code>false</code> otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a87140e57eb356962b68b7a537954e106"></a><!-- doxytag: member="sttcl::RegionBase::internalFinalize" ref="a87140e57eb356962b68b7a537954e106" args="(bool recursive)=0" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::internalFinalize </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>recursive</em></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a359ca49d2dae0c188d3012fb47f4c106"></a><!-- doxytag: member="sttcl::RegionBase::internalInitialize" ref="a359ca49d2dae0c188d3012fb47f4c106" args="(bool recursive)=0" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::internalInitialize </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>recursive</em></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Used to call the <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e" title="Initializes the state machine.">Region::initialize()</a> method, when initialize() should run inside the region thread. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">recursive</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -555,7 +608,7 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 </div>
 
 
-    <li class="footer">Generated on Sat Feb 11 2012 18:37:39 for sttcl by
+    <li class="footer">Generated on Tue Feb 14 2012 04:22:25 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

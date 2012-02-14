@@ -104,7 +104,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="_active_state_8h_source.html">ActiveState.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_sttcl_mutex_8h_source.html">SttclMutex.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_sttcl_semaphore_8h_source.html">SttclSemaphore.h</a>&quot;</code><br/>
-<code>#include &lt;deque&gt;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Region.h:</div>
 <div class="dyncontent">
@@ -124,11 +123,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;::DispatchedEvent</b></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1_dispatched_event.html">sttcl::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Container struct to dispatch events to the inner region thread.  <a href="structsttcl_1_1_dispatched_event.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType &gt;</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a region within a matching <a class="el" href="classsttcl_1_1_concurrent_composite_state.html" title="Represents a concurrent composite state implementation base class.">ConcurrentCompositeState</a> implementation.  <a href="classsttcl_1_1_region.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, EventArgs &gt;</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the abstract <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a> base class.  <a href="classsttcl_1_1_region_base.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_sttcl_event_queue.html">sttcl::SttclEventQueue&lt; T, SemaphoreType, MutexType, TimeDurationType, InnerQueueType &gt;</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a queue used to dispatch events to a waiting thread.  <a href="classsttcl_1_1_sttcl_event_queue.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesttcl.html">sttcl</a></td></tr>
@@ -155,7 +157,7 @@ Namespaces</h2></td></tr>
 </div>
 
 
-    <li class="footer">Generated on Sat Feb 11 2012 18:37:38 for sttcl by
+    <li class="footer">Generated on Tue Feb 14 2012 04:22:24 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
