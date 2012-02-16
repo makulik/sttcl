@@ -223,43 +223,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00245"></a>00245 
 <a name="l00246"></a>00246     <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDo(<a class="code" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f" title="The state machine implementation type.">Context</a>* context)
 <a name="l00247"></a>00247     {
-<a name="l00248"></a>00248         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#ae0676f55482b2cb6702d83fea4820e67" title="Default implementation for the startDo() method.">startDoImpl</a>(context);
-<a name="l00249"></a>00249 
-<a name="l00250"></a>00250         <span class="comment">// Handle direct transitions</span>
-<a name="l00251"></a>00251         <a class="code" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5" title="The state base class type.">StateBaseType</a>* nextState = 0;
-<a name="l00252"></a>00252         <span class="keywordtype">bool</span> finalize = <span class="keyword">false</span>;
-<a name="l00253"></a>00253         <span class="keywordflow">if</span>(static_cast&lt;Implementation*&gt;(<span class="keyword">this</span>)-&gt;checkDirectTransitionImpl(context,finalize,nextState))
-<a name="l00254"></a>00254                 {
-<a name="l00255"></a>00255                         <span class="keywordflow">if</span>(finalize)
-<a name="l00256"></a>00256                         {
-<a name="l00257"></a>00257                                 context-&gt;finalize();
-<a name="l00258"></a>00258                         }
-<a name="l00259"></a>00259                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nextState)
-<a name="l00260"></a>00260                         {
-<a name="l00261"></a>00261                                 <a class="code" href="classsttcl_1_1_state.html#ae0cc0ada45cfedee822bcdb3ef65253a" title="Changes context state machine to another sibling state.">changeState</a>(context,nextState);
-<a name="l00262"></a>00262                         }
-<a name="l00263"></a>00263                 }
-<a name="l00264"></a>00264     }
-<a name="l00265"></a>00265 
-<a name="l00266"></a>00266     <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDo(<a class="code" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f" title="The state machine implementation type.">Context</a>* context)
-<a name="l00267"></a>00267     {
-<a name="l00268"></a>00268         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#a22e611f477dc5d61b4c1ad9cce06fea2" title="Default implementation for the endDo() method.">endDoImpl</a>(context);
-<a name="l00269"></a>00269     }
-<a name="l00270"></a>00270 
-<a name="l00271"></a>00271     <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeSubStateMachines(<span class="keywordtype">bool</span> recursive)
-<a name="l00272"></a>00272     {
-<a name="l00273"></a>00273         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#a1057dd539794089ceeb8c57d1269ccc2" title="Default implementation for the finalizeSubStateMachines() method.">finalizeSubStateMachinesImpl</a>(recursive);
-<a name="l00274"></a>00274     }
-<a name="l00275"></a>00275 
-<a name="l00276"></a>00276     <span class="keyword">virtual</span> <span class="keywordtype">void</span> initSubStateMachines(<span class="keywordtype">bool</span> recursive)
-<a name="l00277"></a>00277     {
-<a name="l00278"></a>00278         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#a85ebbc60c97c014a3b76c9a2808f2911" title="Default implementation for the initSubStateMachines() method.">initSubStateMachinesImpl</a>(recursive);
-<a name="l00279"></a>00279     }
-<a name="l00280"></a>00280 
-<a name="l00281"></a>00281 };
-<a name="l00282"></a>00282 }
-<a name="l00283"></a>00283 
-<a name="l00284"></a>00284 <span class="preprocessor">#endif </span><span class="comment">/* STATE_H_ */</span>
+<a name="l00248"></a>00248         <span class="comment">// Run the do action</span>
+<a name="l00249"></a>00249         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#ae0676f55482b2cb6702d83fea4820e67" title="Default implementation for the startDo() method.">startDoImpl</a>(context);
+<a name="l00250"></a>00250 
+<a name="l00251"></a>00251         <span class="comment">// Handle direct transitions</span>
+<a name="l00252"></a>00252         <a class="code" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5" title="The state base class type.">StateBaseType</a>* nextState = 0;
+<a name="l00253"></a>00253         <span class="keywordtype">bool</span> finalize = <span class="keyword">false</span>;
+<a name="l00254"></a>00254         <span class="keywordflow">if</span>(static_cast&lt;Implementation*&gt;(<span class="keyword">this</span>)-&gt;checkDirectTransitionImpl(context,finalize,nextState))
+<a name="l00255"></a>00255                 {
+<a name="l00256"></a>00256                         <span class="keywordflow">if</span>(finalize)
+<a name="l00257"></a>00257                         {
+<a name="l00258"></a>00258                                 context-&gt;finalize();
+<a name="l00259"></a>00259                         }
+<a name="l00260"></a>00260                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nextState)
+<a name="l00261"></a>00261                         {
+<a name="l00262"></a>00262                                 <a class="code" href="classsttcl_1_1_state.html#ae0cc0ada45cfedee822bcdb3ef65253a" title="Changes context state machine to another sibling state.">changeState</a>(context,nextState);
+<a name="l00263"></a>00263                         }
+<a name="l00264"></a>00264                 }
+<a name="l00265"></a>00265     }
+<a name="l00266"></a>00266 
+<a name="l00267"></a>00267     <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDo(<a class="code" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f" title="The state machine implementation type.">Context</a>* context)
+<a name="l00268"></a>00268     {
+<a name="l00269"></a>00269         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#a22e611f477dc5d61b4c1ad9cce06fea2" title="Default implementation for the endDo() method.">endDoImpl</a>(context);
+<a name="l00270"></a>00270     }
+<a name="l00271"></a>00271 
+<a name="l00272"></a>00272     <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeSubStateMachines(<span class="keywordtype">bool</span> recursive)
+<a name="l00273"></a>00273     {
+<a name="l00274"></a>00274         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#a1057dd539794089ceeb8c57d1269ccc2" title="Default implementation for the finalizeSubStateMachines() method.">finalizeSubStateMachinesImpl</a>(recursive);
+<a name="l00275"></a>00275     }
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277     <span class="keyword">virtual</span> <span class="keywordtype">void</span> initSubStateMachines(<span class="keywordtype">bool</span> recursive)
+<a name="l00278"></a>00278     {
+<a name="l00279"></a>00279         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state.html#a85ebbc60c97c014a3b76c9a2808f2911" title="Default implementation for the initSubStateMachines() method.">initSubStateMachinesImpl</a>(recursive);
+<a name="l00280"></a>00280     }
+<a name="l00281"></a>00281 
+<a name="l00282"></a>00282 };
+<a name="l00283"></a>00283 }
+<a name="l00284"></a>00284 
+<a name="l00285"></a>00285 <span class="preprocessor">#endif </span><span class="comment">/* STATE_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -280,7 +281,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Tue Feb 14 2012 04:22:24 for sttcl by
+    <li class="footer">Generated on Thu Feb 16 2012 21:14:26 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

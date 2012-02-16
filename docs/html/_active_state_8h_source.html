@@ -213,194 +213,199 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00193"></a>00193 
 <a name="l00198"></a><a class="code" href="classsttcl_1_1_active_state.html#a9e123f82e68b44f7d4e39cbedc744b16">00198</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a9e123f82e68b44f7d4e39cbedc744b16" title="Default implementation for the exit() method.">exitImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
 <a name="l00199"></a>00199     {
-<a name="l00200"></a>00200     }
-<a name="l00201"></a>00201 
+<a name="l00200"></a>00200 
+<a name="l00201"></a>00201     }
 <a name="l00202"></a>00202 
-<a name="l00207"></a><a class="code" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd">00207</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd" title="Default implementation for the exitingDoActionImpl() method.">exitingDoActionImpl</a>()
-<a name="l00208"></a>00208     {
-<a name="l00209"></a>00209     }
-<a name="l00210"></a>00210 
-<a name="l00214"></a><a class="code" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667">00214</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667" title="Default implementation to join the active state thread.">joinDoActionThreadImpl</a>()
-<a name="l00215"></a>00215     {
-<a name="l00216"></a>00216         <span class="keywordflow">if</span>(!StateThreadType::isSelf(stateThread))
-<a name="l00217"></a>00217         {
-<a name="l00218"></a>00218                 stateThread.join();
-<a name="l00219"></a>00219         }
-<a name="l00220"></a>00220     }
-<a name="l00221"></a>00221 
-<a name="l00226"></a><a class="code" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623">00226</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623" title="Default implementation called to unblock any blocking methods waiting in the do action call...">unblockDoActionImpl</a>()
-<a name="l00227"></a>00227     {
-<a name="l00228"></a>00228     }
-<a name="l00229"></a>00229 
-<a name="l00234"></a><a class="code" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f">00234</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">endDoImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
-<a name="l00235"></a>00235     {
-<a name="l00236"></a>00236         <span class="keywordflow">if</span>(!StateThreadType::isSelf(stateThread))
-<a name="l00237"></a>00237         {
-<a name="l00238"></a>00238                 endDoActionSemaphore.post();
-<a name="l00239"></a>00239                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">isDoActionRunning</a>())
-<a name="l00240"></a>00240                 {
-<a name="l00241"></a>00241                         <span class="keyword">static_cast&lt;</span>StateImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623" title="Default implementation called to unblock any blocking methods waiting in the do action call...">unblockDoActionImpl</a>();
-<a name="l00242"></a>00242                 }
-<a name="l00243"></a>00243                         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667" title="Default implementation to join the active state thread.">joinDoActionThreadImpl</a>();
-<a name="l00244"></a>00244                         currentContext = 0;
-<a name="l00245"></a>00245         }
-<a name="l00246"></a>00246     }
-<a name="l00247"></a>00247 
-<a name="l00252"></a><a class="code" href="classsttcl_1_1_active_state.html#a37110ff35f3c471e1f8ab8a632a7b05f">00252</a>     <span class="keyword">inline</span> <span class="keyword">const</span> StateThreadType&amp; <a class="code" href="classsttcl_1_1_active_state.html#a37110ff35f3c471e1f8ab8a632a7b05f" title="Gets the thread instance used to run the ActiveState do action.">getStateThread</a>()<span class="keyword"> const</span>
-<a name="l00253"></a>00253 <span class="keyword">    </span>{
-<a name="l00254"></a>00254         <span class="keywordflow">return</span> stateThread;
-<a name="l00255"></a>00255     }
-<a name="l00256"></a>00256 
-<a name="l00262"></a><a class="code" href="classsttcl_1_1_active_state.html#a25c35e0fdab25b0530960a9cf529e065">00262</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a25c35e0fdab25b0530960a9cf529e065" title="Called after this state was entered.">startDoImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
-<a name="l00263"></a>00263     {
-<a name="l00264"></a>00264         <span class="keywordflow">if</span>(doAction)
-<a name="l00265"></a>00265         {
-<a name="l00266"></a>00266                         currentContext = context;
-<a name="l00267"></a>00267                 stateThread.run(<span class="keyword">this</span>);
-<a name="l00268"></a>00268         }
-<a name="l00269"></a>00269     }
-<a name="l00270"></a>00270 
-<a name="l00271"></a><a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">00271</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">isDoActionRunning</a>()<span class="keyword"> const</span>
-<a name="l00272"></a>00272 <span class="keyword">    </span>{
-<a name="l00273"></a>00273                 <a class="code" href="classsttcl_1_1_auto_locker.html" title="Helper class to create a properly scoped lock of a mutex object.">AutoLocker&lt;ActiveStateMutexType&gt;</a> lock(activeStateMutex);
-<a name="l00274"></a>00274                 <span class="keywordflow">return</span> doActionRunning;
-<a name="l00275"></a>00275     }
-<a name="l00276"></a>00276 
-<a name="l00282"></a><a class="code" href="classsttcl_1_1_active_state.html#a4d533395626502f9548d3ee959ca6620">00282</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a4d533395626502f9548d3ee959ca6620" title="Default implementation for the finalizeSubStateMachines() method.">finalizeSubStateMachinesImpl</a>(<span class="keywordtype">bool</span> recursive)
-<a name="l00283"></a>00283     {
-<a name="l00284"></a>00284     }
-<a name="l00285"></a>00285 
-<a name="l00291"></a><a class="code" href="classsttcl_1_1_active_state.html#a080d76cd5845d469b8bf0fe154b3876d">00291</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a080d76cd5845d469b8bf0fe154b3876d" title="Default implementation for the initSubStateMachines() method.">initSubStateMachinesImpl</a>(<span class="keywordtype">bool</span> recursive)
-<a name="l00292"></a>00292     {
-<a name="l00293"></a>00293     }
-<a name="l00294"></a>00294 
-<a name="l00302"></a><a class="code" href="classsttcl_1_1_active_state.html#adefe13cec24b580d153b0befa6e8751d">00302</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_active_state.html#adefe13cec24b580d153b0befa6e8751d" title="Default implementation for the getDirectTransitionImpl() method.">checkDirectTransitionImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context, <span class="keywordtype">bool</span>&amp; finalize, <a class="code" href="classsttcl_1_1_state_base.html">StateBaseType</a>*&amp; nextState)
-<a name="l00303"></a>00303     {
-<a name="l00304"></a>00304         nextState = 0;
-<a name="l00305"></a>00305         finalize = <span class="keyword">false</span>;
-<a name="l00306"></a>00306         <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00307"></a>00307     }
-<a name="l00308"></a>00308 
-<a name="l00309"></a>00309 <span class="keyword">protected</span>:
-<a name="l00320"></a><a class="code" href="classsttcl_1_1_active_state.html#a37e09b2b5ac6ee604941e25d8544e0a5">00320</a>     <a class="code" href="classsttcl_1_1_active_state.html#a37e09b2b5ac6ee604941e25d8544e0a5" title="Constructor for class ActiveState.">ActiveState</a>(<a class="code" href="classsttcl_1_1_active_state.html#aa8ec91fb559d8c150b9b0298120bbea8" title="The state do action type.">StateDoAction</a> argDoAction, <span class="keywordtype">bool</span> argRunDoActionOnce = <span class="keyword">false</span> , <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;</a> argDoFrequency = <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;::Zero</a>)
-<a name="l00321"></a>00321     : doAction(argDoAction)
-<a name="l00322"></a>00322     , doFrequency(argDoFrequency)
-<a name="l00323"></a>00323     , currentContext(0)
-<a name="l00324"></a>00324     , stateThread(&amp;<a class="code" href="structsttcl_1_1_thread_function_helper.html" title="Helper class to call a state thread method.">ThreadFunctionHelper</a>::stateThreadMethod
-<a name="l00325"></a>00325                                         &lt; StateImpl
-<a name="l00326"></a>00326                                         , StateMachineImpl
-<a name="l00327"></a>00327                                         , IState
-<a name="l00328"></a>00328                                         , StateThreadType
-<a name="l00329"></a>00329                                         , EndDoActionSemaphoreType
-<a name="l00330"></a>00330                                         , TimeDurationType
-<a name="l00331"></a>00331                                         , ActiveStateMutexType&gt;)
-<a name="l00332"></a>00332     , endDoActionSemaphore(0)
-<a name="l00333"></a>00333     , doActionRunning(false)
-<a name="l00334"></a>00334     , runDoActionOnce(argRunDoActionOnce)
-<a name="l00335"></a>00335     {
-<a name="l00336"></a>00336     }
-<a name="l00337"></a>00337 
-<a name="l00341"></a><a class="code" href="classsttcl_1_1_active_state.html#aba392ef34d18f6da5d6f139f55bcec1f">00341</a>     <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_active_state.html#aba392ef34d18f6da5d6f139f55bcec1f" title="Destructor for class ActiveState.">~ActiveState</a>()
-<a name="l00342"></a>00342     {
-<a name="l00343"></a>00343         <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">isDoActionRunning</a>())
-<a name="l00344"></a>00344         {
-<a name="l00345"></a>00345                 endDo(currentContext);
-<a name="l00346"></a>00346         }
-<a name="l00347"></a>00347     }
-<a name="l00348"></a>00348 
-<a name="l00354"></a><a class="code" href="classsttcl_1_1_active_state.html#a7cf1417be1005fd4c6064ff0be5a7a4d">00354</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a7cf1417be1005fd4c6064ff0be5a7a4d" title="Changes context state machine to another sibling state.">changeState</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context,<a class="code" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase&lt;StateMachineImpl,IState&gt;</a>* newState)
-<a name="l00355"></a>00355     {
-<a name="l00356"></a>00356         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_base.html#a06157b34ada9e41e7846b6b282d682b3" title="Default implementation for the changeState() method.">changeStateImpl</a>(context,newState);
-<a name="l00357"></a>00357     }
-<a name="l00358"></a>00358 
-<a name="l00363"></a><a class="code" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f">00363</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f" title="Indicates that the do action thread should stop.">endDoActionRequested</a>()
-<a name="l00364"></a>00364     {
-<a name="l00365"></a>00365         <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a5b6285005a00db6a2b845ad11e710d85" title="Default implementation for checking if endDo() was requested.">endDoActionRequestedImpl</a>();
-<a name="l00366"></a>00366     }
-<a name="l00367"></a>00367 
-<a name="l00368"></a>00368 <span class="keyword">private</span>:
-<a name="l00369"></a>00369     <span class="keyword">virtual</span> <span class="keywordtype">void</span> entry(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
-<a name="l00370"></a>00370     {
-<a name="l00371"></a>00371         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#ab84a6c41f5140b179914c1233da3b8d8" title="Default implementation for the entry() method.">entryImpl</a>(context);
-<a name="l00372"></a>00372     }
-<a name="l00373"></a>00373 
-<a name="l00374"></a>00374     <span class="keyword">virtual</span> <span class="keywordtype">void</span> exit(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
-<a name="l00375"></a>00375     {
-<a name="l00376"></a>00376         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a9e123f82e68b44f7d4e39cbedc744b16" title="Default implementation for the exit() method.">exitImpl</a>(context);
-<a name="l00377"></a>00377     }
-<a name="l00378"></a>00378 
-<a name="l00379"></a>00379     <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDo(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
-<a name="l00380"></a>00380     {
-<a name="l00381"></a>00381         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a25c35e0fdab25b0530960a9cf529e065" title="Called after this state was entered.">startDoImpl</a>(context);
-<a name="l00382"></a>00382     }
-<a name="l00383"></a>00383 
-<a name="l00384"></a>00384     <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDo(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
-<a name="l00385"></a>00385     {
-<a name="l00386"></a>00386         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">endDoImpl</a>(context);
-<a name="l00387"></a>00387     }
-<a name="l00388"></a>00388 
-<a name="l00389"></a>00389     <span class="keywordtype">void</span> setDoActionRunning(<span class="keywordtype">bool</span> value)
-<a name="l00390"></a>00390     {
-<a name="l00391"></a>00391                 AutoLocker&lt;ActiveStateMutexType&gt; lock(activeStateMutex);
-<a name="l00392"></a>00392                 doActionRunning = value;
-<a name="l00393"></a>00393     }
-<a name="l00394"></a>00394 
-<a name="l00395"></a>00395     <span class="keywordtype">void</span> runDoAction(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
-<a name="l00396"></a>00396     {
-<a name="l00397"></a>00397         <span class="keywordtype">bool</span> initialCall = <span class="keyword">true</span>;
-<a name="l00398"></a>00398         setDoActionRunning(<span class="keyword">true</span>);
-<a name="l00399"></a>00399         <span class="keywordtype">bool</span> directTransitionTriggered = <span class="keyword">false</span>;
-<a name="l00400"></a>00400         <span class="keywordflow">do</span>
-<a name="l00401"></a>00401         {
-<a name="l00402"></a>00402             (<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;*doAction)(context,initialCall);
-<a name="l00403"></a>00403             <span class="keywordflow">if</span>(initialCall)
-<a name="l00404"></a>00404             {
-<a name="l00405"></a>00405                 initialCall = <span class="keyword">false</span>;
-<a name="l00406"></a>00406             }
-<a name="l00407"></a>00407 
-<a name="l00408"></a>00408             <span class="comment">// Handle direct transitions</span>
-<a name="l00409"></a>00409             <a class="code" href="classsttcl_1_1_active_state.html#a5c659bfad3d3de57b6a6f4d83e1438be" title="The state base class type.">StateBaseType</a>* nextState = 0;
-<a name="l00410"></a>00410             <span class="keywordtype">bool</span> finalize = <span class="keyword">false</span>;
-<a name="l00411"></a>00411             <span class="keywordflow">if</span>(static_cast&lt;Implementation*&gt;(<span class="keyword">this</span>)-&gt;checkDirectTransitionImpl(context,finalize,nextState))
-<a name="l00412"></a>00412                 {
-<a name="l00413"></a>00413                         <span class="keywordflow">if</span>(finalize)
-<a name="l00414"></a>00414                         {
-<a name="l00415"></a>00415                                 context-&gt;finalize();
-<a name="l00416"></a>00416                         }
-<a name="l00417"></a>00417                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nextState)
-<a name="l00418"></a>00418                         {
-<a name="l00419"></a>00419                                 <a class="code" href="classsttcl_1_1_active_state.html#a7cf1417be1005fd4c6064ff0be5a7a4d" title="Changes context state machine to another sibling state.">changeState</a>(context,nextState);
-<a name="l00420"></a>00420                                 directTransitionTriggered = <span class="keyword">true</span>;
+<a name="l00203"></a>00203 
+<a name="l00208"></a><a class="code" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd">00208</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd" title="Default implementation for the exitingDoActionImpl() method.">exitingDoActionImpl</a>()
+<a name="l00209"></a>00209     {
+<a name="l00210"></a>00210     }
+<a name="l00211"></a>00211 
+<a name="l00215"></a><a class="code" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667">00215</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667" title="Default implementation to join the active state thread.">joinDoActionThreadImpl</a>()
+<a name="l00216"></a>00216     {
+<a name="l00217"></a>00217         <span class="keywordflow">if</span>(!StateThreadType::isSelf(stateThread))
+<a name="l00218"></a>00218         {
+<a name="l00219"></a>00219                 stateThread.join();
+<a name="l00220"></a>00220         }
+<a name="l00221"></a>00221     }
+<a name="l00222"></a>00222 
+<a name="l00227"></a><a class="code" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623">00227</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623" title="Default implementation called to unblock any blocking methods waiting in the do action call...">unblockDoActionImpl</a>()
+<a name="l00228"></a>00228     {
+<a name="l00229"></a>00229     }
+<a name="l00230"></a>00230 
+<a name="l00235"></a><a class="code" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f">00235</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">endDoImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
+<a name="l00236"></a>00236     {
+<a name="l00237"></a>00237         <span class="keywordflow">if</span>(!StateThreadType::isSelf(stateThread))
+<a name="l00238"></a>00238         {
+<a name="l00239"></a>00239                 endDoActionSemaphore.post();
+<a name="l00240"></a>00240                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">isDoActionRunning</a>())
+<a name="l00241"></a>00241                 {
+<a name="l00242"></a>00242                         <span class="keyword">static_cast&lt;</span>StateImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#ab186136d0f2cbbab0f973c8c430cb623" title="Default implementation called to unblock any blocking methods waiting in the do action call...">unblockDoActionImpl</a>();
+<a name="l00243"></a>00243                 }
+<a name="l00244"></a>00244                         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#aa610082a888f4ef4a28f4f6b43ffc667" title="Default implementation to join the active state thread.">joinDoActionThreadImpl</a>();
+<a name="l00245"></a>00245                         currentContext = 0;
+<a name="l00246"></a>00246         }
+<a name="l00247"></a>00247     }
+<a name="l00248"></a>00248 
+<a name="l00253"></a><a class="code" href="classsttcl_1_1_active_state.html#a37110ff35f3c471e1f8ab8a632a7b05f">00253</a>     <span class="keyword">inline</span> <span class="keyword">const</span> StateThreadType&amp; <a class="code" href="classsttcl_1_1_active_state.html#a37110ff35f3c471e1f8ab8a632a7b05f" title="Gets the thread instance used to run the ActiveState do action.">getStateThread</a>()<span class="keyword"> const</span>
+<a name="l00254"></a>00254 <span class="keyword">    </span>{
+<a name="l00255"></a>00255         <span class="keywordflow">return</span> stateThread;
+<a name="l00256"></a>00256     }
+<a name="l00257"></a>00257 
+<a name="l00263"></a><a class="code" href="classsttcl_1_1_active_state.html#a25c35e0fdab25b0530960a9cf529e065">00263</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a25c35e0fdab25b0530960a9cf529e065" title="Called after this state was entered.">startDoImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
+<a name="l00264"></a>00264     {
+<a name="l00265"></a>00265 <span class="comment">//        if(doAction)</span>
+<a name="l00266"></a>00266 <span class="comment">//        {</span>
+<a name="l00267"></a>00267                         currentContext = context;
+<a name="l00268"></a>00268                 stateThread.run(<span class="keyword">this</span>);
+<a name="l00269"></a>00269 <span class="comment">//        }</span>
+<a name="l00270"></a>00270     }
+<a name="l00271"></a>00271 
+<a name="l00272"></a><a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">00272</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">isDoActionRunning</a>()<span class="keyword"> const</span>
+<a name="l00273"></a>00273 <span class="keyword">    </span>{
+<a name="l00274"></a>00274                 <a class="code" href="classsttcl_1_1_auto_locker.html" title="Helper class to create a properly scoped lock of a mutex object.">AutoLocker&lt;ActiveStateMutexType&gt;</a> lock(activeStateMutex);
+<a name="l00275"></a>00275                 <span class="keywordflow">return</span> doActionRunning;
+<a name="l00276"></a>00276     }
+<a name="l00277"></a>00277 
+<a name="l00283"></a><a class="code" href="classsttcl_1_1_active_state.html#a4d533395626502f9548d3ee959ca6620">00283</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a4d533395626502f9548d3ee959ca6620" title="Default implementation for the finalizeSubStateMachines() method.">finalizeSubStateMachinesImpl</a>(<span class="keywordtype">bool</span> recursive)
+<a name="l00284"></a>00284     {
+<a name="l00285"></a>00285     }
+<a name="l00286"></a>00286 
+<a name="l00292"></a><a class="code" href="classsttcl_1_1_active_state.html#a080d76cd5845d469b8bf0fe154b3876d">00292</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a080d76cd5845d469b8bf0fe154b3876d" title="Default implementation for the initSubStateMachines() method.">initSubStateMachinesImpl</a>(<span class="keywordtype">bool</span> recursive)
+<a name="l00293"></a>00293     {
+<a name="l00294"></a>00294     }
+<a name="l00295"></a>00295 
+<a name="l00303"></a><a class="code" href="classsttcl_1_1_active_state.html#adefe13cec24b580d153b0befa6e8751d">00303</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_active_state.html#adefe13cec24b580d153b0befa6e8751d" title="Default implementation for the getDirectTransitionImpl() method.">checkDirectTransitionImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context, <span class="keywordtype">bool</span>&amp; finalize, <a class="code" href="classsttcl_1_1_state_base.html">StateBaseType</a>*&amp; nextState)
+<a name="l00304"></a>00304     {
+<a name="l00305"></a>00305         nextState = 0;
+<a name="l00306"></a>00306         finalize = <span class="keyword">false</span>;
+<a name="l00307"></a>00307         <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00308"></a>00308     }
+<a name="l00309"></a>00309 
+<a name="l00310"></a>00310 <span class="keyword">protected</span>:
+<a name="l00321"></a><a class="code" href="classsttcl_1_1_active_state.html#a37e09b2b5ac6ee604941e25d8544e0a5">00321</a>     <a class="code" href="classsttcl_1_1_active_state.html#a37e09b2b5ac6ee604941e25d8544e0a5" title="Constructor for class ActiveState.">ActiveState</a>(<a class="code" href="classsttcl_1_1_active_state.html#aa8ec91fb559d8c150b9b0298120bbea8" title="The state do action type.">StateDoAction</a> argDoAction, <span class="keywordtype">bool</span> argRunDoActionOnce = <span class="keyword">false</span> , <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;</a> argDoFrequency = <a class="code" href="classsttcl_1_1_time_duration.html" title="Adapter class for a (OS-)specific &quot;real&quot;-time duration representation implementation.">TimeDuration&lt;&gt;::Zero</a>)
+<a name="l00322"></a>00322     : doAction(argDoAction)
+<a name="l00323"></a>00323     , doFrequency(argDoFrequency)
+<a name="l00324"></a>00324     , currentContext(0)
+<a name="l00325"></a>00325     , stateThread(&amp;<a class="code" href="structsttcl_1_1_thread_function_helper.html" title="Helper class to call a state thread method.">ThreadFunctionHelper</a>::stateThreadMethod
+<a name="l00326"></a>00326                                         &lt; StateImpl
+<a name="l00327"></a>00327                                         , StateMachineImpl
+<a name="l00328"></a>00328                                         , IState
+<a name="l00329"></a>00329                                         , StateThreadType
+<a name="l00330"></a>00330                                         , EndDoActionSemaphoreType
+<a name="l00331"></a>00331                                         , TimeDurationType
+<a name="l00332"></a>00332                                         , ActiveStateMutexType&gt;)
+<a name="l00333"></a>00333     , endDoActionSemaphore(0)
+<a name="l00334"></a>00334     , doActionRunning(false)
+<a name="l00335"></a>00335     , runDoActionOnce(argRunDoActionOnce)
+<a name="l00336"></a>00336     {
+<a name="l00337"></a>00337     }
+<a name="l00338"></a>00338 
+<a name="l00342"></a><a class="code" href="classsttcl_1_1_active_state.html#aba392ef34d18f6da5d6f139f55bcec1f">00342</a>     <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_active_state.html#aba392ef34d18f6da5d6f139f55bcec1f" title="Destructor for class ActiveState.">~ActiveState</a>()
+<a name="l00343"></a>00343     {
+<a name="l00344"></a>00344         <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1_active_state.html#a0d2cbe47d87dbb9c775dface985abc2c">isDoActionRunning</a>())
+<a name="l00345"></a>00345         {
+<a name="l00346"></a>00346                 endDo(currentContext);
+<a name="l00347"></a>00347         }
+<a name="l00348"></a>00348     }
+<a name="l00349"></a>00349 
+<a name="l00355"></a><a class="code" href="classsttcl_1_1_active_state.html#a7cf1417be1005fd4c6064ff0be5a7a4d">00355</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_active_state.html#a7cf1417be1005fd4c6064ff0be5a7a4d" title="Changes context state machine to another sibling state.">changeState</a>(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context,<a class="code" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase&lt;StateMachineImpl,IState&gt;</a>* newState)
+<a name="l00356"></a>00356     {
+<a name="l00357"></a>00357         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_base.html#a06157b34ada9e41e7846b6b282d682b3" title="Default implementation for the changeState() method.">changeStateImpl</a>(context,newState);
+<a name="l00358"></a>00358     }
+<a name="l00359"></a>00359 
+<a name="l00364"></a><a class="code" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f">00364</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f" title="Indicates that the do action thread should stop.">endDoActionRequested</a>()
+<a name="l00365"></a>00365     {
+<a name="l00366"></a>00366         <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a5b6285005a00db6a2b845ad11e710d85" title="Default implementation for checking if endDo() was requested.">endDoActionRequestedImpl</a>();
+<a name="l00367"></a>00367     }
+<a name="l00368"></a>00368 
+<a name="l00369"></a>00369 <span class="keyword">private</span>:
+<a name="l00370"></a>00370     <span class="keyword">virtual</span> <span class="keywordtype">void</span> entry(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
+<a name="l00371"></a>00371     {
+<a name="l00372"></a>00372         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#ab84a6c41f5140b179914c1233da3b8d8" title="Default implementation for the entry() method.">entryImpl</a>(context);
+<a name="l00373"></a>00373     }
+<a name="l00374"></a>00374 
+<a name="l00375"></a>00375     <span class="keyword">virtual</span> <span class="keywordtype">void</span> exit(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
+<a name="l00376"></a>00376     {
+<a name="l00377"></a>00377         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a9e123f82e68b44f7d4e39cbedc744b16" title="Default implementation for the exit() method.">exitImpl</a>(context);
+<a name="l00378"></a>00378     }
+<a name="l00379"></a>00379 
+<a name="l00380"></a>00380     <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDo(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
+<a name="l00381"></a>00381     {
+<a name="l00382"></a>00382         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a25c35e0fdab25b0530960a9cf529e065" title="Called after this state was entered.">startDoImpl</a>(context);
+<a name="l00383"></a>00383     }
+<a name="l00384"></a>00384 
+<a name="l00385"></a>00385     <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDo(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
+<a name="l00386"></a>00386     {
+<a name="l00387"></a>00387         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a7402cb02d0d6a49eb6ca8bd7605d2e7f" title="ActiveState class default implementation for the endDo() method.">endDoImpl</a>(context);
+<a name="l00388"></a>00388     }
+<a name="l00389"></a>00389 
+<a name="l00390"></a>00390     <span class="keywordtype">void</span> setDoActionRunning(<span class="keywordtype">bool</span> value)
+<a name="l00391"></a>00391     {
+<a name="l00392"></a>00392                 AutoLocker&lt;ActiveStateMutexType&gt; lock(activeStateMutex);
+<a name="l00393"></a>00393                 doActionRunning = value;
+<a name="l00394"></a>00394     }
+<a name="l00395"></a>00395 
+<a name="l00396"></a>00396     <span class="keywordtype">void</span> runDoAction(<a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* context)
+<a name="l00397"></a>00397     {
+<a name="l00398"></a>00398         <span class="keywordtype">bool</span> initialCall = <span class="keyword">true</span>;
+<a name="l00399"></a>00399         setDoActionRunning(<span class="keyword">true</span>);
+<a name="l00400"></a>00400         <span class="keywordtype">bool</span> directTransitionTriggered = <span class="keyword">false</span>;
+<a name="l00401"></a>00401         <span class="keywordflow">do</span>
+<a name="l00402"></a>00402         {
+<a name="l00403"></a>00403                 <span class="comment">// Run the do action</span>
+<a name="l00404"></a>00404                 <span class="keywordflow">if</span>(doAction)
+<a name="l00405"></a>00405                 {
+<a name="l00406"></a>00406                                 (<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;*doAction)(context,initialCall);
+<a name="l00407"></a>00407                                 <span class="keywordflow">if</span>(initialCall)
+<a name="l00408"></a>00408                                 {
+<a name="l00409"></a>00409                                         initialCall = <span class="keyword">false</span>;
+<a name="l00410"></a>00410                                 }
+<a name="l00411"></a>00411                 }
+<a name="l00412"></a>00412 
+<a name="l00413"></a>00413             <span class="comment">// Handle direct transitions</span>
+<a name="l00414"></a>00414             <a class="code" href="classsttcl_1_1_active_state.html#a5c659bfad3d3de57b6a6f4d83e1438be" title="The state base class type.">StateBaseType</a>* nextState = 0;
+<a name="l00415"></a>00415             <span class="keywordtype">bool</span> finalize = <span class="keyword">false</span>;
+<a name="l00416"></a>00416             <span class="keywordflow">if</span>(static_cast&lt;Implementation*&gt;(<span class="keyword">this</span>)-&gt;checkDirectTransitionImpl(context,finalize,nextState))
+<a name="l00417"></a>00417                 {
+<a name="l00418"></a>00418                         <span class="keywordflow">if</span>(finalize)
+<a name="l00419"></a>00419                         {
+<a name="l00420"></a>00420                                 context-&gt;finalize();
 <a name="l00421"></a>00421                         }
-<a name="l00422"></a>00422                 }
-<a name="l00423"></a>00423         } <span class="keywordflow">while</span>(!<a class="code" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f" title="Indicates that the do action thread should stop.">endDoActionRequested</a>() &amp;&amp; !runDoActionOnce &amp;&amp; !directTransitionTriggered);
-<a name="l00424"></a>00424         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd" title="Default implementation for the exitingDoActionImpl() method.">exitingDoActionImpl</a>();
-<a name="l00425"></a>00425         setDoActionRunning(<span class="keyword">false</span>);
-<a name="l00426"></a>00426     }
-<a name="l00427"></a>00427 
-<a name="l00428"></a>00428     <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeSubStateMachines(<span class="keywordtype">bool</span> recursive)
-<a name="l00429"></a>00429     {
-<a name="l00430"></a>00430         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a4d533395626502f9548d3ee959ca6620" title="Default implementation for the finalizeSubStateMachines() method.">finalizeSubStateMachinesImpl</a>(recursive);
+<a name="l00422"></a>00422                         <span class="keywordflow">else</span> <span class="keywordflow">if</span>(nextState)
+<a name="l00423"></a>00423                         {
+<a name="l00424"></a>00424                                 <a class="code" href="classsttcl_1_1_active_state.html#a7cf1417be1005fd4c6064ff0be5a7a4d" title="Changes context state machine to another sibling state.">changeState</a>(context,nextState);
+<a name="l00425"></a>00425                                 directTransitionTriggered = <span class="keyword">true</span>;
+<a name="l00426"></a>00426                         }
+<a name="l00427"></a>00427                 }
+<a name="l00428"></a>00428         } <span class="keywordflow">while</span>(!<a class="code" href="classsttcl_1_1_active_state.html#afd8cc639c3c17d01c5b1c7a254f5057f" title="Indicates that the do action thread should stop.">endDoActionRequested</a>() &amp;&amp; !runDoActionOnce &amp;&amp; !directTransitionTriggered);
+<a name="l00429"></a>00429         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a8dd5b1fe6ab47f76458ce74f23b8c9cd" title="Default implementation for the exitingDoActionImpl() method.">exitingDoActionImpl</a>();
+<a name="l00430"></a>00430         setDoActionRunning(<span class="keyword">false</span>);
 <a name="l00431"></a>00431     }
 <a name="l00432"></a>00432 
-<a name="l00433"></a>00433     <span class="keyword">virtual</span> <span class="keywordtype">void</span> initSubStateMachines(<span class="keywordtype">bool</span> recursive)
+<a name="l00433"></a>00433     <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeSubStateMachines(<span class="keywordtype">bool</span> recursive)
 <a name="l00434"></a>00434     {
-<a name="l00435"></a>00435         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a080d76cd5845d469b8bf0fe154b3876d" title="Default implementation for the initSubStateMachines() method.">initSubStateMachinesImpl</a>(recursive);
+<a name="l00435"></a>00435         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a4d533395626502f9548d3ee959ca6620" title="Default implementation for the finalizeSubStateMachines() method.">finalizeSubStateMachinesImpl</a>(recursive);
 <a name="l00436"></a>00436     }
 <a name="l00437"></a>00437 
-<a name="l00438"></a>00438     <a class="code" href="classsttcl_1_1_active_state.html#aa8ec91fb559d8c150b9b0298120bbea8" title="The state do action type.">StateDoAction</a> doAction;
-<a name="l00439"></a>00439     TimeDuration&lt;&gt; doFrequency;
-<a name="l00440"></a>00440     <a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* currentContext;
-<a name="l00441"></a>00441     StateThreadType stateThread;
-<a name="l00442"></a>00442     EndDoActionSemaphoreType endDoActionSemaphore;
-<a name="l00443"></a>00443     <span class="keyword">mutable</span> ActiveStateMutexType activeStateMutex;
-<a name="l00444"></a>00444         <span class="keywordtype">bool</span> doActionRunning;
-<a name="l00445"></a>00445         <span class="keywordtype">bool</span> runDoActionOnce;
-<a name="l00446"></a>00446 };
-<a name="l00447"></a>00447 
-<a name="l00448"></a>00448 }
-<a name="l00449"></a>00449 
-<a name="l00450"></a>00450 <span class="preprocessor">#endif </span><span class="comment">/* ACTIVESTATE_H_ */</span>
+<a name="l00438"></a>00438     <span class="keyword">virtual</span> <span class="keywordtype">void</span> initSubStateMachines(<span class="keywordtype">bool</span> recursive)
+<a name="l00439"></a>00439     {
+<a name="l00440"></a>00440         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_active_state.html#a4ea0ef62090262e1f8040ebbc3caf5db" title="The implementation class type.">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a080d76cd5845d469b8bf0fe154b3876d" title="Default implementation for the initSubStateMachines() method.">initSubStateMachinesImpl</a>(recursive);
+<a name="l00441"></a>00441     }
+<a name="l00442"></a>00442 
+<a name="l00443"></a>00443     <a class="code" href="classsttcl_1_1_active_state.html#aa8ec91fb559d8c150b9b0298120bbea8" title="The state do action type.">StateDoAction</a> doAction;
+<a name="l00444"></a>00444     TimeDuration&lt;&gt; doFrequency;
+<a name="l00445"></a>00445     <a class="code" href="classsttcl_1_1_active_state.html#a5ee935ab94330209eebbea2a123e96f5" title="The state machine implementation type.">Context</a>* currentContext;
+<a name="l00446"></a>00446     StateThreadType stateThread;
+<a name="l00447"></a>00447     EndDoActionSemaphoreType endDoActionSemaphore;
+<a name="l00448"></a>00448     <span class="keyword">mutable</span> ActiveStateMutexType activeStateMutex;
+<a name="l00449"></a>00449         <span class="keywordtype">bool</span> doActionRunning;
+<a name="l00450"></a>00450         <span class="keywordtype">bool</span> runDoActionOnce;
+<a name="l00451"></a>00451 };
+<a name="l00452"></a>00452 
+<a name="l00453"></a>00453 }
+<a name="l00454"></a>00454 
+<a name="l00455"></a>00455 <span class="preprocessor">#endif </span><span class="comment">/* ACTIVESTATE_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -421,7 +426,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Tue Feb 14 2012 04:22:23 for sttcl by
+    <li class="footer">Generated on Thu Feb 16 2012 21:14:26 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
