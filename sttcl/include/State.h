@@ -245,6 +245,7 @@ private:
 
     virtual void startDo(Context* context)
     {
+    	// Run the do action
         static_cast<Implementation*>(this)->startDoImpl(context);
 
         // Handle direct transitions

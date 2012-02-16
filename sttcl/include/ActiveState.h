@@ -197,6 +197,7 @@ public:
      */
     inline void exitImpl(Context* context)
     {
+
     }
 
 
@@ -261,11 +262,11 @@ public:
      */
     inline void startDoImpl(Context* context)
     {
-        if(doAction)
-        {
+//        if(doAction)
+//        {
 			currentContext = context;
         	stateThread.run(this);
-        }
+//        }
     }
 
     inline bool isDoActionRunning() const
@@ -399,11 +400,15 @@ private:
     	bool directTransitionTriggered = false;
     	do
     	{
-            (static_cast<Implementation*>(this)->*doAction)(context,initialCall);
-            if(initialCall)
-            {
-            	initialCall = false;
-            }
+    		// Run the do action
+    		if(doAction)
+    		{
+				(static_cast<Implementation*>(this)->*doAction)(context,initialCall);
+				if(initialCall)
+				{
+					initialCall = false;
+				}
+    		}
 
             // Handle direct transitions
             StateBaseType* nextState = 0;
