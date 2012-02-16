@@ -415,16 +415,6 @@ public:
     }
 
     /**
-     * Changes \em context state machine to another sibling state.
-     * @param context A pointer to the containing state machine.
-     * @param newState A pointer to the sibling state to change to.
-     */
-    void changeState(Context* context,StateBase<StateMachineImpl,OuterStateInterface>* newState)
-    {
-    	StateBaseImpl::changeState(context,newState);
-    }
-
-    /**
      * Default implementation for the initialize() method.
      * @param force Indicates to finalize the state machine before (re-)initializing.
      * @return The ready state of the state machine.
@@ -484,6 +474,15 @@ public:
     }
 
 protected:
+    /**
+     * Changes \em context state machine to another sibling state.
+     * @param context A pointer to the containing state machine.
+     * @param newState A pointer to the sibling state to change to.
+     */
+    void changeState(Context* context,StateBase<StateMachineImpl,OuterStateInterface>* newState)
+    {
+    	StateBaseImpl::changeState(context,newState);
+    }
 
     /**
      * Called by the containing StateMachine to finalize any sub state machines.
