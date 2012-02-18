@@ -30,11 +30,19 @@
 namespace sttcl
 {
 
+namespace internal
+{
+
 /**
  * Adapter class for a (OS-)specific mutex implementation.
  * @tparam Impl Selects a (OS-)specific mutex implementation.
+ *
+ * @todo Implement a static interface check for the Impl class.
  */
-template<class Impl = STTCL_DEFAULT_MUTEXIMPL>
+template
+< class Impl = STTCL_DEFAULT_MUTEXIMPL
+, class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
+>
 class SttclMutex
 : public Impl
 {
@@ -58,13 +66,13 @@ public:
 
 	/**
 	 * Tries to lock the mutex within the specified \em timeout parameter.
-	 * The \em timeout value TimeDuration<>::Zero will return success or failure
+	 * The \em timeout value TimeDurationType::Zero will return success or failure
 	 * immediately.
 	 * @param timeout The maximum duration to wait until the mutex becomes lockable.
 	 * @return \c true if the mutex is lockable. \c false if the \em timeout duration
 	 * expired.
 	 */
-	bool try_lock(const TimeDuration<>& timeout = TimeDuration<>::Zero)
+	bool try_lock(const TimeDurationType& timeout = TimeDurationType::Zero)
 	{
 		return static_cast<Impl*>(this)->try_lock(timeout);
 	}
@@ -106,6 +114,8 @@ public:
 private:
 	Lockable& ref;
 };
+
+}
 }
 
 #endif /* STTCLMUTEX_H_ */
