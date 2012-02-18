@@ -37,6 +37,8 @@ struct CompositeStateHistoryType
 	};
 };
 
+namespace internal
+{
 /**
  * Represents the default base class for a composite state.
  * @tparam InnerStateType The state base class type of the composite states inner states.
@@ -280,8 +282,6 @@ protected:
 	InnerStateType* lastState;
 };
 
-namespace internal
-{
 /**
  * Used to select a pseudo state history behavior base class for class CompositeState.
  * @tparam HistoryType The history pseudo state type.
@@ -293,7 +293,7 @@ struct CompositeStateBaseSelector
 	/**
 	 * The composite state base class implementing the history pseudo state behavior.
 	 */
-	typedef CompositeStateBase<InnerStateType> RESULT_TYPE;
+	typedef sttcl::internal::CompositeStateBase<InnerStateType> RESULT_TYPE;
 };
 
 /**
@@ -305,7 +305,7 @@ struct CompositeStateBaseSelector<CompositeStateHistoryType::Deep,InnerStateType
 	/**
 	 * The composite state base class implementing the history pseudo state behavior.
 	 */
-	typedef CompositeStateBaseWithDeepHistory<InnerStateType> RESULT_TYPE;
+	typedef sttcl::internal::CompositeStateBaseWithDeepHistory<InnerStateType> RESULT_TYPE;
 };
 
 /**
@@ -317,7 +317,7 @@ struct CompositeStateBaseSelector<CompositeStateHistoryType::Shallow,InnerStateT
 	/**
 	 * The composite state base class implementing the history pseudo state behavior.
 	 */
-	typedef CompositeStateBaseWithShallowHistory<InnerStateType> RESULT_TYPE;
+	typedef sttcl::internal::CompositeStateBaseWithShallowHistory<InnerStateType> RESULT_TYPE;
 };
 }
 

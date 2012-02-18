@@ -8,17 +8,17 @@
 #ifndef STTCLTIME_H_
 #define STTCLTIME_H_
 
-#ifndef STTCL_DEFAULT_TIMEDURATION_IMPL
+#ifndef STTCL_DEFAULT_TIMEDURATIONIMPL
 #if defined(STTCL_POSIX_TIME)  or defined(STTCL_POSIX_IMPL)
 #elif defined(STTCL_BOOST_TIME) or defined(STTCL_BOOST_IMPL)
 #include "../BoostTime/SttclBoostTime.h"
-#define STTCL_DEFAULT_TIMEDURATION_IMPL sttcl::internal::boost_impl::SttclBoostTimeDuration
+#define STTCL_DEFAULT_TIMEDURATIONIMPL sttcl::internal::boost_impl::SttclBoostTimeDuration
 #elif defined(STTCL_CX11_TIME) or defined(STTCL_CX11_IMPL)
 #include "../C++Time/SttclCx11Time.h"
-#define STTCL_DEFAULT_TIMEDURATION_IMPL sttcl::internal::cx11_impl::SttclCx11TimeDuration
+#define STTCL_DEFAULT_TIMEDURATIONIMPL sttcl::internal::cx11_impl::SttclCx11TimeDuration
 #endif
 
-#ifndef STTCL_DEFAULT_TIMEDURATION_IMPL
+#ifndef STTCL_DEFAULT_TIMEDURATIONIMPL
 #error "You need to define a default time duration implementation for sttcl"
 #endif
 #endif
@@ -29,8 +29,10 @@ namespace sttcl
 /**
  * Adapter class for a (OS-)specific "real"-time duration representation implementation.
  * @tparam Implementation Selects a (OS-)specific "real"-time duration representation implementation.
+ *
+ * @todo Implement a static interface check for the Impl class.
  */
-template<class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL>
+template<class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL>
 class TimeDuration
 : public Implementation
 {
