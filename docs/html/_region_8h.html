@@ -123,18 +123,21 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1_dispatched_event.html">sttcl::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Container struct to dispatch events to the inner region thread.  <a href="structsttcl_1_1_dispatched_event.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Container struct to dispatch events to the inner region thread.  <a href="structsttcl_1_1internal_1_1_dispatched_event.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a region within a matching <a class="el" href="classsttcl_1_1_concurrent_composite_state.html" title="Represents a concurrent composite state implementation base class.">ConcurrentCompositeState</a> implementation.  <a href="classsttcl_1_1_region.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, EventArgs &gt;</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the abstract <a class="el" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Region</a> base class.  <a href="classsttcl_1_1_region_base.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_sttcl_event_queue.html">sttcl::SttclEventQueue&lt; T, SemaphoreType, MutexType, TimeDurationType, InnerQueueType &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a queue used to dispatch events to a waiting thread.  <a href="classsttcl_1_1_sttcl_event_queue.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">sttcl::internal::SttclEventQueue&lt; T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType &gt;</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a queue used to dispatch events to a waiting thread.  <a href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesttcl.html">sttcl</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Provides base classes to build state machines. </p>
+<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesttcl_1_1internal.html">sttcl::internal</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Classes used internally by the STTCL implementation. </p>
 <br/></td></tr>
 </table>
 </div>
@@ -157,7 +160,7 @@ Namespaces</h2></td></tr>
 </div>
 
 
-    <li class="footer">Generated on Thu Feb 16 2012 21:14:26 for sttcl by
+    <li class="footer">Generated on Sun Feb 19 2012 21:48:21 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

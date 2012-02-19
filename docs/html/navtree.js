@@ -5,75 +5,76 @@ var NAVTREE =
     [ "Related Pages", "pages.html", [
       [ "Usage of the STTCL state machine template class framework", "usage_page.html", null ],
       [ "Mapping of the state diagram notation elements", "uml2gof_page.html", null ],
-      [ "Configuring the STTCL library for a specific OS/build environment", "sttcl_config_page.html", null ]
+      [ "Configuring the STTCL library for a specific OS/build environment", "sttcl_config_page.html", null ],
+      [ "Todo List", "todo.html", null ]
     ] ],
     [ "Class List", "annotated.html", [
-      [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
-      [ "sttcl::AutoLocker< Lockable >", "classsttcl_1_1_auto_locker.html", null ],
+      [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
+      [ "sttcl::internal::AutoLocker< Lockable >", "classsttcl_1_1internal_1_1_auto_locker.html", null ],
       [ "sttcl::CompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl >", "classsttcl_1_1_composite_state.html", null ],
-      [ "sttcl::CompositeStateBase< InnerStateType >", "classsttcl_1_1_composite_state_base.html", null ],
+      [ "sttcl::internal::CompositeStateBase< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base.html", null ],
       [ "sttcl::internal::CompositeStateBaseSelector< HistoryType, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector.html", null ],
       [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Deep, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html", null ],
       [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Shallow, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html", null ],
-      [ "sttcl::CompositeStateBaseWithDeepHistory< InnerStateType >", "classsttcl_1_1_composite_state_base_with_deep_history.html", null ],
-      [ "sttcl::CompositeStateBaseWithShallowHistory< InnerStateType >", "classsttcl_1_1_composite_state_base_with_shallow_history.html", null ],
+      [ "sttcl::internal::CompositeStateBaseWithDeepHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html", null ],
+      [ "sttcl::internal::CompositeStateBaseWithShallowHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html", null ],
       [ "sttcl::CompositeStateHistoryType", "structsttcl_1_1_composite_state_history_type.html", null ],
       [ "sttcl::ConcurrentCompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1_concurrent_composite_state.html", null ],
-      [ "sttcl::DispatchedEvent< StateMachineImpl, IInnerState, EventArgs >", "structsttcl_1_1_dispatched_event.html", null ],
-      [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ],
+      [ "sttcl::internal::DispatchedEvent< StateMachineImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_dispatched_event.html", null ],
+      [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ],
       [ "sttcl::RegionBase< StateMachineImpl, StateInterface, EventArgs >", "classsttcl_1_1_region_base.html", null ],
       [ "sttcl::State< StateImpl, StateMachineImpl, IState >", "classsttcl_1_1_state.html", null ],
       [ "sttcl::StateBase< StateMachineImpl, IState >", "classsttcl_1_1_state_base.html", null ],
       [ "StateInterface", "class_state_machine_impl_1_1_state_interface.html", null ],
       [ "sttcl::StateMachine< StateMachineImpl, IState >", "classsttcl_1_1_state_machine.html", null ],
-      [ "sttcl::SttclEventQueue< T, SemaphoreType, MutexType, TimeDurationType, InnerQueueType >", "classsttcl_1_1_sttcl_event_queue.html", null ],
-      [ "sttcl::SttclMutex< Impl >", "classsttcl_1_1_sttcl_mutex.html", null ],
-      [ "sttcl::SttclSemaphore< Impl >", "classsttcl_1_1_sttcl_semaphore.html", null ],
-      [ "sttcl::SttclThread< Impl >", "classsttcl_1_1_sttcl_thread.html", null ],
-      [ "sttcl::ThreadFunctionHelper", "structsttcl_1_1_thread_function_helper.html", null ],
+      [ "sttcl::internal::SttclEventQueue< T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType >", "classsttcl_1_1internal_1_1_sttcl_event_queue.html", null ],
+      [ "sttcl::internal::SttclMutex< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_mutex.html", null ],
+      [ "sttcl::internal::SttclSemaphore< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_semaphore.html", null ],
+      [ "sttcl::internal::SttclThread< Impl >", "classsttcl_1_1internal_1_1_sttcl_thread.html", null ],
+      [ "sttcl::internal::ThreadFunctionHelper", "structsttcl_1_1internal_1_1_thread_function_helper.html", null ],
       [ "sttcl::TimeDuration< Implementation >", "classsttcl_1_1_time_duration.html", null ]
     ] ],
     [ "Class Index", "classes.html", null ],
     [ "Class Hierarchy", "hierarchy.html", [
-      [ "sttcl::AutoLocker< Lockable >", "classsttcl_1_1_auto_locker.html", null ],
-      [ "sttcl::CompositeStateBase< InnerStateType >", "classsttcl_1_1_composite_state_base.html", [
-        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, SemaphoreType, TimeDurationType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", [
-          [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ]
+      [ "sttcl::internal::AutoLocker< Lockable >", "classsttcl_1_1internal_1_1_auto_locker.html", null ],
+      [ "sttcl::internal::CompositeStateBase< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base.html", [
+        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", [
+          [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ]
         ] ],
         [ "sttcl::CompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl >", "classsttcl_1_1_composite_state.html", null ]
       ] ],
       [ "sttcl::internal::CompositeStateBaseSelector< HistoryType, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector.html", null ],
       [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Deep, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html", null ],
       [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Shallow, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html", null ],
-      [ "sttcl::CompositeStateBaseWithDeepHistory< InnerStateType >", "classsttcl_1_1_composite_state_base_with_deep_history.html", null ],
-      [ "sttcl::CompositeStateBaseWithShallowHistory< InnerStateType >", "classsttcl_1_1_composite_state_base_with_shallow_history.html", null ],
+      [ "sttcl::internal::CompositeStateBaseWithDeepHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html", null ],
+      [ "sttcl::internal::CompositeStateBaseWithShallowHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html", null ],
       [ "sttcl::CompositeStateHistoryType", "structsttcl_1_1_composite_state_history_type.html", null ],
       [ "sttcl::ConcurrentCompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1_concurrent_composite_state.html", null ],
-      [ "sttcl::DispatchedEvent< StateMachineImpl, IInnerState, EventArgs >", "structsttcl_1_1_dispatched_event.html", null ],
+      [ "sttcl::internal::DispatchedEvent< StateMachineImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_dispatched_event.html", null ],
       [ "sttcl::RegionBase< StateMachineImpl, StateInterface, EventArgs >", "classsttcl_1_1_region_base.html", null ],
       [ "sttcl::RegionBase< StateMachineImpl, StateMachineImpl::StateInterface, EventArgs >", "classsttcl_1_1_region_base.html", [
-        [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ]
+        [ "sttcl::Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ]
       ] ],
       [ "sttcl::StateBase< StateMachineImpl, IState >", "classsttcl_1_1_state_base.html", [
-        [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, EndDoActionSemaphoreType, TimeDurationType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
+        [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
         [ "sttcl::State< StateImpl, StateMachineImpl, IState >", "classsttcl_1_1_state.html", null ]
       ] ],
       [ "StateInterface", "class_state_machine_impl_1_1_state_interface.html", [
         [ "sttcl::StateBase< StateMachineImpl, StateMachineImpl::StateInterface >", "classsttcl_1_1_state_base.html", [
-          [ "sttcl::ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, SemaphoreType, TimeDurationType, MutexType >", "classsttcl_1_1_active_state.html", [
-            [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, SemaphoreType, TimeDurationType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
+          [ "sttcl::ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType >", "classsttcl_1_1_active_state.html", [
+            [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
           ] ]
         ] ]
       ] ],
       [ "sttcl::StateMachine< StateMachineImpl, IState >", "classsttcl_1_1_state_machine.html", null ],
       [ "sttcl::StateMachine< RegionImpl, IInnerState >", "classsttcl_1_1_state_machine.html", [
-        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, SemaphoreType, TimeDurationType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, SemaphoreType, TimeDurationType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
+        [ "sttcl::CompositeState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, StateMachineImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
       ] ],
-      [ "sttcl::SttclEventQueue< T, SemaphoreType, MutexType, TimeDurationType, InnerQueueType >", "classsttcl_1_1_sttcl_event_queue.html", null ],
-      [ "sttcl::SttclMutex< Impl >", "classsttcl_1_1_sttcl_mutex.html", null ],
-      [ "sttcl::SttclSemaphore< Impl >", "classsttcl_1_1_sttcl_semaphore.html", null ],
-      [ "sttcl::SttclThread< Impl >", "classsttcl_1_1_sttcl_thread.html", null ],
-      [ "sttcl::ThreadFunctionHelper", "structsttcl_1_1_thread_function_helper.html", null ],
+      [ "sttcl::internal::SttclEventQueue< T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType >", "classsttcl_1_1internal_1_1_sttcl_event_queue.html", null ],
+      [ "sttcl::internal::SttclMutex< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_mutex.html", null ],
+      [ "sttcl::internal::SttclSemaphore< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_semaphore.html", null ],
+      [ "sttcl::internal::SttclThread< Impl >", "classsttcl_1_1internal_1_1_sttcl_thread.html", null ],
+      [ "sttcl::internal::ThreadFunctionHelper", "structsttcl_1_1internal_1_1_thread_function_helper.html", null ],
       [ "sttcl::TimeDuration< Implementation >", "classsttcl_1_1_time_duration.html", null ]
     ] ],
     [ "Class Members", "functions.html", null ],

@@ -180,22 +180,23 @@ Static Public Attributes</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a zero time duration.  <a href="#a3f7bb56a56c77172e157e5de04aaa64b"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt;<br/>
+<div class="textblock"><h3>template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt;<br/>
 class sttcl::TimeDuration&lt; Implementation &gt;</h3>
 
 <p>Adapter class for a (OS-)specific "real"-time duration representation implementation. </p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">Implementation</td><td>Selects a (OS-)specific "real"-time duration representation implementation. </td></tr>
+    <tr><td class="paramname">Implementation</td><td>Selects a (OS-)specific "real"-time duration representation implementation.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement a static interface check for the Impl class. </dd></dl>
 </div><hr/><h2>Member Typedef Documentation</h2>
 <a class="anchor" id="af440573cd9be703b0df0b3078840afe3"></a><!-- doxytag: member="sttcl::TimeDuration::NativeTimeDuration" ref="af440573cd9be703b0df0b3078840afe3" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">typedef Implementation::NativeTimeDuration <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::<a class="el" href="classsttcl_1_1_time_duration.html#af440573cd9be703b0df0b3078840afe3">NativeTimeDuration</a></td>
@@ -213,7 +214,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::<a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a> </td>
@@ -279,7 +280,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::<a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a> </td>
@@ -306,7 +307,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::~<a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a> </td>
@@ -327,7 +328,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="classsttcl_1_1_time_duration.html#af440573cd9be703b0df0b3078840afe3">NativeTimeDuration</a>&amp; <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::getNativeValue </td>
@@ -348,7 +349,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::hours </td>
@@ -368,7 +369,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::hours </td>
@@ -389,7 +390,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::microseconds </td>
@@ -409,7 +410,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::microseconds </td>
@@ -430,7 +431,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::milliseconds </td>
@@ -450,7 +451,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::milliseconds </td>
@@ -471,7 +472,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::minutes </td>
@@ -491,7 +492,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::minutes </td>
@@ -512,7 +513,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::nanoseconds </td>
@@ -532,7 +533,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::nanoseconds </td>
@@ -553,7 +554,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator!= </td>
@@ -581,7 +582,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a>&lt;Implementation&gt;&amp; <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator*= </td>
@@ -609,7 +610,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a>&lt;Implementation&gt;&amp; <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator+= </td>
@@ -637,7 +638,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a>&lt;Implementation&gt;&amp; <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator-= </td>
@@ -665,7 +666,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a>&lt;Implementation&gt;&amp; <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator/= </td>
@@ -693,7 +694,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator&lt; </td>
@@ -721,7 +722,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator&lt;= </td>
@@ -749,7 +750,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsttcl_1_1_time_duration.html">TimeDuration</a>&lt;Implementation&gt;&amp; <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator= </td>
@@ -777,7 +778,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator== </td>
@@ -805,7 +806,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator&gt; </td>
@@ -833,7 +834,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::operator&gt;= </td>
@@ -861,7 +862,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::seconds </td>
@@ -881,7 +882,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::seconds </td>
@@ -903,7 +904,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
+template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATIONIMPL&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt; <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt; Implementation &gt;::<a class="el" href="classsttcl_1_1_time_duration.html#a3f7bb56a56c77172e157e5de04aaa64b">Zero</a> = <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;Implementation&gt;()<code> [static]</code></td>
@@ -940,7 +941,7 @@ template&lt;class Implementation = STTCL_DEFAULT_TIMEDURATION_IMPL&gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Thu Feb 16 2012 21:14:27 for sttcl by
+    <li class="footer">Generated on Sun Feb 19 2012 21:48:22 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
