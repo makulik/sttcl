@@ -28,9 +28,14 @@
 namespace sttcl
 {
 
+namespace internal
+{
+
 /**
  * Adapter class for a (OS-)specific thread implementation.
  * @tparam Impl Selects a (OS-)specific thread implementation.
+ *
+ * @todo Implement a static interface check for the Impl class.
  */
 template<class Impl = STTCL_DEFAULT_THREADIMPL>
 class SttclThread
@@ -46,7 +51,9 @@ public:
 	 * Constructor for class SttclThread.
 	 * @param argThreadMethod A pointer tor the method that should be executed as thread method.
 	 */
-	SttclThread(ThreadMethodPtr argThreadMethod) : Impl(argThreadMethod) {}
+	SttclThread(ThreadMethodPtr argThreadMethod) : Impl(argThreadMethod)
+	{
+	}
 	/**
 	 * Destructor for class SttclThread.
 	 */
@@ -85,8 +92,13 @@ public:
 	{
 		return Impl::isSelf(otherThread);
 	}
-};
 
+private:
+	SttclThread(); //!< Forbidden
+	SttclThread(const SttclThread<Impl>& rhs); //!< Forbidden
+	SttclThread& operator=(const SttclThread<Impl>& rhs); //!< Forbidden
+};
+}
 }
 
 #endif /* STTCLTHREAD_H_ */

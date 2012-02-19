@@ -22,12 +22,14 @@ template
 , class StateMachineImpl
 , class IState
 , class StateThreadType
-, class EndDoActionSemaphoreType
 , class TimeDurationType
+, class EndDoActionSemaphoreType
 , class ActiveStateMutexType
 >
 class ActiveState;
 
+namespace internal
+{
 /**
  * Helper class to call a state thread method.
  */
@@ -43,13 +45,13 @@ struct ThreadFunctionHelper
 	 * @tparam IState The inner event handler interface of the
 	 *                \link sttcl::StateMachine\endlink<> implementation
 	 * @tparam StateThreadType The thread implementation class, default is
-	 *                         \link sttcl::SttclThread\endlink<>.
+	 *                         \link sttcl::internal::SttclThread\endlink<>.
 	 * @tparam EndDoActionSemaphoreType The semaphore implementation class, default is
-	 *                                  \link sttcl::SttclSemaphore\endlink<>.
+	 *                                  \link sttcl::internal::SttclSemaphore\endlink<>.
 	 * @tparam TimeDurationType The time duration representation implementation class, default
 	 *                          is \link sttcl::TimeDuration\endlink<>.
 	 * @tparam ActiveStateMutexType The mutex implementation class, default
-	 *                              is \link sttcl::SttclMutex\endlink<>.
+	 *                              is \link sttcl::internal::SttclMutex\endlink<>.
 	 * @param args A pointer to the thread args. Implicitely \em args is casted to
 	 *             \link sttcl::ActiveState\endlink<> and the
 	 *             \link sttcl::ActiveState::runDoAction\endlink method is called.
@@ -59,8 +61,8 @@ struct ThreadFunctionHelper
 	, class StateMachineImpl
 	, class IState
 	, class StateThreadType
-	, class EndDoActionSemaphoreType
 	, class TimeDurationType
+	, class EndDoActionSemaphoreType
 	, class ActiveStateMutexType
 	>
     static void* stateThreadMethod(void* args)
@@ -85,6 +87,7 @@ struct ThreadFunctionHelper
     	return 0;
     }
 };
+}
 
 /**
  * Represents a particular state machines active state implementation base class.
@@ -97,25 +100,25 @@ struct ThreadFunctionHelper
  * @tparam StateThreadType The thread implementation class, default is
  *                         \link sttcl::SttclThread\endlink<>.
  * @tparam EndDoActionSemaphoreType The semaphore implementation class, default is
- *                                  \link sttcl::SttclSemaphore\endlink<>.
+ *                                  \link sttcl::internal::SttclSemaphore\endlink<>.
  * @tparam TimeDurationType The time duration representation implementation class, default
  *                          is \link sttcl::TimeDuration\endlink<>.
  * @tparam ActiveStateMutexType The mutex implementation class, default
- *                              is \link sttcl::SttclMutex\endlink<>.
+ *                              is \link sttcl::internal::SttclMutex\endlink<>.
  */
 template
 < class StateImpl
 , class StateMachineImpl
 , class IState
-, class StateThreadType = SttclThread<>
-, class EndDoActionSemaphoreType = SttclSemaphore<>
-, class TimeDurationType = TimeDuration<>
-, class ActiveStateMutexType = SttclMutex<>
+, class StateThreadType = sttcl::internal::SttclThread<STTCL_DEFAULT_THREADIMPL>
+, class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
+, class EndDoActionSemaphoreType = internal::SttclSemaphore<STTCL_DEFAULT_SEMAPHOREIMPL>
+, class ActiveStateMutexType = internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
 >
 class ActiveState
 : public StateBase<StateMachineImpl,IState>
 {
-	friend class ThreadFunctionHelper;
+	friend class sttcl::internal::ThreadFunctionHelper;
 public:
     /**
      * The state machine implementation type.
@@ -271,7 +274,7 @@ public:
 
     inline bool isDoActionRunning() const
     {
-		AutoLocker<ActiveStateMutexType> lock(activeStateMutex);
+    	sttcl::internal::AutoLocker<ActiveStateMutexType> lock(activeStateMutex);
 		return doActionRunning;
     }
 
@@ -318,11 +321,11 @@ protected:
 	 *                       uses another blocking mechanism the parameter may be omitted (the
 	 *                       default is TimeDurationType::Zero).
 	 */
-    ActiveState(StateDoAction argDoAction, bool argRunDoActionOnce = false , TimeDuration<> argDoFrequency = TimeDuration<>::Zero)
+    ActiveState(StateDoAction argDoAction, bool argRunDoActionOnce = false , TimeDurationType argDoFrequency = TimeDurationType::Zero)
     : doAction(argDoAction)
     , doFrequency(argDoFrequency)
     , currentContext(0)
-    , stateThread(&ThreadFunctionHelper::stateThreadMethod
+    , stateThread(&sttcl::internal::ThreadFunctionHelper::stateThreadMethod
 					< StateImpl
 					, StateMachineImpl
 					, IState
@@ -389,7 +392,7 @@ private:
 
     void setDoActionRunning(bool value)
     {
-		AutoLocker<ActiveStateMutexType> lock(activeStateMutex);
+    	sttcl::internal::AutoLocker<ActiveStateMutexType> lock(activeStateMutex);
 		doActionRunning = value;
     }
 
@@ -441,7 +444,7 @@ private:
     }
 
     StateDoAction doAction;
-    TimeDuration<> doFrequency;
+    TimeDurationType doFrequency;
     Context* currentContext;
     StateThreadType stateThread;
     EndDoActionSemaphoreType endDoActionSemaphore;

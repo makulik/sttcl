@@ -134,6 +134,8 @@ public:
 
 };
 
+namespace internal
+{
 /**
  * Container struct to dispatch events to the inner region thread.
  */
@@ -240,6 +242,7 @@ struct DispatchedEvent
 private:
 	DispatchedEvent();
 };
+}
 
 #if !defined(STTCL_USE_STL)
 #else
@@ -251,15 +254,19 @@ private:
 #if !defined(STTCL_DEFAULT_DEQUEIMPL)
 #error "You need to define a default double ended queue implementation for sttcl"
 #endif
+
+namespace internal
+{
 /**
  * Represents a queue used to dispatch events to a waiting thread.
  */
 template
 < class T
-, class SemaphoreType = SttclSemaphore<>
-, class MutexType = SttclMutex<>
-, class TimeDurationType = TimeDuration<>
+, class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
+, class SemaphoreType = sttcl::internal::SttclSemaphore<STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType>
+, class MutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
 , class InnerQueueType = STTCL_DEFAULT_DEQUEIMPL(T)
+// , class InnerQueueType = std::deque<T>
 >
 class SttclEventQueue
 {
@@ -284,7 +291,7 @@ public:
 	 */
 	void push_back(const T& event)
 	{
-		{ AutoLocker<MutexType> lock(eventQueueMutex);
+		{ sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
 			eventQueue.push_back(event);
 		}
 		eventsAvailable.post();
@@ -296,7 +303,7 @@ public:
 	 */
 	T& front()
 	{
-		AutoLocker<MutexType> lock(eventQueueMutex);
+		sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
 		return eventQueue.front();
 	}
 
@@ -305,7 +312,7 @@ public:
 	 */
 	void pop_front()
 	{
-		AutoLocker<MutexType> lock(eventQueueMutex);
+		sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
 		eventQueue.pop_front();
 	}
 
@@ -334,7 +341,7 @@ public:
 	 */
 	bool empty()
 	{
-		AutoLocker<MutexType> lock(eventQueueMutex);
+		sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
 		return eventQueue.empty();
 	}
 
@@ -350,6 +357,7 @@ private:
 	MutexType eventQueueMutex;
 	SemaphoreType eventsAvailable;
 };
+}
 
 /**
  * Represents a region within a matching ConcurrentCompositeState implementation.
@@ -364,15 +372,15 @@ private:
  *                     CompositeStateHistoryType::Values), default is
  *                     CompositeStateHistoryType::None.
  * @tparam StateThreadType The thread implementation class, default is
- *                         \link sttcl::SttclThread\endlink<>.
+ *                         \link sttcl::internal::SttclThread\endlink<>.
  * @tparam SemaphoreType The semaphore implementation class, default is
- *                                  \link sttcl::SttclSemaphore\endlink<>.
+ *                                  \link sttcl::internal::SttclSemaphore\endlink<>.
  * @tparam TimeDurationType The time duration representation implementation class, default
  *                          is \link sttcl::TimeDuration\endlink<>.
  * @tparam MutexType The mutex implementation class, default
  *                              is \link sttcl::SttclMutex\endlink<>.
  * @tparam EventQueueType The event queue implementation class, default
- *                        is \link sttcl::SttclEventQueue\endlink<>
+ *                        is \link sttcl::internal::SttclEventQueue\endlink<>
  */
 template
 < class RegionImpl
@@ -380,25 +388,25 @@ template
 , class IInnerState
 , class EventArgs = void
 , CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None
-, class StateThreadType = SttclThread<>
-, class SemaphoreType = SttclSemaphore<>
-, class TimeDurationType = TimeDuration<>
-, class MutexType = SttclMutex<>
-, class EventQueueType = SttclEventQueue<DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>,SemaphoreType,MutexType,TimeDurationType>
+, class StateThreadType = sttcl::internal::SttclThread<>
+, class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
+, class SemaphoreType = sttcl::internal::SttclSemaphore<STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType>
+, class MutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
+, class EventQueueType = sttcl::internal::SttclEventQueue<sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>,TimeDurationType,SemaphoreType,MutexType>
 >
 class Region
 : public CompositeState
-  	< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,SemaphoreType,TimeDurationType,MutexType,EventQueueType>
+  	< Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,TimeDurationType,SemaphoreType,MutexType,EventQueueType>
 	, StateMachineImpl
 	, IInnerState
 	, HistoryType
 	, ActiveState
-	  < Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,SemaphoreType,TimeDurationType,MutexType,EventQueueType>
+	  < Region<RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,TimeDurationType,SemaphoreType,MutexType,EventQueueType>
 	  , StateMachineImpl
 	  , typename StateMachineImpl::StateInterface
 	  , StateThreadType
-	  , SemaphoreType
 	  , TimeDurationType
+	  , SemaphoreType
 	  , MutexType
 	  >
 	, StateMachine<RegionImpl, IInnerState>
@@ -428,8 +436,8 @@ public:
     			, EventArgs
     			, HistoryType
     			, StateThreadType
-                , SemaphoreType
                 , TimeDurationType
+                , SemaphoreType
                 , MutexType
                 , EventQueueType
                 > SelfClassType;
@@ -442,8 +450,8 @@ public:
     		  , StateMachineImpl
     		  , typename StateMachineImpl::StateInterface
     		  , StateThreadType
-    		  , SemaphoreType
     		  , TimeDurationType
+    		  , SemaphoreType
     		  , MutexType
     		  > ActiveStateImpl;
 
@@ -533,7 +541,7 @@ public:
      * Constructor for class Region.
      * @param argDoActionFrequency
      */
-	Region(sttcl::TimeDuration<> argDoActionFrequency = sttcl::TimeDuration<>::Zero)
+	Region(TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
 	: CompositeStateBase(&SelfClassType::regionDoAction)
 	, eventDispatchQueue()
 	, checkEventFrequency(argDoActionFrequency)
@@ -558,7 +566,7 @@ public:
 	{
 		if(state)
 		{
-			eventDispatchQueue.push_back(DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(state,eventHandler,eventArgs));
+			eventDispatchQueue.push_back(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(state,eventHandler,eventArgs));
 		}
 	}
 
@@ -570,7 +578,7 @@ public:
 	 */
 	void dispatchInternalEvent(InternalEventHandler internalEventHandler, bool recursive)
 	{
-		eventDispatchQueue.push_back(DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(internalEventHandler,recursive));
+		eventDispatchQueue.push_back(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(internalEventHandler,recursive));
 	}
 
 	/**
@@ -825,7 +833,7 @@ private:
 		{
 			while(!eventDispatchQueue.empty())
 			{
-				DispatchedEvent<StateMachineImpl,IInnerState,EventArgs> dispatchedEvent = eventDispatchQueue.front();
+				sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs> dispatchedEvent = eventDispatchQueue.front();
 				eventDispatchQueue.pop_front();
 				if(dispatchedEvent.internalHandler)
 				{
