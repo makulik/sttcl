@@ -45,7 +45,7 @@ struct ThreadFunctionHelper
 	 * @tparam IState The inner event handler interface of the
 	 *                \link sttcl::StateMachine\endlink<> implementation
 	 * @tparam StateThreadType The thread implementation class, default is
-	 *                         \link sttcl::SttclThread\endlink<>.
+	 *                         \link sttcl::internal::SttclThread\endlink<>.
 	 * @tparam EndDoActionSemaphoreType The semaphore implementation class, default is
 	 *                                  \link sttcl::internal::SttclSemaphore\endlink<>.
 	 * @tparam TimeDurationType The time duration representation implementation class, default

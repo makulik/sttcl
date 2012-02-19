@@ -134,6 +134,8 @@ public:
 
 };
 
+namespace internal
+{
 /**
  * Container struct to dispatch events to the inner region thread.
  */
@@ -240,6 +242,7 @@ struct DispatchedEvent
 private:
 	DispatchedEvent();
 };
+}
 
 #if !defined(STTCL_USE_STL)
 #else
@@ -369,15 +372,15 @@ private:
  *                     CompositeStateHistoryType::Values), default is
  *                     CompositeStateHistoryType::None.
  * @tparam StateThreadType The thread implementation class, default is
- *                         \link sttcl::SttclThread\endlink<>.
+ *                         \link sttcl::internal::SttclThread\endlink<>.
  * @tparam SemaphoreType The semaphore implementation class, default is
- *                                  \link sttcl::SttclSemaphore\endlink<>.
+ *                                  \link sttcl::internal::SttclSemaphore\endlink<>.
  * @tparam TimeDurationType The time duration representation implementation class, default
  *                          is \link sttcl::TimeDuration\endlink<>.
  * @tparam MutexType The mutex implementation class, default
  *                              is \link sttcl::SttclMutex\endlink<>.
  * @tparam EventQueueType The event queue implementation class, default
- *                        is \link sttcl::SttclEventQueue\endlink<>
+ *                        is \link sttcl::internal::SttclEventQueue\endlink<>
  */
 template
 < class RegionImpl
@@ -389,7 +392,7 @@ template
 , class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
 , class SemaphoreType = sttcl::internal::SttclSemaphore<STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType>
 , class MutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
-, class EventQueueType = sttcl::internal::SttclEventQueue<DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>,TimeDurationType,SemaphoreType,MutexType>
+, class EventQueueType = sttcl::internal::SttclEventQueue<sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>,TimeDurationType,SemaphoreType,MutexType>
 >
 class Region
 : public CompositeState
@@ -563,7 +566,7 @@ public:
 	{
 		if(state)
 		{
-			eventDispatchQueue.push_back(DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(state,eventHandler,eventArgs));
+			eventDispatchQueue.push_back(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(state,eventHandler,eventArgs));
 		}
 	}
 
@@ -575,7 +578,7 @@ public:
 	 */
 	void dispatchInternalEvent(InternalEventHandler internalEventHandler, bool recursive)
 	{
-		eventDispatchQueue.push_back(DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(internalEventHandler,recursive));
+		eventDispatchQueue.push_back(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(internalEventHandler,recursive));
 	}
 
 	/**
@@ -830,7 +833,7 @@ private:
 		{
 			while(!eventDispatchQueue.empty())
 			{
-				DispatchedEvent<StateMachineImpl,IInnerState,EventArgs> dispatchedEvent = eventDispatchQueue.front();
+				sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs> dispatchedEvent = eventDispatchQueue.front();
 				eventDispatchQueue.pop_front();
 				if(dispatchedEvent.internalHandler)
 				{
