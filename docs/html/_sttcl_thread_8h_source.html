@@ -97,80 +97,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">sttcl/include/SttclThread.h</div>  </div>
 </div>
 <div class="contents">
-<a href="_sttcl_thread_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> * SttclThread.h</span>
-<a name="l00003"></a>00003 <span class="comment"> *</span>
-<a name="l00004"></a>00004 <span class="comment"> *  Created on: 19.12.2011</span>
-<a name="l00005"></a>00005 <span class="comment"> *      Author: Admin</span>
-<a name="l00006"></a>00006 <span class="comment"> */</span>
-<a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#ifndef STTCLTHREAD_H_</span>
-<a name="l00009"></a>00009 <span class="preprocessor"></span><span class="preprocessor">#define STTCLTHREAD_H_</span>
-<a name="l00010"></a>00010 <span class="preprocessor"></span>
-<a name="l00011"></a>00011 <span class="preprocessor">#ifndef STTCL_DEFAULT_THREADIMPL</span>
-<a name="l00012"></a>00012 <span class="preprocessor"></span><span class="preprocessor">#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)</span>
-<a name="l00013"></a>00013 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../PosixThreads/SttclPosixThread.h&quot;</span>
-<a name="l00014"></a>00014 <span class="preprocessor">#define STTCL_DEFAULT_THREADIMPL sttcl::internal::posix_impl::SttclPosixThread</span>
-<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#elif defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)</span>
-<a name="l00016"></a>00016 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../BoostThreads/SttclBoostThread.h&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#define STTCL_DEFAULT_THREADIMPL sttcl::internal::boost_impl::SttclBoostThread</span>
-<a name="l00018"></a>00018 <span class="preprocessor"></span><span class="preprocessor">#elif defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)</span>
-<a name="l00019"></a>00019 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../C++11Threads/SttclCx11Thread.h&quot;</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#define STTCL_DEFAULT_THREADIMPL sttcl::internal::cx11_impl::SttclCx11Thread</span>
-<a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span>
-<a name="l00023"></a>00023 <span class="preprocessor">#ifndef STTCL_DEFAULT_THREADIMPL</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default thread implementation for sttcl&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a href="_sttcl_thread_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00025"></a>00025 <span class="preprocessor">#ifndef STTCLTHREAD_H_</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define STTCLTHREAD_H_</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
-<a name="l00028"></a>00028 <span class="keyword">namespace </span>sttcl
-<a name="l00029"></a>00029 {
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keyword">namespace </span>internal
-<a name="l00032"></a>00032 {
-<a name="l00033"></a>00033 
-<a name="l00040"></a>00040 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Impl = STTCL_DEFAULT_THREADIMPL&gt;
-<a name="l00041"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html">00041</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>
-<a name="l00042"></a>00042 : <span class="keyword">public</span> Impl
-<a name="l00043"></a>00043 {
-<a name="l00044"></a>00044 <span class="keyword">public</span>:
-<a name="l00048"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a177f8a7c2983f522339dd88a159abe3a">00048</a>         <span class="keyword">typedef</span> <span class="keywordtype">void</span>* (*ThreadMethodPtr)(<span class="keywordtype">void</span>*);
-<a name="l00049"></a>00049 
-<a name="l00054"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a5cc8a66bb880f5b283c2a4ea743c674c">00054</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>(<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a177f8a7c2983f522339dd88a159abe3a" title="Defines the method pointer signature used for the thread method.">ThreadMethodPtr</a> argThreadMethod) : Impl(argThreadMethod)
-<a name="l00055"></a>00055         {
-<a name="l00056"></a>00056         }
-<a name="l00060"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3d416add7f4d3cee8a3fdc36eeb39d14">00060</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3d416add7f4d3cee8a3fdc36eeb39d14" title="Destructor for class SttclThread.">~SttclThread</a>() {}
-<a name="l00061"></a>00061 
-<a name="l00065"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3bc913eee0f1c9f920ab4397ca21dc60">00065</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3bc913eee0f1c9f920ab4397ca21dc60" title="Runs the thread method within a separate thread.">run</a>(<span class="keywordtype">void</span>* args)
-<a name="l00066"></a>00066         {
-<a name="l00067"></a>00067                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3bc913eee0f1c9f920ab4397ca21dc60" title="Runs the thread method within a separate thread.">run</a>(args);
-<a name="l00068"></a>00068         }
-<a name="l00069"></a>00069 
-<a name="l00073"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad44b3776035379dd6bce360075f2f860">00073</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad44b3776035379dd6bce360075f2f860" title="Waits blocking forever until the thread method exits.">join</a>()
-<a name="l00074"></a>00074         {
-<a name="l00075"></a>00075                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad44b3776035379dd6bce360075f2f860" title="Waits blocking forever until the thread method exits.">join</a>();
-<a name="l00076"></a>00076         }
-<a name="l00077"></a>00077 
-<a name="l00081"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad104fc80254c74005cef3375aa65a315">00081</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad104fc80254c74005cef3375aa65a315" title="Kills the thread method.">detach</a>()
-<a name="l00082"></a>00082         {
-<a name="l00083"></a>00083                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad104fc80254c74005cef3375aa65a315" title="Kills the thread method.">detach</a>();
-<a name="l00084"></a>00084         }
-<a name="l00085"></a>00085 
-<a name="l00091"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#aa8fb3a070e122ca918a00f2a9642bc93">00091</a>         <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#aa8fb3a070e122ca918a00f2a9642bc93" title="Returns true if the other thread reference represents the thread method path, false otherwise...">isSelf</a>(<span class="keyword">const</span> Impl&amp; otherThread)
-<a name="l00092"></a>00092         {
-<a name="l00093"></a>00093                 <span class="keywordflow">return</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#aa8fb3a070e122ca918a00f2a9642bc93" title="Returns true if the other thread reference represents the thread method path, false otherwise...">Impl::isSelf</a>(otherThread);
-<a name="l00094"></a>00094         }
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096 <span class="keyword">private</span>:
-<a name="l00097"></a>00097         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>(); 
-<a name="l00098"></a>00098         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread&lt;Impl&gt;</a>&amp; rhs); 
-<a name="l00099"></a>00099         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread&lt;Impl&gt;</a>&amp; rhs); 
-<a name="l00100"></a>00100 };
-<a name="l00101"></a>00101 }
-<a name="l00102"></a>00102 }
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104 <span class="preprocessor">#endif </span><span class="comment">/* STTCLTHREAD_H_ */</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#ifndef STTCL_DEFAULT_THREADIMPL</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../PosixThreads/SttclPosixThread.h&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#define STTCL_DEFAULT_THREADIMPL sttcl::internal::posix_impl::SttclPosixThread</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span><span class="preprocessor">#elif defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../BoostThreads/SttclBoostThread.h&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#define STTCL_DEFAULT_THREADIMPL sttcl::internal::boost_impl::SttclBoostThread</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">#elif defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../C++11Threads/SttclCx11Thread.h&quot;</span>
+<a name="l00037"></a>00037 <span class="preprocessor">#define STTCL_DEFAULT_THREADIMPL sttcl::internal::cx11_impl::SttclCx11Thread</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span>
+<a name="l00040"></a>00040 <span class="preprocessor">#ifndef STTCL_DEFAULT_THREADIMPL</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default thread implementation for sttcl&quot;</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span>
+<a name="l00045"></a>00045 <span class="keyword">namespace </span>sttcl
+<a name="l00046"></a>00046 {
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="keyword">namespace </span>internal
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050 
+<a name="l00057"></a>00057 <span class="keyword">template</span>&lt;<span class="keyword">class</span> Impl = STTCL_DEFAULT_THREADIMPL&gt;
+<a name="l00058"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html">00058</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>
+<a name="l00059"></a>00059 : <span class="keyword">public</span> Impl
+<a name="l00060"></a>00060 {
+<a name="l00061"></a>00061 <span class="keyword">public</span>:
+<a name="l00065"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a177f8a7c2983f522339dd88a159abe3a">00065</a>         <span class="keyword">typedef</span> <span class="keywordtype">void</span>* (*ThreadMethodPtr)(<span class="keywordtype">void</span>*);
+<a name="l00066"></a>00066 
+<a name="l00071"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a5cc8a66bb880f5b283c2a4ea743c674c">00071</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>(<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a177f8a7c2983f522339dd88a159abe3a" title="Defines the method pointer signature used for the thread method.">ThreadMethodPtr</a> argThreadMethod) : Impl(argThreadMethod)
+<a name="l00072"></a>00072         {
+<a name="l00073"></a>00073         }
+<a name="l00077"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3d416add7f4d3cee8a3fdc36eeb39d14">00077</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3d416add7f4d3cee8a3fdc36eeb39d14" title="Destructor for class SttclThread.">~SttclThread</a>() {}
+<a name="l00078"></a>00078 
+<a name="l00082"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3bc913eee0f1c9f920ab4397ca21dc60">00082</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3bc913eee0f1c9f920ab4397ca21dc60" title="Runs the thread method within a separate thread.">run</a>(<span class="keywordtype">void</span>* args)
+<a name="l00083"></a>00083         {
+<a name="l00084"></a>00084                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3bc913eee0f1c9f920ab4397ca21dc60" title="Runs the thread method within a separate thread.">run</a>(args);
+<a name="l00085"></a>00085         }
+<a name="l00086"></a>00086 
+<a name="l00090"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad44b3776035379dd6bce360075f2f860">00090</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad44b3776035379dd6bce360075f2f860" title="Waits blocking forever until the thread method exits.">join</a>()
+<a name="l00091"></a>00091         {
+<a name="l00092"></a>00092                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad44b3776035379dd6bce360075f2f860" title="Waits blocking forever until the thread method exits.">join</a>();
+<a name="l00093"></a>00093         }
+<a name="l00094"></a>00094 
+<a name="l00098"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad104fc80254c74005cef3375aa65a315">00098</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad104fc80254c74005cef3375aa65a315" title="Kills the thread method.">detach</a>()
+<a name="l00099"></a>00099         {
+<a name="l00100"></a>00100                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#ad104fc80254c74005cef3375aa65a315" title="Kills the thread method.">detach</a>();
+<a name="l00101"></a>00101         }
+<a name="l00102"></a>00102 
+<a name="l00108"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#aa8fb3a070e122ca918a00f2a9642bc93">00108</a>         <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#aa8fb3a070e122ca918a00f2a9642bc93" title="Returns true if the other thread reference represents the thread method path, false otherwise...">isSelf</a>(<span class="keyword">const</span> Impl&amp; otherThread)
+<a name="l00109"></a>00109         {
+<a name="l00110"></a>00110                 <span class="keywordflow">return</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html#aa8fb3a070e122ca918a00f2a9642bc93" title="Returns true if the other thread reference represents the thread method path, false otherwise...">Impl::isSelf</a>(otherThread);
+<a name="l00111"></a>00111         }
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 <span class="keyword">private</span>:
+<a name="l00114"></a>00114         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>(); 
+<a name="l00115"></a>00115         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread&lt;Impl&gt;</a>&amp; rhs); 
+<a name="l00116"></a>00116         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html" title="Adapter class for a (OS-)specific thread implementation.">SttclThread&lt;Impl&gt;</a>&amp; rhs); 
+<a name="l00117"></a>00117 };
+<a name="l00118"></a>00118 }
+<a name="l00119"></a>00119 }
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 <span class="preprocessor">#endif </span><span class="comment">/* STTCLTHREAD_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -191,7 +185,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sun Feb 19 2012 21:48:21 for sttcl by
+    <li class="footer">Generated on Mon Feb 27 2012 23:42:03 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

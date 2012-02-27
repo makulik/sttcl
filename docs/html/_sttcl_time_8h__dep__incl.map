@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_sttcl_mutex_8h.html" title="sttcl/include/SttclMutex.h" alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node5" href="$_active_state_8h.html" title="sttcl/include/ActiveState.h" alt="" coords="128,155,301,181"/>
-<area shape="rect" id="node12" href="$_sttcl_semaphore_8h.html" title="sttcl/include/SttclSemaphore.h" alt="" coords="251,80,451,107"/>
-<area shape="rect" id="node7" href="$_region_8h.html" title="sttcl/include/Region.h" alt="" coords="141,229,288,256"/>
-<area shape="rect" id="node9" href="$_concurrent_composite_state_8h.html" title="sttcl/include/ConcurrentCompositeState.h" alt="" coords="83,304,345,331"/>
+<area shape="rect" id="node3" href="$_sttcl_mutex_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node5" href="$_active_state_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="128,155,301,181"/>
+<area shape="rect" id="node12" href="$_sttcl_semaphore_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="251,80,451,107"/>
+<area shape="rect" id="node7" href="$_region_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="141,229,288,256"/>
+<area shape="rect" id="node9" href="$_concurrent_composite_state_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="83,304,345,331"/>
 </map>
