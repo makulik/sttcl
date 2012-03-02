@@ -24,6 +24,7 @@
 
 #include "../SttclBoostThread.h"
 
+#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 using namespace sttcl;
 using namespace sttcl::internal;
 using namespace sttcl::internal::boost_impl;
@@ -71,3 +72,4 @@ bool SttclBoostThread::isSelf(const SttclBoostThread& otherThread)
 {
 	return boost::this_thread::get_id() == otherThread.thread.get_id();
 }
+#endif
