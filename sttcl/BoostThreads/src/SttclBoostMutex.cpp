@@ -23,6 +23,7 @@
  */
 
 #include "../SttclBoostMutex.h"
+#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOS_IMPL)
 #include <boost/date_time/posix_time/ptime.hpp>
 
 using namespace sttcl;
@@ -60,3 +61,4 @@ void SttclBoostMutex::unlock()
 {
 	mutex.unlock();
 }
+#endif

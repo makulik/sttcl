@@ -27,6 +27,8 @@
 
 #ifndef STTCL_DEFAULT_TIMEDURATIONIMPL
 #if defined(STTCL_POSIX_TIME)  or defined(STTCL_POSIX_IMPL)
+#include "../PosixTime/SttclPosixTime.h"
+#define STTCL_DEFAULT_TIMEDURATIONIMPL sttcl::internal::posix_impl::SttclPosixTimeDuration
 #elif defined(STTCL_BOOST_TIME) or defined(STTCL_BOOST_IMPL)
 #include "../BoostTime/SttclBoostTime.h"
 #define STTCL_DEFAULT_TIMEDURATIONIMPL sttcl::internal::boost_impl::SttclBoostTimeDuration
@@ -87,6 +89,14 @@ public:
 	{
 	}
 	/**
+	 * Constructor for class TimeDuration.
+	 * @param nativeTimeDuration An instance of the NativeTimeDuration value.
+	 */
+	TimeDuration(const NativeTimeDuration& nativeTimeDuration)
+	: Implementation(nativeTimeDuration)
+	{
+	}
+	/**
 	 * Destructor for class TimeDuration.
 	 */
 	~TimeDuration()
@@ -101,6 +111,17 @@ public:
 	TimeDuration<Implementation>& operator=(const TimeDuration<Implementation>& rhs)
 	{
 		Implementation::operator=(static_cast<const Implementation&>(rhs));
+		return *this;
+	}
+
+	/**
+	 * Assignment operator for class TimeDuration.
+	 * @param nativeTimeDuration An instance of the NativeTimeDuration value.
+	 * @return A reference to the assigned TimeDuration instance.
+	 */
+	TimeDuration<Implementation>& operator=(const NativeTimeDuration& nativeTimeDuration)
+	{
+		Implementation::operator=(static_cast<const Implementation&>(nativeTimeDuration));
 		return *this;
 	}
 
@@ -206,42 +227,42 @@ public:
 	/**
 	 * Gets the hours represented in this instance.
 	 */
-	int hours() const
+	long hours() const
 	{
 		return Implementation::hours();
 	}
 	/**
 	 * Gets the minutes represented in this instance.
 	 */
-	int minutes() const
+	long minutes() const
 	{
 		return Implementation::minutes();
 	}
 	/**
 	 * Gets the seconds represented in this instance.
 	 */
-	int seconds() const
+	long seconds() const
 	{
 		return Implementation::seconds();
 	}
 	/**
 	 * Gets the milliseconds represented in this instance.
 	 */
-	int milliseconds() const
+	long milliseconds() const
 	{
 		return Implementation::milliseconds();
 	}
 	/**
 	 * Gets the microseconds represented in this instance.
 	 */
-	int microseconds() const
+	long microseconds() const
 	{
 		return Implementation::microseconds();
 	}
 	/**
 	 * Gets the nanoseconds represented in this instance.
 	 */
-	int nanoseconds() const
+	long nanoseconds() const
 	{
 		return Implementation::nanoseconds();
 	}
@@ -267,27 +288,37 @@ public:
 	{
 		Implementation::seconds(newSeconds);
 	}
+
+	/**
+	 * @todo Implement methods to set milliseconds, microseconds and nanoseconds in a consistent way with the getters.
+	 */
 	/**
 	 * Sets the milliseconds represented in this instance.
 	 */
+	/*
 	void milliseconds(int newMilliSeconds)
 	{
 		Implementation::milliseconds(newMilliSeconds);
 	}
+	*/
 	/**
 	 * Sets the microseconds represented in this instance.
 	 */
+	/*
 	void microseconds(int newMicroSeconds)
 	{
 		Implementation::microseconds(newMicroSeconds);
 	}
+	*/
 	/**
 	 * Sets the nanoseconds represented in this instance.
 	 */
-	void nanoseconds(int newNanoSeconds)
+	/*
+	void nanoseconds(long newNanoSeconds)
 	{
 		Implementation::nanoseconds(newNanoSeconds);
 	}
+	*/
 
 	/**
 	 * Gets the native "real"-time duration representation.

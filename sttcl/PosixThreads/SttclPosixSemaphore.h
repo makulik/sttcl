@@ -25,7 +25,7 @@
 #ifndef STTCLPOSIXSEMAPHORE_H_
 #define STTCLPOSIXSEMAPHORE_H_
 
-#ifdef STTCL_POSIX_THREADS
+#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
 #include <semaphore.h>
 #include "../include/SttclTime.h"
