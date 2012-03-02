@@ -23,7 +23,7 @@
  */
 
 #include "../SttclPosixSemaphore.h"
-#ifdef STTCL_POSIX_THREADS
+#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
 using namespace sttcl;
 using namespace sttcl::internal;
@@ -50,23 +50,27 @@ bool SttclPosixSemaphore::try_wait(const TimeDuration<>& timeout)
 	if(timeout == TimeDuration<>::Zero)
 	{
 		int ret = sem_trywait(&semaphore);
-		if(ret < 0)
+		if(ret == 0)
 		{
-			return false;
+			return true;
 		}
-		return true;
 	}
-
-
-	struct timespec abstime;
-	abstime.tv_sec = timeout.seconds();
-	abstime.tv_nsec = timeout.nanoseconds();
-	int ret = sem_timedwait(&semaphore,&abstime);
-	if(ret <= 0)
+	else
 	{
-		return false;
+		struct timespec now;
+		clock_gettime(CLOCK_REALTIME,&now);
+		TimeDuration<> tnow(now);
+		tnow += timeout;
+		struct timespec until;
+		until = tnow.getNativeValue();
+		int ret = sem_timedwait(&semaphore,&until);
+		if(ret == 0)
+		{
+			return true;
+		}
 	}
-	return true;
+
+	return false;
 }
 
 void SttclPosixSemaphore::post()

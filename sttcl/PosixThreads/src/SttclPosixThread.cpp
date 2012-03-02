@@ -24,7 +24,7 @@
 
 #include "../SttclPosixThread.h"
 
-#ifdef STTCL_POSIX_THREADS
+#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
 using namespace sttcl;
 using namespace sttcl::internal;
@@ -73,4 +73,10 @@ void SttclPosixThread::detach()
 		valid = false;
 	}
 }
+
+bool SttclPosixThread::isSelf(const SttclPosixThread& otherThread)
+{
+	return pthread_equal(pthread_self(),otherThread.pthreadHandle) != 0;
+}
+
 #endif

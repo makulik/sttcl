@@ -23,7 +23,7 @@
  */
 
 #include "../SttclPosixMutex.h"
-#ifdef STTCL_POSIX_THREADS
+#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
 #include <time.h>
 
@@ -59,11 +59,11 @@ void SttclPosixMutex::lock()
 	}
 }
 
-bool SttclPosixMutex::try_lock(const TimeDuration& timeout)
+bool SttclPosixMutex::try_lock(const TimeDuration<>& timeout)
 {
 	if(valid)
 	{
-		if(timeout == TimeDuration::Zero)
+		if(timeout == TimeDuration<>::Zero)
 		{
 			if(pthread_mutex_trylock(&mutexHandle) == 0)
 			{
@@ -72,17 +72,23 @@ bool SttclPosixMutex::try_lock(const TimeDuration& timeout)
 		}
 		else
 		{
+#if defined(_POSIX_TIMEOUTS)
 			struct timespec now;
 			clock_gettime(CLOCK_REALTIME,&now);
-			TimeDuration tv(now.tv_sec,now.tv_nsec);
-			tv += timeout;
+			TimeDuration<> tnow(now);
+			tnow += timeout;
 			struct timespec until;
-			until.tv_sec = tv.getSeconds();
-			until.tv_nsec = tv.getNanoSeconds();
+			until = tnow.getNativeValue();
 			if(pthread_mutex_timedlock(&mutexHandle,&until) == 0)
 			{
 				return true;
 			}
+#else
+			if(pthread_mutex_trylock(&mutexHandle) == 0)
+			{
+				return true;
+			}
+#endif
 		}
 	}
 	return false;

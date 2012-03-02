@@ -54,6 +54,10 @@ public:
 	: td(rhs.td)
 	{
 	}
+	SttclCx11TimeDuration(const NativeTimeDuration& nativeTimeDuration)
+	: td(nativeTimeDuration)
+	{
+	}
 	~SttclCx11TimeDuration()
 	{
 	}
@@ -115,29 +119,29 @@ public:
 	}
 
 
-	int hours() const
+	long hours() const
 	{
 		return td.hours();
 	}
 
-	int minutes() const
+	long minutes() const
 	{
 		return td.minutes();
 	}
 
-	int seconds() const
+	long seconds() const
 	{
 		return td.seconds();
 	}
-	int milliseconds() const
+	long milliseconds() const
 	{
 		return td.total_milliseconds();
 	}
-	int microseconds() const
+	long microseconds() const
 	{
 		return td.total_microseconds();
 	}
-	int nanoseconds() const
+	long nanoseconds() const
 	{
 		return td.total_nanoseconds();
 	}
@@ -160,6 +164,7 @@ public:
 		result -= NativeTimeDuration(0,0,td.seconds() + newSeconds);
 		td = result;
 	}
+	/*
 	void milliseconds(int newMilliSeconds)
 	{
 		NativeTimeDuration result(td);
@@ -174,7 +179,7 @@ public:
 		result += boost::posix_time::microseconds(newMicroSeconds);
 		td = result;
 	}
-	void nanoseconds(int newNanoSeconds)
+	void nanoseconds(long newNanoSeconds)
 	{
 #ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
 
@@ -184,7 +189,7 @@ public:
 		td = result;
 #endif
 	}
-
+	*/
 	const NativeTimeDuration& getNativeValue() const
 	{
 		return td;

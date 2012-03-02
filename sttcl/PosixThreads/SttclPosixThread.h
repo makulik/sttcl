@@ -25,7 +25,7 @@
 #ifndef STTCLPOSIXTHREAD_H_
 #define STTCLPOSIXTHREAD_H_
 
-#ifdef STTCL_POSIX_THREADS
+#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
 #include <pthread.h>
 
@@ -49,6 +49,7 @@ public:
 	bool run(void* args);
 	void join();
 	void detach();
+	static bool isSelf(const SttclPosixThread& otherThread);
 private:
 	ThreadMethodPtr threadMethod;
 	pthread_t pthreadHandle;

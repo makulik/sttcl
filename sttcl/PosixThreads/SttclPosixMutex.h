@@ -28,7 +28,7 @@
 #include <pthread.h>
 #include "../include/SttclTime.h"
 
-#ifdef STTCL_POSIX_THREADS
+#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
 namespace sttcl
 {
@@ -47,7 +47,7 @@ public:
 	~SttclPosixMutex();
 
 	void lock();
-	bool try_lock(const TimeDuration& timeout);
+	bool try_lock(const TimeDuration<>& timeout);
 	void unlock();
 
 private:

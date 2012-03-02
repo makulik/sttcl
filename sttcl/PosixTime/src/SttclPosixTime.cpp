@@ -1,5 +1,5 @@
-/**
- * @file SttclBoostSemaphore.cpp
+/*
+ * @file SttclPosixTime.cpp
  *
  * Copyright (c) 2012, Guenther Makulik All rights reserved.
  *
@@ -21,45 +21,69 @@
  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
-#include "../SttclBoostSemaphore.h"
-#include <boost/date_time/posix_time/ptime.hpp>
-
-#if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
+#include "../SttclPosixTime.h"
+#if defined(STTCL_POSIX_TIME) or defined(STTCL_POSIX_IMPL)
 
 using namespace sttcl;
 using namespace sttcl::internal;
-using namespace sttcl::internal::boost_impl;
-using namespace boost::posix_time;
-using sttcl::internal::boost_impl::SttclBoostSemaphore;
+using namespace sttcl::internal::posix_impl;
 
-SttclBoostSemaphore::SttclBoostSemaphore(unsigned int initialCount)
-: semaphore(initialCount)
+using sttcl::internal::posix_impl::SttclPosixTimeDuration;
+
+void SttclPosixTimeDuration::setNative(unsigned int argHours, unsigned int argMinutes, unsigned int argSeconds, unsigned int argMilliSeconds, unsigned long argMicroSeconds, unsigned long argNanoSeconds)
 {
+	td.tv_sec = (argHours * 3600) + (argMinutes * 60) + argSeconds;
+	td.tv_nsec = (argMilliSeconds * 1000000) + (argMicroSeconds * 1000) + argNanoSeconds;
+	normalizeNative();
 }
 
-SttclBoostSemaphore::~SttclBoostSemaphore()
+void SttclPosixTimeDuration::add(const NativeTimeDuration& nativeTimeDuration)
 {
+    td.tv_sec += nativeTimeDuration.tv_sec;
+    td.tv_nsec += nativeTimeDuration.tv_nsec;
+    normalizeNative();
 }
 
-void SttclBoostSemaphore::wait()
+void SttclPosixTimeDuration::substract(const NativeTimeDuration& nativeTimeDuration)
 {
-	semaphore.wait();
+    td.tv_sec -= nativeTimeDuration.tv_sec;
+    td.tv_nsec -= nativeTimeDuration.tv_nsec;
+    normalizeNative();
 }
 
-bool SttclBoostSemaphore::try_wait(const TimeDuration<>& timeout)
+void SttclPosixTimeDuration::multiply(int factor)
 {
-	if(timeout == TimeDuration<>::Zero)
+    td.tv_sec *= factor;
+    td.tv_nsec *= factor;
+    normalizeNative();
+}
+
+void SttclPosixTimeDuration::divide(int divider)
+{
+	if(divider != 0)
 	{
-		return semaphore.try_wait();
+	    td.tv_sec /= divider;
+	    td.tv_nsec /= divider;
+	    normalizeNative();
 	}
-
-	boost::posix_time::ptime absTime = boost::posix_time::microsec_clock::universal_time() + timeout.getNativeValue();
-	return semaphore.timed_wait(absTime);
 }
 
-void SttclBoostSemaphore::post()
+void SttclPosixTimeDuration::normalizeNative()
 {
-	semaphore.post();
+	// Eliminate overflows.
+    while (td.tv_nsec > 1e9L)
+    {
+    	td.tv_nsec -= 1e9L;
+    	td.tv_sec++;
+    }
+    // Eliminate underflows.
+    while (td.tv_nsec < 0L)
+    {
+    	td.tv_nsec += 1e9L;
+    	td.tv_sec--;
+    }
 }
 #endif
+
+
+
