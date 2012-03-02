@@ -101,45 +101,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a>00025 <span class="preprocessor">#ifndef COMPOSITESTATE_H_</span>
 <a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define COMPOSITESTATE_H_</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="_state_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved.">State.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="_state_8h.html">State.h</a>&quot;</span>
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 <span class="keyword">namespace </span>sttcl
 <a name="l00031"></a>00031 {
 <a name="l00032"></a>00032 
-<a name="l00036"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html">00036</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1_composite_state_history_type.html" title="Represents a composite states history pseudo state behavior.">CompositeStateHistoryType</a>
+<a name="l00036"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html">00036</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1_composite_state_history_type.html">CompositeStateHistoryType</a>
 <a name="l00037"></a>00037 {
 <a name="l00038"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9">00038</a>         <span class="keyword">enum</span> <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9">Values</a>
 <a name="l00039"></a>00039         {
-<a name="l00043"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8">00043</a>                 <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8" title="Default behavior of the history pseudo state.">None</a> ,
-<a name="l00048"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9ae2f82758584e65aa5ebd735477c626c5">00048</a>                 <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9ae2f82758584e65aa5ebd735477c626c5" title="Deep history pseudo state behavior.">Deep</a> ,
-<a name="l00053"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9acfcda479c2c3db1825232c947588d241">00053</a>                 <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9acfcda479c2c3db1825232c947588d241" title="Shallow history pseudo state behavior.">Shallow</a> ,
+<a name="l00043"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8">00043</a>                 <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8">None</a> ,
+<a name="l00048"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9ae2f82758584e65aa5ebd735477c626c5">00048</a>                 <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9ae2f82758584e65aa5ebd735477c626c5">Deep</a> ,
+<a name="l00053"></a><a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9acfcda479c2c3db1825232c947588d241">00053</a>                 <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9acfcda479c2c3db1825232c947588d241">Shallow</a> ,
 <a name="l00054"></a>00054         };
 <a name="l00055"></a>00055 };
 <a name="l00056"></a>00056 
 <a name="l00057"></a>00057 <span class="keyword">namespace </span>internal
 <a name="l00058"></a>00058 {
 <a name="l00063"></a>00063 <span class="keyword">template</span>&lt;<span class="keyword">class</span> InnerStateType&gt;
-<a name="l00064"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">00064</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html" title="Represents the default base class for a composite state.">CompositeStateBase</a>
+<a name="l00064"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">00064</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">CompositeStateBase</a>
 <a name="l00065"></a>00065 {
 <a name="l00066"></a>00066 <span class="keyword">protected</span>:
-<a name="l00070"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a7372b947c754dfaa77ccbbab3443b47a">00070</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a7372b947c754dfaa77ccbbab3443b47a" title="Constructor for class CompositeStateBase.">CompositeStateBase</a>()
+<a name="l00070"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a7372b947c754dfaa77ccbbab3443b47a">00070</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a7372b947c754dfaa77ccbbab3443b47a">CompositeStateBase</a>()
 <a name="l00071"></a>00071         {
 <a name="l00072"></a>00072         }
-<a name="l00076"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#ad78b47825f5da3dae37a9889cd60c54b">00076</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#ad78b47825f5da3dae37a9889cd60c54b" title="Destructor for class CompositeStateBase.">~CompositeStateBase</a>()
+<a name="l00076"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#ad78b47825f5da3dae37a9889cd60c54b">00076</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#ad78b47825f5da3dae37a9889cd60c54b">~CompositeStateBase</a>()
 <a name="l00077"></a>00077         {
 <a name="l00078"></a>00078         }
 <a name="l00079"></a>00079 
-<a name="l00084"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a1d9df35c7ee157894eb3393c7eff0ee1">00084</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a1d9df35c7ee157894eb3393c7eff0ee1" title="Saves the current inner state of the composite state.">saveCurrentState</a>(InnerStateType* currentState)
+<a name="l00084"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a1d9df35c7ee157894eb3393c7eff0ee1">00084</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a1d9df35c7ee157894eb3393c7eff0ee1">saveCurrentState</a>(InnerStateType* currentState)
 <a name="l00085"></a>00085         {
 <a name="l00086"></a>00086         }
 <a name="l00087"></a>00087 
-<a name="l00092"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a92f64ae4d44c5aa669322a7da1a5c42f">00092</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a92f64ae4d44c5aa669322a7da1a5c42f" title="Gets the last saved state.">getStateHistory</a>()
+<a name="l00092"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a92f64ae4d44c5aa669322a7da1a5c42f">00092</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a92f64ae4d44c5aa669322a7da1a5c42f">getStateHistory</a>()
 <a name="l00093"></a>00093         {
 <a name="l00094"></a>00094                 <span class="keywordflow">return</span> 0;
 <a name="l00095"></a>00095         }
 <a name="l00096"></a>00096 
 <a name="l00103"></a>00103         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CompositeStateImpl&gt;
-<a name="l00104"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239">00104</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239" title="Resumes the state history.">resumeStateHistory</a>(CompositeStateImpl* compositeState)
+<a name="l00104"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239">00104</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239">resumeStateHistory</a>(CompositeStateImpl* compositeState)
 <a name="l00105"></a>00105         {
 <a name="l00106"></a>00106                 <span class="keywordflow">if</span>(!compositeState-&gt;isReady())
 <a name="l00107"></a>00107                 {
@@ -150,7 +150,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00112"></a>00112         }
 <a name="l00113"></a>00113 
 <a name="l00120"></a>00120         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CompositeStateImpl&gt;
-<a name="l00121"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb">00121</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb" title="Resets the state history.">finalizeStateHistory</a>(CompositeStateImpl* compositeState)
+<a name="l00121"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb">00121</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb">finalizeStateHistory</a>(CompositeStateImpl* compositeState)
 <a name="l00122"></a>00122         {
 <a name="l00123"></a>00123                 InnerStateType* currentState = compositeState-&gt;getState();
 <a name="l00124"></a>00124                 <span class="keywordflow">return</span> currentState;
@@ -159,29 +159,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00127"></a>00127 };
 <a name="l00128"></a>00128 
 <a name="l00133"></a>00133 <span class="keyword">template</span>&lt;<span class="keyword">class</span> InnerStateType&gt;
-<a name="l00134"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">00134</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html" title="Represents the base class for a composite state with a deep history pseudo state.">CompositeStateBaseWithDeepHistory</a>
+<a name="l00134"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">00134</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">CompositeStateBaseWithDeepHistory</a>
 <a name="l00135"></a>00135 {
 <a name="l00136"></a>00136 <span class="keyword">protected</span>:
-<a name="l00140"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a0ded79068554c788e321f25879cd3050">00140</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a0ded79068554c788e321f25879cd3050" title="Constructor for class CompositeStateBaseWithDeepHistory.">CompositeStateBaseWithDeepHistory</a>()
+<a name="l00140"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a0ded79068554c788e321f25879cd3050">00140</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a0ded79068554c788e321f25879cd3050">CompositeStateBaseWithDeepHistory</a>()
 <a name="l00141"></a>00141         : <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a953c6683cb5aef902110c14337e4f6fd">lastState</a>(0)
 <a name="l00142"></a>00142         {
 <a name="l00143"></a>00143         }
-<a name="l00147"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a5a2934d4ef2de5fa8d996093f6dba08f">00147</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a5a2934d4ef2de5fa8d996093f6dba08f" title="Destructor for class CompositeStateBaseWithDeepHistory.">~CompositeStateBaseWithDeepHistory</a>()
+<a name="l00147"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a5a2934d4ef2de5fa8d996093f6dba08f">00147</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a5a2934d4ef2de5fa8d996093f6dba08f">~CompositeStateBaseWithDeepHistory</a>()
 <a name="l00148"></a>00148         {
 <a name="l00149"></a>00149         }
 <a name="l00150"></a>00150 
-<a name="l00155"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6">00155</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6" title="Saves the current inner state of the composite state.">saveCurrentState</a>(InnerStateType* currentState)
+<a name="l00155"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6">00155</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6">saveCurrentState</a>(InnerStateType* currentState)
 <a name="l00156"></a>00156         {
 <a name="l00157"></a>00157                 <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a953c6683cb5aef902110c14337e4f6fd">lastState</a> = currentState;
 <a name="l00158"></a>00158         }
 <a name="l00159"></a>00159 
-<a name="l00164"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a12afa1adf8821afb38cb43035d0bfb63">00164</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a12afa1adf8821afb38cb43035d0bfb63" title="Gets the last saved state.">getStateHistory</a>()
+<a name="l00164"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a12afa1adf8821afb38cb43035d0bfb63">00164</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a12afa1adf8821afb38cb43035d0bfb63">getStateHistory</a>()
 <a name="l00165"></a>00165         {
 <a name="l00166"></a>00166                 <span class="keywordflow">return</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a953c6683cb5aef902110c14337e4f6fd">lastState</a>;
 <a name="l00167"></a>00167         }
 <a name="l00168"></a>00168 
 <a name="l00175"></a>00175         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CompositeStateImpl&gt;
-<a name="l00176"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aee82eb9318e75261ef0ad364dbe568e9">00176</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aee82eb9318e75261ef0ad364dbe568e9" title="Resumes the state history.">resumeStateHistory</a>(CompositeStateImpl* compositeState)
+<a name="l00176"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aee82eb9318e75261ef0ad364dbe568e9">00176</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aee82eb9318e75261ef0ad364dbe568e9">resumeStateHistory</a>(CompositeStateImpl* compositeState)
 <a name="l00177"></a>00177         {
 <a name="l00178"></a>00178                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a953c6683cb5aef902110c14337e4f6fd">lastState</a> != 0)
 <a name="l00179"></a>00179                 {
@@ -201,14 +201,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00193"></a>00193         }
 <a name="l00194"></a>00194 
 <a name="l00201"></a>00201         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CompositeStateImpl&gt;
-<a name="l00202"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446">00202</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446" title="Resets the state history.">finalizeStateHistory</a>(CompositeStateImpl* compositeState)
+<a name="l00202"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446">00202</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446">finalizeStateHistory</a>(CompositeStateImpl* compositeState)
 <a name="l00203"></a>00203         {
 <a name="l00204"></a>00204                 InnerStateType* currentState = compositeState-&gt;getState();
 <a name="l00205"></a>00205                 <span class="keywordflow">if</span>(currentState)
 <a name="l00206"></a>00206                 {
 <a name="l00207"></a>00207                         currentState-&gt;finalizeSubStateMachines(<span class="keyword">true</span>);
 <a name="l00208"></a>00208                 }
-<a name="l00209"></a>00209                 <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6" title="Saves the current inner state of the composite state.">saveCurrentState</a>(currentState);
+<a name="l00209"></a>00209                 <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6">saveCurrentState</a>(currentState);
 <a name="l00210"></a>00210                 <span class="keywordflow">return</span> 0;
 <a name="l00211"></a>00211         }
 <a name="l00212"></a>00212 
@@ -216,29 +216,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00214"></a>00214 };
 <a name="l00215"></a>00215 
 <a name="l00220"></a>00220 <span class="keyword">template</span>&lt;<span class="keyword">class</span> InnerStateType&gt;
-<a name="l00221"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html">00221</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html" title="Represents the base class for a composite state with a shallow history pseudo state.">CompositeStateBaseWithShallowHistory</a>
+<a name="l00221"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html">00221</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html">CompositeStateBaseWithShallowHistory</a>
 <a name="l00222"></a>00222 {
 <a name="l00223"></a>00223 <span class="keyword">protected</span>:
-<a name="l00227"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a9277215d965bab8567573344f616fba8">00227</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a9277215d965bab8567573344f616fba8" title="Constructor for class CompositeStateBaseWithShallowHistory.">CompositeStateBaseWithShallowHistory</a>()
+<a name="l00227"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a9277215d965bab8567573344f616fba8">00227</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a9277215d965bab8567573344f616fba8">CompositeStateBaseWithShallowHistory</a>()
 <a name="l00228"></a>00228         : <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#aab4a1353641709f88528cd09bfa51b06">lastState</a>(0)
 <a name="l00229"></a>00229         {
 <a name="l00230"></a>00230         }
-<a name="l00234"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a00b21c7063f0cc4aa5bd218ef73de89b">00234</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a00b21c7063f0cc4aa5bd218ef73de89b" title="Destructor for class CompositeStateBaseWithShallowHistory.">~CompositeStateBaseWithShallowHistory</a>()
+<a name="l00234"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a00b21c7063f0cc4aa5bd218ef73de89b">00234</a>         <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a00b21c7063f0cc4aa5bd218ef73de89b">~CompositeStateBaseWithShallowHistory</a>()
 <a name="l00235"></a>00235         {
 <a name="l00236"></a>00236         }
 <a name="l00237"></a>00237 
-<a name="l00242"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#af2f4916122c53d9b6a6b3ee9f0e65240">00242</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#af2f4916122c53d9b6a6b3ee9f0e65240" title="Saves the current inner state of the composite state.">saveCurrentState</a>(InnerStateType* currentState)
+<a name="l00242"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#af2f4916122c53d9b6a6b3ee9f0e65240">00242</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#af2f4916122c53d9b6a6b3ee9f0e65240">saveCurrentState</a>(InnerStateType* currentState)
 <a name="l00243"></a>00243         {
 <a name="l00244"></a>00244                 <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#aab4a1353641709f88528cd09bfa51b06">lastState</a> = currentState;
 <a name="l00245"></a>00245         }
 <a name="l00246"></a>00246 
-<a name="l00251"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#ae0a65dce1c67b2904ee1905982b62597">00251</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#ae0a65dce1c67b2904ee1905982b62597" title="Gets the last saved state.">getStateHistory</a>()
+<a name="l00251"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#ae0a65dce1c67b2904ee1905982b62597">00251</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#ae0a65dce1c67b2904ee1905982b62597">getStateHistory</a>()
 <a name="l00252"></a>00252         {
 <a name="l00253"></a>00253                 <span class="keywordflow">return</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#aab4a1353641709f88528cd09bfa51b06">lastState</a>;
 <a name="l00254"></a>00254         }
 <a name="l00255"></a>00255 
 <a name="l00262"></a>00262         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CompositeStateImpl&gt;
-<a name="l00263"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a047ddf4a5fd40b43e94db147e8ef8f49">00263</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a047ddf4a5fd40b43e94db147e8ef8f49" title="Resumes the state history.">resumeStateHistory</a>(CompositeStateImpl* compositeState)
+<a name="l00263"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a047ddf4a5fd40b43e94db147e8ef8f49">00263</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a047ddf4a5fd40b43e94db147e8ef8f49">resumeStateHistory</a>(CompositeStateImpl* compositeState)
 <a name="l00264"></a>00264         {
 <a name="l00265"></a>00265                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#aab4a1353641709f88528cd09bfa51b06">lastState</a> != 0)
 <a name="l00266"></a>00266                 {
@@ -257,14 +257,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00279"></a>00279         }
 <a name="l00280"></a>00280 
 <a name="l00287"></a>00287         <span class="keyword">template</span>&lt;<span class="keyword">class</span> CompositeStateImpl&gt;
-<a name="l00288"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#acb741bb11768640166b3da9b6916323d">00288</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#acb741bb11768640166b3da9b6916323d" title="Resets the state history.">finalizeStateHistory</a>(CompositeStateImpl* compositeState)
+<a name="l00288"></a><a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#acb741bb11768640166b3da9b6916323d">00288</a>         InnerStateType* <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#acb741bb11768640166b3da9b6916323d">finalizeStateHistory</a>(CompositeStateImpl* compositeState)
 <a name="l00289"></a>00289         {
 <a name="l00290"></a>00290                 InnerStateType* currentState = compositeState-&gt;getState();
 <a name="l00291"></a>00291                 <span class="keywordflow">if</span>(currentState)
 <a name="l00292"></a>00292                 {
 <a name="l00293"></a>00293                         currentState-&gt;finalizeSubStateMachines(<span class="keyword">false</span>);
 <a name="l00294"></a>00294                 }
-<a name="l00295"></a>00295                 <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#af2f4916122c53d9b6a6b3ee9f0e65240" title="Saves the current inner state of the composite state.">saveCurrentState</a>(currentState);
+<a name="l00295"></a>00295                 <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#af2f4916122c53d9b6a6b3ee9f0e65240">saveCurrentState</a>(currentState);
 <a name="l00296"></a>00296                 <span class="keywordflow">return</span> 0;
 <a name="l00297"></a>00297         }
 <a name="l00298"></a>00298 
@@ -272,21 +272,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00300"></a>00300 };
 <a name="l00301"></a>00301 
 <a name="l00307"></a>00307 <span class="keyword">template</span>&lt;CompositeStateHistoryType::Values HistoryType, <span class="keyword">class</span> InnerStateType&gt;
-<a name="l00308"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">00308</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html" title="Used to select a pseudo state history behavior base class for class CompositeState.">CompositeStateBaseSelector</a>
+<a name="l00308"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">00308</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">CompositeStateBaseSelector</a>
 <a name="l00309"></a>00309 {
-<a name="l00313"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html#a7d2a248565bda97a262b14427d5ac2d7">00313</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html" title="Represents the default base class for a composite state.">sttcl::internal::CompositeStateBase&lt;InnerStateType&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html#a7d2a248565bda97a262b14427d5ac2d7" title="The composite state base class implementing the history pseudo state behavior.">RESULT_TYPE</a>;
+<a name="l00313"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html#a7d2a248565bda97a262b14427d5ac2d7">00313</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">sttcl::internal::CompositeStateBase&lt;InnerStateType&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html#a7d2a248565bda97a262b14427d5ac2d7">RESULT_TYPE</a>;
 <a name="l00314"></a>00314 };
 <a name="l00315"></a>00315 
 <a name="l00319"></a>00319 <span class="keyword">template</span>&lt;<span class="keyword">class</span> InnerStateType&gt;
-<a name="l00320"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html">00320</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html" title="Used to select a pseudo state history behavior base class for class CompositeState.">CompositeStateBaseSelector</a>&lt;<a class="code" href="structsttcl_1_1_composite_state_history_type.html" title="Represents a composite states history pseudo state behavior.">CompositeStateHistoryType</a>::Deep,InnerStateType&gt;
+<a name="l00320"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html">00320</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">CompositeStateBaseSelector</a>&lt;<a class="code" href="structsttcl_1_1_composite_state_history_type.html">CompositeStateHistoryType</a>::Deep,InnerStateType&gt;
 <a name="l00321"></a>00321 {
-<a name="l00325"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html#a187d14d9e307c3d22b912a1ce3da548b">00325</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html" title="Represents the base class for a composite state with a deep history pseudo state.">sttcl::internal::CompositeStateBaseWithDeepHistory&lt;InnerStateType&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html#a187d14d9e307c3d22b912a1ce3da548b" title="The composite state base class implementing the history pseudo state behavior.">RESULT_TYPE</a>;
+<a name="l00325"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html#a187d14d9e307c3d22b912a1ce3da548b">00325</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">sttcl::internal::CompositeStateBaseWithDeepHistory&lt;InnerStateType&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html#a187d14d9e307c3d22b912a1ce3da548b">RESULT_TYPE</a>;
 <a name="l00326"></a>00326 };
 <a name="l00327"></a>00327 
 <a name="l00331"></a>00331 <span class="keyword">template</span>&lt;<span class="keyword">class</span> InnerStateType&gt;
-<a name="l00332"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html">00332</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html" title="Used to select a pseudo state history behavior base class for class CompositeState.">CompositeStateBaseSelector</a>&lt;<a class="code" href="structsttcl_1_1_composite_state_history_type.html" title="Represents a composite states history pseudo state behavior.">CompositeStateHistoryType</a>::Shallow,InnerStateType&gt;
+<a name="l00332"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html">00332</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">CompositeStateBaseSelector</a>&lt;<a class="code" href="structsttcl_1_1_composite_state_history_type.html">CompositeStateHistoryType</a>::Shallow,InnerStateType&gt;
 <a name="l00333"></a>00333 {
-<a name="l00337"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html#a34b80b7a05eaab4751a0c2701388dc03">00337</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html" title="Represents the base class for a composite state with a shallow history pseudo state.">sttcl::internal::CompositeStateBaseWithShallowHistory&lt;InnerStateType&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html#a34b80b7a05eaab4751a0c2701388dc03" title="The composite state base class implementing the history pseudo state behavior.">RESULT_TYPE</a>;
+<a name="l00337"></a><a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html#a34b80b7a05eaab4751a0c2701388dc03">00337</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html">sttcl::internal::CompositeStateBaseWithShallowHistory&lt;InnerStateType&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html#a34b80b7a05eaab4751a0c2701388dc03">RESULT_TYPE</a>;
 <a name="l00338"></a>00338 };
 <a name="l00339"></a>00339 }
 <a name="l00340"></a>00340 
@@ -294,88 +294,88 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00351"></a>00351 &lt; <span class="keyword">class </span>CompositeStateImpl
 <a name="l00352"></a>00352 , <span class="keyword">class </span>StateMachineImpl
 <a name="l00353"></a>00353 , <span class="keyword">class </span>IInnerState
-<a name="l00354"></a>00354 , <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9">CompositeStateHistoryType::Values</a> HistoryType = <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8" title="Default behavior of the history pseudo state.">CompositeStateHistoryType::None</a>
-<a name="l00355"></a>00355 , <span class="keyword">class </span>StateBaseImpl = <a class="code" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State&lt;CompositeStateImpl,StateMachineImpl,typename StateMachineImpl::StateInterface&gt;</a>
-<a name="l00356"></a>00356 , <span class="keyword">class </span>StateMachineBaseImpl = <a class="code" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine&lt;CompositeStateImpl, IInnerState&gt;</a>
+<a name="l00354"></a>00354 , <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9">CompositeStateHistoryType::Values</a> HistoryType = <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8">CompositeStateHistoryType::None</a>
+<a name="l00355"></a>00355 , <span class="keyword">class </span>StateBaseImpl = <a class="code" href="classsttcl_1_1_state.html">State&lt;CompositeStateImpl,StateMachineImpl,typename StateMachineImpl::StateInterface&gt;</a>
+<a name="l00356"></a>00356 , <span class="keyword">class </span>StateMachineBaseImpl = <a class="code" href="classsttcl_1_1_state_machine.html">StateMachine&lt;CompositeStateImpl, IInnerState&gt;</a>
 <a name="l00357"></a>00357 &gt;
-<a name="l00358"></a><a class="code" href="classsttcl_1_1_composite_state.html">00358</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a>
+<a name="l00358"></a><a class="code" href="classsttcl_1_1_composite_state.html">00358</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_composite_state.html">CompositeState</a>
 <a name="l00359"></a>00359 : <span class="keyword">public</span> StateBaseImpl
 <a name="l00360"></a>00360 , <span class="keyword">public</span> StateMachineBaseImpl
 <a name="l00361"></a>00361 , <span class="keyword">public</span> internal::CompositeStateBaseSelector&lt;HistoryType,typename StateMachineBaseImpl::StateBaseClass&gt;::RESULT_TYPE
 <a name="l00362"></a>00362 {
 <a name="l00363"></a>00363 <span class="keyword">public</span>:
-<a name="l00367"></a><a class="code" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">00367</a>     <span class="keyword">typedef</span> CompositeStateImpl <a class="code" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da" title="The implementation class type.">Implementation</a>;
+<a name="l00367"></a><a class="code" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">00367</a>     <span class="keyword">typedef</span> CompositeStateImpl <a class="code" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">Implementation</a>;
 <a name="l00368"></a>00368 
-<a name="l00372"></a><a class="code" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">00372</a>     <span class="keyword">typedef</span> StateMachineImpl <a class="code" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce" title="The state machine implementation type.">Context</a>;
+<a name="l00372"></a><a class="code" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">00372</a>     <span class="keyword">typedef</span> StateMachineImpl <a class="code" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a>;
 <a name="l00373"></a>00373 
-<a name="l00377"></a><a class="code" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">00377</a>     <span class="keyword">typedef</span> StateBaseImpl <a class="code" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d" title="The composite states base state implementation type class.">StateImplementationBase</a>;
+<a name="l00377"></a><a class="code" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">00377</a>     <span class="keyword">typedef</span> StateBaseImpl <a class="code" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">StateImplementationBase</a>;
 <a name="l00378"></a>00378 
-<a name="l00382"></a><a class="code" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">00382</a>     <span class="keyword">typedef</span> StateMachineBaseImpl <a class="code" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc" title="The composite states base state machine implementation type class.">StateMachineImplementationBase</a>;
+<a name="l00382"></a><a class="code" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">00382</a>     <span class="keyword">typedef</span> StateMachineBaseImpl <a class="code" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">StateMachineImplementationBase</a>;
 <a name="l00383"></a>00383 
-<a name="l00387"></a><a class="code" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">00387</a>     <span class="keyword">typedef</span> void (<a class="code" href="classsttcl_1_1_region.html" title="Represents a region within a matching ConcurrentCompositeState implementation.">Implementation</a>::*<a class="code" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf" title="The state do action type.">StateDoAction</a>)(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95" title="The state machine implementation type.">Context</a>*,bool);
+<a name="l00387"></a><a class="code" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">00387</a>     <span class="keyword">typedef</span> void (<a class="code" href="classsttcl_1_1_region.html">Implementation</a>::*<a class="code" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">StateDoAction</a>)(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">Context</a>*,bool);
 <a name="l00388"></a>00388 
-<a name="l00392"></a><a class="code" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">00392</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html" title="Represents the default base class for a composite state.">internal::CompositeStateBaseSelector&lt;HistoryType,typename StateMachineBaseImpl::StateBaseClass&gt;::RESULT_TYPE</a> <a class="code" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342" title="The composite state base class regarding state history policy.">CompositeStateHistoryBaseClass</a>;
+<a name="l00392"></a><a class="code" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">00392</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">internal::CompositeStateBaseSelector&lt;HistoryType,typename StateMachineBaseImpl::StateBaseClass&gt;::RESULT_TYPE</a> <a class="code" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">CompositeStateHistoryBaseClass</a>;
 <a name="l00393"></a>00393 
-<a name="l00397"></a><a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">00397</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> StateMachineBaseImpl::StateBaseClass <a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023" title="The inner state class.">InnerStateClass</a>;
+<a name="l00397"></a><a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">00397</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> StateMachineBaseImpl::StateBaseClass <a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">InnerStateClass</a>;
 <a name="l00398"></a>00398 
-<a name="l00402"></a><a class="code" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">00402</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> StateMachineImpl::StateInterface <a class="code" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2" title="The outer state interface.">OuterStateInterface</a>;
+<a name="l00402"></a><a class="code" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">00402</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> StateMachineImpl::StateInterface <a class="code" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">OuterStateInterface</a>;
 <a name="l00403"></a>00403 
-<a name="l00407"></a><a class="code" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">00407</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> StateMachineBaseImpl::StateInterface <a class="code" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f" title="The state interface.">StateInterface</a>;
+<a name="l00407"></a><a class="code" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">00407</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> StateMachineBaseImpl::StateInterface <a class="code" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">StateInterface</a>;
 <a name="l00408"></a>00408 
-<a name="l00413"></a><a class="code" href="classsttcl_1_1_composite_state.html#a7977b693898a461e866ee785891e9e59">00413</a>         <a class="code" href="classsttcl_1_1_composite_state.html#a7977b693898a461e866ee785891e9e59" title="Constructor for class CompositeState.">CompositeState</a>(<a class="code" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf" title="The state do action type.">StateDoAction</a> argDoAction = 0)
+<a name="l00413"></a><a class="code" href="classsttcl_1_1_composite_state.html#a7977b693898a461e866ee785891e9e59">00413</a>         <a class="code" href="classsttcl_1_1_composite_state.html#a7977b693898a461e866ee785891e9e59">CompositeState</a>(<a class="code" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">StateDoAction</a> argDoAction = 0)
 <a name="l00414"></a>00414         : StateBaseImpl(argDoAction)
 <a name="l00415"></a>00415         {
 <a name="l00416"></a>00416         }
 <a name="l00417"></a>00417 
-<a name="l00421"></a><a class="code" href="classsttcl_1_1_composite_state.html#a441fd0c9f5959b0a331ee22eb9f09b2f">00421</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_composite_state.html#a441fd0c9f5959b0a331ee22eb9f09b2f" title="Destructor for class CompositeState.">~CompositeState</a>()
+<a name="l00421"></a><a class="code" href="classsttcl_1_1_composite_state.html#a441fd0c9f5959b0a331ee22eb9f09b2f">00421</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_composite_state.html#a441fd0c9f5959b0a331ee22eb9f09b2f">~CompositeState</a>()
 <a name="l00422"></a>00422         {
 <a name="l00423"></a>00423         }
 <a name="l00424"></a>00424 
-<a name="l00429"></a><a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">00429</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e" title="Changes the composite state machine to newState.">changeState</a>(<a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023" title="The inner state class.">InnerStateClass</a>* newState)
+<a name="l00429"></a><a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">00429</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">changeState</a>(<a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">InnerStateClass</a>* newState)
 <a name="l00430"></a>00430     {
-<a name="l00431"></a>00431         <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e" title="Changes the composite state machine to newState.">StateMachineBaseImpl::changeState</a>(newState);
+<a name="l00431"></a>00431         <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">StateMachineBaseImpl::changeState</a>(newState);
 <a name="l00432"></a>00432     }
 <a name="l00433"></a>00433 
-<a name="l00439"></a><a class="code" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">00439</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb" title="Default implementation for the initialize() method.">initializeImpl</a>(<span class="keywordtype">bool</span> force)
+<a name="l00439"></a><a class="code" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">00439</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">initializeImpl</a>(<span class="keywordtype">bool</span> force)
 <a name="l00440"></a>00440     {
-<a name="l00441"></a>00441         <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>StateMachineBaseImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb" title="Default implementation for the initialize() method.">initializeImpl</a>(force);
+<a name="l00441"></a>00441         <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>StateMachineBaseImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">initializeImpl</a>(force);
 <a name="l00442"></a>00442     }
 <a name="l00443"></a>00443 
-<a name="l00449"></a><a class="code" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">00449</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68" title="Default implementation for the finalize() method.">finalizeImpl</a>(<span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5" title="Called by the containing StateMachine to finalize any sub state machines.">finalizeSubStateMachines</a>)
+<a name="l00449"></a><a class="code" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">00449</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">finalizeImpl</a>(<span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">finalizeSubStateMachines</a>)
 <a name="l00450"></a>00450     {
-<a name="l00451"></a>00451         <span class="keyword">static_cast&lt;</span>StateMachineBaseImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68" title="Default implementation for the finalize() method.">finalizeImpl</a>(finalizeSubStateMachines);
-<a name="l00452"></a>00452         <a class="code" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2" title="Notifies the implementation class when the sub state machine has finished.">subStateMachineCompleted</a>();
+<a name="l00451"></a>00451         <span class="keyword">static_cast&lt;</span>StateMachineBaseImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">finalizeImpl</a>(finalizeSubStateMachines);
+<a name="l00452"></a>00452         <a class="code" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2">subStateMachineCompleted</a>();
 <a name="l00453"></a>00453     }
 <a name="l00454"></a>00454 
-<a name="l00458"></a><a class="code" href="classsttcl_1_1_composite_state.html#aa3272c65daf389eb4768b8d897b2c0d5">00458</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#aa3272c65daf389eb4768b8d897b2c0d5" title="Default implementatin of the subStateMachineCompleted() method.">subStateMachineCompletedImpl</a>()
+<a name="l00458"></a><a class="code" href="classsttcl_1_1_composite_state.html#aa3272c65daf389eb4768b8d897b2c0d5">00458</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#aa3272c65daf389eb4768b8d897b2c0d5">subStateMachineCompletedImpl</a>()
 <a name="l00459"></a>00459     {
 <a name="l00460"></a>00460     }
 <a name="l00461"></a>00461 
-<a name="l00465"></a><a class="code" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2">00465</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2" title="Notifies the implementation class when the sub state machine has finished.">subStateMachineCompleted</a>()
+<a name="l00465"></a><a class="code" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2">00465</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2">subStateMachineCompleted</a>()
 <a name="l00466"></a>00466     {
-<a name="l00467"></a>00467         <span class="keyword">static_cast&lt;</span>CompositeStateImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_composite_state.html#aa3272c65daf389eb4768b8d897b2c0d5" title="Default implementatin of the subStateMachineCompleted() method.">subStateMachineCompletedImpl</a>();
+<a name="l00467"></a>00467         <span class="keyword">static_cast&lt;</span>CompositeStateImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_composite_state.html#aa3272c65daf389eb4768b8d897b2c0d5">subStateMachineCompletedImpl</a>();
 <a name="l00468"></a>00468     }
 <a name="l00469"></a>00469 
-<a name="l00475"></a><a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">00475</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc" title="Called when this state is entered.">entryImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95" title="The state machine implementation type.">Context</a>* context)
+<a name="l00475"></a><a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">00475</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">entryImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">Context</a>* context)
 <a name="l00476"></a>00476     {
-<a name="l00477"></a>00477         <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc" title="Called when this state is entered.">StateBaseImpl::entryImpl</a>(context);
-<a name="l00478"></a>00478         StateMachineBaseImpl::setState(<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239" title="Resumes the state history.">resumeStateHistory</a>(static_cast&lt;CompositeStateImpl*&gt;(<span class="keyword">this</span>)));
+<a name="l00477"></a>00477         <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">StateBaseImpl::entryImpl</a>(context);
+<a name="l00478"></a>00478         StateMachineBaseImpl::setState(<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239">resumeStateHistory</a>(static_cast&lt;CompositeStateImpl*&gt;(<span class="keyword">this</span>)));
 <a name="l00479"></a>00479     }
 <a name="l00480"></a>00480 
-<a name="l00486"></a><a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">00486</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07" title="Called when this state is left.">exitImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95" title="The state machine implementation type.">Context</a>* context)
+<a name="l00486"></a><a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">00486</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">exitImpl</a>(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">Context</a>* context)
 <a name="l00487"></a>00487     {
 <a name="l00488"></a>00488                 StateMachineBaseImpl::exitCurrentState();
-<a name="l00489"></a>00489         StateMachineBaseImpl::setState(<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb" title="Resets the state history.">finalizeStateHistory</a>(static_cast&lt;CompositeStateImpl*&gt;(<span class="keyword">this</span>)));
-<a name="l00490"></a>00490         <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07" title="Called when this state is left.">StateBaseImpl::exitImpl</a>(context);
+<a name="l00489"></a>00489         StateMachineBaseImpl::setState(<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb">finalizeStateHistory</a>(static_cast&lt;CompositeStateImpl*&gt;(<span class="keyword">this</span>)));
+<a name="l00490"></a>00490         <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">StateBaseImpl::exitImpl</a>(context);
 <a name="l00491"></a>00491     }
 <a name="l00492"></a>00492 
 <a name="l00493"></a>00493 <span class="keyword">protected</span>:
-<a name="l00499"></a><a class="code" href="classsttcl_1_1_composite_state.html#a55c38272b610bbea7235f30d448a398f">00499</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e" title="Changes the composite state machine to newState.">changeState</a>(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95" title="The state machine implementation type.">Context</a>* context,<a class="code" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase&lt;StateMachineImpl,OuterStateInterface&gt;</a>* newState)
+<a name="l00499"></a><a class="code" href="classsttcl_1_1_composite_state.html#a55c38272b610bbea7235f30d448a398f">00499</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">changeState</a>(<a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">Context</a>* context,<a class="code" href="classsttcl_1_1_state_base.html">StateBase&lt;StateMachineImpl,OuterStateInterface&gt;</a>* newState)
 <a name="l00500"></a>00500     {
-<a name="l00501"></a>00501         <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e" title="Changes the composite state machine to newState.">StateBaseImpl::changeState</a>(context,newState);
+<a name="l00501"></a>00501         <a class="code" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">StateBaseImpl::changeState</a>(context,newState);
 <a name="l00502"></a>00502     }
 <a name="l00503"></a>00503 
-<a name="l00509"></a><a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">00509</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5" title="Called by the containing StateMachine to finalize any sub state machines.">finalizeSubStateMachines</a>(<span class="keywordtype">bool</span> recursive)
+<a name="l00509"></a><a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">00509</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">finalizeSubStateMachines</a>(<span class="keywordtype">bool</span> recursive)
 <a name="l00510"></a>00510     {
 <a name="l00511"></a>00511         <span class="keywordflow">if</span>(!recursive)
 <a name="l00512"></a>00512         {
@@ -383,9 +383,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00514"></a>00514         }
 <a name="l00515"></a>00515     }
 <a name="l00516"></a>00516 
-<a name="l00522"></a><a class="code" href="classsttcl_1_1_composite_state.html#ac01251e11a1f6ed4c3c12c1d483f95a4">00522</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#ac01251e11a1f6ed4c3c12c1d483f95a4" title="Called by the containing StateMachine to initialize any sub state machines.">initSubStateMachines</a>(<span class="keywordtype">bool</span> recursive)
+<a name="l00522"></a><a class="code" href="classsttcl_1_1_composite_state.html#ac01251e11a1f6ed4c3c12c1d483f95a4">00522</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_composite_state.html#ac01251e11a1f6ed4c3c12c1d483f95a4">initSubStateMachines</a>(<span class="keywordtype">bool</span> recursive)
 <a name="l00523"></a>00523     {
-<a name="l00524"></a>00524                 <a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023" title="The inner state class.">InnerStateClass</a>* currentState = StateMachineBaseImpl::getState();
+<a name="l00524"></a>00524                 <a class="code" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">InnerStateClass</a>* currentState = StateMachineBaseImpl::getState();
 <a name="l00525"></a>00525         <span class="keywordflow">if</span>(!recursive)
 <a name="l00526"></a>00526         {
 <a name="l00527"></a>00527                 <span class="keywordflow">if</span>(currentState != static_cast&lt;CompositeStateImpl*&gt;(<span class="keyword">this</span>)-&gt;getInitialState())
@@ -430,7 +430,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:03 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:15 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

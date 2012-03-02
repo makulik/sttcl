@@ -101,7 +101,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00025"></a>00025 <span class="preprocessor">#ifndef STTCLSEMAPHORE_H_</span>
 <a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#define STTCLSEMAPHORE_H_</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="_sttcl_time_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved.">SttclTime.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="_sttcl_time_8h.html">SttclTime.h</a>&quot;</span>
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 <span class="preprocessor">#ifndef STTCL_DEFAULT_SEMAPHOREIMPL</span>
 <a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#if defined(STTCL_POSIX_SEMAPHORE) or defined(STTCL_POSIX_IMPL)</span>
@@ -129,26 +129,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00059"></a>00059 &lt; <span class="keyword">class </span>Impl = STTCL_DEFAULT_SEMAPHOREIMPL
 <a name="l00060"></a>00060 , <span class="keyword">class </span>TimeDurationType = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;
 <a name="l00061"></a>00061 &gt;
-<a name="l00062"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">00062</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html" title="Adapter class for a (OS-)specific semaphore implementation.">SttclSemaphore</a>
+<a name="l00062"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">00062</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">SttclSemaphore</a>
 <a name="l00063"></a>00063 : <span class="keyword">public</span> Impl
 <a name="l00064"></a>00064 {
 <a name="l00065"></a>00065 <span class="keyword">public</span>:
-<a name="l00070"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">00070</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae" title="Constructor for class SttclSemaphore.">SttclSemaphore</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initialCount = 0) : Impl(initialCount) {}
-<a name="l00074"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">00074</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970" title="Destructor for class SttclSemaphore.">~SttclSemaphore</a>() {}
+<a name="l00070"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">00070</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">SttclSemaphore</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initialCount = 0) : Impl(initialCount) {}
+<a name="l00074"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">00074</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">~SttclSemaphore</a>() {}
 <a name="l00075"></a>00075 
-<a name="l00079"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">00079</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9" title="Waits blocking forever until the semaphore is incremented.">wait</a>()
+<a name="l00079"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">00079</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">wait</a>()
 <a name="l00080"></a>00080         {
-<a name="l00081"></a>00081                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9" title="Waits blocking forever until the semaphore is incremented.">wait</a>();
+<a name="l00081"></a>00081                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">wait</a>();
 <a name="l00082"></a>00082         }
 <a name="l00083"></a>00083 
-<a name="l00090"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">00090</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3" title="Waits until the semaphore is incremented within the specified timeout duration.">try_wait</a>(<span class="keyword">const</span> TimeDurationType&amp; timeout = TimeDurationType::Zero)
+<a name="l00090"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">00090</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a>(<span class="keyword">const</span> TimeDurationType&amp; timeout = TimeDurationType::Zero)
 <a name="l00091"></a>00091         {
-<a name="l00092"></a>00092                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3" title="Waits until the semaphore is incremented within the specified timeout duration.">try_wait</a>(timeout);
+<a name="l00092"></a>00092                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a>(timeout);
 <a name="l00093"></a>00093         }
 <a name="l00094"></a>00094 
-<a name="l00098"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">00098</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae" title="Increments the semaphore.">post</a>()
+<a name="l00098"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">00098</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a>()
 <a name="l00099"></a>00099         {
-<a name="l00100"></a>00100                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae" title="Increments the semaphore.">post</a>();
+<a name="l00100"></a>00100                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a>();
 <a name="l00101"></a>00101         }
 <a name="l00102"></a>00102 };
 <a name="l00103"></a>00103 
@@ -176,7 +176,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:03 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:15 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

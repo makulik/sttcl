@@ -107,9 +107,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::StateMachine" -->
-<p>Represents the base class for a state machine.  
- <a href="classsttcl_1_1_state_machine.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_state_machine_8h_source.html">StateMachine.h</a>&gt;</code></p>
 
 <p><a href="classsttcl_1_1_state_machine-members.html">List of all members.</a></p>
@@ -117,60 +114,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>StateMachineFlags</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State</a> machine flags bitfield. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a8e6b1685c5e778c25f994ea9b228684d">Context</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state machine implementation type.  <a href="#a8e6b1685c5e778c25f994ea9b228684d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef IState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#aaf2a9538bec992499000da968e428ec4">StateInterface</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a><br class="typebreak"/>
 &lt; StateMachineImpl, IState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal state implementation base type.  <a href="#adb0ea487662d033f599872a035d9c482"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef IState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#aaf2a9538bec992499000da968e428ec4">StateInterface</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal state implementation interface.  <a href="#aaf2a9538bec992499000da968e428ec4"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a8f0f2ba84c85308732d0d0a40ddcf7a2">~StateMachine</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a>.  <a href="#a8f0f2ba84c85308732d0d0a40ddcf7a2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">finalize</a> (bool finalizeSubStateMachines=true)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes the state machine.  <a href="#abca3e36bc9264ce270e6d97dc49c697d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a6a9ed40b1cc03820deb1ce26e79ed000">finalizeImpl</a> (bool finalizeSubStateMachines)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the <a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d" title="Finalizes the state machine.">finalize()</a> method.  <a href="#a6a9ed40b1cc03820deb1ce26e79ed000"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a922d5eb6ea081bdbeb967295613a62ac">getState</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current state.  <a href="#a922d5eb6ea081bdbeb967295613a62ac"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e">initialize</a> (bool force=false)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the state machine.  <a href="#aab53be2829a43be85bf5ba8d2979970e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#aa676ab89ca07be236b095b780f0932f1">initializeImpl</a> (bool force)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e" title="Initializes the state machine.">initialize()</a> method.  <a href="#aa676ab89ca07be236b095b780f0932f1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a73412a128b6e2904ab951a6d9fc17aee">isFinalized</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that the state machine is finalized.  <a href="#a73412a128b6e2904ab951a6d9fc17aee"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a82835df310de6ce4b343844cf2dfcf39">isFinalizing</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that the state machine is currently finalizing.  <a href="#a82835df310de6ce4b343844cf2dfcf39"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a1eccc86febd97818cdbe95de5d04eaec">isInitalizing</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that the state machine is currently initializing.  <a href="#a1eccc86febd97818cdbe95de5d04eaec"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a490d472365cca1b3c4f0163748ae0b41">isInitialized</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that the state machine is initialized.  <a href="#a490d472365cca1b3c4f0163748ae0b41"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">finalize</a> (bool finalizeSubStateMachines=true)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77">isReady</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that the state machine is ready to process events.  <a href="#a3fcd7b7588bff33b6274fcca32b2cc77"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a490d472365cca1b3c4f0163748ae0b41">isInitialized</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a1eccc86febd97818cdbe95de5d04eaec">isInitalizing</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a73412a128b6e2904ab951a6d9fc17aee">isFinalized</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a82835df310de6ce4b343844cf2dfcf39">isFinalizing</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a922d5eb6ea081bdbeb967295613a62ac">getState</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#aa676ab89ca07be236b095b780f0932f1">initializeImpl</a> (bool force)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a6a9ed40b1cc03820deb1ce26e79ed000">finalizeImpl</a> (bool finalizeSubStateMachines)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a96ff20b284280cf7149734bd8ef53887">subStateMachineCompleted</a> (<a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *state)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by a contained (composite) state when its sub state machine is completed (finalized).  <a href="#a96ff20b284280cf7149734bd8ef53887"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a9744dd78a61f0df56b96dd6b6316bf3e">subStateMachineCompletedImpl</a> (<a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *state)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The default implementation of the subStateMachineCompleted method.  <a href="#a9744dd78a61f0df56b96dd6b6316bf3e"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a74153a7b9206387405f99875c1f23b0d">StateMachine</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a>.  <a href="#a74153a7b9206387405f99875c1f23b0d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#ab7fed2ed9825e40648cbdceb68ff4daf">changeState</a> (typename <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a>&lt; StateMachineImpl, IState &gt;::<a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the state machines current state.  <a href="#ab7fed2ed9825e40648cbdceb68ff4daf"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a9e882695f3ecfac96a1638206c074888">enterNewState</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a7f3ce84223b8be65a96bacc5ff59bed0">exitCurrentState</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a3bdbab7aa8704f6a9b0bb4d384a42e5a">getInitialState</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the initial state of the state machine.  <a href="#a3bdbab7aa8704f6a9b0bb4d384a42e5a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a6ea460ae935a514e309b0d5a2efcebe4">getInitialStateImpl</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#a3bdbab7aa8704f6a9b0bb4d384a42e5a" title="Gets the initial state of the state machine.">getInitialState()</a>.  <a href="#a6ea460ae935a514e309b0d5a2efcebe4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a08d8e922f8e1477e93ab589fb7d1ba60">isReadyImpl</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77" title="Indicates that the state machine is ready to process events.">isReady()</a>.  <a href="#a08d8e922f8e1477e93ab589fb7d1ba60"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a03a9238215043a8698d519d9a58a080b">setState</a> (<a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the state machines current state without calling any state operations.  <a href="#a03a9238215043a8698d519d9a58a080b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a3bdbab7aa8704f6a9b0bb4d384a42e5a">getInitialState</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state_machine.html#adb0ea487662d033f599872a035d9c482">StateBaseClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a6ea460ae935a514e309b0d5a2efcebe4">getInitialStateImpl</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a08d8e922f8e1477e93ab589fb7d1ba60">isReadyImpl</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a7f3ce84223b8be65a96bacc5ff59bed0">exitCurrentState</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#a9e882695f3ecfac96a1638206c074888">enterNewState</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_machine.html#ab70f76217e2e151a444766ef647a458b">StateBase&lt; StateMachineImpl, IState &gt;</a></td></tr>
@@ -179,7 +153,7 @@ Friends</h2></td></tr>
 <div class="textblock"><h3>template&lt;class StateMachineImpl, class IState&gt;<br/>
 class sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</h3>
 
-<p>Represents the base class for a state machine. </p>
+<p>Represents the base class for a state machine.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
     <tr><td class="paramname">StateMachineImpl</td><td>Specifies the class implementing the state machine. </td></tr>
@@ -200,7 +174,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state machine implementation type. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
@@ -219,7 +192,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The internal state implementation base type. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ae0c6edf237203c9b257af26281045381">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -238,7 +210,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The internal state implementation interface. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
@@ -261,8 +232,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Destructor for class <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a>. </p>
+<p>Destructor for class <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a>. </p>
 
 </div>
 </div>
@@ -281,8 +251,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Constructor for class <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a>. </p>
+<p>Constructor for class <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a>. </p>
 
 </div>
 </div>
@@ -303,8 +272,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Changes the state machines current state. </p>
+<p>Changes the state machines current state.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">newState</td><td>The new target state. </td></tr>
@@ -366,8 +334,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Finalizes the state machine. </p>
+<p>Finalizes the state machine.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">finalizeSubStateMachines</td><td>Indicates to finalize any sub state machines. </td></tr>
@@ -393,8 +360,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Default implementation for the <a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d" title="Finalizes the state machine.">finalize()</a> method. </p>
+<p>Default implementation for the <a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">finalize()</a> method.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">finalizeSubStateMachines</td><td>Indicates to finalize any sub state machines. </td></tr>
@@ -421,8 +387,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Gets the initial state of the state machine. </p>
+<p>Gets the initial state of the state machine.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The initial state of the state machine. </dd></dl>
 
 </div>
@@ -442,8 +407,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#a3bdbab7aa8704f6a9b0bb4d384a42e5a" title="Gets the initial state of the state machine.">getInitialState()</a>. </p>
+<p>Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#a3bdbab7aa8704f6a9b0bb4d384a42e5a">getInitialState()</a>.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The initial state of the state machine. </dd></dl>
 
 </div>
@@ -463,8 +427,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Gets the current state. </p>
+<p>Gets the current state.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>The current state. </dd></dl>
 
 </div>
@@ -485,7 +448,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Initializes the state machine. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -513,8 +475,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Default implementation for the <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e" title="Initializes the state machine.">initialize()</a> method. </p>
+<p>Default implementation for the <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e">initialize()</a> method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">force</td><td>Indicates to finalize the state machine before (re-)initializing. </td></tr>
@@ -542,7 +503,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Indicates that the state machine is finalized. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if the state machine is finalized, <code>false</code> otherwise. </dd></dl>
 
@@ -563,7 +523,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Indicates that the state machine is currently finalizing. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if the state machine is currently finalizing, <code>false</code> otherwise. </dd></dl>
 
@@ -584,7 +543,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Indicates that the state machine is currently initializing. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if the state machine is currently initializing, <code>false</code> otherwise. </dd></dl>
 
@@ -605,7 +563,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Indicates that the state machine is initialized. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if the state machine is initialized, <code>false</code> otherwise. </dd></dl>
 
@@ -626,7 +583,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Indicates that the state machine is ready to process events. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if the state machine is ready to process events, <code>false</code> otherwise. </dd></dl>
 
@@ -647,8 +603,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77" title="Indicates that the state machine is ready to process events.">isReady()</a>. </p>
+<p>Default implementation for <a class="el" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77">isReady()</a>.</p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if the state machine is ready to process events, <code>false</code> otherwise. </dd></dl>
 
 </div>
@@ -669,7 +624,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Sets the state machines current state without calling any state operations. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -696,7 +650,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Called by a contained (composite) state when its sub state machine is completed (finalized). </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -723,7 +676,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The default implementation of the subStateMachineCompleted method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -774,7 +726,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:04 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:17 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -1,5 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class." alt="" coords="6,31,293,57"/>
-<area shape="rect" id="node3" href="$classsttcl_1_1_active_state.html" title="Represents a particular state machines active state implementation base class." alt="" coords="341,5,1229,32"/>
-<area shape="rect" id="node5" href="$classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class." alt="" coords="626,56,945,83"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, IState \&gt;" alt="" coords="6,31,293,57"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType \&gt;" alt="" coords="341,5,1229,32"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1_state.html" title="sttcl::State\&lt; StateImpl, StateMachineImpl, IState \&gt;" alt="" coords="626,56,945,83"/>
 </map>

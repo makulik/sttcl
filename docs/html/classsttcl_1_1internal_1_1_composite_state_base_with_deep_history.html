@@ -104,9 +104,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::internal::CompositeStateBaseWithDeepHistory" -->
-<p>Represents the base class for a composite state with a deep history pseudo state.  
- <a href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_composite_state_8h_source.html">CompositeState.h</a>&gt;</code></p>
 
 <p><a href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history-members.html">List of all members.</a></p>
@@ -114,19 +111,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a0ded79068554c788e321f25879cd3050">CompositeStateBaseWithDeepHistory</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html" title="Represents the base class for a composite state with a deep history pseudo state.">CompositeStateBaseWithDeepHistory</a>.  <a href="#a0ded79068554c788e321f25879cd3050"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a5a2934d4ef2de5fa8d996093f6dba08f">~CompositeStateBaseWithDeepHistory</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html" title="Represents the base class for a composite state with a deep history pseudo state.">CompositeStateBaseWithDeepHistory</a>.  <a href="#a5a2934d4ef2de5fa8d996093f6dba08f"></a><br/></td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class CompositeStateImpl &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">InnerStateType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446">finalizeStateHistory</a> (CompositeStateImpl *compositeState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the state history.  <a href="#a25dbc261f6bcf1e82d6e2387ab604446"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6">saveCurrentState</a> (InnerStateType *currentState)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">InnerStateType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a12afa1adf8821afb38cb43035d0bfb63">getStateHistory</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the last saved state.  <a href="#a12afa1adf8821afb38cb43035d0bfb63"></a><br/></td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class CompositeStateImpl &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">InnerStateType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aee82eb9318e75261ef0ad364dbe568e9">resumeStateHistory</a> (CompositeStateImpl *compositeState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the state history.  <a href="#aee82eb9318e75261ef0ad364dbe568e9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aaebe6d83ac0effe8de1ecf53be081ce6">saveCurrentState</a> (InnerStateType *currentState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the current inner state of the composite state.  <a href="#aaebe6d83ac0effe8de1ecf53be081ce6"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class CompositeStateImpl &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">InnerStateType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446">finalizeStateHistory</a> (CompositeStateImpl *compositeState)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">InnerStateType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a953c6683cb5aef902110c14337e4f6fd">lastState</a></td></tr>
@@ -158,8 +149,7 @@ template&lt;class InnerStateType &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html" title="Represents the base class for a composite state with a deep history pseudo state.">CompositeStateBaseWithDeepHistory</a>. </p>
+<p>Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">CompositeStateBaseWithDeepHistory</a>. </p>
 
 </div>
 </div>
@@ -178,8 +168,7 @@ template&lt;class InnerStateType &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html" title="Represents the base class for a composite state with a deep history pseudo state.">CompositeStateBaseWithDeepHistory</a>. </p>
+<p>Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">CompositeStateBaseWithDeepHistory</a>. </p>
 
 </div>
 </div>
@@ -202,7 +191,6 @@ template&lt;class CompositeStateImpl &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Resets the state history. </p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
@@ -235,7 +223,6 @@ template&lt;class InnerStateType &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Gets the last saved state. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd></dd></dl>
 
@@ -259,7 +246,6 @@ template&lt;class CompositeStateImpl &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Resumes the state history. </p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
@@ -293,7 +279,6 @@ template&lt;class InnerStateType &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Saves the current inner state of the composite state. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -345,7 +330,7 @@ template&lt;class InnerStateType &gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:05 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:17 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

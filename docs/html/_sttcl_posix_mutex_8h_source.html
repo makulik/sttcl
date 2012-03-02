@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00028"></a>00028 <span class="preprocessor">#include &lt;pthread.h&gt;</span>
 <a name="l00029"></a>00029 <span class="preprocessor">#include &quot;../include/SttclTime.h&quot;</span>
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#ifdef STTCL_POSIX_THREADS</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)</span>
 <a name="l00032"></a>00032 <span class="preprocessor"></span>
 <a name="l00033"></a>00033 <span class="keyword">namespace </span>sttcl
 <a name="l00034"></a>00034 {
@@ -120,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00047"></a>00047         ~SttclPosixMutex();
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049         <span class="keywordtype">void</span> lock();
-<a name="l00050"></a>00050         <span class="keywordtype">bool</span> try_lock(<span class="keyword">const</span> TimeDuration&amp; timeout);
+<a name="l00050"></a>00050         <span class="keywordtype">bool</span> try_lock(<span class="keyword">const</span> TimeDuration&lt;&gt;&amp; timeout);
 <a name="l00051"></a>00051         <span class="keywordtype">void</span> unlock();
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053 <span class="keyword">private</span>:
@@ -153,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:03 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:15 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

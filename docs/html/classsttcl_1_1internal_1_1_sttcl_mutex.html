@@ -103,9 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::internal::SttclMutex" -->
-<p>Adapter class for a (OS-)specific mutex implementation.  
- <a href="classsttcl_1_1internal_1_1_sttcl_mutex.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_sttcl_mutex_8h_source.html">SttclMutex.h</a>&gt;</code></p>
 
 <p><a href="classsttcl_1_1internal_1_1_sttcl_mutex-members.html">List of all members.</a></p>
@@ -113,15 +110,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html#a86c3f02bcbf489882a16f750750585a6">SttclMutex</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html" title="Adapter class for a (OS-)specific mutex implementation.">SttclMutex</a>.  <a href="#a86c3f02bcbf489882a16f750750585a6"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html#a2d52a68b2954375f766c4df0bee3828b">~SttclMutex</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html" title="Adapter class for a (OS-)specific mutex implementation.">SttclMutex</a>.  <a href="#a2d52a68b2954375f766c4df0bee3828b"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html#a3d80026db9f5f61622e5db3136148de5">lock</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex.  <a href="#a3d80026db9f5f61622e5db3136148de5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html#a480bd752497d389285b6095a73150f37">try_lock</a> (const TimeDurationType &amp;timeout=TimeDurationType::Zero)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to lock the mutex within the specified <em>timeout</em> parameter.  <a href="#a480bd752497d389285b6095a73150f37"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html#a8c6ef72d9e33f59653a406a74658181d">unlock</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the mutex.  <a href="#a8c6ef72d9e33f59653a406a74658181d"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class Impl = STTCL_DEFAULT_MUTEXIMPL, class TimeDurationType = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;&gt;<br/>
@@ -151,8 +143,7 @@ template&lt;class Impl  = STTCL_DEFAULT_MUTEXIMPL, class TimeDurationType  = Tim
       </table>
 </div>
 <div class="memdoc">
-
-<p>Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html" title="Adapter class for a (OS-)specific mutex implementation.">SttclMutex</a>. </p>
+<p>Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">SttclMutex</a>. </p>
 
 </div>
 </div>
@@ -171,8 +162,7 @@ template&lt;class Impl  = STTCL_DEFAULT_MUTEXIMPL, class TimeDurationType  = Tim
       </table>
 </div>
 <div class="memdoc">
-
-<p>Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html" title="Adapter class for a (OS-)specific mutex implementation.">SttclMutex</a>. </p>
+<p>Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">SttclMutex</a>. </p>
 
 </div>
 </div>
@@ -192,9 +182,7 @@ template&lt;class Impl  = STTCL_DEFAULT_MUTEXIMPL, class TimeDurationType  = Tim
       </table>
 </div>
 <div class="memdoc">
-
-<p>Locks the mutex. </p>
-<p>Waits blocking forever until the mutex becomes lockable. </p>
+<p>Locks the mutex. Waits blocking forever until the mutex becomes lockable. </p>
 
 </div>
 </div>
@@ -214,9 +202,7 @@ template&lt;class Impl  = STTCL_DEFAULT_MUTEXIMPL, class TimeDurationType  = Tim
       </table>
 </div>
 <div class="memdoc">
-
-<p>Tries to lock the mutex within the specified <em>timeout</em> parameter. </p>
-<p>The <em>timeout</em> value TimeDurationType::Zero will return success or failure immediately. </p>
+<p>Tries to lock the mutex within the specified <em>timeout</em> parameter. The <em>timeout</em> value TimeDurationType::Zero will return success or failure immediately. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">timeout</td><td>The maximum duration to wait until the mutex becomes lockable. </td></tr>
@@ -242,7 +228,6 @@ template&lt;class Impl  = STTCL_DEFAULT_MUTEXIMPL, class TimeDurationType  = Tim
       </table>
 </div>
 <div class="memdoc">
-
 <p>Unlocks the mutex. </p>
 
 </div>
@@ -272,7 +257,7 @@ template&lt;class Impl  = STTCL_DEFAULT_MUTEXIMPL, class TimeDurationType  = Tim
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:05 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:17 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

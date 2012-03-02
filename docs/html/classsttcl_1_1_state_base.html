@@ -106,16 +106,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::StateBase" -->
-<p>Represents a particular state machines state base class.  
- <a href="classsttcl_1_1_state_base.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_state_8h_source.html">State.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sttcl::StateBase&lt; StateMachineImpl, IState &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsttcl_1_1_state_base__inherit__graph.png" border="0" usemap="#sttcl_1_1_state_base_3_01_state_machine_impl_00_01_i_state_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="sttcl_1_1_state_base_3_01_state_machine_impl_00_01_i_state_01_4_inherit__map" id="sttcl_1_1_state_base_3_01_state_machine_impl_00_01_i_state_01_4_inherit__map">
-<area shape="rect" id="node3" href="classsttcl_1_1_active_state.html" title="Represents a particular state machines active state implementation base class." alt="" coords="341,5,632,32"/><area shape="rect" id="node5" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class." alt="" coords="359,56,615,83"/></map>
+<area shape="rect" id="node3" href="classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; StateMachineImpl, IState \&gt;" alt="" coords="341,5,632,32"/><area shape="rect" id="node5" href="classsttcl_1_1_state.html" title="sttcl::State\&lt; StateMachineImpl, IState \&gt;" alt="" coords="359,56,615,83"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classsttcl_1_1_state_base-members.html">List of all members.</a></p>
@@ -123,31 +120,20 @@ Inheritance diagram for sttcl::StateBase&lt; StateMachineImpl, IState &gt;:</div
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state machine implementation type.  <a href="#aad4c537987df18690b41a6473d90b492"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef IState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a3ce82257087de4138053ebce17539e80">StateInterface</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The internal state implementation interface.  <a href="#a3ce82257087de4138053ebce17539e80"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a06157b34ada9e41e7846b6b282d682b3">changeStateImpl</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context, <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt; StateMachineImpl, IState &gt; *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the changeState() method.  <a href="#a06157b34ada9e41e7846b6b282d682b3"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a32649d6399ac7eb292a05fbe8df19ee3">endDo</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing state machine before the state is left.  <a href="#a32649d6399ac7eb292a05fbe8df19ee3"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#acf13406eaaeb2c60344f43438e97dddd">entry</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing state machine when the state is entered.  <a href="#acf13406eaaeb2c60344f43438e97dddd"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#ae0bc0a0d37b0a871c27de5660dd4032d">exit</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing state machine when the state is left.  <a href="#ae0bc0a0d37b0a871c27de5660dd4032d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a12ec6cbdd4927ab279a0d07c0ed09aa0">finalizeSubStateMachines</a> (bool recursive)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to finalize any sub state machines.  <a href="#a12ec6cbdd4927ab279a0d07c0ed09aa0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#ae373d4221c5d4c2e95709d486e961920">initSubStateMachines</a> (bool recursive)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to initialize any sub state machines.  <a href="#ae373d4221c5d4c2e95709d486e961920"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#acf13406eaaeb2c60344f43438e97dddd">entry</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#ae0bc0a0d37b0a871c27de5660dd4032d">exit</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context)=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a76229cfd15e65ff8811e519eb1d3b127">startDo</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing state machine after the state was entered.  <a href="#a76229cfd15e65ff8811e519eb1d3b127"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a32649d6399ac7eb292a05fbe8df19ee3">endDo</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a06157b34ada9e41e7846b6b282d682b3">changeStateImpl</a> (<a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">Context</a> *context, <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt; StateMachineImpl, IState &gt; *newState)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a76316d37c4b8302609353c7cbec5cb3a">StateBase</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a>.  <a href="#a76316d37c4b8302609353c7cbec5cb3a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a40ca245b9df066660d019c0da21bbff7">~StateBase</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a>.  <a href="#a40ca245b9df066660d019c0da21bbff7"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state_base.html#a3f28b93ae7310aca86a8e7c5c7189dc6">StateMachine&lt; StateMachineImpl, IState &gt;</a></td></tr>
@@ -156,7 +142,7 @@ Friends</h2></td></tr>
 <div class="textblock"><h3>template&lt;class StateMachineImpl, class IState&gt;<br/>
 class sttcl::StateBase&lt; StateMachineImpl, IState &gt;</h3>
 
-<p>Represents a particular state machines state base class. </p>
+<p>Represents a particular state machines state base class.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
     <tr><td class="paramname">StateMachineImpl</td><td>The state machine implementation type. </td></tr>
@@ -177,7 +163,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state machine implementation type. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>, <a class="el" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType &gt;</a>, <a class="el" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">sttcl::ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;</a>, and <a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a>.</p>
@@ -196,7 +181,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The internal state implementation interface. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
@@ -219,8 +203,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Constructor for class <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a>. </p>
+<p>Constructor for class <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>. </p>
 
 </div>
 </div>
@@ -239,8 +222,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Destructor for class <a class="el" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class.">StateBase</a>. </p>
+<p>Destructor for class <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>. </p>
 
 </div>
 </div>
@@ -271,7 +253,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the changeState() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -299,7 +280,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Called by the containing state machine before the state is left. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -326,7 +306,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Called by the containing state machine when the state is entered. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -353,7 +332,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Called by the containing state machine when the state is left. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -380,8 +358,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to finalize any sub state machines. </p>
+<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a> to finalize any sub state machines. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">recursive</td><td>If <code>true</code> further sub state machines should be finalized recursively. </td></tr>
@@ -409,8 +386,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to initialize any sub state machines. </p>
+<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a> to initialize any sub state machines. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">recursive</td><td>If <code>true</code> further sub state machines should be initialized recursively. </td></tr>
@@ -438,7 +414,6 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Called by the containing state machine after the state was entered. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -489,7 +464,7 @@ template&lt;class StateMachineImpl, class IState&gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:04 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:17 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

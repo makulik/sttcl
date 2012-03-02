@@ -109,6 +109,7 @@ var NAVTREE =
       [ "sttcl/Debug/PosixThreads/src/SttclPosixMutex.d", "_sttcl_posix_mutex_8d.html", null ],
       [ "sttcl/Debug/PosixThreads/src/SttclPosixSemaphore.d", "_sttcl_posix_semaphore_8d.html", null ],
       [ "sttcl/Debug/PosixThreads/src/SttclPosixThread.d", "_sttcl_posix_thread_8d.html", null ],
+      [ "sttcl/Debug/PosixTime/src/SttclPosixTime.d", "_sttcl_posix_time_8d.html", null ],
       [ "sttcl/include/ActiveState.h", "_active_state_8h.html", null ],
       [ "sttcl/include/CompositeState.h", "_composite_state_8h.html", null ],
       [ "sttcl/include/ConcurrentCompositeState.h", "_concurrent_composite_state_8h.html", null ],
@@ -126,7 +127,8 @@ var NAVTREE =
       [ "sttcl/PosixThreads/src/SttclPosixMutex.cpp", "_sttcl_posix_mutex_8cpp.html", null ],
       [ "sttcl/PosixThreads/src/SttclPosixSemaphore.cpp", "_sttcl_posix_semaphore_8cpp.html", null ],
       [ "sttcl/PosixThreads/src/SttclPosixThread.cpp", "_sttcl_posix_thread_8cpp.html", null ],
-      [ "sttcl/PosixTime/SttclPosixTime.h", "_sttcl_posix_time_8h.html", null ]
+      [ "sttcl/PosixTime/SttclPosixTime.h", "_sttcl_posix_time_8h.html", null ],
+      [ "sttcl/PosixTime/src/SttclPosixTime.cpp", "_sttcl_posix_time_8cpp.html", null ]
     ] ]
   ] ]
 ];

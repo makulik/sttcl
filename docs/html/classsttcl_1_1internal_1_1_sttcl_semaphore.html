@@ -103,9 +103,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::internal::SttclSemaphore" -->
-<p>Adapter class for a (OS-)specific semaphore implementation.  
- <a href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_sttcl_semaphore_8h_source.html">SttclSemaphore.h</a>&gt;</code></p>
 
 <p><a href="classsttcl_1_1internal_1_1_sttcl_semaphore-members.html">List of all members.</a></p>
@@ -113,15 +110,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">SttclSemaphore</a> (unsigned int initialCount=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html" title="Adapter class for a (OS-)specific semaphore implementation.">SttclSemaphore</a>.  <a href="#ac1c2de1ff3363f90be651c91b7cd5fae"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">~SttclSemaphore</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html" title="Adapter class for a (OS-)specific semaphore implementation.">SttclSemaphore</a>.  <a href="#ab04baf920747ec8ade9407bfad3c5970"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the semaphore.  <a href="#a4bfba74d8e1ba64fbd596dbd8c359aae"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a> (const TimeDurationType &amp;timeout=TimeDurationType::Zero)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until the semaphore is incremented within the specified <em>timeout</em> duration.  <a href="#a77c69482fd277f429f008828e4ec38d3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">wait</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits blocking forever until the semaphore is incremented.  <a href="#a29bf4dce585b1e961e2a7cc6cb36f2c9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a> (const TimeDurationType &amp;timeout=TimeDurationType::Zero)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class Impl = STTCL_DEFAULT_SEMAPHOREIMPL, class TimeDurationType = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;&gt;<br/>
@@ -152,8 +144,7 @@ template&lt;class Impl  = STTCL_DEFAULT_SEMAPHOREIMPL, class TimeDurationType  =
       </table>
 </div>
 <div class="memdoc">
-
-<p>Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html" title="Adapter class for a (OS-)specific semaphore implementation.">SttclSemaphore</a>. </p>
+<p>Constructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">SttclSemaphore</a>. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">initialCount</td><td>Sets the initial semaphore count. </td></tr>
@@ -178,8 +169,7 @@ template&lt;class Impl  = STTCL_DEFAULT_SEMAPHOREIMPL, class TimeDurationType  =
       </table>
 </div>
 <div class="memdoc">
-
-<p>Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html" title="Adapter class for a (OS-)specific semaphore implementation.">SttclSemaphore</a>. </p>
+<p>Destructor for class <a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">SttclSemaphore</a>. </p>
 
 </div>
 </div>
@@ -199,7 +189,6 @@ template&lt;class Impl  = STTCL_DEFAULT_SEMAPHOREIMPL, class TimeDurationType  =
       </table>
 </div>
 <div class="memdoc">
-
 <p>Increments the semaphore. </p>
 
 </div>
@@ -220,9 +209,7 @@ template&lt;class Impl  = STTCL_DEFAULT_SEMAPHOREIMPL, class TimeDurationType  =
       </table>
 </div>
 <div class="memdoc">
-
-<p>Waits until the semaphore is incremented within the specified <em>timeout</em> duration. </p>
-<p>A <em>timeout</em> value of TimeDurationType::Zero returns the semaphore state immediatly. </p>
+<p>Waits until the semaphore is incremented within the specified <em>timeout</em> duration. A <em>timeout</em> value of TimeDurationType::Zero returns the semaphore state immediatly. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">timeout</td><td>Specifies the maximum duration to wait until the semaphore is incremented. </td></tr>
@@ -248,7 +235,6 @@ template&lt;class Impl  = STTCL_DEFAULT_SEMAPHOREIMPL, class TimeDurationType  =
       </table>
 </div>
 <div class="memdoc">
-
 <p>Waits blocking forever until the semaphore is incremented. </p>
 
 </div>
@@ -278,7 +264,7 @@ template&lt;class Impl  = STTCL_DEFAULT_SEMAPHOREIMPL, class TimeDurationType  =
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:05 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:17 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

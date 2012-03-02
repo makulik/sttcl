@@ -105,82 +105,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::CompositeState" --><!-- doxytag: inherits="sttcl::internal::CompositeStateBase" -->
-<p>Represents the base class for a composite state implementation.  
- <a href="classsttcl_1_1_composite_state.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_composite_state_8h_source.html">CompositeState.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsttcl_1_1_composite_state__inherit__graph.png" border="0" usemap="#sttcl_1_1_composite_state_3_01_composite_state_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_history_type_00_01_state_base_impl_00_01_state_machine_base_impl_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="sttcl_1_1_composite_state_3_01_composite_state_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_history_type_00_01_state_base_impl_00_01_state_machine_base_impl_01_4_inherit__map" id="sttcl_1_1_composite_state_3_01_composite_state_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_history_type_00_01_state_base_impl_00_01_state_machine_base_impl_01_4_inherit__map">
-<area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_composite_state_base.html" title="Represents the default base class for a composite state." alt="" coords="5,5,672,32"/></map>
+<area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_composite_state_base.html" title="internal::CompositeStateBaseSelector\&lt;HistoryType,StateMachineBaseImpl::StateBaseClass\&gt;::RESULT_TYPE" alt="" coords="5,5,672,32"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsttcl_1_1_composite_state__coll__graph.png" border="0" usemap="#sttcl_1_1_composite_state_3_01_composite_state_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_history_type_00_01_state_base_impl_00_01_state_machine_base_impl_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="sttcl_1_1_composite_state_3_01_composite_state_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_history_type_00_01_state_base_impl_00_01_state_machine_base_impl_01_4_coll__map" id="sttcl_1_1_composite_state_3_01_composite_state_impl_00_01_state_machine_impl_00_01_i_inner_state_00_01_history_type_00_01_state_base_impl_00_01_state_machine_base_impl_01_4_coll__map">
-<area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_composite_state_base.html" title="Represents the default base class for a composite state." alt="" coords="5,5,672,32"/></map>
+<area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_composite_state_base.html" title="internal::CompositeStateBaseSelector\&lt;HistoryType,StateMachineBaseImpl::StateBaseClass\&gt;::RESULT_TYPE" alt="" coords="5,5,672,32"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classsttcl_1_1_composite_state-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef CompositeStateImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">Implementation</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef StateBaseImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">StateImplementationBase</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineBaseImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">StateMachineImplementationBase</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void(Implementation::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">StateDoAction</a> )(<a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a> *, bool)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 <a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">internal::CompositeStateBaseSelector</a><br class="typebreak"/>
 &lt; HistoryType, typename <br class="typebreak"/>
 StateMachineBaseImpl::StateBaseClass &gt;<br class="typebreak"/>
 ::RESULT_TYPE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#af57d297f2dc37687d0192984b1062342">CompositeStateHistoryBaseClass</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The composite state base class regarding state history policy.  <a href="#af57d297f2dc37687d0192984b1062342"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state machine implementation type.  <a href="#aef42d5937e90051bc938b3ed22de08ce"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef CompositeStateImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">Implementation</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The implementation class type.  <a href="#a346c80df3f25856f52311fcf8ab9e5da"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 StateMachineBaseImpl::StateBaseClass&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">InnerStateClass</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The inner state class.  <a href="#a5b519d05f0c2f52e0fc3f532ad808023"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 StateMachineImpl::StateInterface&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">OuterStateInterface</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The outer state interface.  <a href="#ab6c38834597d915ddff87db3d1a6f4f2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef void(Implementation::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">StateDoAction</a> )(<a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a> *, bool)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state do action type.  <a href="#a948cfd0066f29c45155072b4248449cf"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef StateBaseImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">StateImplementationBase</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The composite states base state implementation type class.  <a href="#a85ed542f8f10424716755753f72c990d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 StateMachineBaseImpl::StateInterface&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a792d52bac4c804decb743549055ab40f">StateInterface</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state interface.  <a href="#a792d52bac4c804decb743549055ab40f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineBaseImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a5fe40de1ec1a51a9106e72e692f497cc">StateMachineImplementationBase</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The composite states base state machine implementation type class.  <a href="#a5fe40de1ec1a51a9106e72e692f497cc"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a7977b693898a461e866ee785891e9e59">CompositeState</a> (<a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">StateDoAction</a> argDoAction=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a>.  <a href="#a7977b693898a461e866ee785891e9e59"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a441fd0c9f5959b0a331ee22eb9f09b2f">~CompositeState</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a>.  <a href="#a441fd0c9f5959b0a331ee22eb9f09b2f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#ad723058d126a41344a5c639235fce52e">changeState</a> (<a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">InnerStateClass</a> *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the composite state machine to <em>newState</em>.  <a href="#ad723058d126a41344a5c639235fce52e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">entryImpl</a> (<a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when this state is entered.  <a href="#a24b1a72cf3d98b22e7b177ac110babdc"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">exitImpl</a> (<a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when this state is left.  <a href="#a83858517932fb0168bfa188b29f48f07"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">finalizeImpl</a> (bool finalizeSubStateMachines)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the finalize() method.  <a href="#a6566ef504b9ab16ee385f2806ee2bb68"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">initializeImpl</a> (bool force)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the initialize() method.  <a href="#a240aadc441115b995b69b0e406ff43cb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2">subStateMachineCompleted</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the implementation class when the sub state machine has finished.  <a href="#a1be560a34257fcb24bfa6bb6e53095e2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">finalizeImpl</a> (bool finalizeSubStateMachines)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#aa3272c65daf389eb4768b8d897b2c0d5">subStateMachineCompletedImpl</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementatin of the <a class="el" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2" title="Notifies the implementation class when the sub state machine has finished.">subStateMachineCompleted()</a> method.  <a href="#aa3272c65daf389eb4768b8d897b2c0d5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2">subStateMachineCompleted</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">entryImpl</a> (<a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a> *context)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">exitImpl</a> (<a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a> *context)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a55c38272b610bbea7235f30d448a398f">changeState</a> (<a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">Context</a> *context, <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a>&lt; StateMachineImpl, <a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">OuterStateInterface</a> &gt; *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes <em>context</em> state machine to another sibling state.  <a href="#a55c38272b610bbea7235f30d448a398f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">finalizeSubStateMachines</a> (bool recursive)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to finalize any sub state machines.  <a href="#a0624ad12b60a0e62afc843c1ca1cedf5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html#ac01251e11a1f6ed4c3c12c1d483f95a4">initSubStateMachines</a> (bool recursive)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to initialize any sub state machines.  <a href="#ac01251e11a1f6ed4c3c12c1d483f95a4"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateBaseImpl = State&lt;CompositeStateImpl,StateMachineImpl,typename StateMachineImpl::StateInterface&gt;, class StateMachineBaseImpl = StateMachine&lt;CompositeStateImpl, IInnerState&gt;&gt;<br/>
@@ -211,7 +187,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The composite state base class regarding state history policy. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#adec91e581727c3db9ae75be357aa3a2d">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -230,7 +205,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state machine implementation type. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -249,7 +223,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The implementation class type. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#aa4d61de6d84b6cbdf5e41c8214e145a8">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -268,7 +241,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The inner state class. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -287,7 +259,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The outer state interface. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -306,7 +277,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state do action type. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -325,7 +295,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The composite states base state implementation type class. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -344,7 +313,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state interface. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -363,7 +331,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>The composite states base state machine implementation type class. </p>
 
 <p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
@@ -387,8 +354,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Constructor for class <a class="el" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a>. </p>
+<p>Constructor for class <a class="el" href="classsttcl_1_1_composite_state.html">CompositeState</a>. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">argDoAction</td><td>The composite state do action. </td></tr>
@@ -413,8 +379,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Destructor for class <a class="el" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a>. </p>
+<p>Destructor for class <a class="el" href="classsttcl_1_1_composite_state.html">CompositeState</a>. </p>
 
 </div>
 </div>
@@ -435,7 +400,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>Changes the composite state machine to <em>newState</em>. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -472,7 +436,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>Changes <em>context</em> state machine to another sibling state. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -500,8 +463,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Called when this state is entered. </p>
+<p>Called when this state is entered.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">context</td><td>The state machine context. </td></tr>
@@ -529,8 +491,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Called when this state is left. </p>
+<p>Called when this state is left.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">context</td><td>The state machine context. </td></tr>
@@ -558,8 +519,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Default implementation for the finalize() method. </p>
+<p>Default implementation for the finalize() method.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">finalizeSubStateMachines</td><td>Indicates to finalize any sub state machines. </td></tr>
@@ -587,8 +547,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to finalize any sub state machines. </p>
+<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a> to finalize any sub state machines. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">recursive</td><td>If <code>true</code> further sub state machines should be finalized recursively. </td></tr>
@@ -614,7 +573,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the initialize() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -644,8 +602,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a> to initialize any sub state machines. </p>
+<p>Called by the containing <a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a> to initialize any sub state machines. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">recursive</td><td>If <code>true</code> further sub state machines should be initialized recursively. </td></tr>
@@ -670,7 +627,6 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
 <p>Notifies the implementation class when the sub state machine has finished. </p>
 
 </div>
@@ -690,8 +646,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
       </table>
 </div>
 <div class="memdoc">
-
-<p>Default implementatin of the <a class="el" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2" title="Notifies the implementation class when the sub state machine has finished.">subStateMachineCompleted()</a> method. </p>
+<p>Default implementatin of the <a class="el" href="classsttcl_1_1_composite_state.html#a1be560a34257fcb24bfa6bb6e53095e2">subStateMachineCompleted()</a> method. </p>
 
 </div>
 </div>
@@ -719,7 +674,7 @@ template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState,
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:04 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:16 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

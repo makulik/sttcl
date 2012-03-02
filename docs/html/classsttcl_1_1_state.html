@@ -106,23 +106,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::State" --><!-- doxytag: inherits="sttcl::StateBase" -->
-<p>Represents a particular state machines state implementation base class.  
- <a href="classsttcl_1_1_state.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_state_8h_source.html">State.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsttcl_1_1_state__inherit__graph.png" border="0" usemap="#sttcl_1_1_state_3_01_state_impl_00_01_state_machine_impl_00_01_i_state_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="sttcl_1_1_state_3_01_state_impl_00_01_state_machine_impl_00_01_i_state_01_4_inherit__map" id="sttcl_1_1_state_3_01_state_impl_00_01_state_machine_impl_00_01_i_state_01_4_inherit__map">
-<area shape="rect" id="node2" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class." alt="" coords="21,5,307,32"/></map>
+<area shape="rect" id="node2" href="classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, IState \&gt;" alt="" coords="21,5,307,32"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsttcl_1_1_state__coll__graph.png" border="0" usemap="#sttcl_1_1_state_3_01_state_impl_00_01_state_machine_impl_00_01_i_state_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="sttcl_1_1_state_3_01_state_impl_00_01_state_machine_impl_00_01_i_state_01_4_coll__map" id="sttcl_1_1_state_3_01_state_impl_00_01_state_machine_impl_00_01_i_state_01_4_coll__map">
-<area shape="rect" id="node2" href="classsttcl_1_1_state_base.html" title="Represents a particular state machines state base class." alt="" coords="21,5,307,32"/></map>
+<area shape="rect" id="node2" href="classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, IState \&gt;" alt="" coords="21,5,307,32"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classsttcl_1_1_state-members.html">List of all members.</a></p>
@@ -130,52 +127,37 @@ Collaboration diagram for sttcl::State&lt; StateImpl, StateMachineImpl, IState &
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state machine implementation type.  <a href="#a18f41fef7d5a5e5fe8d587acdc89938f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef StateImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730">Implementation</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The implementation class type.  <a href="#a7727ac5a1e145e53475f097a91739730"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_state_base.html">StateBase</a><br class="typebreak"/>
 &lt; StateMachineImpl, IState &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state base class type.  <a href="#a376b43684f6d2417f4954a3feda17ee5"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void(Implementation::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ac67278739ee90115ff424413c5e381f0">StateDoAction</a> )(<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *, bool)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state do action type.  <a href="#ac67278739ee90115ff424413c5e381f0"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ac1291f83fd1c4fb13b0f2de847150a7a">checkDirectTransitionImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context, bool &amp;finalize, <a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *&amp;nextState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the getDirectTransitionImpl() method.  <a href="#ac1291f83fd1c4fb13b0f2de847150a7a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a22e611f477dc5d61b4c1ad9cce06fea2">endDoImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the endDo() method.  <a href="#a22e611f477dc5d61b4c1ad9cce06fea2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a834f0b722d5a762a414d96c7bfbf25bf">entryImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the entry() method.  <a href="#a834f0b722d5a762a414d96c7bfbf25bf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#aaddad2d23805cd03548c21b1be8b327c">exitImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the exit() method.  <a href="#aaddad2d23805cd03548c21b1be8b327c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a1057dd539794089ceeb8c57d1269ccc2">finalizeSubStateMachinesImpl</a> (bool recursive)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the finalizeSubStateMachines() method.  <a href="#a1057dd539794089ceeb8c57d1269ccc2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a85ebbc60c97c014a3b76c9a2808f2911">initSubStateMachinesImpl</a> (bool recursive)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the initSubStateMachines() method.  <a href="#a85ebbc60c97c014a3b76c9a2808f2911"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ae0676f55482b2cb6702d83fea4820e67">startDoImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Default implementation for the startDo() method.  <a href="#ae0676f55482b2cb6702d83fea4820e67"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a22e611f477dc5d61b4c1ad9cce06fea2">endDoImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a1057dd539794089ceeb8c57d1269ccc2">finalizeSubStateMachinesImpl</a> (bool recursive)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a85ebbc60c97c014a3b76c9a2808f2911">initSubStateMachinesImpl</a> (bool recursive)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ac1291f83fd1c4fb13b0f2de847150a7a">checkDirectTransitionImpl</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context, bool &amp;finalize, <a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *&amp;nextState)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a30849dfc50ef3b3fb1dc1ac486567ece">State</a> (<a class="el" href="classsttcl_1_1_state.html#ac67278739ee90115ff424413c5e381f0">StateDoAction</a> argDoAction=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for class <a class="el" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State</a>.  <a href="#a30849dfc50ef3b3fb1dc1ac486567ece"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#af151e95a927b3479abcc715018ba9cc7">~State</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for class <a class="el" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State</a>.  <a href="#af151e95a927b3479abcc715018ba9cc7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ae0cc0ada45cfedee822bcdb3ef65253a">changeState</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context, <a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *newState)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes <em>context</em> state machine to another sibling state.  <a href="#ae0cc0ada45cfedee822bcdb3ef65253a"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state.html#ac67278739ee90115ff424413c5e381f0">StateDoAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a0b6156ce3a0e7afad2b18d26827f8341">doAction</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The state do action.  <a href="#a0b6156ce3a0e7afad2b18d26827f8341"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class StateImpl, class StateMachineImpl, class IState&gt;<br/>
 class sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</h3>
 
-<p>Represents a particular state machines state implementation base class. </p>
+<p>Represents a particular state machines state implementation base class.</p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
     <tr><td class="paramname">StateImpl</td><td>The state implementation type. </td></tr>
-    <tr><td class="paramname"><a class="el" href="classsttcl_1_1_state_machine.html" title="Represents the base class for a state machine.">StateMachine</a></td><td>The state machine implementation type. </td></tr>
+    <tr><td class="paramname"><a class="el" href="classsttcl_1_1_state_machine.html">StateMachine</a></td><td>The state machine implementation type. </td></tr>
     <tr><td class="paramname">IState</td><td>Specifies the internal interface of state implementations for the state machine. </td></tr>
   </table>
   </dd>
@@ -193,7 +175,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state machine implementation type. </p>
 
 <p>Reimplemented from <a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a>.</p>
@@ -212,7 +193,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The implementation class type. </p>
 
 </div>
@@ -229,7 +209,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state base class type. </p>
 
 </div>
@@ -246,9 +225,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>The state do action type. </p>
-<p>The first parameter is a pointer to the containing state machine, the second parameter indicates that the state do action is called the first time when <code>true</code>. </p>
+<p>The state do action type. The first parameter is a pointer to the containing state machine, the second parameter indicates that the state do action is called the first time when <code>true</code>. </p>
 
 </div>
 </div>
@@ -269,8 +246,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Constructor for class <a class="el" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State</a>. </p>
+<p>Constructor for class <a class="el" href="classsttcl_1_1_state.html">State</a>.</p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">argDoAction</td><td>A pointer to the state do action. </td></tr>
@@ -295,8 +271,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Destructor for class <a class="el" href="classsttcl_1_1_state.html" title="Represents a particular state machines state implementation base class.">State</a>. </p>
+<p>Destructor for class <a class="el" href="classsttcl_1_1_state.html">State</a>. </p>
 
 </div>
 </div>
@@ -327,7 +302,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Changes <em>context</em> state machine to another sibling state. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -371,7 +345,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the getDirectTransitionImpl() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -401,7 +374,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the endDo() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -428,7 +400,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the entry() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -455,7 +426,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the exit() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -482,7 +452,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the finalizeSubStateMachines() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -509,7 +478,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the initSubStateMachines() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -536,7 +504,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>Default implementation for the startDo() method. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
@@ -560,7 +527,6 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
       </table>
 </div>
 <div class="memdoc">
-
 <p>The state do action. </p>
 
 </div>
@@ -589,7 +555,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:04 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:17 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

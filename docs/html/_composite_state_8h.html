@@ -100,45 +100,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">sttcl/include/CompositeState.h File Reference</div>  </div>
 </div>
 <div class="contents">
-
-<p>Copyright (c) 2012, Guenther Makulik All rights reserved.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_state_8h_source.html">State.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CompositeState.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_composite_state_8h__incl.png" border="0" usemap="#sttcl_2include_2_composite_state_8h" alt=""/></div>
 <map name="sttcl_2include_2_composite_state_8h" id="sttcl_2include_2_composite_state_8h">
-<area shape="rect" id="node3" href="_state_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="73,80,137,107"/></map>
+<area shape="rect" id="node3" href="_state_8h.html" title="State.h" alt="" coords="73,80,137,107"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_composite_state_8h__dep__incl.png" border="0" usemap="#sttcl_2include_2_composite_state_8hdep" alt=""/></div>
 <map name="sttcl_2include_2_composite_state_8hdep" id="sttcl_2include_2_composite_state_8hdep">
-<area shape="rect" id="node3" href="_concurrent_composite_state_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="5,155,267,181"/><area shape="rect" id="node5" href="_region_8h.html" title="Copyright (c) 2012, Guenther Makulik All rights reserved." alt="" coords="119,80,265,107"/></map>
+<area shape="rect" id="node3" href="_concurrent_composite_state_8h.html" title="sttcl/include/ConcurrentCompositeState.h" alt="" coords="5,155,267,181"/><area shape="rect" id="node5" href="_region_8h.html" title="sttcl/include/Region.h" alt="" coords="119,80,265,107"/></map>
 </div>
 </div>
 <p><a href="_composite_state_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the base class for a composite state implementation.  <a href="classsttcl_1_1_composite_state.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base.html">sttcl::internal::CompositeStateBase&lt; InnerStateType &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the default base class for a composite state.  <a href="classsttcl_1_1internal_1_1_composite_state_base.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">sttcl::internal::CompositeStateBaseSelector&lt; HistoryType, InnerStateType &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to select a pseudo state history behavior base class for class <a class="el" href="classsttcl_1_1_composite_state.html" title="Represents the base class for a composite state implementation.">CompositeState</a>.  <a href="structsttcl_1_1internal_1_1_composite_state_base_selector.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html">sttcl::internal::CompositeStateBaseSelector&lt; CompositeStateHistoryType::Deep, InnerStateType &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Specializes <a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html" title="Used to select a pseudo state history behavior base class for class CompositeState.">CompositeStateBaseSelector</a> for deep history pseudo state behavior.  <a href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html">sttcl::internal::CompositeStateBaseSelector&lt; CompositeStateHistoryType::Shallow, InnerStateType &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Specializes <a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html" title="Used to select a pseudo state history behavior base class for class CompositeState.">CompositeStateBaseSelector</a> for shallow history pseudo state behavior.  <a href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">sttcl::internal::CompositeStateBaseWithDeepHistory&lt; InnerStateType &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the base class for a composite state with a deep history pseudo state.  <a href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html">sttcl::internal::CompositeStateBaseWithShallowHistory&lt; InnerStateType &gt;</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the base class for a composite state with a shallow history pseudo state.  <a href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1_composite_state_history_type.html">sttcl::CompositeStateHistoryType</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a composite states history pseudo state behavior.  <a href="structsttcl_1_1_composite_state_history_type.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base.html">sttcl::internal::CompositeStateBase&lt; InnerStateType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html">sttcl::internal::CompositeStateBaseWithDeepHistory&lt; InnerStateType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html">sttcl::internal::CompositeStateBaseWithShallowHistory&lt; InnerStateType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">sttcl::internal::CompositeStateBaseSelector&lt; HistoryType, InnerStateType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html">sttcl::internal::CompositeStateBaseSelector&lt; CompositeStateHistoryType::Deep, InnerStateType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html">sttcl::internal::CompositeStateBaseSelector&lt; CompositeStateHistoryType::Shallow, InnerStateType &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesttcl.html">sttcl</a></td></tr>
@@ -149,7 +138,7 @@ Namespaces</h2></td></tr>
 <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Copyright (c) 2012, Guenther Makulik All rights reserved. </p>
+<div class="textblock"><p>Copyright (c) 2012, Guenther Makulik All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
 <p>1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 3) Neither the name of the &lt;ORGANIZATION&gt; nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. </p>
@@ -173,7 +162,7 @@ Namespaces</h2></td></tr>
 </div>
 
 
-    <li class="footer">Generated on Mon Feb 27 2012 23:42:04 for sttcl by
+    <li class="footer">Generated on Fri Mar 2 2012 22:25:16 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
