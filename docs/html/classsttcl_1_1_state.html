@@ -145,6 +145,8 @@ Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a30849dfc50ef3b3fb1dc1ac486567ece">State</a> (<a class="el" href="classsttcl_1_1_state.html#ac67278739ee90115ff424413c5e381f0">StateDoAction</a> argDoAction=0)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#af151e95a927b3479abcc715018ba9cc7">~State</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#ae0cc0ada45cfedee822bcdb3ef65253a">changeState</a> (<a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *context, <a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *newState)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class StateMachineContext &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#aa7fa634b9f71a22ea812f4eabc8961cb">changeState</a> (StateMachineContext *context, <a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *newState)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_state.html#ac67278739ee90115ff424413c5e381f0">StateDoAction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_state.html#a0b6156ce3a0e7afad2b18d26827f8341">doAction</a></td></tr>
@@ -286,6 +288,45 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
           <td class="memname">void <a class="el" href="classsttcl_1_1_state.html">sttcl::State</a>&lt; StateImpl, StateMachineImpl, IState &gt;::changeState </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classsttcl_1_1_state.html#a18f41fef7d5a5e5fe8d587acdc89938f">Context</a> *&#160;</td>
+          <td class="paramname"><em>context</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1_state.html#a376b43684f6d2417f4954a3feda17ee5">StateBaseType</a> *&#160;</td>
+          <td class="paramname"><em>newState</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline, protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Changes <em>context</em> state machine to another sibling state. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>A pointer to the containing state machine. </td></tr>
+    <tr><td class="paramname">newState</td><td>A pointer to the sibling state to change to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa7fa634b9f71a22ea812f4eabc8961cb"></a><!-- doxytag: member="sttcl::State::changeState" ref="aa7fa634b9f71a22ea812f4eabc8961cb" args="(StateMachineContext *context, StateBaseType *newState)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
+<div class="memtemplate">
+template&lt;class StateMachineContext &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsttcl_1_1_state.html">sttcl::State</a>&lt; StateImpl, StateMachineImpl, IState &gt;::changeState </td>
+          <td>(</td>
+          <td class="paramtype">StateMachineContext *&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
@@ -555,7 +596,7 @@ template&lt;class StateImpl , class StateMachineImpl , class IState &gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Sat Mar 3 2012 13:58:20 for sttcl by
+    <li class="footer">Generated on Thu Mar 15 2012 22:05:37 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

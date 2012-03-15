@@ -1,5 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; StateMachineImpl, IState \&gt;" alt="" coords="6,31,293,57"/>
-<area shape="rect" id="node3" href="$classsttcl_1_1_active_state.html" title="sttcl::ActiveState\&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType \&gt;" alt="" coords="341,5,1229,32"/>
-<area shape="rect" id="node5" href="$classsttcl_1_1_state.html" title="sttcl::State\&lt; StateImpl, StateMachineImpl, IState \&gt;" alt="" coords="626,56,945,83"/>
+<area shape="rect" id="node1" href="$structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_state_machine_impl_00_01_state_in1736ea8797feccfc9c96c455ed8619ab.html" title="sttcl::internal::EventArgsInterfaceSelector\&lt; StateMachineImpl, StateInterface, IInnerState, void \&gt;" alt="" coords="6,5,583,32"/>
 </map>

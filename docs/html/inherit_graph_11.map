@@ -1,3 +1,5 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_sttcl_semaphore.html" title="sttcl::internal::SttclSemaphore\&lt; Impl, TimeDurationType \&gt;" alt="" coords="6,5,365,32"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html" title="sttcl::internal::ConcurrentCompositeStateWithEventArgs\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="5,5,931,32"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_base.html" title="sttcl::internal::ConcurrentCompositeStateBase\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="979,5,1848,32"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1_concurrent_composite_state.html" title="sttcl::ConcurrentCompositeState\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="1896,5,2685,32"/>
 </map>

@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="694,31,1173,57"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBaseImplWithEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1230,5,1869,32"/>
+<area shape="rect" id="node9" href="$classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBaseImplWithoutEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1221,56,1877,83"/>
+<area shape="rect" id="node7" href="$classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType \&gt;" alt="" coords="1926,5,2933,32"/>
+</map>

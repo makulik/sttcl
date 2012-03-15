@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>sttcl: sttcl::RegionBase&lt; StateMachineImpl, StateInterface, EventArgs &gt; Class Template Reference</title>
+<title>sttcl: sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -100,40 +100,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, EventArgs &gt; Class Template Reference</div>  </div>
+<div class="title">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt; Class Template Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="sttcl::RegionBase" -->
+<!-- doxytag: class="sttcl::RegionBase" --><!-- doxytag: inherits="sttcl::internal::IRegionEventDispatchWithArgs" -->
 <p><code>#include &lt;<a class="el" href="_region_8h_source.html">Region.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsttcl_1_1_region_base__inherit__graph.png" border="0" usemap="#sttcl_1_1_region_base_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="sttcl_1_1_region_base_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_inherit__map" id="sttcl_1_1_region_base_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_inherit__map">
+<area shape="rect" id="node5" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBaseImplWithEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1347,5,1986,32"/><area shape="rect" id="node9" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBaseImplWithoutEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1339,56,1995,83"/><area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs\&gt;::RESULT_TYPE" alt="" coords="5,31,763,57"/><area shape="rect" id="node7" href="classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType \&gt;" alt="" coords="2043,5,3050,32"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsttcl_1_1_region_base__coll__graph.png" border="0" usemap="#sttcl_1_1_region_base_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="sttcl_1_1_region_base_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_coll__map" id="sttcl_1_1_region_base_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_coll__map">
+<area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs\&gt;::RESULT_TYPE" alt="" coords="5,5,763,32"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classsttcl_1_1_region_base-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef void(StateInterface::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">EventHandler</a> )(StateMachineImpl *, const EventArgs *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">sttcl::internal::RegionEventDispatchInterfaceSelector</a><br class="typebreak"/>
+&lt; StateMachineImpl, <br class="typebreak"/>
+<a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, <br class="typebreak"/>
+EventArgs &gt;::RESULT_TYPE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a06f05a8ab56c95a2887c50fac16a533c">RegionEventDispatchInterface</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a1bb6ec90de4ab54b7fde5756e3f125ff">RegionEventDispatchInterface::EventArgsPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#acb55af8bd333f8bd1d3ee7649282eb04">EventArgsPtr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">RegionEventDispatchInterface::OuterEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">OuterEventHandler</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">RegionEventDispatchInterface::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">InnerEventHandler</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#af7f4ee518f04a1dbc2de258e3267b694">RegionBase</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a617df1201a93f7211a2369f1b3e60e0f">~RegionBase</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a2f315db10631cb03c0b46c6baea71839">handleBroadcastedEvent</a> (StateMachineImpl *context, <a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">EventHandler</a> eventHandler, const EventArgs *eventArgs)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a4751d8eadce9c80aab1eb82204235e05">enterRegion</a> (StateMachineImpl *context)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#aaee2d52f5d0ffd96b7ce379aff1cb387">exitRegion</a> (StateMachineImpl *context)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a43b4d5d395f040b37a6e59c392de94a0">finalizeRegion</a> (bool recursive)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8da085feb2d6b8847961b22b19dbd0f7">initializeRegion</a> (bool recursive)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a0931b7b006d437b7f3c1dbb961be0b52">startDoRegion</a> (StateMachineImpl *context)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a07f229db11bd4b80c1f495b5fe5825ae">endDoRegion</a> (StateMachineImpl *context)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8992e99e6a4e7ed365529faba9949c5a">isRegionInitialized</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#adffbbc9bb8799df134feb64394d0a302">isRegionFinalized</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a6d5aec5f01e7576556f7d05eb1895212">isRegionThreadRunning</a> () const =0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a4170ae60504286883f1705ecdd54603a">joinRegionThread</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a23254c565fca00c8163b60e2b1178b68">RegionBase</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#ad4d06f6556992e46d5ab779cebf3d685">~RegionBase</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a72593e4d4eacf96f1c80ed5bc1a5f4c6">enterRegion</a> (StateMachineImpl *context)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#ade839967c5d65a6143bbfa1b79be4d15">exitRegion</a> (StateMachineImpl *context)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a2e4940a6e44043721076c9fded8afe17">finalizeRegion</a> (bool recursive)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a435340ee43dd5b6df58d22ab7a4d59ec">initializeRegion</a> (bool recursive)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a3fa30c805c4a4007166637eb2590e70f">startDoRegion</a> (StateMachineImpl *context)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a11fa4bc169bb496c0543d377e66c8584">endDoRegion</a> (StateMachineImpl *context)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#ac22ce7b712de597f2aad4990c5f17dbe">isRegionInitialized</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a4ac1344dc64adab3a144c1887529a642">isRegionFinalized</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a7a23f65f834fa5fe6709d3024b16a099">isRegionThreadRunning</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a0029743f31dae10c12e99960c577ed85">joinRegionThread</a> ()=0</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;class RegionImpl &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">RegionImpl *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a8dd9b5f106c984b897f4b41df25eb861">getRegionContext</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a359ca49d2dae0c188d3012fb47f4c106">internalInitialize</a> (bool recursive)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a87140e57eb356962b68b7a537954e106">internalFinalize</a> (bool recursive)=0</td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">RegionImpl *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#ad331442937c62d78cf719dee9429d161">getRegionContext</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a2bdbd9bf7976f10643a0a81f57513692">internalInitialize</a> (bool recursive)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#a14a035be203072af07b4e609aeb18b31">internalFinalize</a> (bool recursive)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region_base.html#ad56291154fc2218026c5325a0c15ff0e">queueDispatchedEvent</a> (const <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent</a>&lt; StateMachineImpl, IInnerState, EventArgs &gt; &amp;dispatchedEvent)=0</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt;<br/>
-class sttcl::RegionBase&lt; StateMachineImpl, StateInterface, EventArgs &gt;</h3>
+<div class="textblock"><h3>template&lt;class StateMachineImpl, class StateInterface, class IInnerState, class EventArgs = void&gt;<br/>
+class sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</h3>
 
 <p>Represents the abstract <a class="el" href="classsttcl_1_1_region.html">Region</a> base class. </p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
@@ -145,31 +169,90 @@ class sttcl::RegionBase&lt; StateMachineImpl, StateInterface, EventArgs &gt;</h3
   </dd>
 </dl>
 </div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a8e4556fe968f8da2fe4e41adda74a0e7"></a><!-- doxytag: member="sttcl::RegionBase::EventHandler" ref="a8e4556fe968f8da2fe4e41adda74a0e7" args=")(StateMachineImpl *, const EventArgs *)" -->
+<a class="anchor" id="acb55af8bd333f8bd1d3ee7649282eb04"></a><!-- doxytag: member="sttcl::RegionBase::EventArgsPtr" ref="acb55af8bd333f8bd1d3ee7649282eb04" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef void(StateInterface::* <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::<a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">EventHandler</a>)(StateMachineImpl *, const EventArgs *)</td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a1bb6ec90de4ab54b7fde5756e3f125ff">RegionEventDispatchInterface::EventArgsPtr</a> <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a1bb6ec90de4ab54b7fde5756e3f125ff">EventArgsPtr</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The pointer type used to pass event arguments to the contained regions inner states. </p>
+
+<p>Reimplemented from <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a1bb6ec90de4ab54b7fde5756e3f125ff">sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a69c15fb307ffe58cd8e9c5bf2f033658">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a18b13dcae75c0a12643d7db60d5dc91a">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#adacddc1e41174348e58bf6c03d47b6c7">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5895875fdec1555c0b80ace732c44801"></a><!-- doxytag: member="sttcl::RegionBase::InnerEventHandler" ref="a5895875fdec1555c0b80ace732c44801" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">RegionEventDispatchInterface::InnerEventHandler</a> <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>The inner states event handler signature. All methods of the IInnerState interface must have this signature. The first parameter is a pointer to the containing state machine. The second parameter is a pointer to additional event arguments as specified with the EventArgs template parameter. </p>
 
+<p>Reimplemented from <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ac8bae8f36c0f88ce11db416746b4b165">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a12c9d8515172853bf74776536f81f482">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9d1b185050f77d8f06831404188982aa">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+
 </div>
 </div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af7f4ee518f04a1dbc2de258e3267b694"></a><!-- doxytag: member="sttcl::RegionBase::RegionBase" ref="af7f4ee518f04a1dbc2de258e3267b694" args="()" -->
+<a class="anchor" id="a493797e2b87af73b0b2f23bc639ce174"></a><!-- doxytag: member="sttcl::RegionBase::OuterEventHandler" ref="a493797e2b87af73b0b2f23bc639ce174" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::<a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a> </td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">RegionEventDispatchInterface::OuterEventHandler</a> <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The outer event handler signature. </p>
+
+<p>Reimplemented from <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#af4b2ef13508ac35e7de699e5af761522">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afe6c052a0d59ff6bde94bced289c12bb">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abe13835517a7804831305d688003bacc">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a06f05a8ab56c95a2887c50fac16a533c"></a><!-- doxytag: member="sttcl::RegionBase::RegionEventDispatchInterface" ref="a06f05a8ab56c95a2887c50fac16a533c" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">sttcl::internal::RegionEventDispatchInterfaceSelector</a>&lt;StateMachineImpl,<a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>,IInnerState,EventArgs&gt;::RESULT_TYPE <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1_region_base.html#a06f05a8ab56c95a2887c50fac16a533c">RegionEventDispatchInterface</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a23254c565fca00c8163b60e2b1178b68"></a><!-- doxytag: member="sttcl::RegionBase::RegionBase" ref="a23254c565fca00c8163b60e2b1178b68" args="()" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -181,14 +264,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a617df1201a93f7211a2369f1b3e60e0f"></a><!-- doxytag: member="sttcl::RegionBase::~RegionBase" ref="a617df1201a93f7211a2369f1b3e60e0f" args="()" -->
+<a class="anchor" id="ad4d06f6556992e46d5ab779cebf3d685"></a><!-- doxytag: member="sttcl::RegionBase::~RegionBase" ref="ad4d06f6556992e46d5ab779cebf3d685" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::~<a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a> </td>
+          <td class="memname">virtual <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::~<a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline, virtual]</code></td>
@@ -201,14 +284,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a07f229db11bd4b80c1f495b5fe5825ae"></a><!-- doxytag: member="sttcl::RegionBase::endDoRegion" ref="a07f229db11bd4b80c1f495b5fe5825ae" args="(StateMachineImpl *context)=0" -->
+<a class="anchor" id="a11fa4bc169bb496c0543d377e66c8584"></a><!-- doxytag: member="sttcl::RegionBase::endDoRegion" ref="a11fa4bc169bb496c0543d377e66c8584" args="(StateMachineImpl *context)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::endDoRegion </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::endDoRegion </td>
           <td>(</td>
           <td class="paramtype">StateMachineImpl *&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
@@ -227,14 +310,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a4751d8eadce9c80aab1eb82204235e05"></a><!-- doxytag: member="sttcl::RegionBase::enterRegion" ref="a4751d8eadce9c80aab1eb82204235e05" args="(StateMachineImpl *context)=0" -->
+<a class="anchor" id="a72593e4d4eacf96f1c80ed5bc1a5f4c6"></a><!-- doxytag: member="sttcl::RegionBase::enterRegion" ref="a72593e4d4eacf96f1c80ed5bc1a5f4c6" args="(StateMachineImpl *context)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::enterRegion </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::enterRegion </td>
           <td>(</td>
           <td class="paramtype">StateMachineImpl *&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
@@ -253,14 +336,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="aaee2d52f5d0ffd96b7ce379aff1cb387"></a><!-- doxytag: member="sttcl::RegionBase::exitRegion" ref="aaee2d52f5d0ffd96b7ce379aff1cb387" args="(StateMachineImpl *context)=0" -->
+<a class="anchor" id="ade839967c5d65a6143bbfa1b79be4d15"></a><!-- doxytag: member="sttcl::RegionBase::exitRegion" ref="ade839967c5d65a6143bbfa1b79be4d15" args="(StateMachineImpl *context)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::exitRegion </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::exitRegion </td>
           <td>(</td>
           <td class="paramtype">StateMachineImpl *&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
@@ -279,14 +362,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a43b4d5d395f040b37a6e59c392de94a0"></a><!-- doxytag: member="sttcl::RegionBase::finalizeRegion" ref="a43b4d5d395f040b37a6e59c392de94a0" args="(bool recursive)=0" -->
+<a class="anchor" id="a2e4940a6e44043721076c9fded8afe17"></a><!-- doxytag: member="sttcl::RegionBase::finalizeRegion" ref="a2e4940a6e44043721076c9fded8afe17" args="(bool recursive)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::finalizeRegion </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::finalizeRegion </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recursive</em></td><td>)</td>
@@ -305,16 +388,16 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a8dd9b5f106c984b897f4b41df25eb861"></a><!-- doxytag: member="sttcl::RegionBase::getRegionContext" ref="a8dd9b5f106c984b897f4b41df25eb861" args="()" -->
+<a class="anchor" id="ad331442937c62d78cf719dee9429d161"></a><!-- doxytag: member="sttcl::RegionBase::getRegionContext" ref="ad331442937c62d78cf719dee9429d161" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
 <div class="memtemplate">
 template&lt;class RegionImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">RegionImpl* <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::getRegionContext </td>
+          <td class="memname">RegionImpl* <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::getRegionContext </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -327,58 +410,14 @@ template&lt;class RegionImpl &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a2f315db10631cb03c0b46c6baea71839"></a><!-- doxytag: member="sttcl::RegionBase::handleBroadcastedEvent" ref="a2f315db10631cb03c0b46c6baea71839" args="(StateMachineImpl *context, EventHandler eventHandler, const EventArgs *eventArgs)=0" -->
+<a class="anchor" id="a435340ee43dd5b6df58d22ab7a4d59ec"></a><!-- doxytag: member="sttcl::RegionBase::initializeRegion" ref="a435340ee43dd5b6df58d22ab7a4d59ec" args="(bool recursive)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::handleBroadcastedEvent </td>
-          <td>(</td>
-          <td class="paramtype">StateMachineImpl *&#160;</td>
-          <td class="paramname"><em>context</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_region_base.html#a8e4556fe968f8da2fe4e41adda74a0e7">EventHandler</a>&#160;</td>
-          <td class="paramname"><em>eventHandler</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const EventArgs *&#160;</td>
-          <td class="paramname"><em>eventArgs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Called to handle an event broadcasted from the containing <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">ConcurrentCompositeState</a> instance. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">context</td><td>A pointer to the containing state machine. </td></tr>
-    <tr><td class="paramname">eventHandler</td><td>The event handler to call inside the region thread. </td></tr>
-    <tr><td class="paramname">eventArgs</td><td>The event arguments to pass to the event handler call. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a8da085feb2d6b8847961b22b19dbd0f7"></a><!-- doxytag: member="sttcl::RegionBase::initializeRegion" ref="a8da085feb2d6b8847961b22b19dbd0f7" args="(bool recursive)=0" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::initializeRegion </td>
+          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::initializeRegion </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recursive</em></td><td>)</td>
@@ -398,14 +437,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a87140e57eb356962b68b7a537954e106"></a><!-- doxytag: member="sttcl::RegionBase::internalFinalize" ref="a87140e57eb356962b68b7a537954e106" args="(bool recursive)=0" -->
+<a class="anchor" id="a14a035be203072af07b4e609aeb18b31"></a><!-- doxytag: member="sttcl::RegionBase::internalFinalize" ref="a14a035be203072af07b4e609aeb18b31" args="(bool recursive)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::internalFinalize </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::internalFinalize </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recursive</em></td><td>)</td>
@@ -417,14 +456,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a359ca49d2dae0c188d3012fb47f4c106"></a><!-- doxytag: member="sttcl::RegionBase::internalInitialize" ref="a359ca49d2dae0c188d3012fb47f4c106" args="(bool recursive)=0" -->
+<a class="anchor" id="a2bdbd9bf7976f10643a0a81f57513692"></a><!-- doxytag: member="sttcl::RegionBase::internalInitialize" ref="a2bdbd9bf7976f10643a0a81f57513692" args="(bool recursive)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::internalInitialize </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::internalInitialize </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>recursive</em></td><td>)</td>
@@ -443,14 +482,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="adffbbc9bb8799df134feb64394d0a302"></a><!-- doxytag: member="sttcl::RegionBase::isRegionFinalized" ref="adffbbc9bb8799df134feb64394d0a302" args="()=0" -->
+<a class="anchor" id="a4ac1344dc64adab3a144c1887529a642"></a><!-- doxytag: member="sttcl::RegionBase::isRegionFinalized" ref="a4ac1344dc64adab3a144c1887529a642" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::isRegionFinalized </td>
+          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::isRegionFinalized </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [pure virtual]</code></td>
@@ -463,14 +502,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a8992e99e6a4e7ed365529faba9949c5a"></a><!-- doxytag: member="sttcl::RegionBase::isRegionInitialized" ref="a8992e99e6a4e7ed365529faba9949c5a" args="()=0" -->
+<a class="anchor" id="ac22ce7b712de597f2aad4990c5f17dbe"></a><!-- doxytag: member="sttcl::RegionBase::isRegionInitialized" ref="ac22ce7b712de597f2aad4990c5f17dbe" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::isRegionInitialized </td>
+          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::isRegionInitialized </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [pure virtual]</code></td>
@@ -483,14 +522,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a6d5aec5f01e7576556f7d05eb1895212"></a><!-- doxytag: member="sttcl::RegionBase::isRegionThreadRunning" ref="a6d5aec5f01e7576556f7d05eb1895212" args="() const =0" -->
+<a class="anchor" id="a7a23f65f834fa5fe6709d3024b16a099"></a><!-- doxytag: member="sttcl::RegionBase::isRegionThreadRunning" ref="a7a23f65f834fa5fe6709d3024b16a099" args="() const =0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::isRegionThreadRunning </td>
+          <td class="memname">virtual bool <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::isRegionThreadRunning </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [pure virtual]</code></td>
@@ -503,14 +542,14 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a4170ae60504286883f1705ecdd54603a"></a><!-- doxytag: member="sttcl::RegionBase::joinRegionThread" ref="a4170ae60504286883f1705ecdd54603a" args="()=0" -->
+<a class="anchor" id="a0029743f31dae10c12e99960c577ed85"></a><!-- doxytag: member="sttcl::RegionBase::joinRegionThread" ref="a0029743f31dae10c12e99960c577ed85" args="()=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::joinRegionThread </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::joinRegionThread </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [pure virtual]</code></td>
@@ -522,14 +561,33 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 
 </div>
 </div>
-<a class="anchor" id="a0931b7b006d437b7f3c1dbb961be0b52"></a><!-- doxytag: member="sttcl::RegionBase::startDoRegion" ref="a0931b7b006d437b7f3c1dbb961be0b52" args="(StateMachineImpl *context)=0" -->
+<a class="anchor" id="ad56291154fc2218026c5325a0c15ff0e"></a><!-- doxytag: member="sttcl::RegionBase::queueDispatchedEvent" ref="ad56291154fc2218026c5325a0c15ff0e" args="(const sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt; &amp;dispatchedEvent)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void&gt; </div>
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, EventArgs &gt;::startDoRegion </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::queueDispatchedEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent</a>&lt; StateMachineImpl, IInnerState, EventArgs &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dispatchedEvent</em></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3fa30c805c4a4007166637eb2590e70f"></a><!-- doxytag: member="sttcl::RegionBase::startDoRegion" ref="a3fa30c805c4a4007166637eb2590e70f" args="(StateMachineImpl *context)=0" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs  = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::startDoRegion </td>
           <td>(</td>
           <td class="paramtype">StateMachineImpl *&#160;</td>
           <td class="paramname"><em>context</em></td><td>)</td>
@@ -572,7 +630,7 @@ template&lt;class StateMachineImpl, class StateInterface, class EventArgs = void
 </div>
 
 
-    <li class="footer">Generated on Sat Mar 3 2012 13:58:20 for sttcl by
+    <li class="footer">Generated on Thu Mar 15 2012 22:05:37 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

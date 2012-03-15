@@ -1,3 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateInterface, EventArgs \&gt;" alt="" coords="5,5,413,32"/>
+<area shape="rect" id="node1" href="$structsttcl_1_1internal_1_1_event_args_interface_selector.html" title="sttcl::internal::EventArgsInterfaceSelector\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgsType \&gt;" alt="" coords="5,5,648,32"/>
 </map>

@@ -109,6 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_0x6e.html#index_n"><span>n</span></a></li>
       <li class="current"><a href="functions_0x6f.html#index_o"><span>o</span></a></li>
       <li><a href="functions_0x70.html#index_p"><span>p</span></a></li>
+      <li><a href="functions_0x71.html#index_q"><span>q</span></a></li>
       <li><a href="functions_0x72.html#index_r"><span>r</span></a></li>
       <li><a href="functions_0x73.html#index_s"><span>s</span></a></li>
       <li><a href="functions_0x74.html#index_t"><span>t</span></a></li>
@@ -137,8 +138,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>operator T *()
+: <a class="el" href="classsttcl_1_1_event_args_ptr.html#a22796a8ada21bb065d92f8cb18d86481">sttcl::EventArgsPtr&lt; T, MutexType &gt;</a>
+</li>
 <li>operator!=()
 : <a class="el" href="classsttcl_1_1_time_duration.html#a2b7180bfd5ba1fece59dee51f50b9d11">sttcl::TimeDuration&lt; Implementation &gt;</a>
+</li>
+<li>operator*()
+: <a class="el" href="classsttcl_1_1_event_args_ptr.html#a66d765e8b8c0c65d5eb7eae3933cd949">sttcl::EventArgsPtr&lt; T, MutexType &gt;</a>
 </li>
 <li>operator*=()
 : <a class="el" href="classsttcl_1_1_time_duration.html#ac626ba6353ad30c229d6442c5a52fbdb">sttcl::TimeDuration&lt; Implementation &gt;</a>
@@ -148,6 +155,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>operator-=()
 : <a class="el" href="classsttcl_1_1_time_duration.html#a04a3b157aef5741d99e9b0f4d068d6c0">sttcl::TimeDuration&lt; Implementation &gt;</a>
+</li>
+<li>operator-&gt;()
+: <a class="el" href="classsttcl_1_1_event_args_ptr.html#aa34bc5c304c618baf58a1f1073cb1a34">sttcl::EventArgsPtr&lt; T, MutexType &gt;</a>
 </li>
 <li>operator/=()
 : <a class="el" href="classsttcl_1_1_time_duration.html#a9e23836d4d8ce20aaa75fcc5c3300b77">sttcl::TimeDuration&lt; Implementation &gt;</a>
@@ -159,7 +169,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classsttcl_1_1_time_duration.html#a8ddaa455ad7f1c6380eb4237d095781c">sttcl::TimeDuration&lt; Implementation &gt;</a>
 </li>
 <li>operator=()
-: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a06ee4704094d23f19a8b828a794184b4">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_event_args_ptr.html#a6bf9d08feb4e041528a27bc3ebaacb50">sttcl::EventArgsPtr&lt; T, MutexType &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a06ee4704094d23f19a8b828a794184b4">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
 , <a class="el" href="classsttcl_1_1_time_duration.html#a6c7d3be3371056f5c3a00f2951143f63">sttcl::TimeDuration&lt; Implementation &gt;</a>
 </li>
 <li>operator==()
@@ -172,11 +183,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classsttcl_1_1_time_duration.html#ab0d963f072c887008a630acb06c1e927">sttcl::TimeDuration&lt; Implementation &gt;</a>
 </li>
 <li>OuterEventHandler
-: <a class="el" href="classsttcl_1_1_region.html#a2afe92a0679fdcb524fa861bdb651fe7">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a3f8fba56ed809d7b0ae6b14252cdff00">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abe13835517a7804831305d688003bacc">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a5d191098842b9f660da5130023d1bbc4">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">sttcl::internal::IRegionEventDispatchWithoutArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_state_machine_impl_00_01_state_in1736ea8797feccfc9c96c455ed8619ab.html#a9fc1d7c367a87cbe82e1fe6c59197343">sttcl::internal::EventArgsInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, void &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#af4b2ef13508ac35e7de699e5af761522">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+, <a class="el" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afe6c052a0d59ff6bde94bced289c12bb">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#adeadd1acc7dff0b97a6e741e7c026cc0">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">sttcl::internal::EventArgsInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, EventArgsType &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a8a3ef1305b53cad3ee0aa6922ae8bb3e">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 </li>
 <li>OuterStateInterface
-: <a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+, <a class="el" href="classsttcl_1_1_composite_state.html#ab6c38834597d915ddff87db3d1a6f4f2">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 </li>
 </ul>
 </div>
@@ -198,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sat Mar 3 2012 13:58:19 for sttcl by
+    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

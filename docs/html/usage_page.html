@@ -145,8 +145,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
         }
 }
 </pre></div><h3><a class="anchor" id="usage_sec_4"></a>
-2.4 Implement state actions and transitions</h3>
-<p>Transition actions are implemented within the event handler methods of the state classes. See the table in <a class="el" href="uml2gof_page.html#uml2gof_sec">3 Mapping of the UML state diagram notation elements to the GoF State pattern</a> for more details how UML2.2 state diagram elements can be implemented using the GoF state pattern and STTCL. </p>
+2.4 STTCL 'implementation hooks'</h3>
+<p>The STTCL template base classes provide so called 'implementation hooks' to enable an implementation class to override certain methods of the base class implementation. As soon the implementation class provides an implementation hook method it will be called without using the vtable. The implementing class should always call the base classes implementation of the implementation hook method to ensure the correct behavior of the state machine, unless you want to reimplement the basic behavior yourself.</p>
+<div class="fragment"><pre class="fragment"><span class="keywordtype">void</span> MyState::entryImpl(MyStateMachine* context)
+{
+        <span class="comment">// Provide state specific entry actions</span>
+        <span class="comment">// ...</span>
+
+        <span class="comment">// Call the base class implementation</span>
+        State&lt;MyState,MyStateMachine,IState&gt;::entryImpl(context);
+}
+</pre></div><h3><a class="anchor" id="usage_sec_5"></a>
+2.5 Implement state actions and transitions</h3>
+<p>Transition actions are implemented within the event handler methods of the state classes. See the table in <a class="el" href="uml2gof_page.html#uml2gof_sec">3 Mapping of the UML state diagram notation elements to the GoF State pattern</a> for more details how UML2.2 state diagram elements can be implemented using the GoF state pattern and STTCL.</p>
+<p>State entry and exit actions can be implemented using the implementation hooks entryImpl() and exitImpl() in the state implementation class.</p>
+<p>State do actions can be implemented in a method of the state implementation class, that is passed to the base class constructor. The sttcl::ActiveState&lt;&gt; base class supports asynchronous execution of the state do action. It implements a thread function loop, that calls the do action method until the state is exited.</p>
+<p>Direct state transitions (i.e. transitions between states without a triggering event method) are a special case. You can handle these by overriding the checkDirectTransitionImpl() implementation hook in the state implementation class.</p>
+<h3><a class="anchor" id="usage_sec_6"></a>
+2.6 Composite states</h3>
+<p>To implement composite states you can use the sttcl::CompositeState&lt;&gt; template base class. This class inherits both, the sttcl::State&lt;&gt; and the sttcl::StateMachine&lt;&gt; template base classes. The first is used to specify a valid state signature to embed the composite state implementation in an outer state machine implementation. The second specifies the sub state machine of the composite state and specifies the signature for any inner states of the composite state implementation.</p>
+<p>To use a history pseudo state within the composite state diagram you may optionally specify the <em>HistoryType</em> template parameter. The state history behavior will automatically appear on any entry of the composite state implementation until it is (re-)initialized.</p>
+<h3><a class="anchor" id="usage_sec_7"></a>
+2.7 Composite state regions, forks/joins</h3>
+<p>If you need orthogonal state machine regions or transition paths that go out a fork pseudo state you can use the sttcl::ConcurrentCompositeState&lt;&gt; and sttcl::Region&lt;&gt; template base classes. The sttcl::ConcurrentCompositeState&lt;&gt; base class needs to be initialized with a fixed array of pointers to sttcl::Region&lt;&gt; implementation instances in the constructor. The overall number of regions contained in the sttcl::ConcurrentCompositeState&lt;&gt; implementation is specified using the <em>NumOfRegions</em> template parameter. To broadcast events to the contained regions the state interface methods used for the sttcl::ConcurrentCompositeState&lt;&gt; implementation need to have a special signature as follows: </p>
+<div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>::*OuterEventHandler)(StateMachineImpl*);
+</pre></div><p>Each of the sttcl::Region&lt;&gt; implementations runs its own internal thread, where state transitions of the contained states (including initialization, finalization and history behavior) are performed. That event method calls to the sttcl::ConcurrentCompositeState&lt;&gt; <em>IInnerState</em> interface methods can be dispatched to these region threads, all of the inner state interfaces methods need to have a special signature as follows: </p>
+<div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase&lt;StateMachineImpl,StateInterface,IInnerState&gt;*);
+</pre></div><p>You can also specify a type or class to pass additional event arguments to the dispatched event methods. These event arguments need to be managed using a thread safe smart pointer that is provided with the <a class="el" href="classsttcl_1_1_event_args_ptr.html">sttcl::EventArgsPtr</a> template class. If you specify the <em>EventArgs</em> template parameter to the sttcl::ConcurrentCompositeState&lt;&gt; and matching sttcl::Region&lt;&gt; classes, the outer and inner state interface method signatures must look like this: </p>
+<div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>::*OuterEventHandler)(StateMachineImpl*,EventArgsPtr&lt;EventArgs&gt;);
+<span class="keyword">typedef</span> void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase&lt;StateMachineImpl,StateInterface,IInnerState&gt;*,EventArgsPtr&lt;EventArgs&gt;);
+</pre></div><p>Its your responsibility to create an appropriate hierarchy of event argument classes and to decode these for particular event methods if necessary. The EventArgsPtr template needs to be instantiated with a common base class in this case.</p>
+<p>Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState&lt;&gt; implementation providing a region for each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState&lt;&gt; class. </p>
 </div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -166,7 +195,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sat Mar 3 2012 13:58:19 for sttcl by
+    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
