@@ -20,30 +20,30 @@ DemoStateB1::~DemoStateB1()
 {
 }
 
-void DemoStateB1::handleEvent1(IConcurrentStateMachine::Context* context,const void* eventArgs)
+void DemoStateB1::handleEvent1(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateB1, handling event1 ..." << endl;
 }
-void DemoStateB1::handleEvent2(IConcurrentStateMachine::Context* context,const void* eventArgs)
+void DemoStateB1::handleEvent2(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateB1, handling event2 ..." << endl;
 }
-void DemoStateB1::handleEvent3(IConcurrentStateMachine::Context* context,const void* eventArgs)
+void DemoStateB1::handleEvent3(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateB1, handling event3 ..." << endl;
 }
-void DemoStateB1::handleEvent4(IConcurrentStateMachine::Context* context,const void* eventArgs)
+void DemoStateB1::handleEvent4(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateB1, handling event4 ..." << endl;
-	changeState(context->getRegionContext<RegionB>(),&DemoStateB2::getInstance());
+	changeState(regionContext->getRegionContext<RegionB>(),&DemoStateB2::getInstance());
 }
 
-void DemoStateB1::entryImpl(IConcurrentStateMachine::Context* context)
+void DemoStateB1::entryImpl(IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateB1, entering ..." << endl;
 }
 
-void DemoStateB1::exitImpl(IConcurrentStateMachine::Context* context)
+void DemoStateB1::exitImpl(IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateB1, exiting ..." << endl;
 }

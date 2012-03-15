@@ -18,18 +18,18 @@ namespace Application
 {
 
 class ConcurrentStateMachine
-: public sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2>
+: public sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass>
 {
 public:
-	typedef sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2> CompositeStateBase;
+	typedef sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass> CompositeStateBase;
 
 	ConcurrentStateMachine(DemoStateMachine* context);
 	virtual ~ConcurrentStateMachine();
 
-	virtual void handleEvent1(DemoStateMachine* context);
-	virtual void handleEvent2(DemoStateMachine* context);
-	virtual void handleEvent3(DemoStateMachine* context);
-	virtual void handleEvent4(DemoStateMachine* context);
+	virtual void handleEvent1(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent2(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent3(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent4(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
 
     void entryImpl(DemoStateMachine* context);
     void exitImpl(DemoStateMachine* context);

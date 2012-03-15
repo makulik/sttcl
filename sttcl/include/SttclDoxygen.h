@@ -33,7 +33,10 @@
  * \ref usage_sec_1 "2.1 Declare a StateMachine implementation"\n
  * \ref usage_sec_2 "2.2 Declare State implementations"\n
  * \ref usage_sec_3 "2.3 Implement the state machine interfaces"\n
- * \ref usage_sec_4 "2.4 Implement state actions and transitions"\n
+ * \ref usage_sec_4 "2.4 STTCL 'implementation hooks'"\n
+ * \ref usage_sec_5 "2.5 Implement state actions and transitions"\n
+ * \ref usage_sec_6 "2.6 Composite states"\n
+ * \ref usage_sec_7 "2.7 Composite state regions, forks/joins"\n
  * \ref uml2gof_sec "3 Mapping of the UML state diagram notation elements to the GoF State pattern"\n
  * \ref sttcl_config_sec "4 Configuring the STTCL library for a specific OS/build environment"\n
  * \ref sttcl_config_sec_1 "4.1 Configuring STTCL builtin concurrency implementations"\n
@@ -133,11 +136,90 @@ void MyStateMachine::event1()
 }
 \endcode
  *
- * \subsection usage_sec_4 2.4 Implement state actions and transitions
+ * \subsection usage_sec_4 2.4 STTCL 'implementation hooks'
+ *
+ * The STTCL template base classes provide so called 'implementation hooks' to enable an implementation class to
+ * override certain methods of the base class implementation. As soon the implementation class provides an implementation
+ * hook method it will be called without using the vtable. The implementing class should always call the base classes
+ * implementation of the implementation hook method to ensure the correct behavior of the state machine, unless you
+ * want to reimplement the basic behavior yourself.
+ *
+ * \code
+void MyState::entryImpl(MyStateMachine* context)
+{
+	// Provide state specific entry actions
+	// ...
+
+	// Call the base class implementation
+	State<MyState,MyStateMachine,IState>::entryImpl(context);
+}
+\endcode
+ *
+ * \subsection usage_sec_5 2.5 Implement state actions and transitions
  *
  * Transition actions are implemented within the event handler methods of the state classes.
  * See the table in \ref uml2gof_sec "3 Mapping of the UML state diagram notation elements to the GoF State pattern"
  * for more details how UML2.2 state diagram elements can be implemented using the GoF state pattern and STTCL.
+ *
+ * State entry and exit actions can be implemented using the implementation hooks entryImpl() and exitImpl() in the
+ * state implementation class.
+ *
+ * State do actions can be implemented in a method of the state implementation class, that is passed to the base class
+ * constructor. The sttcl::ActiveState<> base class supports asynchronous execution of the state do action. It implements
+ * a thread function loop, that calls the do action method until the state is exited.
+ *
+ * Direct state transitions (i.e. transitions between states without a triggering event method) are a special case.
+ * You can handle these by overriding the checkDirectTransitionImpl() implementation hook in the state implementation
+ * class.
+ *
+ * \subsection usage_sec_6 2.6 Composite states
+ *
+ * To implement composite states you can use the sttcl::CompositeState<> template base class. This class inherits both,
+ * the sttcl::State<> and the sttcl::StateMachine<> template base classes. The first is used to specify a valid state
+ * signature to embed the composite state implementation in an outer state machine implementation. The second specifies
+ * the sub state machine of the composite state and specifies the signature for any inner states of the composite state
+ * implementation.
+ *
+ * To use a history pseudo state within the composite state diagram you may optionally specify the \em HistoryType
+ * template parameter. The state history behavior will automatically appear on any entry of the composite state
+ * implementation until it is (re-)initialized.
+ *
+ * \subsection usage_sec_7 2.7 Composite state regions, forks/joins
+ *
+ * If you need orthogonal state machine regions or transition paths that go out a fork pseudo state you can use the
+ * sttcl::ConcurrentCompositeState<> and sttcl::Region<> template base classes. The sttcl::ConcurrentCompositeState<>
+ * base class needs to be initialized with a fixed array of pointers to sttcl::Region<> implementation instances in
+ * the constructor. The overall number of regions contained in the sttcl::ConcurrentCompositeState<> implementation
+ * is specified using the \em NumOfRegions template parameter.
+ * To broadcast events to the contained regions the state interface methods used for the sttcl::ConcurrentCompositeState<>
+ * implementation need to have a special signature as follows:
+ * \code
+typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*);
+\endcode
+ *
+ * Each of the sttcl::Region<> implementations runs its own internal thread, where state transitions of the contained
+ * states (including initialization, finalization and history behavior) are performed.
+ * That event method calls to the sttcl::ConcurrentCompositeState<> \em IInnerState interface methods can be dispatched to these region threads, all
+ * of the inner state interfaces methods need to have a special signature as follows:
+ * \code
+typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState>*);
+\endcode
+ *
+ * You can also specify a type or class to pass additional event arguments to the dispatched event methods. These event
+ * arguments need to be managed using a thread safe smart pointer that is provided with the sttcl::EventArgsPtr template
+ * class. If you specify the \em EventArgs template parameter to the sttcl::ConcurrentCompositeState<> and matching
+ * sttcl::Region<> classes, the outer and inner state interface method signatures must look like this:
+ * \code
+typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*,EventArgsPtr<EventArgs>);
+typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState>*,EventArgsPtr<EventArgs>);
+\endcode
+ *
+ * Its your responsibility to create an appropriate hierarchy of event argument classes and to decode these for particular
+ * event methods if necessary. The EventArgsPtr template needs to be instantiated with a common base class in this case.
+ *
+ * Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState<> implementation providing a region for
+ * each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState<>
+ * class.
  */
 
 /**
@@ -161,7 +243,8 @@ void MyStateMachine::event1()
  *
  * \subsection sttcl_config_sec_1 4.1 Configuring STTCL builtin concurrency implementations
  *
- * To use the builtin implementations you need to build the STTCL source files using one of the following defines (add -D<config> to your compiler flags):
+ * To use the builtin implementations you need to build the STTCL source files using one of the following defines
+ * (add -D\<config\> to your compiler flags):
  * \li \c STTCL_BOOST_IMPL to select the boost implementation as default
  * \li \c STTCL_POSIX_IMPL to select the POSIX implementation as default
  * \li \c STTCL_CX11_IMPL to select the C++ 11 standard implementation as default

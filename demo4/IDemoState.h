@@ -16,10 +16,12 @@ class DemoStateMachine;
 class IDemoState
 {
 public:
-	virtual void handleEvent1(DemoStateMachine* context,const void* eventArgs = 0) = 0;
-	virtual void handleEvent2(DemoStateMachine* context,const void* eventArgs = 0) = 0;
-	virtual void handleEvent3(DemoStateMachine* context,const void* eventArgs = 0) = 0;
-	virtual void handleEvent4(DemoStateMachine* context,const void* eventArgs = 0) = 0;
+	typedef DemoStateMachine Context;
+
+	virtual void handleEvent1(Context* context) = 0;
+	virtual void handleEvent2(Context* context) = 0;
+	virtual void handleEvent3(Context* context) = 0;
+	virtual void handleEvent4(Context* context) = 0;
 	virtual ~IDemoState() {}
 };
 

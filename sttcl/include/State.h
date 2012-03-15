@@ -100,6 +100,16 @@ public:
     	context->changeState(newState);
     }
 
+    /**
+     * Default implementation for the changeState() method.
+     * @param context A pointer to the containing state machine.
+     * @param newState The new sibling state the containing state machine should change to.
+     */
+    template<class StateMachineContext>
+    void changeStateImpl(StateMachineContext* context,StateBase<StateMachineImpl,IState>* newState)
+    {
+    	context->changeState(newState);
+    }
 protected:
 
     /**
@@ -245,6 +255,17 @@ protected:
     }
 
     /**
+     * Changes \em context state machine to another sibling state.
+     * @param context A pointer to the containing state machine.
+     * @param newState A pointer to the sibling state to change to.
+     */
+    template<class StateMachineContext>
+    void changeState(StateMachineContext* context,StateBaseType* newState)
+    {
+    	static_cast<Implementation*>(this)->changeStateImpl(context,newState);
+    }
+
+    /**
      * The state do action.
      */
     StateDoAction doAction;
@@ -259,6 +280,18 @@ private:
     {
         static_cast<Implementation*>(this)->exitImpl(context);
     }
+
+//    template<class StateMachineContext>
+//    virtual void entry(StateMachineContext* context)
+//    {
+//        static_cast<Implementation*>(this)->entryImpl(context);
+//    }
+//
+//    template<class StateMachineContext>
+//    virtual void exit(StateMachineContext* context)
+//    {
+//        static_cast<Implementation*>(this)->exitImpl(context);
+//    }
 
     virtual void startDo(Context* context)
     {

@@ -16,15 +16,18 @@ namespace Application
 
 class DemoStateMachine;
 
+class IConcurrentStateMachine;
+
 class IConcurrentStateMachine
 {
 public:
-	typedef sttcl::RegionBase<DemoStateMachine,IDemoState> Context;
+	typedef DemoStateMachine Context;
+	typedef sttcl::RegionBase<DemoStateMachine,IDemoState,IConcurrentStateMachine> RegionContext;
 
-	virtual void handleEvent1(Context* context,const void* eventArgs = 0) = 0;
-	virtual void handleEvent2(Context* context,const void* eventArgs = 0) = 0;
-	virtual void handleEvent3(Context* context,const void* eventArgs = 0) = 0;
-	virtual void handleEvent4(Context* context,const void* eventArgs = 0) = 0;
+	virtual void handleEvent1(Context* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent2(Context* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent3(Context* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent4(Context* context,RegionContext* regionContext) = 0;
 	virtual ~IConcurrentStateMachine() {}
 };
 
