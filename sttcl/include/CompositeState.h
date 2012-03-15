@@ -453,10 +453,11 @@ public:
     }
 
     /**
-     * Default implementatin of the subStateMachineCompleted() method.
+     * Default implementation of the subStateMachineCompleted() method.
      */
     inline void subStateMachineCompletedImpl()
     {
+    	// TODO: Propagate completion events asynchronously (e.g. for Region and ConcurrentCompositeState)
     }
 
     /**

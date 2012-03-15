@@ -22,43 +22,43 @@ RegionB::~RegionB()
 {
 }
 
-void RegionB::handleEvent1(IDemoState::Context* context)
+void RegionB::handleEvent1(IDemoState::Context* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionB, handling event1 ..." << endl;
 	InnerStateClass* currentState = getState();
 	if(currentState)
 	{
-		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent1);
+		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent1,eventArgs);
 	}
 }
 
-void RegionB::handleEvent2(IDemoState::Context* context)
+void RegionB::handleEvent2(IDemoState::Context* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionB, handling event2 ..." << endl;
 	InnerStateClass* currentState = getState();
 	if(currentState)
 	{
-		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent2);
+		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent2,eventArgs);
 	}
 }
 
-void RegionB::handleEvent3(DemoStateMachine* context)
+void RegionB::handleEvent3(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionB, handling event3 ..." << endl;
 	InnerStateClass* currentState = getState();
 	if(currentState)
 	{
-		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent3);
+		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent3,eventArgs);
 	}
 }
 
-void RegionB::handleEvent4(IDemoState::Context* context)
+void RegionB::handleEvent4(IDemoState::Context* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionB, handling event4 ..." << endl;
 	InnerStateClass* currentState = getState();
 	if(currentState)
 	{
-		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent4);
+		dispatchEvent(context,currentState,&IConcurrentStateMachine::handleEvent4,eventArgs);
 	}
 }
 

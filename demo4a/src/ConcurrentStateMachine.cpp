@@ -24,28 +24,28 @@ ConcurrentStateMachine::~ConcurrentStateMachine()
 {
 }
 
-void ConcurrentStateMachine::handleEvent1(DemoStateMachine* context)
+void ConcurrentStateMachine::handleEvent1(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event1 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent1);
+	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent1,eventArgs);
 }
 
-void ConcurrentStateMachine::handleEvent2(DemoStateMachine* context)
+void ConcurrentStateMachine::handleEvent2(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event2 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent2);
+	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent2,eventArgs);
 }
 
-void ConcurrentStateMachine::handleEvent3(DemoStateMachine* context)
+void ConcurrentStateMachine::handleEvent3(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event3 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent3);
+	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent3,eventArgs);
 }
 
-void ConcurrentStateMachine::handleEvent4(DemoStateMachine* context)
+void ConcurrentStateMachine::handleEvent4(DemoStateMachine* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event4 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent4);
+	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent4,eventArgs);
 }
 
 void ConcurrentStateMachine::entryImpl(DemoStateMachine* context)
