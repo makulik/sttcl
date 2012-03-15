@@ -27,6 +27,7 @@
 
 #include "CompositeState.h"
 #include "ActiveState.h"
+#include "EventArgsPtr.h"
 #include "SttclMutex.h"
 #include "SttclSemaphore.h"
 #if !defined(STTCL_USE_STL)
@@ -37,6 +38,202 @@
 namespace sttcl
 {
 
+template
+< class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgs
+>
+class RegionBase;
+
+namespace internal
+{
+/**
+ * Used to select an EventArgs passing interface for ConcurrentCompositeState and Region.
+ * @tparam EventArgsType The event arguments type.
+ * @tparam InnerStateType The state base class type of the composite states inner states.
+ */
+template
+< class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgsType
+>
+struct EventArgsInterfaceSelector
+{
+	/**
+	 * The pointer type used to pass event arguments to the contained regions inner states.
+	 */
+	typedef sttcl::EventArgsPtr<EventArgsType> EventArgsPtr;
+
+	/**
+	 * The region event handler signature. All methods of the \em StateInterface interface
+	 * must have this signature. The first parameter is a pointer to the containing state
+	 * machine. The second parameter is a pointer to additional event arguments as specified
+	 * with the EventArgs template parameter.
+	 */
+    typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*,EventArgsPtr);
+
+    /**
+	 * The inner states event handler signature. All methods of the \em IInnerState interface
+	 * must have this signature. The first parameter is a pointer to the containing state
+	 * machine. The second parameter is a pointer to the region base class that contains the
+	 * inner state. The third parameter is a pointer to additional event arguments as specified
+	 * with the EventArgs template parameter.
+	 */
+    typedef void (IInnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState,EventArgsType>*,EventArgsPtr);
+};
+
+/**
+ * Specializes EventArgsInterfaceSelector for void (i.e. no) event arguments.
+ */
+template
+< class StateMachineImpl
+, class StateInterface
+, class IInnerState
+>
+struct EventArgsInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,void>
+{
+	/**
+	 * The pointer type used to pass event arguments to the contained regions inner states.
+	 */
+	typedef sttcl::EventArgsPtr<void> EventArgsPtr;
+
+	/**
+	 * The region event handler signature. All methods of the \em StateInterface interface
+	 * must have this signature. The first parameter is a pointer to the containing state
+	 * machine. The second parameter is a pointer to additional event arguments as specified
+	 * with the EventArgs template parameter.
+	 */
+    typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*);
+
+    /**
+	 * The inner states event handler signature. All methods of the IInnerState interface
+	 * must have this signature. The first parameter is a pointer to the containing state
+	 * machine. The second parameter is a pointer to additional event arguments as specified
+	 * with the EventArgs template parameter.
+	 */
+    typedef void (IInnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState,void>*);
+};
+
+template
+< class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgs
+> class IRegionEventDispatchWithArgs
+{
+public:
+	typedef EventArgsInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,EventArgs> EventArgsSelectorType;
+
+	/**
+	 * The pointer type used to pass event arguments to the contained regions inner states.
+	 */
+	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+
+	/**
+     * The outer event handler signature.
+     */
+	typedef typename EventArgsSelectorType::OuterEventHandler OuterEventHandler;
+
+	/**
+     * The inner event handler signature.
+     */
+	typedef typename EventArgsSelectorType::InnerEventHandler InnerEventHandler;
+
+	/**
+     * Called to handle an event broadcasted from the containing ConcurrentCompositeState instance.
+     * @param context A pointer to the containing state machine.
+     * @param eventHandler The event handler to call inside the region thread.
+     * @param eventArgs The event arguments to pass to the event handler call.
+     */
+	virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, EventArgsPtr eventArgs) = 0;
+
+	virtual ~IRegionEventDispatchWithArgs() {}
+};
+
+template
+< class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgs
+> class IRegionEventDispatchWithoutArgs
+{
+public:
+	typedef EventArgsInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,EventArgs> EventArgsSelectorType;
+
+	/**
+	 * The pointer type used to pass event arguments to the contained regions inner states.
+	 */
+	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+
+	/**
+     * The outer event handler signature.
+     */
+	typedef typename EventArgsSelectorType::OuterEventHandler OuterEventHandler;
+
+	/**
+     * The inner event handler signature.
+     */
+	typedef typename EventArgsSelectorType::InnerEventHandler InnerEventHandler;
+
+	/**
+     * Called to handle an event broadcasted from the containing ConcurrentCompositeState instance.
+     * @param context A pointer to the containing state machine.
+     * @param eventHandler The event handler to call inside the region thread.
+     * @param eventArgs The event arguments to pass to the event handler call.
+     */
+	virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler) = 0;
+
+	virtual ~IRegionEventDispatchWithoutArgs() {}
+};
+
+/**
+ * Used to select the region event dispatch interface.
+ * @tparam StateMachineImpl
+ * @tparam StateInterface
+ * @tparam EventArgs
+ */
+template
+< class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgs
+>
+struct RegionEventDispatchInterfaceSelector
+{
+	/**
+	 * The region base event dispatch interface type.
+	 */
+	typedef IRegionEventDispatchWithArgs<StateMachineImpl,StateInterface,IInnerState,EventArgs> RESULT_TYPE;
+
+};
+
+/**
+ * Specializes RegionEventDispatchInterfaceSelector for void (i.e. no) event arguments.
+ */
+template
+< class StateMachineImpl
+, class StateInterface
+, class IInnerState
+>
+struct RegionEventDispatchInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,void>
+{
+	/**
+	 * The region base event dispatch interface type.
+	 */
+	typedef IRegionEventDispatchWithoutArgs<StateMachineImpl,StateInterface,IInnerState,void> RESULT_TYPE;
+
+};
+
+template
+< class StateMachineImpl
+, class IInnerState
+, class EventArgs
+>
+struct DispatchedEvent;
+}
+
 /**
  * Represents the abstract Region base class.
  * @tparam StateMachineImpl
@@ -46,11 +243,30 @@ namespace sttcl
 template
 < class StateMachineImpl
 , class StateInterface
+, class IInnerState
 , class EventArgs = void
 >
 class RegionBase
+: public sttcl::internal::RegionEventDispatchInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,EventArgs>::RESULT_TYPE
 {
 public:
+	typedef typename sttcl::internal::RegionEventDispatchInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,EventArgs>::RESULT_TYPE RegionEventDispatchInterface;
+
+	/**
+	 * The pointer type used to pass event arguments to the contained regions inner states.
+	 */
+	typedef typename RegionEventDispatchInterface::EventArgsPtr EventArgsPtr;
+
+    typedef typename RegionEventDispatchInterface::OuterEventHandler OuterEventHandler;
+
+	/**
+	 * The inner states event handler signature. All methods of the IInnerState interface
+	 * must have this signature. The first parameter is a pointer to the containing state
+	 * machine. The second parameter is a pointer to additional event arguments as specified
+	 * with the EventArgs template parameter.
+	 */
+    typedef typename RegionEventDispatchInterface::InnerEventHandler InnerEventHandler;
+
 	/**
 	 * Constructor for class RegionBase.
 	 */
@@ -65,21 +281,6 @@ public:
 	{
 	}
 
-	/**
-	 * The inner states event handler signature. All methods of the IInnerState interface
-	 * must have this signature. The first parameter is a pointer to the containing state
-	 * machine. The second parameter is a pointer to additional event arguments as specified
-	 * with the EventArgs template parameter.
-	 */
-    typedef void (StateInterface::*EventHandler)(StateMachineImpl*, const EventArgs*);
-
-    /**
-     * Called to handle an event broadcasted from the containing ConcurrentCompositeState instance.
-     * @param context A pointer to the containing state machine.
-     * @param eventHandler The event handler to call inside the region thread.
-     * @param eventArgs The event arguments to pass to the event handler call.
-     */
-	virtual void handleBroadcastedEvent(StateMachineImpl* context,EventHandler eventHandler, const EventArgs* eventArgs) = 0;
 	/**
 	 * Called when the region is entered.
      * @param context A pointer to the containing state machine.
@@ -149,35 +350,54 @@ public:
 
 	virtual void internalFinalize(bool recursive) = 0;
 
+	virtual void queueDispatchedEvent(const sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>& dispatchedEvent) = 0;
+
 };
 
 namespace internal
 {
+
 /**
  * Container struct to dispatch events to the inner region thread.
  */
 template
 < class StateMachineImpl
 , class IInnerState
-, class EventArgs = void
+, class EventArgs
 >
 struct DispatchedEvent
 {
     /**
      * The RegionBase class type.
      */
-    typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs> RegionBaseClass;
+    typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseClass;
 
-    /**
+	typedef EventArgsInterfaceSelector<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> EventArgsSelectorType;
+
+	/**
+	 * The pointer type used to pass event arguments to the contained regions inner states.
+	 */
+	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+
+	/**
+     * The outer event handler signature.
+     */
+	typedef typename EventArgsSelectorType::OuterEventHandler OuterEventHandler;
+
+	/**
      * The inner event handler signature.
      */
-    typedef void (IInnerState::*InnerEventHandler)(RegionBaseClass*,const EventArgs*);
+	typedef typename EventArgsSelectorType::InnerEventHandler InnerEventHandler;
 
     /**
      * The internal event handler signature.
      */
     typedef void (RegionBaseClass::*InternalEventHandler)(bool);
 
+    /**
+     * The context state machine where the event was issued.
+     */
+    StateMachineImpl* context;
     /**
      * The inner region state for calling the dispatched event handler.
      */
@@ -188,9 +408,8 @@ struct DispatchedEvent
 	InnerEventHandler handler;
 	/**
 	 * The event arguments pointer to pass to the dispatched inner event handler method.
-	 * TODO: Need a smart pointer to pass the event arguments safely between threads.
 	 */
-	const EventArgs* eventArgs;
+	mutable EventArgsPtr eventArgs;
 	/**
 	 * The dispatched internal event handler method.
 	 */
@@ -206,8 +425,9 @@ struct DispatchedEvent
 	 * @param argHandler
 	 * @param argEventArgs
 	 */
-	DispatchedEvent(IInnerState* argState, InnerEventHandler argHandler, const EventArgs* argEventArgs)
-	: state(argState)
+	DispatchedEvent(StateMachineImpl* argContext, IInnerState* argState, InnerEventHandler argHandler, EventArgsPtr argEventArgs)
+	: context(argContext)
+	, state(argState)
 	, handler(argHandler)
 	, eventArgs(argEventArgs)
 	, internalHandler(0)
@@ -221,9 +441,10 @@ struct DispatchedEvent
 	 * @param argRecursiveInternalEvent
 	 */
 	DispatchedEvent(InternalEventHandler argInternalHandler, bool argRecursiveInternalEvent)
-	: state(0)
+	: context(0)
+	, state(0)
 	, handler(0)
-	, eventArgs(0)
+	, eventArgs()
 	, internalHandler(argInternalHandler)
 	, recursiveInternalEvent(argRecursiveInternalEvent)
 	{
@@ -234,7 +455,8 @@ struct DispatchedEvent
 	 * @param rhs
 	 */
 	DispatchedEvent(const DispatchedEvent& rhs)
-	: state(rhs.state)
+	: context(rhs.context)
+	, state(rhs.state)
 	, handler(rhs.handler)
 	, eventArgs(rhs.eventArgs)
 	, internalHandler(rhs.internalHandler)
@@ -248,6 +470,7 @@ struct DispatchedEvent
 	 */
 	DispatchedEvent& operator=(const DispatchedEvent& rhs)
 	{
+		context = rhs.context;
 		state = rhs.state;
 		handler = rhs.handler;
 		eventArgs = rhs.eventArgs;
@@ -257,7 +480,182 @@ struct DispatchedEvent
 	}
 
 private:
-	DispatchedEvent();
+	DispatchedEvent(); // Forbidden
+};
+
+/**
+ * Represents the implementation for the RegionBase class with dispatched event arguments.
+ * @tparam RegionImpl The inheriting class.
+ * @tparam StateMachineImpl
+ * @tparam StateInterface
+ * @tparam EventArgs
+ */
+template
+< class RegionImpl
+, class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgs
+>
+class RegionBaseImplWithEventArgs
+: public RegionBase<StateMachineImpl,StateInterface,IInnerState,EventArgs>
+{
+public:
+    /**
+     * The implementation class type.
+     */
+    typedef RegionImpl Implementation;
+
+    /**
+     * The RegionBase class type.
+     */
+    typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseClass;
+
+    typedef typename RegionBaseClass::EventArgsPtr EventArgsPtr;
+
+    typedef typename RegionBaseClass::InnerEventHandler InnerEventHandler;
+
+    typedef typename RegionBaseClass::OuterEventHandler OuterEventHandler;
+
+    RegionBaseImplWithEventArgs()
+    : RegionBaseClass()
+    {}
+
+    virtual ~RegionBaseImplWithEventArgs() {}
+
+    virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, EventArgsPtr eventArgs)
+	{
+		(static_cast<Implementation*>(this)->*eventHandler)(context,eventArgs);
+	}
+
+	/**
+	 * Dispatches an event to a state inside the region. The state event handler will be executed
+	 * within the context of the internal region thread.
+	 * @param state
+	 * @param eventHandler
+	 * @param eventArgs
+	 */
+	void dispatchEvent(StateMachineImpl* context,IInnerState* state, InnerEventHandler eventHandler, EventArgsPtr eventArgs)
+	{
+		if(state)
+		{
+			queueDispatchedEvent(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(context,state,eventHandler,eventArgs));
+		}
+	}
+
+protected:
+	void callDispatchedEventHandler(StateMachineImpl* context,IInnerState* state,InnerEventHandler eventHandler,EventArgsPtr eventArgs)
+	{
+		(state->*eventHandler)(context,this,eventArgs);
+	}
+
+};
+
+/**
+ * Represents the implementation for the RegionBase class without dispatched event arguments.
+ * @tparam RegionImpl The inheriting class.
+ * @tparam StateMachineImpl
+ * @tparam StateInterface
+ * @tparam EventArgs
+ */
+template
+< class RegionImpl
+, class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgs
+>
+class RegionBaseImplWithoutEventArgs
+: public RegionBase<StateMachineImpl,StateInterface,IInnerState,EventArgs>
+{
+public:
+    /**
+     * The implementation class type.
+     */
+    typedef RegionImpl Implementation;
+
+    /**
+     * The RegionBase class type.
+     */
+    typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseClass;
+
+    typedef typename RegionBaseClass::EventArgsPtr EventArgsPtr;
+
+    typedef typename RegionBaseClass::InnerEventHandler InnerEventHandler;
+
+    typedef typename RegionBaseClass::OuterEventHandler OuterEventHandler;
+
+    RegionBaseImplWithoutEventArgs()
+    : RegionBaseClass()
+    {}
+
+    virtual ~RegionBaseImplWithoutEventArgs() {}
+
+    virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler)
+	{
+		(static_cast<Implementation*>(this)->*eventHandler)(context);
+	}
+
+	/**
+	 * Dispatches an event to a state inside the region. The state event handler will be executed
+	 * within the context of the internal region thread.
+	 * @param state
+	 * @param eventHandler
+	 * @param eventArgs
+	 */
+	void dispatchEvent(StateMachineImpl* context,IInnerState* state, InnerEventHandler eventHandler)
+	{
+		if(state)
+		{
+			queueDispatchedEvent(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,void>(context,state,eventHandler,EventArgsPtr()));
+		}
+	}
+
+protected:
+	void callDispatchedEventHandler(StateMachineImpl* context,IInnerState* state,InnerEventHandler eventHandler,EventArgsPtr eventArgs)
+	{
+		(state->*eventHandler)(context,this);
+	}
+};
+
+/**
+ * Used to select the region base implementation.
+ * @tparam StateMachineImpl
+ * @tparam StateInterface
+ * @tparam EventArgs
+ */
+template
+< class RegionImpl
+, class StateMachineImpl
+, class StateInterface
+, class IInnerState
+, class EventArgs
+>
+struct RegionBaseImplementationSelector
+{
+	/**
+	 * The region base implementation type.
+	 */
+	typedef RegionBaseImplWithEventArgs<RegionImpl,StateMachineImpl,StateInterface,IInnerState,EventArgs> RESULT_TYPE;
+
+};
+
+/**
+ * Specializes RegionBaseImplementationSelector for void (i.e. no) event arguments.
+ */
+template
+< class RegionImpl
+, class StateMachineImpl
+, class StateInterface
+, class IInnerState
+>
+struct RegionBaseImplementationSelector<RegionImpl,StateMachineImpl,StateInterface,IInnerState,void>
+{
+	/**
+	 * The region base implementation type.
+	 */
+	typedef RegionBaseImplWithoutEventArgs<RegionImpl,StateMachineImpl,StateInterface,IInnerState,void> RESULT_TYPE;
+
 };
 }
 
@@ -374,6 +772,8 @@ private:
 	MutexType eventQueueMutex;
 	SemaphoreType eventsAvailable;
 };
+
+
 }
 
 /**
@@ -428,10 +828,16 @@ class Region
 	  >
 	, StateMachine<RegionImpl, IInnerState>
 	>
-, public RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs>
+, public internal::RegionBaseImplementationSelector
+	< RegionImpl
+	, StateMachineImpl
+	, typename StateMachineImpl::StateInterface
+	, IInnerState
+	, EventArgs
+	>::RESULT_TYPE
 {
 public:
-	friend class RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs>;
+	friend class RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs>;
 
     /**
      * The implementation class type.
@@ -485,19 +891,28 @@ public:
     		> CompositeStateBase;
 
     /**
-     * The RegionBase class type.
+     * The selected RegionBase implementation class type.
      */
-    typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,EventArgs> RegionBaseClass;
+    typedef typename internal::RegionBaseImplementationSelector<RegionImpl,StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs>::RESULT_TYPE SelectedRegionBase;
 
-    /**
+    typedef typename SelectedRegionBase::RegionBaseClass RegionBaseClass;
+
+    typedef sttcl::internal::EventArgsInterfaceSelector<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> EventArgsSelectorType;
+
+	/**
+	 * The pointer type used to pass event arguments to the contained regions inner states.
+	 */
+	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+
+	/**
      * The outer event handler signature.
      */
-    typedef typename RegionBaseClass::EventHandler OuterEventHandler;
+	typedef typename EventArgsSelectorType::OuterEventHandler OuterEventHandler;
 
-    /**
+	/**
      * The inner event handler signature.
      */
-    typedef void (IInnerState::*InnerEventHandler)(RegionBaseClass*,const EventArgs*);
+	typedef typename EventArgsSelectorType::InnerEventHandler InnerEventHandler;
 
     /**
      * The internal event handler signature.
@@ -570,21 +985,6 @@ public:
 	 */
 	virtual ~Region()
 	{
-	}
-
-	/**
-	 * Dispatches an event to a state inside the region. The state event handler will be executed
-	 * within the context of the internal region thread.
-	 * @param state
-	 * @param eventHandler
-	 * @param eventArgs
-	 */
-	void dispatchEvent(IInnerState* state, InnerEventHandler eventHandler, const EventArgs* eventArgs)
-	{
-		if(state)
-		{
-			eventDispatchQueue.push_back(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>(state,eventHandler,eventArgs));
-		}
 	}
 
 	/**
@@ -727,9 +1127,9 @@ public:
     }
 
 private:
-	virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, const EventArgs* eventArgs)
+	virtual void queueDispatchedEvent(const sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>& dispatchedEvent)
 	{
-		(static_cast<Implementation*>(this)->*eventHandler)(context,eventArgs);
+		eventDispatchQueue.push_back(dispatchedEvent);
 	}
 
 	virtual void enterRegion(StateMachineImpl* context)
@@ -794,46 +1194,6 @@ private:
     	static_cast<StateMachineImplementationBase*>(this)->finalizeImpl(recursive);
 	}
 
-	/*
-	struct DispatchedEvent
-	{
-		IInnerState* state;
-		InnerEventHandler handler;
-		const EventArgs* eventArgs;
-		InternalEventHandler internalHandler;
-		bool recursiveInternalEvent;
-
-		DispatchedEvent(IInnerState* argState, InnerEventHandler argHandler, const EventArgs* argEventArgs)
-		: state(argState)
-		, handler(argHandler)
-		, eventArgs(argEventArgs)
-		, internalHandler(0)
-		, recursiveInternalEvent(false)
-		{
-		}
-
-		DispatchedEvent(InternalEventHandler argInternalHandler, bool argRecursiveInternalEvent)
-		: state(0)
-		, handler(0)
-		, eventArgs(0)
-		, internalHandler(argInternalHandler)
-		, recursiveInternalEvent(argRecursiveInternalEvent)
-		{
-		}
-
-		DispatchedEvent(const DispatchedEvent& rhs)
-		: state(rhs.state)
-		, handler(rhs.handler)
-		, eventArgs(rhs.eventArgs)
-		, internalHandler(rhs.internalHandler)
-		, recursiveInternalEvent(rhs.recursiveInternalEvent)
-		{
-		}
-	};
-
-	typedef SttclEventQueue<DispatchedEvent<StateMachineImpl,IInnerState,EventArgs> > EventQueueType;
-	*/
-
 	void unblockEventsAvailable()
 	{
 		eventDispatchQueue.unblock();
@@ -858,7 +1218,7 @@ private:
 				}
 				else
 				{
-					(dispatchedEvent.state->*dispatchedEvent.handler)(this,dispatchedEvent.eventArgs);
+					callDispatchedEventHandler(dispatchedEvent.context,dispatchedEvent.state,dispatchedEvent.handler,dispatchedEvent.eventArgs);
 				}
 			}
 		}
