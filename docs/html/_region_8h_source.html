@@ -190,122 +190,122 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00174"></a>00174 
 <a name="l00178"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#adc790183b311487085ab0af4dfec8903">00178</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#adc790183b311487085ab0af4dfec8903">InnerEventHandler</a>;
 <a name="l00179"></a>00179 
-<a name="l00186"></a>00186         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#ab836f2eb9045d01964a06e5dd586dd6d">handleBroadcastedEvent</a>(StateMachineImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">OuterEventHandler</a> eventHandler) = 0;
-<a name="l00187"></a>00187 
-<a name="l00188"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a954313c5e77cd6d7265f726c8516db82">00188</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a954313c5e77cd6d7265f726c8516db82">~IRegionEventDispatchWithoutArgs</a>() {}
-<a name="l00189"></a>00189 };
-<a name="l00190"></a>00190 
-<a name="l00197"></a>00197 <span class="keyword">template</span>
-<a name="l00198"></a>00198 &lt; <span class="keyword">class </span>StateMachineImpl
-<a name="l00199"></a>00199 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
-<a name="l00200"></a>00200 , <span class="keyword">class </span>IInnerState
-<a name="l00201"></a>00201 , <span class="keyword">class </span>EventArgs
-<a name="l00202"></a>00202 &gt;
-<a name="l00203"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">00203</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">RegionEventDispatchInterfaceSelector</a>
-<a name="l00204"></a>00204 {
-<a name="l00208"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html#aef8d99069684aaba1521c63f0c4531a7">00208</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">IRegionEventDispatchWithArgs&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html#aef8d99069684aaba1521c63f0c4531a7">RESULT_TYPE</a>;
-<a name="l00209"></a>00209 
-<a name="l00210"></a>00210 };
-<a name="l00211"></a>00211 
-<a name="l00215"></a>00215 <span class="keyword">template</span>
-<a name="l00216"></a>00216 &lt; <span class="keyword">class </span>StateMachineImpl
-<a name="l00217"></a>00217 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
-<a name="l00218"></a>00218 , <span class="keyword">class </span>IInnerState
-<a name="l00219"></a>00219 &gt;
-<a name="l00220"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html">00220</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">RegionEventDispatchInterfaceSelector</a>&lt;StateMachineImpl,<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>,IInnerState,void&gt;
-<a name="l00221"></a>00221 {
-<a name="l00225"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html#a79e148ec2f81b10cc7f53efdfc52b7bd">00225</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">IRegionEventDispatchWithoutArgs&lt;StateMachineImpl,StateInterface,IInnerState,void&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html#a79e148ec2f81b10cc7f53efdfc52b7bd">RESULT_TYPE</a>;
-<a name="l00226"></a>00226 
-<a name="l00227"></a>00227 };
-<a name="l00228"></a>00228 
-<a name="l00229"></a>00229 <span class="keyword">template</span>
-<a name="l00230"></a>00230 &lt; <span class="keyword">class </span>StateMachineImpl
-<a name="l00231"></a>00231 , <span class="keyword">class </span>IInnerState
-<a name="l00232"></a>00232 , <span class="keyword">class </span>EventArgs
-<a name="l00233"></a>00233 &gt;
-<a name="l00234"></a>00234 <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a>;
-<a name="l00235"></a>00235 }
-<a name="l00236"></a>00236 
-<a name="l00243"></a>00243 <span class="keyword">template</span>
-<a name="l00244"></a>00244 &lt; <span class="keyword">class </span>StateMachineImpl
-<a name="l00245"></a>00245 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
-<a name="l00246"></a>00246 , <span class="keyword">class </span>IInnerState
-<a name="l00247"></a>00247 , <span class="keyword">class </span>EventArgs = <span class="keywordtype">void</span>
-<a name="l00248"></a>00248 &gt;
-<a name="l00249"></a><a class="code" href="classsttcl_1_1_region_base.html">00249</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_region_base.html">RegionBase</a>
-<a name="l00250"></a>00250 : <span class="keyword">public</span> sttcl::internal::RegionEventDispatchInterfaceSelector&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;::RESULT_TYPE
-<a name="l00251"></a>00251 {
-<a name="l00252"></a>00252 <span class="keyword">public</span>:
-<a name="l00253"></a><a class="code" href="classsttcl_1_1_region_base.html#a06f05a8ab56c95a2887c50fac16a533c">00253</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::RegionEventDispatchInterfaceSelector&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;::RESULT_TYPE</a> <a class="code" href="classsttcl_1_1_region_base.html#a06f05a8ab56c95a2887c50fac16a533c">RegionEventDispatchInterface</a>;
-<a name="l00254"></a>00254 
-<a name="l00258"></a><a class="code" href="classsttcl_1_1_region_base.html#acb55af8bd333f8bd1d3ee7649282eb04">00258</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">RegionEventDispatchInterface::EventArgsPtr</a> <a class="code" href="classsttcl_1_1_region_base.html#acb55af8bd333f8bd1d3ee7649282eb04">EventArgsPtr</a>;
-<a name="l00259"></a>00259 
-<a name="l00260"></a><a class="code" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">00260</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">RegionEventDispatchInterface::OuterEventHandler</a> <a class="code" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">OuterEventHandler</a>;
-<a name="l00261"></a>00261 
-<a name="l00268"></a><a class="code" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">00268</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">RegionEventDispatchInterface::InnerEventHandler</a> <a class="code" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">InnerEventHandler</a>;
-<a name="l00269"></a>00269 
-<a name="l00273"></a><a class="code" href="classsttcl_1_1_region_base.html#a23254c565fca00c8163b60e2b1178b68">00273</a>         <a class="code" href="classsttcl_1_1_region_base.html#a23254c565fca00c8163b60e2b1178b68">RegionBase</a>()
-<a name="l00274"></a>00274         {
-<a name="l00275"></a>00275         }
-<a name="l00276"></a>00276 
-<a name="l00280"></a><a class="code" href="classsttcl_1_1_region_base.html#ad4d06f6556992e46d5ab779cebf3d685">00280</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_region_base.html#ad4d06f6556992e46d5ab779cebf3d685">~RegionBase</a>()
-<a name="l00281"></a>00281         {
-<a name="l00282"></a>00282         }
-<a name="l00283"></a>00283 
-<a name="l00288"></a>00288         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a72593e4d4eacf96f1c80ed5bc1a5f4c6">enterRegion</a>(StateMachineImpl* context) = 0;
-<a name="l00293"></a>00293         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#ade839967c5d65a6143bbfa1b79be4d15">exitRegion</a>(StateMachineImpl* context) = 0;
-<a name="l00298"></a>00298         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a2e4940a6e44043721076c9fded8afe17">finalizeRegion</a>(<span class="keywordtype">bool</span> recursive) = 0;
-<a name="l00304"></a>00304         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#a435340ee43dd5b6df58d22ab7a4d59ec">initializeRegion</a>(<span class="keywordtype">bool</span> recursive) = 0;
-<a name="l00309"></a>00309         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a3fa30c805c4a4007166637eb2590e70f">startDoRegion</a>(StateMachineImpl* context) = 0;
-<a name="l00314"></a>00314         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a11fa4bc169bb496c0543d377e66c8584">endDoRegion</a>(StateMachineImpl* context) = 0;
-<a name="l00319"></a>00319         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#ac22ce7b712de597f2aad4990c5f17dbe">isRegionInitialized</a>() = 0;
-<a name="l00324"></a>00324         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#a4ac1344dc64adab3a144c1887529a642">isRegionFinalized</a>() = 0;
-<a name="l00329"></a>00329         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#a7a23f65f834fa5fe6709d3024b16a099">isRegionThreadRunning</a>() <span class="keyword">const</span> = 0;
-<a name="l00333"></a>00333         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a0029743f31dae10c12e99960c577ed85">joinRegionThread</a>() = 0;
-<a name="l00334"></a>00334 
-<a name="l00339"></a>00339         <span class="keyword">template</span>&lt;<span class="keyword">class</span> RegionImpl&gt;
-<a name="l00340"></a><a class="code" href="classsttcl_1_1_region_base.html#ad331442937c62d78cf719dee9429d161">00340</a>         RegionImpl* <a class="code" href="classsttcl_1_1_region_base.html#ad331442937c62d78cf719dee9429d161">getRegionContext</a>()
-<a name="l00341"></a>00341         {
-<a name="l00342"></a>00342                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>);
-<a name="l00343"></a>00343         }
-<a name="l00344"></a>00344 
-<a name="l00349"></a>00349         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a2bdbd9bf7976f10643a0a81f57513692">internalInitialize</a>(<span class="keywordtype">bool</span> recursive) = 0;
-<a name="l00350"></a>00350 
-<a name="l00351"></a>00351         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a14a035be203072af07b4e609aeb18b31">internalFinalize</a>(<span class="keywordtype">bool</span> recursive) = 0;
-<a name="l00352"></a>00352 
-<a name="l00353"></a>00353         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#ad56291154fc2218026c5325a0c15ff0e">queueDispatchedEvent</a>(<span class="keyword">const</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>&amp; dispatchedEvent) = 0;
-<a name="l00354"></a>00354 
-<a name="l00355"></a>00355 };
-<a name="l00356"></a>00356 
-<a name="l00357"></a>00357 <span class="keyword">namespace </span>internal
-<a name="l00358"></a>00358 {
-<a name="l00359"></a>00359 
-<a name="l00363"></a>00363 <span class="keyword">template</span>
-<a name="l00364"></a>00364 &lt; <span class="keyword">class </span>StateMachineImpl
-<a name="l00365"></a>00365 , <span class="keyword">class </span>IInnerState
-<a name="l00366"></a>00366 , <span class="keyword">class </span>EventArgs
-<a name="l00367"></a>00367 &gt;
-<a name="l00368"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">00368</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a>
-<a name="l00369"></a>00369 {
-<a name="l00373"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0aae45de6e15ec0f2bc9a6bcf51a22c2">00373</a>     <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0aae45de6e15ec0f2bc9a6bcf51a22c2">RegionBaseClass</a>;
-<a name="l00374"></a>00374 
-<a name="l00375"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2aa69c7e5ac1e72827d8174913011142">00375</a>         <span class="keyword">typedef</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsInterfaceSelector&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2aa69c7e5ac1e72827d8174913011142">EventArgsSelectorType</a>;
-<a name="l00376"></a>00376 
-<a name="l00380"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#aeb5bb25aab9208aeec1975b4d63cee75">00380</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsSelectorType::EventArgsPtr</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#aeb5bb25aab9208aeec1975b4d63cee75">EventArgsPtr</a>;
-<a name="l00381"></a>00381 
-<a name="l00385"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a5d191098842b9f660da5130023d1bbc4">00385</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a5d191098842b9f660da5130023d1bbc4">OuterEventHandler</a>;
-<a name="l00386"></a>00386 
-<a name="l00390"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">00390</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">InnerEventHandler</a>;
-<a name="l00391"></a>00391 
-<a name="l00395"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a4d660b5d409e541ce05cb15b1690eacc">00395</a>     <span class="keyword">typedef</span> void (<a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>::*<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a4d660b5d409e541ce05cb15b1690eacc">InternalEventHandler</a>)(bool);
-<a name="l00396"></a>00396 
-<a name="l00400"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ae81cea81ee3d825fc01d36a76f1cac4e">00400</a>     StateMachineImpl* <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ae81cea81ee3d825fc01d36a76f1cac4e">context</a>;
-<a name="l00404"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2bd815646bcca01a6c76893be02f56af">00404</a>     IInnerState* <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2bd815646bcca01a6c76893be02f56af">state</a>;
-<a name="l00408"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a14bb1fc4c2cb30c18f8724cbf07e6989">00408</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">InnerEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a14bb1fc4c2cb30c18f8724cbf07e6989">handler</a>;
-<a name="l00412"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af494ee093a8aa2bb92307138ff156170">00412</a>         <span class="keyword">mutable</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af494ee093a8aa2bb92307138ff156170">eventArgs</a>;
-<a name="l00416"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">00416</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a4d660b5d409e541ce05cb15b1690eacc">InternalEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">internalHandler</a>;
-<a name="l00420"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a7aefda5379df0018982a202e5ed1c576">00420</a>         <span class="keywordtype">bool</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a7aefda5379df0018982a202e5ed1c576">recursiveInternalEvent</a>;
-<a name="l00421"></a>00421 
+<a name="l00185"></a>00185         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#ab836f2eb9045d01964a06e5dd586dd6d">handleBroadcastedEvent</a>(StateMachineImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">OuterEventHandler</a> eventHandler) = 0;
+<a name="l00186"></a>00186 
+<a name="l00187"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a954313c5e77cd6d7265f726c8516db82">00187</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a954313c5e77cd6d7265f726c8516db82">~IRegionEventDispatchWithoutArgs</a>() {}
+<a name="l00188"></a>00188 };
+<a name="l00189"></a>00189 
+<a name="l00196"></a>00196 <span class="keyword">template</span>
+<a name="l00197"></a>00197 &lt; <span class="keyword">class </span>StateMachineImpl
+<a name="l00198"></a>00198 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
+<a name="l00199"></a>00199 , <span class="keyword">class </span>IInnerState
+<a name="l00200"></a>00200 , <span class="keyword">class </span>EventArgs
+<a name="l00201"></a>00201 &gt;
+<a name="l00202"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">00202</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">RegionEventDispatchInterfaceSelector</a>
+<a name="l00203"></a>00203 {
+<a name="l00207"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html#aef8d99069684aaba1521c63f0c4531a7">00207</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">IRegionEventDispatchWithArgs&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html#aef8d99069684aaba1521c63f0c4531a7">RESULT_TYPE</a>;
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209 };
+<a name="l00210"></a>00210 
+<a name="l00214"></a>00214 <span class="keyword">template</span>
+<a name="l00215"></a>00215 &lt; <span class="keyword">class </span>StateMachineImpl
+<a name="l00216"></a>00216 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
+<a name="l00217"></a>00217 , <span class="keyword">class </span>IInnerState
+<a name="l00218"></a>00218 &gt;
+<a name="l00219"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html">00219</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">RegionEventDispatchInterfaceSelector</a>&lt;StateMachineImpl,<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>,IInnerState,void&gt;
+<a name="l00220"></a>00220 {
+<a name="l00224"></a><a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html#a79e148ec2f81b10cc7f53efdfc52b7bd">00224</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">IRegionEventDispatchWithoutArgs&lt;StateMachineImpl,StateInterface,IInnerState,void&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html#a79e148ec2f81b10cc7f53efdfc52b7bd">RESULT_TYPE</a>;
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226 };
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228 <span class="keyword">template</span>
+<a name="l00229"></a>00229 &lt; <span class="keyword">class </span>StateMachineImpl
+<a name="l00230"></a>00230 , <span class="keyword">class </span>IInnerState
+<a name="l00231"></a>00231 , <span class="keyword">class </span>EventArgs
+<a name="l00232"></a>00232 &gt;
+<a name="l00233"></a>00233 <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a>;
+<a name="l00234"></a>00234 }
+<a name="l00235"></a>00235 
+<a name="l00242"></a>00242 <span class="keyword">template</span>
+<a name="l00243"></a>00243 &lt; <span class="keyword">class </span>StateMachineImpl
+<a name="l00244"></a>00244 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
+<a name="l00245"></a>00245 , <span class="keyword">class </span>IInnerState
+<a name="l00246"></a>00246 , <span class="keyword">class </span>EventArgs = <span class="keywordtype">void</span>
+<a name="l00247"></a>00247 &gt;
+<a name="l00248"></a><a class="code" href="classsttcl_1_1_region_base.html">00248</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_region_base.html">RegionBase</a>
+<a name="l00249"></a>00249 : <span class="keyword">public</span> sttcl::internal::RegionEventDispatchInterfaceSelector&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;::RESULT_TYPE
+<a name="l00250"></a>00250 {
+<a name="l00251"></a>00251 <span class="keyword">public</span>:
+<a name="l00252"></a><a class="code" href="classsttcl_1_1_region_base.html#a06f05a8ab56c95a2887c50fac16a533c">00252</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::RegionEventDispatchInterfaceSelector&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;::RESULT_TYPE</a> <a class="code" href="classsttcl_1_1_region_base.html#a06f05a8ab56c95a2887c50fac16a533c">RegionEventDispatchInterface</a>;
+<a name="l00253"></a>00253 
+<a name="l00257"></a><a class="code" href="classsttcl_1_1_region_base.html#acb55af8bd333f8bd1d3ee7649282eb04">00257</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">RegionEventDispatchInterface::EventArgsPtr</a> <a class="code" href="classsttcl_1_1_region_base.html#acb55af8bd333f8bd1d3ee7649282eb04">EventArgsPtr</a>;
+<a name="l00258"></a>00258 
+<a name="l00259"></a><a class="code" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">00259</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">RegionEventDispatchInterface::OuterEventHandler</a> <a class="code" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">OuterEventHandler</a>;
+<a name="l00260"></a>00260 
+<a name="l00267"></a><a class="code" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">00267</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">RegionEventDispatchInterface::InnerEventHandler</a> <a class="code" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">InnerEventHandler</a>;
+<a name="l00268"></a>00268 
+<a name="l00272"></a><a class="code" href="classsttcl_1_1_region_base.html#a23254c565fca00c8163b60e2b1178b68">00272</a>         <a class="code" href="classsttcl_1_1_region_base.html#a23254c565fca00c8163b60e2b1178b68">RegionBase</a>()
+<a name="l00273"></a>00273         {
+<a name="l00274"></a>00274         }
+<a name="l00275"></a>00275 
+<a name="l00279"></a><a class="code" href="classsttcl_1_1_region_base.html#ad4d06f6556992e46d5ab779cebf3d685">00279</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_region_base.html#ad4d06f6556992e46d5ab779cebf3d685">~RegionBase</a>()
+<a name="l00280"></a>00280         {
+<a name="l00281"></a>00281         }
+<a name="l00282"></a>00282 
+<a name="l00287"></a>00287         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a72593e4d4eacf96f1c80ed5bc1a5f4c6">enterRegion</a>(StateMachineImpl* context) = 0;
+<a name="l00292"></a>00292         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#ade839967c5d65a6143bbfa1b79be4d15">exitRegion</a>(StateMachineImpl* context) = 0;
+<a name="l00297"></a>00297         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a2e4940a6e44043721076c9fded8afe17">finalizeRegion</a>(<span class="keywordtype">bool</span> recursive) = 0;
+<a name="l00303"></a>00303         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#a435340ee43dd5b6df58d22ab7a4d59ec">initializeRegion</a>(<span class="keywordtype">bool</span> recursive) = 0;
+<a name="l00308"></a>00308         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a3fa30c805c4a4007166637eb2590e70f">startDoRegion</a>(StateMachineImpl* context) = 0;
+<a name="l00313"></a>00313         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a11fa4bc169bb496c0543d377e66c8584">endDoRegion</a>(StateMachineImpl* context) = 0;
+<a name="l00318"></a>00318         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#ac22ce7b712de597f2aad4990c5f17dbe">isRegionInitialized</a>() = 0;
+<a name="l00323"></a>00323         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#a4ac1344dc64adab3a144c1887529a642">isRegionFinalized</a>() = 0;
+<a name="l00328"></a>00328         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region_base.html#a7a23f65f834fa5fe6709d3024b16a099">isRegionThreadRunning</a>() <span class="keyword">const</span> = 0;
+<a name="l00332"></a>00332         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a0029743f31dae10c12e99960c577ed85">joinRegionThread</a>() = 0;
+<a name="l00333"></a>00333 
+<a name="l00338"></a>00338         <span class="keyword">template</span>&lt;<span class="keyword">class</span> RegionImpl&gt;
+<a name="l00339"></a><a class="code" href="classsttcl_1_1_region_base.html#ad331442937c62d78cf719dee9429d161">00339</a>         RegionImpl* <a class="code" href="classsttcl_1_1_region_base.html#ad331442937c62d78cf719dee9429d161">getRegionContext</a>()
+<a name="l00340"></a>00340         {
+<a name="l00341"></a>00341                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>);
+<a name="l00342"></a>00342         }
+<a name="l00343"></a>00343 
+<a name="l00348"></a>00348         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a2bdbd9bf7976f10643a0a81f57513692">internalInitialize</a>(<span class="keywordtype">bool</span> recursive) = 0;
+<a name="l00349"></a>00349 
+<a name="l00350"></a>00350         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#a14a035be203072af07b4e609aeb18b31">internalFinalize</a>(<span class="keywordtype">bool</span> recursive) = 0;
+<a name="l00351"></a>00351 
+<a name="l00352"></a>00352         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region_base.html#ad56291154fc2218026c5325a0c15ff0e">queueDispatchedEvent</a>(<span class="keyword">const</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>&amp; dispatchedEvent) = 0;
+<a name="l00353"></a>00353 
+<a name="l00354"></a>00354 };
+<a name="l00355"></a>00355 
+<a name="l00356"></a>00356 <span class="keyword">namespace </span>internal
+<a name="l00357"></a>00357 {
+<a name="l00358"></a>00358 
+<a name="l00362"></a>00362 <span class="keyword">template</span>
+<a name="l00363"></a>00363 &lt; <span class="keyword">class </span>StateMachineImpl
+<a name="l00364"></a>00364 , <span class="keyword">class </span>IInnerState
+<a name="l00365"></a>00365 , <span class="keyword">class </span>EventArgs
+<a name="l00366"></a>00366 &gt;
+<a name="l00367"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">00367</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a>
+<a name="l00368"></a>00368 {
+<a name="l00372"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0aae45de6e15ec0f2bc9a6bcf51a22c2">00372</a>     <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0aae45de6e15ec0f2bc9a6bcf51a22c2">RegionBaseClass</a>;
+<a name="l00373"></a>00373 
+<a name="l00374"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2aa69c7e5ac1e72827d8174913011142">00374</a>         <span class="keyword">typedef</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsInterfaceSelector&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2aa69c7e5ac1e72827d8174913011142">EventArgsSelectorType</a>;
+<a name="l00375"></a>00375 
+<a name="l00379"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#aeb5bb25aab9208aeec1975b4d63cee75">00379</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsSelectorType::EventArgsPtr</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#aeb5bb25aab9208aeec1975b4d63cee75">EventArgsPtr</a>;
+<a name="l00380"></a>00380 
+<a name="l00384"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a5d191098842b9f660da5130023d1bbc4">00384</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a5d191098842b9f660da5130023d1bbc4">OuterEventHandler</a>;
+<a name="l00385"></a>00385 
+<a name="l00389"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">00389</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">InnerEventHandler</a>;
+<a name="l00390"></a>00390 
+<a name="l00394"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a4d660b5d409e541ce05cb15b1690eacc">00394</a>     <span class="keyword">typedef</span> void (<a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>::*<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a4d660b5d409e541ce05cb15b1690eacc">InternalEventHandler</a>)(bool);
+<a name="l00395"></a>00395 
+<a name="l00399"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ae81cea81ee3d825fc01d36a76f1cac4e">00399</a>     StateMachineImpl* <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ae81cea81ee3d825fc01d36a76f1cac4e">context</a>;
+<a name="l00403"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2bd815646bcca01a6c76893be02f56af">00403</a>     IInnerState* <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2bd815646bcca01a6c76893be02f56af">state</a>;
+<a name="l00407"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a14bb1fc4c2cb30c18f8724cbf07e6989">00407</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">InnerEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a14bb1fc4c2cb30c18f8724cbf07e6989">handler</a>;
+<a name="l00411"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af494ee093a8aa2bb92307138ff156170">00411</a>         <span class="keyword">mutable</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af494ee093a8aa2bb92307138ff156170">eventArgs</a>;
+<a name="l00415"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">00415</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a4d660b5d409e541ce05cb15b1690eacc">InternalEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">internalHandler</a>;
+<a name="l00419"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a7aefda5379df0018982a202e5ed1c576">00419</a>         <span class="keywordtype">bool</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a7aefda5379df0018982a202e5ed1c576">recursiveInternalEvent</a>;
+<a name="l00420"></a>00420 
 <a name="l00428"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a149af2de6310bde0b3a34f8948789f81">00428</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a>(StateMachineImpl* argContext, IInnerState* argState, <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">InnerEventHandler</a> argHandler, <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> argEventArgs)
 <a name="l00429"></a>00429         : <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ae81cea81ee3d825fc01d36a76f1cac4e">context</a>(argContext)
 <a name="l00430"></a>00430         , <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2bd815646bcca01a6c76893be02f56af">state</a>(argState)
@@ -383,488 +383,488 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00528"></a>00528                 (<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ab04166cf3e9d537c91b5797b9cb3c041">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;*eventHandler)(context,eventArgs);
 <a name="l00529"></a>00529         }
 <a name="l00530"></a>00530 
-<a name="l00538"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abc827435f309a30910cd93e2d43158e2">00538</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abc827435f309a30910cd93e2d43158e2">dispatchEvent</a>(StateMachineImpl* context,IInnerState* state, <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> eventArgs)
-<a name="l00539"></a>00539         {
-<a name="l00540"></a>00540                 <span class="keywordflow">if</span>(state)
-<a name="l00541"></a>00541                 {
-<a name="l00542"></a>00542                         <a class="code" href="classsttcl_1_1_region_base.html#ad56291154fc2218026c5325a0c15ff0e">queueDispatchedEvent</a>(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>(context,state,eventHandler,eventArgs));
-<a name="l00543"></a>00543                 }
-<a name="l00544"></a>00544         }
-<a name="l00545"></a>00545 
-<a name="l00546"></a>00546 <span class="keyword">protected</span>:
-<a name="l00547"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9264b88ce6737adaba9f9ff23a450f2d">00547</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9264b88ce6737adaba9f9ff23a450f2d">callDispatchedEventHandler</a>(StateMachineImpl* context,IInnerState* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> eventArgs)
-<a name="l00548"></a>00548         {
-<a name="l00549"></a>00549                 (state-&gt;*eventHandler)(context,<span class="keyword">this</span>,eventArgs);
-<a name="l00550"></a>00550         }
-<a name="l00551"></a>00551 
-<a name="l00552"></a>00552 };
-<a name="l00553"></a>00553 
-<a name="l00561"></a>00561 <span class="keyword">template</span>
-<a name="l00562"></a>00562 &lt; <span class="keyword">class </span>RegionImpl
-<a name="l00563"></a>00563 , <span class="keyword">class </span>StateMachineImpl
-<a name="l00564"></a>00564 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
-<a name="l00565"></a>00565 , <span class="keyword">class </span>IInnerState
-<a name="l00566"></a>00566 , <span class="keyword">class </span>EventArgs
-<a name="l00567"></a>00567 &gt;
-<a name="l00568"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">00568</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">RegionBaseImplWithoutEventArgs</a>
-<a name="l00569"></a>00569 : <span class="keyword">public</span> <a class="code" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;
-<a name="l00570"></a>00570 {
-<a name="l00571"></a>00571 <span class="keyword">public</span>:
-<a name="l00575"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a508bbc234615ea6f3b72cc73703cc6e4">00575</a>     <span class="keyword">typedef</span> RegionImpl <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a508bbc234615ea6f3b72cc73703cc6e4">Implementation</a>;
-<a name="l00576"></a>00576 
-<a name="l00580"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#af8d1f3972e3fbc485dd7ff9e2d1abcc4">00580</a>     <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#af8d1f3972e3fbc485dd7ff9e2d1abcc4">RegionBaseClass</a>;
-<a name="l00581"></a>00581 
-<a name="l00582"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a18b13dcae75c0a12643d7db60d5dc91a">00582</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">RegionBaseClass::EventArgsPtr</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a18b13dcae75c0a12643d7db60d5dc91a">EventArgsPtr</a>;
-<a name="l00583"></a>00583 
-<a name="l00584"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a12c9d8515172853bf74776536f81f482">00584</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">RegionBaseClass::InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a12c9d8515172853bf74776536f81f482">InnerEventHandler</a>;
-<a name="l00585"></a>00585 
-<a name="l00586"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afe6c052a0d59ff6bde94bced289c12bb">00586</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">RegionBaseClass::OuterEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afe6c052a0d59ff6bde94bced289c12bb">OuterEventHandler</a>;
-<a name="l00587"></a>00587 
-<a name="l00588"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ac78ec55413144c423357f13d622192ed">00588</a>     <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ac78ec55413144c423357f13d622192ed">RegionBaseImplWithoutEventArgs</a>()
-<a name="l00589"></a>00589     : <a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>()
-<a name="l00590"></a>00590     {}
-<a name="l00591"></a>00591 
-<a name="l00592"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#abb25dacbcd41b3fb387a8c3bb00eadc4">00592</a>     <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#abb25dacbcd41b3fb387a8c3bb00eadc4">~RegionBaseImplWithoutEventArgs</a>() {}
-<a name="l00593"></a>00593 
-<a name="l00594"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a01127721d9c4c700194cffcdadbd1de6">00594</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a01127721d9c4c700194cffcdadbd1de6">handleBroadcastedEvent</a>(StateMachineImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a> eventHandler)
-<a name="l00595"></a>00595         {
-<a name="l00596"></a>00596                 (<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a508bbc234615ea6f3b72cc73703cc6e4">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;*eventHandler)(context);
-<a name="l00597"></a>00597         }
-<a name="l00598"></a>00598 
-<a name="l00606"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a16fe8285ebb3ff4c315a8f7d0f0ade62">00606</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a16fe8285ebb3ff4c315a8f7d0f0ade62">dispatchEvent</a>(StateMachineImpl* context,IInnerState* state, <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler)
-<a name="l00607"></a>00607         {
-<a name="l00608"></a>00608                 <span class="keywordflow">if</span>(state)
-<a name="l00609"></a>00609                 {
-<a name="l00610"></a>00610                         <a class="code" href="classsttcl_1_1_region_base.html#ad56291154fc2218026c5325a0c15ff0e">queueDispatchedEvent</a>(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,void&gt;</a>(context,state,eventHandler,<a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a18b13dcae75c0a12643d7db60d5dc91a">EventArgsPtr</a>()));
-<a name="l00611"></a>00611                 }
-<a name="l00612"></a>00612         }
-<a name="l00613"></a>00613 
-<a name="l00614"></a>00614 <span class="keyword">protected</span>:
-<a name="l00615"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a0162c9739e6b7614cbb5cb1f17c41787">00615</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a0162c9739e6b7614cbb5cb1f17c41787">callDispatchedEventHandler</a>(StateMachineImpl* context,IInnerState* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> eventArgs)
-<a name="l00616"></a>00616         {
-<a name="l00617"></a>00617                 (state-&gt;*eventHandler)(context,<span class="keyword">this</span>);
-<a name="l00618"></a>00618         }
-<a name="l00619"></a>00619 };
-<a name="l00620"></a>00620 
-<a name="l00627"></a>00627 <span class="keyword">template</span>
-<a name="l00628"></a>00628 &lt; <span class="keyword">class </span>RegionImpl
-<a name="l00629"></a>00629 , <span class="keyword">class </span>StateMachineImpl
-<a name="l00630"></a>00630 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
-<a name="l00631"></a>00631 , <span class="keyword">class </span>IInnerState
-<a name="l00632"></a>00632 , <span class="keyword">class </span>EventArgs
-<a name="l00633"></a>00633 &gt;
-<a name="l00634"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">00634</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">RegionBaseImplementationSelector</a>
-<a name="l00635"></a>00635 {
-<a name="l00639"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#acadd11f8192747b1f98cf951b3066381">00639</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">RegionBaseImplWithEventArgs&lt;RegionImpl,StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#acadd11f8192747b1f98cf951b3066381">RESULT_TYPE</a>;
-<a name="l00640"></a>00640 
-<a name="l00641"></a>00641 };
-<a name="l00642"></a>00642 
-<a name="l00646"></a>00646 <span class="keyword">template</span>
-<a name="l00647"></a>00647 &lt; <span class="keyword">class </span>RegionImpl
-<a name="l00648"></a>00648 , <span class="keyword">class </span>StateMachineImpl
-<a name="l00649"></a>00649 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
-<a name="l00650"></a>00650 , <span class="keyword">class </span>IInnerState
-<a name="l00651"></a>00651 &gt;
-<a name="l00652"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html">00652</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">RegionBaseImplementationSelector</a>&lt;RegionImpl,StateMachineImpl,<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>,IInnerState,void&gt;
-<a name="l00653"></a>00653 {
-<a name="l00657"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html#af2d2fff4434b3859cf0a0ae6be9ab9b7">00657</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">RegionBaseImplWithoutEventArgs&lt;RegionImpl,StateMachineImpl,StateInterface,IInnerState,void&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html#af2d2fff4434b3859cf0a0ae6be9ab9b7">RESULT_TYPE</a>;
-<a name="l00658"></a>00658 
-<a name="l00659"></a>00659 };
-<a name="l00660"></a>00660 }
-<a name="l00661"></a>00661 
-<a name="l00662"></a>00662 <span class="preprocessor">#if !defined(STTCL_USE_STL)</span>
-<a name="l00663"></a>00663 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00664"></a>00664 <span class="preprocessor"></span><span class="preprocessor">#if !defined(STTCL_DEFAULT_DEQUEIMPL)</span>
-<a name="l00665"></a>00665 <span class="preprocessor"></span><span class="preprocessor">#define STTCL_DEFAULT_DEQUEIMPL(__T__) std::deque&lt;__T__&gt;</span>
-<a name="l00666"></a>00666 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00539"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abc827435f309a30910cd93e2d43158e2">00539</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abc827435f309a30910cd93e2d43158e2">dispatchEvent</a>(StateMachineImpl* context,IInnerState* state, <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> eventArgs)
+<a name="l00540"></a>00540         {
+<a name="l00541"></a>00541                 <span class="keywordflow">if</span>(state)
+<a name="l00542"></a>00542                 {
+<a name="l00543"></a>00543                         <a class="code" href="classsttcl_1_1_region_base.html#ad56291154fc2218026c5325a0c15ff0e">queueDispatchedEvent</a>(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>(context,state,eventHandler,eventArgs));
+<a name="l00544"></a>00544                 }
+<a name="l00545"></a>00545         }
+<a name="l00546"></a>00546 
+<a name="l00547"></a>00547 <span class="keyword">protected</span>:
+<a name="l00548"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9264b88ce6737adaba9f9ff23a450f2d">00548</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9264b88ce6737adaba9f9ff23a450f2d">callDispatchedEventHandler</a>(StateMachineImpl* context,IInnerState* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> eventArgs)
+<a name="l00549"></a>00549         {
+<a name="l00550"></a>00550                 (state-&gt;*eventHandler)(context,<span class="keyword">this</span>,eventArgs);
+<a name="l00551"></a>00551         }
+<a name="l00552"></a>00552 
+<a name="l00553"></a>00553 };
+<a name="l00554"></a>00554 
+<a name="l00562"></a>00562 <span class="keyword">template</span>
+<a name="l00563"></a>00563 &lt; <span class="keyword">class </span>RegionImpl
+<a name="l00564"></a>00564 , <span class="keyword">class </span>StateMachineImpl
+<a name="l00565"></a>00565 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
+<a name="l00566"></a>00566 , <span class="keyword">class </span>IInnerState
+<a name="l00567"></a>00567 , <span class="keyword">class </span>EventArgs
+<a name="l00568"></a>00568 &gt;
+<a name="l00569"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">00569</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">RegionBaseImplWithoutEventArgs</a>
+<a name="l00570"></a>00570 : <span class="keyword">public</span> <a class="code" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;
+<a name="l00571"></a>00571 {
+<a name="l00572"></a>00572 <span class="keyword">public</span>:
+<a name="l00576"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a508bbc234615ea6f3b72cc73703cc6e4">00576</a>     <span class="keyword">typedef</span> RegionImpl <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a508bbc234615ea6f3b72cc73703cc6e4">Implementation</a>;
+<a name="l00577"></a>00577 
+<a name="l00581"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#af8d1f3972e3fbc485dd7ff9e2d1abcc4">00581</a>     <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#af8d1f3972e3fbc485dd7ff9e2d1abcc4">RegionBaseClass</a>;
+<a name="l00582"></a>00582 
+<a name="l00583"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a18b13dcae75c0a12643d7db60d5dc91a">00583</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_event_args_ptr.html">RegionBaseClass::EventArgsPtr</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a18b13dcae75c0a12643d7db60d5dc91a">EventArgsPtr</a>;
+<a name="l00584"></a>00584 
+<a name="l00585"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a12c9d8515172853bf74776536f81f482">00585</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">RegionBaseClass::InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a12c9d8515172853bf74776536f81f482">InnerEventHandler</a>;
+<a name="l00586"></a>00586 
+<a name="l00587"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afe6c052a0d59ff6bde94bced289c12bb">00587</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">RegionBaseClass::OuterEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afe6c052a0d59ff6bde94bced289c12bb">OuterEventHandler</a>;
+<a name="l00588"></a>00588 
+<a name="l00589"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ac78ec55413144c423357f13d622192ed">00589</a>     <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ac78ec55413144c423357f13d622192ed">RegionBaseImplWithoutEventArgs</a>()
+<a name="l00590"></a>00590     : <a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>()
+<a name="l00591"></a>00591     {}
+<a name="l00592"></a>00592 
+<a name="l00593"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#abb25dacbcd41b3fb387a8c3bb00eadc4">00593</a>     <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#abb25dacbcd41b3fb387a8c3bb00eadc4">~RegionBaseImplWithoutEventArgs</a>() {}
+<a name="l00594"></a>00594 
+<a name="l00595"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a01127721d9c4c700194cffcdadbd1de6">00595</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a01127721d9c4c700194cffcdadbd1de6">handleBroadcastedEvent</a>(StateMachineImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a> eventHandler)
+<a name="l00596"></a>00596         {
+<a name="l00597"></a>00597                 (<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a508bbc234615ea6f3b72cc73703cc6e4">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;*eventHandler)(context);
+<a name="l00598"></a>00598         }
+<a name="l00599"></a>00599 
+<a name="l00607"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a16fe8285ebb3ff4c315a8f7d0f0ade62">00607</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a16fe8285ebb3ff4c315a8f7d0f0ade62">dispatchEvent</a>(StateMachineImpl* context,IInnerState* state, <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler)
+<a name="l00608"></a>00608         {
+<a name="l00609"></a>00609                 <span class="keywordflow">if</span>(state)
+<a name="l00610"></a>00610                 {
+<a name="l00611"></a>00611                         <a class="code" href="classsttcl_1_1_region_base.html#ad56291154fc2218026c5325a0c15ff0e">queueDispatchedEvent</a>(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,void&gt;</a>(context,state,eventHandler,<a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a18b13dcae75c0a12643d7db60d5dc91a">EventArgsPtr</a>()));
+<a name="l00612"></a>00612                 }
+<a name="l00613"></a>00613         }
+<a name="l00614"></a>00614 
+<a name="l00615"></a>00615 <span class="keyword">protected</span>:
+<a name="l00616"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a0162c9739e6b7614cbb5cb1f17c41787">00616</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a0162c9739e6b7614cbb5cb1f17c41787">callDispatchedEventHandler</a>(StateMachineImpl* context,IInnerState* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> eventArgs)
+<a name="l00617"></a>00617         {
+<a name="l00618"></a>00618                 (state-&gt;*eventHandler)(context,<span class="keyword">this</span>);
+<a name="l00619"></a>00619         }
+<a name="l00620"></a>00620 };
+<a name="l00621"></a>00621 
+<a name="l00628"></a>00628 <span class="keyword">template</span>
+<a name="l00629"></a>00629 &lt; <span class="keyword">class </span>RegionImpl
+<a name="l00630"></a>00630 , <span class="keyword">class </span>StateMachineImpl
+<a name="l00631"></a>00631 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
+<a name="l00632"></a>00632 , <span class="keyword">class </span>IInnerState
+<a name="l00633"></a>00633 , <span class="keyword">class </span>EventArgs
+<a name="l00634"></a>00634 &gt;
+<a name="l00635"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">00635</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">RegionBaseImplementationSelector</a>
+<a name="l00636"></a>00636 {
+<a name="l00640"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#acadd11f8192747b1f98cf951b3066381">00640</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">RegionBaseImplWithEventArgs&lt;RegionImpl,StateMachineImpl,StateInterface,IInnerState,EventArgs&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#acadd11f8192747b1f98cf951b3066381">RESULT_TYPE</a>;
+<a name="l00641"></a>00641 
+<a name="l00642"></a>00642 };
+<a name="l00643"></a>00643 
+<a name="l00647"></a>00647 <span class="keyword">template</span>
+<a name="l00648"></a>00648 &lt; <span class="keyword">class </span>RegionImpl
+<a name="l00649"></a>00649 , <span class="keyword">class </span>StateMachineImpl
+<a name="l00650"></a>00650 , <span class="keyword">class </span><a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>
+<a name="l00651"></a>00651 , <span class="keyword">class </span>IInnerState
+<a name="l00652"></a>00652 &gt;
+<a name="l00653"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html">00653</a> <span class="keyword">struct </span><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">RegionBaseImplementationSelector</a>&lt;RegionImpl,StateMachineImpl,<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>,IInnerState,void&gt;
+<a name="l00654"></a>00654 {
+<a name="l00658"></a><a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html#af2d2fff4434b3859cf0a0ae6be9ab9b7">00658</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">RegionBaseImplWithoutEventArgs&lt;RegionImpl,StateMachineImpl,StateInterface,IInnerState,void&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html#af2d2fff4434b3859cf0a0ae6be9ab9b7">RESULT_TYPE</a>;
+<a name="l00659"></a>00659 
+<a name="l00660"></a>00660 };
+<a name="l00661"></a>00661 }
+<a name="l00662"></a>00662 
+<a name="l00663"></a>00663 <span class="preprocessor">#if !defined(STTCL_USE_STL)</span>
+<a name="l00664"></a>00664 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00665"></a>00665 <span class="preprocessor"></span><span class="preprocessor">#if !defined(STTCL_DEFAULT_DEQUEIMPL)</span>
+<a name="l00666"></a>00666 <span class="preprocessor"></span><span class="preprocessor">#define STTCL_DEFAULT_DEQUEIMPL(__T__) std::deque&lt;__T__&gt;</span>
 <a name="l00667"></a>00667 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00668"></a>00668 <span class="preprocessor"></span>
-<a name="l00669"></a>00669 <span class="preprocessor">#if !defined(STTCL_DEFAULT_DEQUEIMPL)</span>
-<a name="l00670"></a>00670 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default double ended queue implementation for sttcl&quot;</span>
-<a name="l00671"></a>00671 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00672"></a>00672 <span class="preprocessor"></span>
-<a name="l00673"></a>00673 <span class="keyword">namespace </span>internal
-<a name="l00674"></a>00674 {
-<a name="l00678"></a>00678 <span class="keyword">template</span>
-<a name="l00679"></a>00679 &lt; <span class="keyword">class </span>T
-<a name="l00680"></a>00680 , <span class="keyword">class </span>TimeDurationType = <a class="code" href="classsttcl_1_1_time_duration.html">TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;</a>
-<a name="l00681"></a>00681 , <span class="keyword">class </span>SemaphoreType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">sttcl::internal::SttclSemaphore&lt;STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType&gt;</a>
-<a name="l00682"></a>00682 , <span class="keyword">class </span>MutexType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">sttcl::internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL,TimeDurationType&gt;</a>
-<a name="l00683"></a>00683 , <span class="keyword">class </span>InnerQueueType = STTCL_DEFAULT_DEQUEIMPL(T)
-<a name="l00684"></a>00684 <span class="comment">// , class InnerQueueType = std::deque&lt;T&gt;</span>
-<a name="l00685"></a>00685 &gt;
-<a name="l00686"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">00686</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">SttclEventQueue</a>
-<a name="l00687"></a>00687 {
-<a name="l00688"></a>00688 <span class="keyword">public</span>:
-<a name="l00692"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a2152eee9f66d7ad77895834c0c3cf5bc">00692</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a2152eee9f66d7ad77895834c0c3cf5bc">SttclEventQueue</a>()
-<a name="l00693"></a>00693         : eventQueue()
-<a name="l00694"></a>00694         {
-<a name="l00695"></a>00695         }
-<a name="l00699"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a602b5360682049c75fab772abca0cf65">00699</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a602b5360682049c75fab772abca0cf65">~SttclEventQueue</a>()
-<a name="l00700"></a>00700         {
-<a name="l00701"></a>00701         }
-<a name="l00702"></a>00702 
-<a name="l00707"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#ad0dd172ea98d8495dbac8e1aba7f4fcc">00707</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#ad0dd172ea98d8495dbac8e1aba7f4fcc">push_back</a>(<span class="keyword">const</span> T&amp; event)
-<a name="l00708"></a>00708         {
-<a name="l00709"></a>00709                 { <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
-<a name="l00710"></a>00710                         eventQueue.push_back(event);
-<a name="l00711"></a>00711                 }
-<a name="l00712"></a>00712                 eventsAvailable.post();
-<a name="l00713"></a>00713         }
-<a name="l00714"></a>00714 
-<a name="l00719"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a3bf2d23d760b387a9cc3de407590b3af">00719</a>         T&amp; <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a3bf2d23d760b387a9cc3de407590b3af">front</a>()
-<a name="l00720"></a>00720         {
-<a name="l00721"></a>00721                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
-<a name="l00722"></a>00722                 <span class="keywordflow">return</span> eventQueue.front();
-<a name="l00723"></a>00723         }
-<a name="l00724"></a>00724 
-<a name="l00728"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#af9a519d61139f5314a1bf93528dfacda">00728</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#af9a519d61139f5314a1bf93528dfacda">pop_front</a>()
-<a name="l00729"></a>00729         {
-<a name="l00730"></a>00730                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
-<a name="l00731"></a>00731                 eventQueue.pop_front();
-<a name="l00732"></a>00732         }
-<a name="l00733"></a>00733 
-<a name="l00738"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a8ce2486c49c6f7a6ae788c85087362d3">00738</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a8ce2486c49c6f7a6ae788c85087362d3">waitForEvents</a>()
-<a name="l00739"></a>00739         {
-<a name="l00740"></a>00740                 <span class="keywordflow">return</span> eventsAvailable.wait() &amp;&amp; !<a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">empty</a>();
-<a name="l00741"></a>00741         }
-<a name="l00742"></a>00742 
-<a name="l00748"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#aecc62632f2b05f939536c6dfb0de7f3e">00748</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a8ce2486c49c6f7a6ae788c85087362d3">waitForEvents</a>(TimeDurationType timeout)
-<a name="l00749"></a>00749         {
-<a name="l00750"></a>00750                 <span class="keywordflow">return</span> eventsAvailable.try_wait(timeout) &amp;&amp; !<a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">empty</a>();
-<a name="l00751"></a>00751         }
-<a name="l00752"></a>00752 
-<a name="l00757"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">00757</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">empty</a>()
-<a name="l00758"></a>00758         {
-<a name="l00759"></a>00759                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
-<a name="l00760"></a>00760                 <span class="keywordflow">return</span> eventQueue.empty();
-<a name="l00761"></a>00761         }
-<a name="l00762"></a>00762 
-<a name="l00766"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a231f06c66e3ae6e9ab877f9e35c660e9">00766</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a231f06c66e3ae6e9ab877f9e35c660e9">unblock</a>()
-<a name="l00767"></a>00767         {
-<a name="l00768"></a>00768                 eventsAvailable.post();
-<a name="l00769"></a>00769         }
-<a name="l00770"></a>00770 <span class="keyword">private</span>:
-<a name="l00771"></a>00771         InnerQueueType eventQueue;
-<a name="l00772"></a>00772         MutexType eventQueueMutex;
-<a name="l00773"></a>00773         SemaphoreType eventsAvailable;
-<a name="l00774"></a>00774 };
-<a name="l00775"></a>00775 
+<a name="l00668"></a>00668 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00669"></a>00669 <span class="preprocessor"></span>
+<a name="l00670"></a>00670 <span class="preprocessor">#if !defined(STTCL_DEFAULT_DEQUEIMPL)</span>
+<a name="l00671"></a>00671 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default double ended queue implementation for sttcl&quot;</span>
+<a name="l00672"></a>00672 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00673"></a>00673 <span class="preprocessor"></span>
+<a name="l00674"></a>00674 <span class="keyword">namespace </span>internal
+<a name="l00675"></a>00675 {
+<a name="l00679"></a>00679 <span class="keyword">template</span>
+<a name="l00680"></a>00680 &lt; <span class="keyword">class </span>T
+<a name="l00681"></a>00681 , <span class="keyword">class </span>TimeDurationType = <a class="code" href="classsttcl_1_1_time_duration.html">TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;</a>
+<a name="l00682"></a>00682 , <span class="keyword">class </span>SemaphoreType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">sttcl::internal::SttclSemaphore&lt;STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType&gt;</a>
+<a name="l00683"></a>00683 , <span class="keyword">class </span>MutexType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">sttcl::internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL,TimeDurationType&gt;</a>
+<a name="l00684"></a>00684 , <span class="keyword">class </span>InnerQueueType = STTCL_DEFAULT_DEQUEIMPL(T)
+<a name="l00685"></a>00685 <span class="comment">// , class InnerQueueType = std::deque&lt;T&gt;</span>
+<a name="l00686"></a>00686 &gt;
+<a name="l00687"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">00687</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">SttclEventQueue</a>
+<a name="l00688"></a>00688 {
+<a name="l00689"></a>00689 <span class="keyword">public</span>:
+<a name="l00693"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a2152eee9f66d7ad77895834c0c3cf5bc">00693</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a2152eee9f66d7ad77895834c0c3cf5bc">SttclEventQueue</a>()
+<a name="l00694"></a>00694         : eventQueue()
+<a name="l00695"></a>00695         {
+<a name="l00696"></a>00696         }
+<a name="l00700"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a602b5360682049c75fab772abca0cf65">00700</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a602b5360682049c75fab772abca0cf65">~SttclEventQueue</a>()
+<a name="l00701"></a>00701         {
+<a name="l00702"></a>00702         }
+<a name="l00703"></a>00703 
+<a name="l00708"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#ad0dd172ea98d8495dbac8e1aba7f4fcc">00708</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#ad0dd172ea98d8495dbac8e1aba7f4fcc">push_back</a>(<span class="keyword">const</span> T&amp; event)
+<a name="l00709"></a>00709         {
+<a name="l00710"></a>00710                 { <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
+<a name="l00711"></a>00711                         eventQueue.push_back(event);
+<a name="l00712"></a>00712                 }
+<a name="l00713"></a>00713                 eventsAvailable.post();
+<a name="l00714"></a>00714         }
+<a name="l00715"></a>00715 
+<a name="l00720"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a3bf2d23d760b387a9cc3de407590b3af">00720</a>         T&amp; <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a3bf2d23d760b387a9cc3de407590b3af">front</a>()
+<a name="l00721"></a>00721         {
+<a name="l00722"></a>00722                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
+<a name="l00723"></a>00723                 <span class="keywordflow">return</span> eventQueue.front();
+<a name="l00724"></a>00724         }
+<a name="l00725"></a>00725 
+<a name="l00729"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#af9a519d61139f5314a1bf93528dfacda">00729</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#af9a519d61139f5314a1bf93528dfacda">pop_front</a>()
+<a name="l00730"></a>00730         {
+<a name="l00731"></a>00731                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
+<a name="l00732"></a>00732                 eventQueue.pop_front();
+<a name="l00733"></a>00733         }
+<a name="l00734"></a>00734 
+<a name="l00739"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a8ce2486c49c6f7a6ae788c85087362d3">00739</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a8ce2486c49c6f7a6ae788c85087362d3">waitForEvents</a>()
+<a name="l00740"></a>00740         {
+<a name="l00741"></a>00741                 <span class="keywordflow">return</span> eventsAvailable.wait() &amp;&amp; !<a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">empty</a>();
+<a name="l00742"></a>00742         }
+<a name="l00743"></a>00743 
+<a name="l00749"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#aecc62632f2b05f939536c6dfb0de7f3e">00749</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a8ce2486c49c6f7a6ae788c85087362d3">waitForEvents</a>(TimeDurationType timeout)
+<a name="l00750"></a>00750         {
+<a name="l00751"></a>00751                 <span class="keywordflow">return</span> eventsAvailable.try_wait(timeout) &amp;&amp; !<a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">empty</a>();
+<a name="l00752"></a>00752         }
+<a name="l00753"></a>00753 
+<a name="l00758"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">00758</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a07e898385967ee3491b95cfe71bf2e41">empty</a>()
+<a name="l00759"></a>00759         {
+<a name="l00760"></a>00760                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(eventQueueMutex);
+<a name="l00761"></a>00761                 <span class="keywordflow">return</span> eventQueue.empty();
+<a name="l00762"></a>00762         }
+<a name="l00763"></a>00763 
+<a name="l00767"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a231f06c66e3ae6e9ab877f9e35c660e9">00767</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a231f06c66e3ae6e9ab877f9e35c660e9">unblock</a>()
+<a name="l00768"></a>00768         {
+<a name="l00769"></a>00769                 eventsAvailable.post();
+<a name="l00770"></a>00770         }
+<a name="l00771"></a>00771 <span class="keyword">private</span>:
+<a name="l00772"></a>00772         InnerQueueType eventQueue;
+<a name="l00773"></a>00773         MutexType eventQueueMutex;
+<a name="l00774"></a>00774         SemaphoreType eventsAvailable;
+<a name="l00775"></a>00775 };
 <a name="l00776"></a>00776 
-<a name="l00777"></a>00777 }
-<a name="l00778"></a>00778 
-<a name="l00802"></a>00802 <span class="keyword">template</span>
-<a name="l00803"></a>00803 &lt; <span class="keyword">class </span>RegionImpl
-<a name="l00804"></a>00804 , <span class="keyword">class </span>StateMachineImpl
-<a name="l00805"></a>00805 , <span class="keyword">class </span>IInnerState
-<a name="l00806"></a>00806 , <span class="keyword">class </span>EventArgs = void
-<a name="l00807"></a>00807 , <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9">CompositeStateHistoryType::Values</a> HistoryType = <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8">CompositeStateHistoryType::None</a>
-<a name="l00808"></a>00808 , <span class="keyword">class </span>StateThreadType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html">sttcl::internal::SttclThread&lt;&gt;</a>
-<a name="l00809"></a>00809 , <span class="keyword">class </span>TimeDurationType = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;
-<a name="l00810"></a>00810 , <span class="keyword">class </span>SemaphoreType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">sttcl::internal::SttclSemaphore&lt;STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType&gt;</a>
-<a name="l00811"></a>00811 , <span class="keyword">class </span>MutexType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">sttcl::internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL,TimeDurationType&gt;</a>
-<a name="l00812"></a>00812 , <span class="keyword">class </span>EventQueueType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">sttcl::internal::SttclEventQueue&lt;sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>,TimeDurationType,SemaphoreType,MutexType&gt;
-<a name="l00813"></a>00813 &gt;
-<a name="l00814"></a><a class="code" href="classsttcl_1_1_region.html">00814</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_region.html">Region</a>
-<a name="l00815"></a>00815 : <span class="keyword">public</span> <a class="code" href="classsttcl_1_1_composite_state.html">CompositeState</a>
-<a name="l00816"></a>00816         &lt; Region&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,TimeDurationType,SemaphoreType,MutexType,EventQueueType&gt;
-<a name="l00817"></a>00817         , StateMachineImpl
-<a name="l00818"></a>00818         , IInnerState
-<a name="l00819"></a>00819         , HistoryType
-<a name="l00820"></a>00820         , ActiveState
-<a name="l00821"></a>00821           &lt; Region&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,TimeDurationType,SemaphoreType,MutexType,EventQueueType&gt;
-<a name="l00822"></a>00822           , StateMachineImpl
-<a name="l00823"></a>00823           , typename StateMachineImpl::StateInterface
-<a name="l00824"></a>00824           , StateThreadType
-<a name="l00825"></a>00825           , TimeDurationType
-<a name="l00826"></a>00826           , SemaphoreType
-<a name="l00827"></a>00827           , MutexType
-<a name="l00828"></a>00828           &gt;
-<a name="l00829"></a>00829         , StateMachine&lt;RegionImpl, IInnerState&gt;
-<a name="l00830"></a>00830         &gt;
-<a name="l00831"></a>00831 , <span class="keyword">public</span> internal::RegionBaseImplementationSelector
-<a name="l00832"></a>00832         &lt; RegionImpl
-<a name="l00833"></a>00833         , StateMachineImpl
-<a name="l00834"></a>00834         , typename StateMachineImpl::StateInterface
-<a name="l00835"></a>00835         , IInnerState
-<a name="l00836"></a>00836         , EventArgs
-<a name="l00837"></a>00837         &gt;::RESULT_TYPE
-<a name="l00838"></a>00838 {
-<a name="l00839"></a>00839 <span class="keyword">public</span>:
-<a name="l00840"></a><a class="code" href="classsttcl_1_1_region.html#af251ecb951ff10a096395bb3d9545104">00840</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;StateMachineImpl,typename StateMachineImpl::<a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">StateInterface</a>,IInnerState,EventArgs&gt;;
-<a name="l00841"></a>00841 
-<a name="l00845"></a><a class="code" href="classsttcl_1_1_region.html#aa4d61de6d84b6cbdf5e41c8214e145a8">00845</a>     typedef RegionImpl <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ab04166cf3e9d537c91b5797b9cb3c041">Implementation</a>;
-<a name="l00846"></a>00846 
-<a name="l00850"></a><a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">00850</a>     typedef StateMachineImpl <a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">Context</a>;
-<a name="l00851"></a>00851 
-<a name="l00855"></a>00855     typedef <a class="code" href="classsttcl_1_1_region.html">Region</a>
-<a name="l00856"></a>00856                         &lt; RegionImpl
-<a name="l00857"></a>00857                         , StateMachineImpl
-<a name="l00858"></a>00858                         , IInnerState
-<a name="l00859"></a>00859                         , EventArgs
-<a name="l00860"></a>00860                         , HistoryType
-<a name="l00861"></a>00861                         , StateThreadType
-<a name="l00862"></a>00862                 , TimeDurationType
-<a name="l00863"></a>00863                 , SemaphoreType
-<a name="l00864"></a>00864                 , MutexType
-<a name="l00865"></a>00865                 , EventQueueType
-<a name="l00866"></a><a class="code" href="classsttcl_1_1_region.html#a66e61400cf3d2b4808a5754e965bc590">00866</a>                 &gt; <a class="code" href="classsttcl_1_1_region.html">SelfClassType</a>;
-<a name="l00871"></a>00871     typedef <a class="code" href="classsttcl_1_1_active_state.html">ActiveState</a>
-<a name="l00872"></a>00872                   &lt; SelfClassType
-<a name="l00873"></a>00873                   , StateMachineImpl
-<a name="l00874"></a>00874                   , typename StateMachineImpl::StateInterface
-<a name="l00875"></a>00875                   , StateThreadType
-<a name="l00876"></a>00876                   , TimeDurationType
-<a name="l00877"></a>00877                   , SemaphoreType
-<a name="l00878"></a>00878                   , MutexType
-<a name="l00879"></a><a class="code" href="classsttcl_1_1_region.html#a7f3b9a85415d78127779710dd2121709">00879</a>                   &gt; <a class="code" href="classsttcl_1_1_active_state.html">ActiveStateImpl</a>;
-<a name="l00880"></a>00880 
-<a name="l00884"></a>00884     typedef <a class="code" href="classsttcl_1_1_composite_state.html">CompositeState</a>
-<a name="l00885"></a>00885                 &lt; SelfClassType
-<a name="l00886"></a>00886                 , StateMachineImpl
-<a name="l00887"></a>00887                 , IInnerState
-<a name="l00888"></a>00888                 , HistoryType
-<a name="l00889"></a>00889                 , ActiveStateImpl
-<a name="l00890"></a>00890                 , StateMachine&lt;RegionImpl, IInnerState&gt;
-<a name="l00891"></a><a class="code" href="classsttcl_1_1_region.html#a67f0cf562fd3e48c9194b7990ea641ba">00891</a>                 &gt; <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>;
-<a name="l00892"></a>00892 
-<a name="l00896"></a><a class="code" href="classsttcl_1_1_region.html#abbd0300176d44559059dbfc866788959">00896</a>     typedef typename internal::RegionBaseImplementationSelector&lt;RegionImpl,StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;::RESULT_TYPE <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">SelectedRegionBase</a>;
-<a name="l00897"></a>00897 
-<a name="l00898"></a><a class="code" href="classsttcl_1_1_region.html#afadfa28420f01351cd5a6217b8fe7105">00898</a>     typedef typename <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">SelectedRegionBase</a>::<a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a> <a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>;
-<a name="l00899"></a>00899 
-<a name="l00900"></a><a class="code" href="classsttcl_1_1_region.html#a563f1a9484fd4fe7ac4bfeb0d519b662">00900</a>     typedef sttcl::internal::EventArgsInterfaceSelector&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt; <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>;
-<a name="l00901"></a>00901 
-<a name="l00905"></a><a class="code" href="classsttcl_1_1_region.html#a69c15fb307ffe58cd8e9c5bf2f033658">00905</a>         typedef typename <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>::<a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a>;
-<a name="l00906"></a>00906 
-<a name="l00910"></a><a class="code" href="classsttcl_1_1_region.html#af4b2ef13508ac35e7de699e5af761522">00910</a>         typedef typename <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>::<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a>;
-<a name="l00911"></a>00911 
-<a name="l00915"></a><a class="code" href="classsttcl_1_1_region.html#ac8bae8f36c0f88ce11db416746b4b165">00915</a>         typedef typename <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>::<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a>;
-<a name="l00916"></a>00916 
-<a name="l00920"></a><a class="code" href="classsttcl_1_1_region.html#ae0010270ecc733a62305a5a86e085799">00920</a>     typedef void (RegionBaseClass::*InternalEventHandler)(bool);
-<a name="l00921"></a>00921 
-<a name="l00925"></a><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">00925</a>     typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a> <a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>;
-<a name="l00926"></a>00926 
-<a name="l00930"></a><a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">00930</a>     typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a> <a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a>;
-<a name="l00931"></a>00931 
-<a name="l00935"></a><a class="code" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">00935</a>     typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">StateDoAction</a> <a class="code" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">StateDoAction</a>;
-<a name="l00936"></a>00936 
-<a name="l00940"></a><a class="code" href="classsttcl_1_1_region.html#adec91e581727c3db9ae75be357aa3a2d">00940</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">CompositeStateHistoryBaseClass</a> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">CompositeStateHistoryBaseClass</a>;
-<a name="l00941"></a>00941 
-<a name="l00945"></a><a class="code" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">00945</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">InnerStateClass</a> <a class="code" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">InnerStateClass</a>;
-<a name="l00946"></a>00946 
-<a name="l00950"></a><a class="code" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">00950</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">OuterStateInterface</a> <a class="code" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">OuterStateInterface</a>;
-<a name="l00951"></a>00951 
-<a name="l00955"></a><a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">00955</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">StateInterface</a> <a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">StateInterface</a>;
-<a name="l00956"></a>00956 
-<a name="l00960"></a><a class="code" href="classsttcl_1_1_region.html#ac692a7c639597f94514e17d9e7edeb54">00960</a>         typedef <a class="code" href="classsttcl_1_1_state_base.html">StateBase</a>&lt;RegionImpl,IInnerState&gt; <a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a>;
-<a name="l00961"></a>00961 
-<a name="l00965"></a><a class="code" href="classsttcl_1_1_region.html#ae0c6edf237203c9b257af26281045381">00965</a>         typedef <a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a> <a class="code" href="classsttcl_1_1_state_base.html">StateBaseClass</a>;
-<a name="l00966"></a>00966 
-<a name="l00970"></a><a class="code" href="classsttcl_1_1_region.html#a9c9f42604a72a4873ffce31fb13f4ebb">00970</a>     typedef typename <a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>::<a class="code" href="classsttcl_1_1_active_state.html#ad360bf5e4d9fc89c29abd61d02712554">StateThreadImpl</a> <a class="code" href="classsttcl_1_1_region.html#a9c9f42604a72a4873ffce31fb13f4ebb">RegionThreadImpl</a>;
-<a name="l00971"></a>00971 
-<a name="l00976"></a><a class="code" href="classsttcl_1_1_region.html#a87b881a84950d0c597edbc0f46f0b17d">00976</a>         <a class="code" href="classsttcl_1_1_region.html">Region</a>(TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
-<a name="l00977"></a>00977         : <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>(&amp;SelfClassType::regionDoAction)
-<a name="l00978"></a>00978         , eventDispatchQueue()
-<a name="l00979"></a>00979         , checkEventFrequency(argDoActionFrequency)
-<a name="l00980"></a>00980         {
-<a name="l00981"></a>00981         }
-<a name="l00982"></a>00982 
-<a name="l00986"></a><a class="code" href="classsttcl_1_1_region.html#a8e5311c10d977fff7b8bdf4f0df6e558">00986</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_region.html#a8e5311c10d977fff7b8bdf4f0df6e558">~Region</a>()
-<a name="l00987"></a>00987         {
-<a name="l00988"></a>00988         }
-<a name="l00989"></a>00989 
-<a name="l00996"></a><a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">00996</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">dispatchInternalEvent</a>(<a class="code" href="classsttcl_1_1_region.html#ae0010270ecc733a62305a5a86e085799">InternalEventHandler</a> internalEventHandler, <span class="keywordtype">bool</span> recursive)
-<a name="l00997"></a>00997         {
-<a name="l00998"></a>00998                 eventDispatchQueue.push_back(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>(internalEventHandler,recursive));
-<a name="l00999"></a>00999         }
-<a name="l01000"></a>01000 
-<a name="l01005"></a><a class="code" href="classsttcl_1_1_region.html#a66ef44c5da35c7fb975d777a3278bb80">01005</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a66ef44c5da35c7fb975d777a3278bb80">changeState</a>(<a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a>* newState)
-<a name="l01006"></a>01006         {
-<a name="l01007"></a>01007                 <a class="code" href="classsttcl_1_1_region.html#a66ef44c5da35c7fb975d777a3278bb80">StateMachineImplementationBase::changeState</a>(newState);
-<a name="l01008"></a>01008         }
-<a name="l01009"></a>01009 
-<a name="l01013"></a><a class="code" href="classsttcl_1_1_region.html#aff16dcb5109bc83d4de53d32c8bae58d">01013</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#aff16dcb5109bc83d4de53d32c8bae58d">startingRegionThread</a>()
-<a name="l01014"></a>01014         {
-<a name="l01015"></a>01015 
-<a name="l01016"></a>01016         }
-<a name="l01017"></a>01017 
-<a name="l01021"></a><a class="code" href="classsttcl_1_1_region.html#a776d4eb50d80117f2fabce75bc7ee2ed">01021</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a776d4eb50d80117f2fabce75bc7ee2ed">endingRegionThread</a>()
-<a name="l01022"></a>01022         {
-<a name="l01023"></a>01023 
-<a name="l01024"></a>01024         }
-<a name="l01025"></a>01025 
-<a name="l01030"></a><a class="code" href="classsttcl_1_1_region.html#af4debfb86ca489e700cb3eeea827d259">01030</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#af4debfb86ca489e700cb3eeea827d259">entryImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">Context</a>* context)
-<a name="l01031"></a>01031     {
-<a name="l01032"></a>01032         <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">CompositeStateBase::entryImpl</a>(context);
-<a name="l01033"></a>01033     }
-<a name="l01034"></a>01034 
-<a name="l01039"></a><a class="code" href="classsttcl_1_1_region.html#a66e9487e8c2b25f355ec37e7bf4026ad">01039</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a66e9487e8c2b25f355ec37e7bf4026ad">exitImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">Context</a>* context)
-<a name="l01040"></a>01040     {
-<a name="l01041"></a>01041         <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">CompositeStateBase::exitImpl</a>(context);
-<a name="l01042"></a>01042     }
-<a name="l01043"></a>01043 
-<a name="l01049"></a><a class="code" href="classsttcl_1_1_region.html#af3ee7f57de210fe133f0f3cd23dde186">01049</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#af3ee7f57de210fe133f0f3cd23dde186">initializeImpl</a>(<span class="keywordtype">bool</span> force)
-<a name="l01050"></a>01050     {
-<a name="l01051"></a>01051         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
-<a name="l01052"></a>01052         {
-<a name="l01053"></a>01053                         <span class="comment">// dispatch initialization to region thread</span>
-<a name="l01054"></a>01054                 <a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a2bdbd9bf7976f10643a0a81f57513692">RegionBaseClass::internalInitialize</a>,force);
-<a name="l01055"></a>01055         }
-<a name="l01056"></a>01056         <span class="keywordflow">else</span>
-<a name="l01057"></a>01057         {
-<a name="l01058"></a>01058                 internalInitialize(force);
-<a name="l01059"></a>01059         }
-<a name="l01060"></a>01060         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l01061"></a>01061     }
-<a name="l01062"></a>01062 
-<a name="l01068"></a><a class="code" href="classsttcl_1_1_region.html#a01d48331353f28dd13689d4835307812">01068</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a01d48331353f28dd13689d4835307812">finalizeImpl</a>(<span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">finalizeSubStateMachines</a>)
-<a name="l01069"></a>01069     {
-<a name="l01070"></a>01070         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
-<a name="l01071"></a>01071         {
-<a name="l01072"></a>01072                         <span class="comment">// dispatch finalization to region thread</span>
-<a name="l01073"></a>01073                         <a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a14a035be203072af07b4e609aeb18b31">RegionBaseClass::internalFinalize</a>,finalizeSubStateMachines);
-<a name="l01074"></a>01074         }
-<a name="l01075"></a>01075         <span class="keywordflow">else</span>
-<a name="l01076"></a>01076         {
-<a name="l01077"></a>01077                 internalFinalize(finalizeSubStateMachines);
-<a name="l01078"></a>01078         }
-<a name="l01079"></a>01079     }
-<a name="l01080"></a>01080 
-<a name="l01085"></a><a class="code" href="classsttcl_1_1_region.html#a31b2119f2520966e2c107162bc25a467">01085</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#a31b2119f2520966e2c107162bc25a467">endDoActionRequestedImpl</a>()
-<a name="l01086"></a>01086     {
-<a name="l01087"></a>01087         <span class="keywordflow">return</span> <span class="comment">//static_cast&lt;StateMachineImplementationBase*&gt;(this)-&gt;isFinalized() ||</span>
-<a name="l01088"></a>01088                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a31b2119f2520966e2c107162bc25a467">endDoActionRequestedImpl</a>();
-<a name="l01089"></a>01089     }
-<a name="l01090"></a>01090 
-<a name="l01094"></a><a class="code" href="classsttcl_1_1_region.html#a36bd937643d8b2555cd09b525a8615dd">01094</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a36bd937643d8b2555cd09b525a8615dd">exitingDoActionImpl</a>()
-<a name="l01095"></a>01095     {
-<a name="l01096"></a>01096                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a776d4eb50d80117f2fabce75bc7ee2ed">endingRegionThread</a>();
-<a name="l01097"></a>01097     }
-<a name="l01098"></a>01098 
-<a name="l01102"></a><a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">01102</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">joinDoActionThreadImpl</a>()
-<a name="l01103"></a>01103     {
-<a name="l01104"></a>01104                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">joinDoActionThreadImpl</a>();
-<a name="l01105"></a>01105     }
-<a name="l01106"></a>01106 
-<a name="l01111"></a><a class="code" href="classsttcl_1_1_region.html#a3c68deaa29105f775458c1b997c6776c">01111</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a3c68deaa29105f775458c1b997c6776c">unblockDoActionImpl</a>()
-<a name="l01112"></a>01112     {
-<a name="l01113"></a>01113                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a3c68deaa29105f775458c1b997c6776c">unblockDoActionImpl</a>();
-<a name="l01114"></a>01114                 unblockEventsAvailable();
-<a name="l01115"></a>01115     }
-<a name="l01116"></a>01116 
-<a name="l01121"></a><a class="code" href="classsttcl_1_1_region.html#a0ed7169166d35d31467cd4b55c523f40">01121</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a0ed7169166d35d31467cd4b55c523f40">endDoImpl</a>(StateMachineImpl* context)
-<a name="l01122"></a>01122     {
-<a name="l01123"></a>01123            <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
-<a name="l01124"></a>01124            {
-<a name="l01125"></a>01125                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a0ed7169166d35d31467cd4b55c523f40">endDoImpl</a>(context);
-<a name="l01126"></a>01126            }
-<a name="l01127"></a>01127     }
-<a name="l01128"></a>01128 
-<a name="l01129"></a>01129 <span class="keyword">private</span>:
-<a name="l01130"></a>01130         <span class="keyword">virtual</span> <span class="keywordtype">void</span> queueDispatchedEvent(<span class="keyword">const</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>&amp; dispatchedEvent)
-<a name="l01131"></a>01131         {
-<a name="l01132"></a>01132                 eventDispatchQueue.push_back(dispatchedEvent);
-<a name="l01133"></a>01133         }
-<a name="l01134"></a>01134 
-<a name="l01135"></a>01135         <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterRegion(StateMachineImpl* context)
-<a name="l01136"></a>01136         {
-<a name="l01137"></a>01137                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;entry(context);
-<a name="l01138"></a>01138         }
-<a name="l01139"></a>01139 
-<a name="l01140"></a>01140         <span class="keyword">virtual</span> <span class="keywordtype">void</span> exitRegion(StateMachineImpl* context)
-<a name="l01141"></a>01141         {
-<a name="l01142"></a>01142                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;exit(context);
-<a name="l01143"></a>01143         }
-<a name="l01144"></a>01144 
-<a name="l01145"></a>01145         <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDoRegion(StateMachineImpl* context)
-<a name="l01146"></a>01146         {
-<a name="l01147"></a>01147                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#aff16dcb5109bc83d4de53d32c8bae58d">startingRegionThread</a>();
-<a name="l01148"></a>01148                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;startDo(context);
-<a name="l01149"></a>01149         }
-<a name="l01150"></a>01150 
-<a name="l01151"></a>01151         <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDoRegion(StateMachineImpl* context)
-<a name="l01152"></a>01152         {
-<a name="l01153"></a>01153                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;endDo(context);
-<a name="l01154"></a>01154         }
-<a name="l01155"></a>01155 
-<a name="l01156"></a>01156         <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeRegion(<span class="keywordtype">bool</span> recursive)
-<a name="l01157"></a>01157         {
-<a name="l01158"></a>01158                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">finalize</a>(recursive);
-<a name="l01159"></a>01159         }
-<a name="l01160"></a>01160 
-<a name="l01161"></a>01161         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> initializeRegion(<span class="keywordtype">bool</span> recursive)
-<a name="l01162"></a>01162         {
-<a name="l01163"></a>01163                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e">initialize</a>(recursive);
-<a name="l01164"></a>01164                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77">isReady</a>();
-<a name="l01165"></a>01165         }
-<a name="l01166"></a>01166 
-<a name="l01167"></a>01167         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionInitialized()
-<a name="l01168"></a>01168         {
-<a name="l01169"></a>01169                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a490d472365cca1b3c4f0163748ae0b41">isInitialized</a>();
-<a name="l01170"></a>01170         }
-<a name="l01171"></a>01171 
-<a name="l01172"></a>01172         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionFinalized()
-<a name="l01173"></a>01173         {
-<a name="l01174"></a>01174                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a73412a128b6e2904ab951a6d9fc17aee">isFinalized</a>();
-<a name="l01175"></a>01175         }
-<a name="l01176"></a>01176 
-<a name="l01177"></a>01177         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionThreadRunning()<span class="keyword"> const</span>
-<a name="l01178"></a>01178 <span class="keyword">        </span>{
-<a name="l01179"></a>01179                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a82b5031f6ffbabf1fb30cad7c006d2bc">isDoActionRunning</a>();
-<a name="l01180"></a>01180         }
-<a name="l01181"></a>01181 
-<a name="l01182"></a>01182         <span class="keyword">virtual</span> <span class="keywordtype">void</span> joinRegionThread()
-<a name="l01183"></a>01183         {
-<a name="l01184"></a>01184                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">joinDoActionThreadImpl</a>();
-<a name="l01185"></a>01185         }
-<a name="l01186"></a>01186 
-<a name="l01187"></a>01187         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalInitialize(<span class="keywordtype">bool</span> recursive)
-<a name="l01188"></a>01188         {
-<a name="l01189"></a>01189         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#af3ee7f57de210fe133f0f3cd23dde186">initializeImpl</a>(recursive);
-<a name="l01190"></a>01190         }
-<a name="l01191"></a>01191 
-<a name="l01192"></a>01192         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalFinalize(<span class="keywordtype">bool</span> recursive)
-<a name="l01193"></a>01193         {
-<a name="l01194"></a>01194         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a01d48331353f28dd13689d4835307812">finalizeImpl</a>(recursive);
-<a name="l01195"></a>01195         }
-<a name="l01196"></a>01196 
-<a name="l01197"></a>01197         <span class="keywordtype">void</span> unblockEventsAvailable()
-<a name="l01198"></a>01198         {
-<a name="l01199"></a>01199                 eventDispatchQueue.unblock();
-<a name="l01200"></a>01200         }
-<a name="l01201"></a>01201 
-<a name="l01202"></a>01202         <span class="keywordtype">bool</span> checkEventsAvailable()
-<a name="l01203"></a>01203         {
-<a name="l01204"></a>01204                 <span class="keywordflow">return</span> eventDispatchQueue.waitForEvents(checkEventFrequency);
-<a name="l01205"></a>01205         }
-<a name="l01206"></a>01206 
-<a name="l01207"></a>01207         <span class="keywordtype">void</span> regionDoAction(<span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">ActiveStateImpl::Context</a>* context, <span class="keywordtype">bool</span> firstCall)
-<a name="l01208"></a>01208         {
-<a name="l01209"></a>01209                 <span class="keywordflow">if</span>(checkEventsAvailable())
-<a name="l01210"></a>01210                 {
-<a name="l01211"></a>01211                         <span class="keywordflow">while</span>(!eventDispatchQueue.empty())
-<a name="l01212"></a>01212                         {
-<a name="l01213"></a>01213                                 <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a> dispatchedEvent = eventDispatchQueue.front();
-<a name="l01214"></a>01214                                 eventDispatchQueue.pop_front();
-<a name="l01215"></a>01215                                 <span class="keywordflow">if</span>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">internalHandler</a>)
-<a name="l01216"></a>01216                                 {
-<a name="l01217"></a>01217                                         (this-&gt;*dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">internalHandler</a>)(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a7aefda5379df0018982a202e5ed1c576">recursiveInternalEvent</a>);
-<a name="l01218"></a>01218                                 }
-<a name="l01219"></a>01219                                 <span class="keywordflow">else</span>
-<a name="l01220"></a>01220                                 {
-<a name="l01221"></a>01221                                         <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9264b88ce6737adaba9f9ff23a450f2d">callDispatchedEventHandler</a>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ae81cea81ee3d825fc01d36a76f1cac4e">context</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2bd815646bcca01a6c76893be02f56af">state</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a14bb1fc4c2cb30c18f8724cbf07e6989">handler</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af494ee093a8aa2bb92307138ff156170">eventArgs</a>);
-<a name="l01222"></a>01222                                 }
-<a name="l01223"></a>01223                         }
-<a name="l01224"></a>01224                 }
-<a name="l01225"></a>01225         }
-<a name="l01226"></a>01226 
-<a name="l01227"></a>01227         EventQueueType eventDispatchQueue;
-<a name="l01228"></a>01228         TimeDurationType checkEventFrequency;
-<a name="l01229"></a>01229 };
-<a name="l01230"></a>01230 
-<a name="l01231"></a>01231 }
-<a name="l01232"></a>01232 
-<a name="l01233"></a>01233 <span class="preprocessor">#endif </span><span class="comment">/* REGION_H_ */</span>
+<a name="l00777"></a>00777 
+<a name="l00778"></a>00778 }
+<a name="l00779"></a>00779 
+<a name="l00803"></a>00803 <span class="keyword">template</span>
+<a name="l00804"></a>00804 &lt; <span class="keyword">class </span>RegionImpl
+<a name="l00805"></a>00805 , <span class="keyword">class </span>StateMachineImpl
+<a name="l00806"></a>00806 , <span class="keyword">class </span>IInnerState
+<a name="l00807"></a>00807 , <span class="keyword">class </span>EventArgs = void
+<a name="l00808"></a>00808 , <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9">CompositeStateHistoryType::Values</a> HistoryType = <a class="code" href="structsttcl_1_1_composite_state_history_type.html#a5aa4ca02f175fbabc82a64c838c200d9a020eecf92d00507290663031346d4ec8">CompositeStateHistoryType::None</a>
+<a name="l00809"></a>00809 , <span class="keyword">class </span>StateThreadType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_thread.html">sttcl::internal::SttclThread&lt;&gt;</a>
+<a name="l00810"></a>00810 , <span class="keyword">class </span>TimeDurationType = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;
+<a name="l00811"></a>00811 , <span class="keyword">class </span>SemaphoreType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">sttcl::internal::SttclSemaphore&lt;STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType&gt;</a>
+<a name="l00812"></a>00812 , <span class="keyword">class </span>MutexType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">sttcl::internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL,TimeDurationType&gt;</a>
+<a name="l00813"></a>00813 , <span class="keyword">class </span>EventQueueType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">sttcl::internal::SttclEventQueue&lt;sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>,TimeDurationType,SemaphoreType,MutexType&gt;
+<a name="l00814"></a>00814 &gt;
+<a name="l00815"></a><a class="code" href="classsttcl_1_1_region.html">00815</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_region.html">Region</a>
+<a name="l00816"></a>00816 : <span class="keyword">public</span> <a class="code" href="classsttcl_1_1_composite_state.html">CompositeState</a>
+<a name="l00817"></a>00817         &lt; Region&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,TimeDurationType,SemaphoreType,MutexType,EventQueueType&gt;
+<a name="l00818"></a>00818         , StateMachineImpl
+<a name="l00819"></a>00819         , IInnerState
+<a name="l00820"></a>00820         , HistoryType
+<a name="l00821"></a>00821         , ActiveState
+<a name="l00822"></a>00822           &lt; Region&lt;RegionImpl,StateMachineImpl,IInnerState,EventArgs,HistoryType,StateThreadType,TimeDurationType,SemaphoreType,MutexType,EventQueueType&gt;
+<a name="l00823"></a>00823           , StateMachineImpl
+<a name="l00824"></a>00824           , typename StateMachineImpl::StateInterface
+<a name="l00825"></a>00825           , StateThreadType
+<a name="l00826"></a>00826           , TimeDurationType
+<a name="l00827"></a>00827           , SemaphoreType
+<a name="l00828"></a>00828           , MutexType
+<a name="l00829"></a>00829           &gt;
+<a name="l00830"></a>00830         , StateMachine&lt;RegionImpl, IInnerState&gt;
+<a name="l00831"></a>00831         &gt;
+<a name="l00832"></a>00832 , <span class="keyword">public</span> internal::RegionBaseImplementationSelector
+<a name="l00833"></a>00833         &lt; RegionImpl
+<a name="l00834"></a>00834         , StateMachineImpl
+<a name="l00835"></a>00835         , typename StateMachineImpl::StateInterface
+<a name="l00836"></a>00836         , IInnerState
+<a name="l00837"></a>00837         , EventArgs
+<a name="l00838"></a>00838         &gt;::RESULT_TYPE
+<a name="l00839"></a>00839 {
+<a name="l00840"></a>00840 <span class="keyword">public</span>:
+<a name="l00841"></a><a class="code" href="classsttcl_1_1_region.html#af251ecb951ff10a096395bb3d9545104">00841</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;StateMachineImpl,typename StateMachineImpl::<a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">StateInterface</a>,IInnerState,EventArgs&gt;;
+<a name="l00842"></a>00842 
+<a name="l00846"></a><a class="code" href="classsttcl_1_1_region.html#aa4d61de6d84b6cbdf5e41c8214e145a8">00846</a>     typedef RegionImpl <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ab04166cf3e9d537c91b5797b9cb3c041">Implementation</a>;
+<a name="l00847"></a>00847 
+<a name="l00851"></a><a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">00851</a>     typedef StateMachineImpl <a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">Context</a>;
+<a name="l00852"></a>00852 
+<a name="l00856"></a>00856     typedef <a class="code" href="classsttcl_1_1_region.html">Region</a>
+<a name="l00857"></a>00857                         &lt; RegionImpl
+<a name="l00858"></a>00858                         , StateMachineImpl
+<a name="l00859"></a>00859                         , IInnerState
+<a name="l00860"></a>00860                         , EventArgs
+<a name="l00861"></a>00861                         , HistoryType
+<a name="l00862"></a>00862                         , StateThreadType
+<a name="l00863"></a>00863                 , TimeDurationType
+<a name="l00864"></a>00864                 , SemaphoreType
+<a name="l00865"></a>00865                 , MutexType
+<a name="l00866"></a>00866                 , EventQueueType
+<a name="l00867"></a><a class="code" href="classsttcl_1_1_region.html#a66e61400cf3d2b4808a5754e965bc590">00867</a>                 &gt; <a class="code" href="classsttcl_1_1_region.html">SelfClassType</a>;
+<a name="l00872"></a>00872     typedef <a class="code" href="classsttcl_1_1_active_state.html">ActiveState</a>
+<a name="l00873"></a>00873                   &lt; SelfClassType
+<a name="l00874"></a>00874                   , StateMachineImpl
+<a name="l00875"></a>00875                   , typename StateMachineImpl::StateInterface
+<a name="l00876"></a>00876                   , StateThreadType
+<a name="l00877"></a>00877                   , TimeDurationType
+<a name="l00878"></a>00878                   , SemaphoreType
+<a name="l00879"></a>00879                   , MutexType
+<a name="l00880"></a><a class="code" href="classsttcl_1_1_region.html#a7f3b9a85415d78127779710dd2121709">00880</a>                   &gt; <a class="code" href="classsttcl_1_1_active_state.html">ActiveStateImpl</a>;
+<a name="l00881"></a>00881 
+<a name="l00885"></a>00885     typedef <a class="code" href="classsttcl_1_1_composite_state.html">CompositeState</a>
+<a name="l00886"></a>00886                 &lt; SelfClassType
+<a name="l00887"></a>00887                 , StateMachineImpl
+<a name="l00888"></a>00888                 , IInnerState
+<a name="l00889"></a>00889                 , HistoryType
+<a name="l00890"></a>00890                 , ActiveStateImpl
+<a name="l00891"></a>00891                 , StateMachine&lt;RegionImpl, IInnerState&gt;
+<a name="l00892"></a><a class="code" href="classsttcl_1_1_region.html#a67f0cf562fd3e48c9194b7990ea641ba">00892</a>                 &gt; <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>;
+<a name="l00893"></a>00893 
+<a name="l00897"></a><a class="code" href="classsttcl_1_1_region.html#abbd0300176d44559059dbfc866788959">00897</a>     typedef typename internal::RegionBaseImplementationSelector&lt;RegionImpl,StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt;::RESULT_TYPE <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">SelectedRegionBase</a>;
+<a name="l00898"></a>00898 
+<a name="l00899"></a><a class="code" href="classsttcl_1_1_region.html#afadfa28420f01351cd5a6217b8fe7105">00899</a>     typedef typename <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">SelectedRegionBase</a>::<a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a> <a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>;
+<a name="l00900"></a>00900 
+<a name="l00901"></a><a class="code" href="classsttcl_1_1_region.html#a563f1a9484fd4fe7ac4bfeb0d519b662">00901</a>     typedef sttcl::internal::EventArgsInterfaceSelector&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt; <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>;
+<a name="l00902"></a>00902 
+<a name="l00906"></a><a class="code" href="classsttcl_1_1_region.html#a69c15fb307ffe58cd8e9c5bf2f033658">00906</a>         typedef typename <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>::<a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a> <a class="code" href="classsttcl_1_1_event_args_ptr.html">EventArgsPtr</a>;
+<a name="l00907"></a>00907 
+<a name="l00911"></a><a class="code" href="classsttcl_1_1_region.html#af4b2ef13508ac35e7de699e5af761522">00911</a>         typedef typename <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>::<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a>;
+<a name="l00912"></a>00912 
+<a name="l00916"></a><a class="code" href="classsttcl_1_1_region.html#ac8bae8f36c0f88ce11db416746b4b165">00916</a>         typedef typename <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsSelectorType</a>::<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a>;
+<a name="l00917"></a>00917 
+<a name="l00921"></a><a class="code" href="classsttcl_1_1_region.html#ae0010270ecc733a62305a5a86e085799">00921</a>     typedef void (RegionBaseClass::*InternalEventHandler)(bool);
+<a name="l00922"></a>00922 
+<a name="l00926"></a><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">00926</a>     typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a> <a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>;
+<a name="l00927"></a>00927 
+<a name="l00931"></a><a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">00931</a>     typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a> <a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a>;
+<a name="l00932"></a>00932 
+<a name="l00936"></a><a class="code" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">00936</a>     typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">StateDoAction</a> <a class="code" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">StateDoAction</a>;
+<a name="l00937"></a>00937 
+<a name="l00941"></a><a class="code" href="classsttcl_1_1_region.html#adec91e581727c3db9ae75be357aa3a2d">00941</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">CompositeStateHistoryBaseClass</a> <a class="code" href="classsttcl_1_1internal_1_1_composite_state_base.html">CompositeStateHistoryBaseClass</a>;
+<a name="l00942"></a>00942 
+<a name="l00946"></a><a class="code" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">00946</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">InnerStateClass</a> <a class="code" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">InnerStateClass</a>;
+<a name="l00947"></a>00947 
+<a name="l00951"></a><a class="code" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">00951</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">OuterStateInterface</a> <a class="code" href="classsttcl_1_1_region.html#a90c95c41bdb25151704a15adec027698">OuterStateInterface</a>;
+<a name="l00952"></a>00952 
+<a name="l00956"></a><a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">00956</a>         typedef typename <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>::<a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">StateInterface</a> <a class="code" href="classsttcl_1_1_region.html#a37f87d927cf8f69c4d4d67124577e0bc">StateInterface</a>;
+<a name="l00957"></a>00957 
+<a name="l00961"></a><a class="code" href="classsttcl_1_1_region.html#ac692a7c639597f94514e17d9e7edeb54">00961</a>         typedef <a class="code" href="classsttcl_1_1_state_base.html">StateBase</a>&lt;RegionImpl,IInnerState&gt; <a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a>;
+<a name="l00962"></a>00962 
+<a name="l00966"></a><a class="code" href="classsttcl_1_1_region.html#ae0c6edf237203c9b257af26281045381">00966</a>         typedef <a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a> <a class="code" href="classsttcl_1_1_state_base.html">StateBaseClass</a>;
+<a name="l00967"></a>00967 
+<a name="l00971"></a><a class="code" href="classsttcl_1_1_region.html#a9c9f42604a72a4873ffce31fb13f4ebb">00971</a>     typedef typename <a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>::<a class="code" href="classsttcl_1_1_active_state.html#ad360bf5e4d9fc89c29abd61d02712554">StateThreadImpl</a> <a class="code" href="classsttcl_1_1_region.html#a9c9f42604a72a4873ffce31fb13f4ebb">RegionThreadImpl</a>;
+<a name="l00972"></a>00972 
+<a name="l00977"></a><a class="code" href="classsttcl_1_1_region.html#a87b881a84950d0c597edbc0f46f0b17d">00977</a>         <a class="code" href="classsttcl_1_1_region.html">Region</a>(TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
+<a name="l00978"></a>00978         : <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>(&amp;SelfClassType::regionDoAction)
+<a name="l00979"></a>00979         , eventDispatchQueue()
+<a name="l00980"></a>00980         , checkEventFrequency(argDoActionFrequency)
+<a name="l00981"></a>00981         {
+<a name="l00982"></a>00982         }
+<a name="l00983"></a>00983 
+<a name="l00987"></a><a class="code" href="classsttcl_1_1_region.html#a8e5311c10d977fff7b8bdf4f0df6e558">00987</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_region.html#a8e5311c10d977fff7b8bdf4f0df6e558">~Region</a>()
+<a name="l00988"></a>00988         {
+<a name="l00989"></a>00989         }
+<a name="l00990"></a>00990 
+<a name="l00997"></a><a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">00997</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">dispatchInternalEvent</a>(<a class="code" href="classsttcl_1_1_region.html#ae0010270ecc733a62305a5a86e085799">InternalEventHandler</a> internalEventHandler, <span class="keywordtype">bool</span> recursive)
+<a name="l00998"></a>00998         {
+<a name="l00999"></a>00999                 eventDispatchQueue.push_back(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>(internalEventHandler,recursive));
+<a name="l01000"></a>01000         }
+<a name="l01001"></a>01001 
+<a name="l01006"></a><a class="code" href="classsttcl_1_1_region.html#a66ef44c5da35c7fb975d777a3278bb80">01006</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a66ef44c5da35c7fb975d777a3278bb80">changeState</a>(<a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a>* newState)
+<a name="l01007"></a>01007         {
+<a name="l01008"></a>01008                 <a class="code" href="classsttcl_1_1_region.html#a66ef44c5da35c7fb975d777a3278bb80">StateMachineImplementationBase::changeState</a>(newState);
+<a name="l01009"></a>01009         }
+<a name="l01010"></a>01010 
+<a name="l01014"></a><a class="code" href="classsttcl_1_1_region.html#aff16dcb5109bc83d4de53d32c8bae58d">01014</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#aff16dcb5109bc83d4de53d32c8bae58d">startingRegionThread</a>()
+<a name="l01015"></a>01015         {
+<a name="l01016"></a>01016 
+<a name="l01017"></a>01017         }
+<a name="l01018"></a>01018 
+<a name="l01022"></a><a class="code" href="classsttcl_1_1_region.html#a776d4eb50d80117f2fabce75bc7ee2ed">01022</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a776d4eb50d80117f2fabce75bc7ee2ed">endingRegionThread</a>()
+<a name="l01023"></a>01023         {
+<a name="l01024"></a>01024 
+<a name="l01025"></a>01025         }
+<a name="l01026"></a>01026 
+<a name="l01031"></a><a class="code" href="classsttcl_1_1_region.html#af4debfb86ca489e700cb3eeea827d259">01031</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#af4debfb86ca489e700cb3eeea827d259">entryImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">Context</a>* context)
+<a name="l01032"></a>01032     {
+<a name="l01033"></a>01033         <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">CompositeStateBase::entryImpl</a>(context);
+<a name="l01034"></a>01034     }
+<a name="l01035"></a>01035 
+<a name="l01040"></a><a class="code" href="classsttcl_1_1_region.html#a66e9487e8c2b25f355ec37e7bf4026ad">01040</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a66e9487e8c2b25f355ec37e7bf4026ad">exitImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">Context</a>* context)
+<a name="l01041"></a>01041     {
+<a name="l01042"></a>01042         <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">CompositeStateBase::exitImpl</a>(context);
+<a name="l01043"></a>01043     }
+<a name="l01044"></a>01044 
+<a name="l01050"></a><a class="code" href="classsttcl_1_1_region.html#af3ee7f57de210fe133f0f3cd23dde186">01050</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#af3ee7f57de210fe133f0f3cd23dde186">initializeImpl</a>(<span class="keywordtype">bool</span> force)
+<a name="l01051"></a>01051     {
+<a name="l01052"></a>01052         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
+<a name="l01053"></a>01053         {
+<a name="l01054"></a>01054                         <span class="comment">// dispatch initialization to region thread</span>
+<a name="l01055"></a>01055                 <a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a2bdbd9bf7976f10643a0a81f57513692">RegionBaseClass::internalInitialize</a>,force);
+<a name="l01056"></a>01056         }
+<a name="l01057"></a>01057         <span class="keywordflow">else</span>
+<a name="l01058"></a>01058         {
+<a name="l01059"></a>01059                 internalInitialize(force);
+<a name="l01060"></a>01060         }
+<a name="l01061"></a>01061         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l01062"></a>01062     }
+<a name="l01063"></a>01063 
+<a name="l01069"></a><a class="code" href="classsttcl_1_1_region.html#a01d48331353f28dd13689d4835307812">01069</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a01d48331353f28dd13689d4835307812">finalizeImpl</a>(<span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">finalizeSubStateMachines</a>)
+<a name="l01070"></a>01070     {
+<a name="l01071"></a>01071         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
+<a name="l01072"></a>01072         {
+<a name="l01073"></a>01073                         <span class="comment">// dispatch finalization to region thread</span>
+<a name="l01074"></a>01074                         <a class="code" href="classsttcl_1_1_region.html#a17933060cd71f741ed6c81f7a63b8ec4">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a14a035be203072af07b4e609aeb18b31">RegionBaseClass::internalFinalize</a>,finalizeSubStateMachines);
+<a name="l01075"></a>01075         }
+<a name="l01076"></a>01076         <span class="keywordflow">else</span>
+<a name="l01077"></a>01077         {
+<a name="l01078"></a>01078                 internalFinalize(finalizeSubStateMachines);
+<a name="l01079"></a>01079         }
+<a name="l01080"></a>01080     }
+<a name="l01081"></a>01081 
+<a name="l01086"></a><a class="code" href="classsttcl_1_1_region.html#a31b2119f2520966e2c107162bc25a467">01086</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#a31b2119f2520966e2c107162bc25a467">endDoActionRequestedImpl</a>()
+<a name="l01087"></a>01087     {
+<a name="l01088"></a>01088         <span class="keywordflow">return</span> <span class="comment">//static_cast&lt;StateMachineImplementationBase*&gt;(this)-&gt;isFinalized() ||</span>
+<a name="l01089"></a>01089                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a31b2119f2520966e2c107162bc25a467">endDoActionRequestedImpl</a>();
+<a name="l01090"></a>01090     }
+<a name="l01091"></a>01091 
+<a name="l01095"></a><a class="code" href="classsttcl_1_1_region.html#a36bd937643d8b2555cd09b525a8615dd">01095</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a36bd937643d8b2555cd09b525a8615dd">exitingDoActionImpl</a>()
+<a name="l01096"></a>01096     {
+<a name="l01097"></a>01097                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a776d4eb50d80117f2fabce75bc7ee2ed">endingRegionThread</a>();
+<a name="l01098"></a>01098     }
+<a name="l01099"></a>01099 
+<a name="l01103"></a><a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">01103</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">joinDoActionThreadImpl</a>()
+<a name="l01104"></a>01104     {
+<a name="l01105"></a>01105                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">joinDoActionThreadImpl</a>();
+<a name="l01106"></a>01106     }
+<a name="l01107"></a>01107 
+<a name="l01112"></a><a class="code" href="classsttcl_1_1_region.html#a3c68deaa29105f775458c1b997c6776c">01112</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a3c68deaa29105f775458c1b997c6776c">unblockDoActionImpl</a>()
+<a name="l01113"></a>01113     {
+<a name="l01114"></a>01114                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a3c68deaa29105f775458c1b997c6776c">unblockDoActionImpl</a>();
+<a name="l01115"></a>01115                 unblockEventsAvailable();
+<a name="l01116"></a>01116     }
+<a name="l01117"></a>01117 
+<a name="l01122"></a><a class="code" href="classsttcl_1_1_region.html#a0ed7169166d35d31467cd4b55c523f40">01122</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a0ed7169166d35d31467cd4b55c523f40">endDoImpl</a>(StateMachineImpl* context)
+<a name="l01123"></a>01123     {
+<a name="l01124"></a>01124            <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
+<a name="l01125"></a>01125            {
+<a name="l01126"></a>01126                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a23a1efa45942c60c4a79dfb28cdf5176">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a0ed7169166d35d31467cd4b55c523f40">endDoImpl</a>(context);
+<a name="l01127"></a>01127            }
+<a name="l01128"></a>01128     }
+<a name="l01129"></a>01129 
+<a name="l01130"></a>01130 <span class="keyword">private</span>:
+<a name="l01131"></a>01131         <span class="keyword">virtual</span> <span class="keywordtype">void</span> queueDispatchedEvent(<span class="keyword">const</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a>&amp; dispatchedEvent)
+<a name="l01132"></a>01132         {
+<a name="l01133"></a>01133                 eventDispatchQueue.push_back(dispatchedEvent);
+<a name="l01134"></a>01134         }
+<a name="l01135"></a>01135 
+<a name="l01136"></a>01136         <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterRegion(StateMachineImpl* context)
+<a name="l01137"></a>01137         {
+<a name="l01138"></a>01138                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;entry(context);
+<a name="l01139"></a>01139         }
+<a name="l01140"></a>01140 
+<a name="l01141"></a>01141         <span class="keyword">virtual</span> <span class="keywordtype">void</span> exitRegion(StateMachineImpl* context)
+<a name="l01142"></a>01142         {
+<a name="l01143"></a>01143                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;exit(context);
+<a name="l01144"></a>01144         }
+<a name="l01145"></a>01145 
+<a name="l01146"></a>01146         <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDoRegion(StateMachineImpl* context)
+<a name="l01147"></a>01147         {
+<a name="l01148"></a>01148                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#aff16dcb5109bc83d4de53d32c8bae58d">startingRegionThread</a>();
+<a name="l01149"></a>01149                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;startDo(context);
+<a name="l01150"></a>01150         }
+<a name="l01151"></a>01151 
+<a name="l01152"></a>01152         <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDoRegion(StateMachineImpl* context)
+<a name="l01153"></a>01153         {
+<a name="l01154"></a>01154                 <span class="keyword">static_cast&lt;</span>StateBase&lt;StateMachineImpl,OuterStateInterface&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;endDo(context);
+<a name="l01155"></a>01155         }
+<a name="l01156"></a>01156 
+<a name="l01157"></a>01157         <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeRegion(<span class="keywordtype">bool</span> recursive)
+<a name="l01158"></a>01158         {
+<a name="l01159"></a>01159                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">finalize</a>(recursive);
+<a name="l01160"></a>01160         }
+<a name="l01161"></a>01161 
+<a name="l01162"></a>01162         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> initializeRegion(<span class="keywordtype">bool</span> recursive)
+<a name="l01163"></a>01163         {
+<a name="l01164"></a>01164                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e">initialize</a>(recursive);
+<a name="l01165"></a>01165                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77">isReady</a>();
+<a name="l01166"></a>01166         }
+<a name="l01167"></a>01167 
+<a name="l01168"></a>01168         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionInitialized()
+<a name="l01169"></a>01169         {
+<a name="l01170"></a>01170                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a490d472365cca1b3c4f0163748ae0b41">isInitialized</a>();
+<a name="l01171"></a>01171         }
+<a name="l01172"></a>01172 
+<a name="l01173"></a>01173         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionFinalized()
+<a name="l01174"></a>01174         {
+<a name="l01175"></a>01175                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a73412a128b6e2904ab951a6d9fc17aee">isFinalized</a>();
+<a name="l01176"></a>01176         }
+<a name="l01177"></a>01177 
+<a name="l01178"></a>01178         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionThreadRunning()<span class="keyword"> const</span>
+<a name="l01179"></a>01179 <span class="keyword">        </span>{
+<a name="l01180"></a>01180                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a82b5031f6ffbabf1fb30cad7c006d2bc">isDoActionRunning</a>();
+<a name="l01181"></a>01181         }
+<a name="l01182"></a>01182 
+<a name="l01183"></a>01183         <span class="keyword">virtual</span> <span class="keywordtype">void</span> joinRegionThread()
+<a name="l01184"></a>01184         {
+<a name="l01185"></a>01185                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">joinDoActionThreadImpl</a>();
+<a name="l01186"></a>01186         }
+<a name="l01187"></a>01187 
+<a name="l01188"></a>01188         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalInitialize(<span class="keywordtype">bool</span> recursive)
+<a name="l01189"></a>01189         {
+<a name="l01190"></a>01190         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#af3ee7f57de210fe133f0f3cd23dde186">initializeImpl</a>(recursive);
+<a name="l01191"></a>01191         }
+<a name="l01192"></a>01192 
+<a name="l01193"></a>01193         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalFinalize(<span class="keywordtype">bool</span> recursive)
+<a name="l01194"></a>01194         {
+<a name="l01195"></a>01195         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a83cce54e27a686f67d3efbeb936b7670">StateMachineImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a01d48331353f28dd13689d4835307812">finalizeImpl</a>(recursive);
+<a name="l01196"></a>01196         }
+<a name="l01197"></a>01197 
+<a name="l01198"></a>01198         <span class="keywordtype">void</span> unblockEventsAvailable()
+<a name="l01199"></a>01199         {
+<a name="l01200"></a>01200                 eventDispatchQueue.unblock();
+<a name="l01201"></a>01201         }
+<a name="l01202"></a>01202 
+<a name="l01203"></a>01203         <span class="keywordtype">bool</span> checkEventsAvailable()
+<a name="l01204"></a>01204         {
+<a name="l01205"></a>01205                 <span class="keywordflow">return</span> eventDispatchQueue.waitForEvents(checkEventFrequency);
+<a name="l01206"></a>01206         }
+<a name="l01207"></a>01207 
+<a name="l01208"></a>01208         <span class="keywordtype">void</span> regionDoAction(<span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">ActiveStateImpl::Context</a>* context, <span class="keywordtype">bool</span> firstCall)
+<a name="l01209"></a>01209         {
+<a name="l01210"></a>01210                 <span class="keywordflow">if</span>(checkEventsAvailable())
+<a name="l01211"></a>01211                 {
+<a name="l01212"></a>01212                         <span class="keywordflow">while</span>(!eventDispatchQueue.empty())
+<a name="l01213"></a>01213                         {
+<a name="l01214"></a>01214                                 <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;StateMachineImpl,IInnerState,EventArgs&gt;</a> dispatchedEvent = eventDispatchQueue.front();
+<a name="l01215"></a>01215                                 eventDispatchQueue.pop_front();
+<a name="l01216"></a>01216                                 <span class="keywordflow">if</span>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">internalHandler</a>)
+<a name="l01217"></a>01217                                 {
+<a name="l01218"></a>01218                                         (this-&gt;*dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">internalHandler</a>)(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a7aefda5379df0018982a202e5ed1c576">recursiveInternalEvent</a>);
+<a name="l01219"></a>01219                                 }
+<a name="l01220"></a>01220                                 <span class="keywordflow">else</span>
+<a name="l01221"></a>01221                                 {
+<a name="l01222"></a>01222                                         <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9264b88ce6737adaba9f9ff23a450f2d">callDispatchedEventHandler</a>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ae81cea81ee3d825fc01d36a76f1cac4e">context</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2bd815646bcca01a6c76893be02f56af">state</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a14bb1fc4c2cb30c18f8724cbf07e6989">handler</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af494ee093a8aa2bb92307138ff156170">eventArgs</a>);
+<a name="l01223"></a>01223                                 }
+<a name="l01224"></a>01224                         }
+<a name="l01225"></a>01225                 }
+<a name="l01226"></a>01226         }
+<a name="l01227"></a>01227 
+<a name="l01228"></a>01228         EventQueueType eventDispatchQueue;
+<a name="l01229"></a>01229         TimeDurationType checkEventFrequency;
+<a name="l01230"></a>01230 };
+<a name="l01231"></a>01231 
+<a name="l01232"></a>01232 }
+<a name="l01233"></a>01233 
+<a name="l01234"></a>01234 <span class="preprocessor">#endif </span><span class="comment">/* REGION_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -885,7 +885,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:35 for sttcl by
+    <li class="footer">Generated on Fri Mar 16 2012 22:40:11 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
