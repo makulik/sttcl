@@ -65,12 +65,15 @@
  * \ref usage_sec_1 "2.1 Declare a StateMachine implementation"\n
  * \ref usage_sec_2 "2.2 Declare State implementations"\n
  * \ref usage_sec_3 "2.3 Implement the state machine interfaces"\n
- * \ref usage_sec_4 "2.4 Implement state actions and transitions"\n
+ * \ref usage_sec_4 "2.4 STTCL 'implementation hooks'"\n
+ * \ref usage_sec_5 "2.5 Implement state actions and transitions"\n
+ * \ref usage_sec_6 "2.6 Composite states"\n
+ * \ref usage_sec_7 "2.7 Composite state regions, forks/joins"\n
  *
  * \subsection usage_sec_1 2.1 Declare a StateMachine implementation
  *
  * Analyze your UML 2.2 state diagram and declare all necessary variables and event (trigger
- * methods) needed for the state machine. Declare an appropriate instance of \c sttcl::StateMachine<>
+ * methods) needed for the state machine. Declare an appropriate instance of \c sttcl::StateMachine
  * as base class for your state machine class.
  *
  * \code
@@ -105,13 +108,13 @@ public:
  * states should be embedded members of the state machine implementation class and are accessible
  * from the state machine context for state implementation classes.
  *
- * \note State implementation classes inheriting from the sttcl::ActiveState<>
- * or sttcl::CompositeState<> template classes implicitly have embedded members in the base
+ * \note State implementation classes inheriting from the sttcl::ActiveState
+ * or sttcl::CompositeState template classes implicitly have embedded members in the base
  * classes.
  *
  * \subsection usage_sec_2 2.2 Declare State implementations
  * Implement a state class for each state in your UML 2.2 state machine diagram. Declare the
- * appropriate instance of the sttcl::State<> template class as base class for all state classes.
+ * appropriate instance of the sttcl::State template class as base class for all state classes.
  * \code
 class MyStateMachine;
 
@@ -165,7 +168,7 @@ void MyState::entryImpl(MyStateMachine* context)
  * state implementation class.
  *
  * State do actions can be implemented in a method of the state implementation class, that is passed to the base class
- * constructor. The sttcl::ActiveState<> base class supports asynchronous execution of the state do action. It implements
+ * constructor. The sttcl::ActiveState base class supports asynchronous execution of the state do action. It implements
  * a thread function loop, that calls the do action method until the state is exited.
  *
  * Direct state transitions (i.e. transitions between states without a triggering event method) are a special case.
@@ -174,8 +177,8 @@ void MyState::entryImpl(MyStateMachine* context)
  *
  * \subsection usage_sec_6 2.6 Composite states
  *
- * To implement composite states you can use the sttcl::CompositeState<> template base class. This class inherits both,
- * the sttcl::State<> and the sttcl::StateMachine<> template base classes. The first is used to specify a valid state
+ * To implement composite states you can use the sttcl::CompositeState template base class. This class inherits both,
+ * the sttcl::State and the sttcl::StateMachine template base classes. The first is used to specify a valid state
  * signature to embed the composite state implementation in an outer state machine implementation. The second specifies
  * the sub state machine of the composite state and specifies the signature for any inner states of the composite state
  * implementation.
@@ -187,19 +190,19 @@ void MyState::entryImpl(MyStateMachine* context)
  * \subsection usage_sec_7 2.7 Composite state regions, forks/joins
  *
  * If you need orthogonal state machine regions or transition paths that go out a fork pseudo state you can use the
- * sttcl::ConcurrentCompositeState<> and sttcl::Region<> template base classes. The sttcl::ConcurrentCompositeState<>
- * base class needs to be initialized with a fixed array of pointers to sttcl::Region<> implementation instances in
- * the constructor. The overall number of regions contained in the sttcl::ConcurrentCompositeState<> implementation
+ * sttcl::ConcurrentCompositeState and sttcl::Region template base classes. The sttcl::ConcurrentCompositeState
+ * base class needs to be initialized with a fixed array of pointers to sttcl::Region implementation instances in
+ * the constructor. The overall number of regions contained in the sttcl::ConcurrentCompositeState implementation
  * is specified using the \em NumOfRegions template parameter.
- * To broadcast events to the contained regions the state interface methods used for the sttcl::ConcurrentCompositeState<>
+ * To broadcast events to the contained regions the state interface methods used for the sttcl::ConcurrentCompositeState
  * implementation need to have a special signature as follows:
  * \code
 typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*);
 \endcode
  *
- * Each of the sttcl::Region<> implementations runs its own internal thread, where state transitions of the contained
+ * Each of the sttcl::Region implementations runs its own internal thread, where state transitions of the contained
  * states (including initialization, finalization and history behavior) are performed.
- * That event method calls to the sttcl::ConcurrentCompositeState<> \em IInnerState interface methods can be dispatched to these region threads, all
+ * That event method calls to the sttcl::ConcurrentCompositeState \em IInnerState interface methods can be dispatched to these region threads, all
  * of the inner state interfaces methods need to have a special signature as follows:
  * \code
 typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState>*);
@@ -207,8 +210,8 @@ typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<State
  *
  * You can also specify a type or class to pass additional event arguments to the dispatched event methods. These event
  * arguments need to be managed using a thread safe smart pointer that is provided with the sttcl::EventArgsPtr template
- * class. If you specify the \em EventArgs template parameter to the sttcl::ConcurrentCompositeState<> and matching
- * sttcl::Region<> classes, the outer and inner state interface method signatures must look like this:
+ * class. If you specify the \em EventArgs template parameter to the sttcl::ConcurrentCompositeState and matching
+ * sttcl::Region classes, the outer and inner state interface method signatures must look like this:
  * \code
 typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*,EventArgsPtr<EventArgs>);
 typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState>*,EventArgsPtr<EventArgs>);
@@ -217,8 +220,8 @@ typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<State
  * Its your responsibility to create an appropriate hierarchy of event argument classes and to decode these for particular
  * event methods if necessary. The EventArgsPtr template needs to be instantiated with a common base class in this case.
  *
- * Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState<> implementation providing a region for
- * each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState<>
+ * Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState implementation providing a region for
+ * each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState
  * class.
  */
 
@@ -236,10 +239,10 @@ typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<State
  * \ref sttcl_config_sec_2 "4.2 Providing custom implementations for concurrency"\n
  *
  * STTCL uses wrapper classes (adapters) for the environment specific implementations of the above mentioned capabilities:
- * \li \link sttcl::SttclThread\endlink<> as thread adapter
- * \li \link sttcl::SttclMutex\endlink<> as mutex abstraction (needs timed/unblocking try_lock() implementation)
- * \li \link sttcl::SttclSemaphore\endlink<> as semaphore abstraction (needs timed/unblocking try_wait() implementation)
- * \li \link sttcl::TimeDuration\endlink<> as abstraction for a &quot;real&quot;-time duration</LI>
+ * \li \link sttcl::SttclThread\endlink as thread adapter
+ * \li \link sttcl::SttclMutex\endlink as mutex abstraction (needs timed/unblocking try_lock() implementation)
+ * \li \link sttcl::SttclSemaphore\endlink as semaphore abstraction (needs timed/unblocking try_wait() implementation)
+ * \li \link sttcl::TimeDuration\endlink as abstraction for a &quot;real&quot;-time duration</LI>
  *
  * \subsection sttcl_config_sec_1 4.1 Configuring STTCL builtin concurrency implementations
  *
