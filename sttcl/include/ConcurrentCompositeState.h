@@ -169,7 +169,6 @@ protected:
      * Broadcasts an event to all contained regions.
      * @param context A pointer to the containing state machine.
      * @param eventHandler The event handler to call inside all region threads.
-     * @param eventArgs The event arguments to pass to the event handler calls.
      */
 	void broadcastEvent(Context* context,OuterEventHandler eventHandler)
 	{

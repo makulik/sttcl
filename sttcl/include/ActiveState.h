@@ -70,8 +70,8 @@ struct ThreadFunctionHelper
 	 * @tparam ActiveStateMutexType The mutex implementation class, default
 	 *                              is \link sttcl::internal::SttclMutex\endlink<>.
 	 * @param args A pointer to the thread args. Implicitely \em args is casted to
-	 *             \link sttcl::ActiveState\endlink<> and the
-	 *             \link sttcl::ActiveState::runDoAction\endlink method is called.
+	 *             \link sttcl::ActiveState\endlink and the
+	 *             sttcl::ActiveState::doAction method is called.
 	 */
 	template
 	< class StateImpl
@@ -115,7 +115,7 @@ struct ThreadFunctionHelper
  * @tparam IState Specifies the internal interface of state implementations for the state
  *                machine.
  * @tparam StateThreadType The thread implementation class, default is
- *                         \link sttcl::SttclThread\endlink<>.
+ *                         \link sttcl::internal::SttclThread\endlink<>.
  * @tparam EndDoActionSemaphoreType The semaphore implementation class, default is
  *                                  \link sttcl::internal::SttclSemaphore\endlink<>.
  * @tparam TimeDurationType The time duration representation implementation class, default
