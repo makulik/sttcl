@@ -65,7 +65,10 @@
  * \ref usage_sec_1 "2.1 Declare a StateMachine implementation"\n
  * \ref usage_sec_2 "2.2 Declare State implementations"\n
  * \ref usage_sec_3 "2.3 Implement the state machine interfaces"\n
- * \ref usage_sec_4 "2.4 Implement state actions and transitions"\n
+ * \ref usage_sec_4 "2.4 STTCL 'implementation hooks'"\n
+ * \ref usage_sec_5 "2.5 Implement state actions and transitions"\n
+ * \ref usage_sec_6 "2.6 Composite states"\n
+ * \ref usage_sec_7 "2.7 Composite state regions, forks/joins"\n
  *
  * \subsection usage_sec_1 2.1 Declare a StateMachine implementation
  *
@@ -174,7 +177,7 @@ void MyState::entryImpl(MyStateMachine* context)
  *
  * \subsection usage_sec_6 2.6 Composite states
  *
- * To implement composite states you can use the sttcl::CompositeState<> template base class. This class inherits both,
+ * To implement composite states you can use the sttcl::CompositeState template base class. This class inherits both,
  * the sttcl::State<> and the sttcl::StateMachine<> template base classes. The first is used to specify a valid state
  * signature to embed the composite state implementation in an outer state machine implementation. The second specifies
  * the sub state machine of the composite state and specifies the signature for any inner states of the composite state
@@ -187,19 +190,19 @@ void MyState::entryImpl(MyStateMachine* context)
  * \subsection usage_sec_7 2.7 Composite state regions, forks/joins
  *
  * If you need orthogonal state machine regions or transition paths that go out a fork pseudo state you can use the
- * sttcl::ConcurrentCompositeState<> and sttcl::Region<> template base classes. The sttcl::ConcurrentCompositeState<>
- * base class needs to be initialized with a fixed array of pointers to sttcl::Region<> implementation instances in
- * the constructor. The overall number of regions contained in the sttcl::ConcurrentCompositeState<> implementation
+ * sttcl::ConcurrentCompositeState<> and sttcl::Region template base classes. The sttcl::ConcurrentCompositeState
+ * base class needs to be initialized with a fixed array of pointers to sttcl::Region implementation instances in
+ * the constructor. The overall number of regions contained in the sttcl::ConcurrentCompositeState implementation
  * is specified using the \em NumOfRegions template parameter.
- * To broadcast events to the contained regions the state interface methods used for the sttcl::ConcurrentCompositeState<>
+ * To broadcast events to the contained regions the state interface methods used for the sttcl::ConcurrentCompositeState
  * implementation need to have a special signature as follows:
  * \code
 typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*);
 \endcode
  *
- * Each of the sttcl::Region<> implementations runs its own internal thread, where state transitions of the contained
+ * Each of the sttcl::Region implementations runs its own internal thread, where state transitions of the contained
  * states (including initialization, finalization and history behavior) are performed.
- * That event method calls to the sttcl::ConcurrentCompositeState<> \em IInnerState interface methods can be dispatched to these region threads, all
+ * That event method calls to the sttcl::ConcurrentCompositeState \em IInnerState interface methods can be dispatched to these region threads, all
  * of the inner state interfaces methods need to have a special signature as follows:
  * \code
 typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState>*);
@@ -217,8 +220,8 @@ typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<State
  * Its your responsibility to create an appropriate hierarchy of event argument classes and to decode these for particular
  * event methods if necessary. The EventArgsPtr template needs to be instantiated with a common base class in this case.
  *
- * Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState<> implementation providing a region for
- * each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState<>
+ * Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState implementation providing a region for
+ * each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState
  * class.
  */
 
