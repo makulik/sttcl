@@ -1,5 +1,5 @@
 /**
- * @file SttclDoxygen.hpp
+ * @file SttclDoxygen.h
  *
  * Copyright (c) 2012, Guenther Makulik All rights reserved.
  *
@@ -239,10 +239,10 @@ typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<State
  * \ref sttcl_config_sec_2 "4.2 Providing custom implementations for concurrency"\n
  *
  * STTCL uses wrapper classes (adapters) for the environment specific implementations of the above mentioned capabilities:
- * \li \link sttcl::SttclThread\endlink as thread adapter
- * \li \link sttcl::SttclMutex\endlink as mutex abstraction (needs timed/unblocking try_lock() implementation)
- * \li \link sttcl::SttclSemaphore\endlink as semaphore abstraction (needs timed/unblocking try_wait() implementation)
- * \li \link sttcl::TimeDuration\endlink as abstraction for a &quot;real&quot;-time duration</LI>
+ * \li \link sttcl::internal::SttclThread\endlink as thread adapter
+ * \li \link sttcl::internal::SttclMutex\endlink as mutex abstraction (needs timed/unblocking try_lock() implementation)
+ * \li \link sttcl::internal::SttclSemaphore\endlink as semaphore abstraction (needs timed/unblocking try_wait() implementation)
+ * \li \link sttcl::TimeDuration\endlink as abstraction for a &quot;real&quot;-time duration
  *
  * \subsection sttcl_config_sec_1 4.1 Configuring STTCL builtin concurrency implementations
  *

@@ -181,7 +181,6 @@ public:
      * Called to handle an event broadcasted from the containing ConcurrentCompositeState instance.
      * @param context A pointer to the containing state machine.
      * @param eventHandler The event handler to call inside the region thread.
-     * @param eventArgs The event arguments to pass to the event handler call.
      */
 	virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler) = 0;
 
@@ -421,6 +420,7 @@ struct DispatchedEvent
 
 	/**
 	 * Constructor for struct DispatchedEvent, constructs an inner state event.
+	 * @param argContext
 	 * @param argState
 	 * @param argHandler
 	 * @param argEventArgs
@@ -531,6 +531,7 @@ public:
 	/**
 	 * Dispatches an event to a state inside the region. The state event handler will be executed
 	 * within the context of the internal region thread.
+	 * @param context
 	 * @param state
 	 * @param eventHandler
 	 * @param eventArgs
@@ -599,9 +600,9 @@ public:
 	/**
 	 * Dispatches an event to a state inside the region. The state event handler will be executed
 	 * within the context of the internal region thread.
+	 * @param context
 	 * @param state
 	 * @param eventHandler
-	 * @param eventArgs
 	 */
 	void dispatchEvent(StateMachineImpl* context,IInnerState* state, InnerEventHandler eventHandler)
 	{
@@ -795,7 +796,7 @@ private:
  * @tparam TimeDurationType The time duration representation implementation class, default
  *                          is \link sttcl::TimeDuration\endlink<>.
  * @tparam MutexType The mutex implementation class, default
- *                              is \link sttcl::SttclMutex\endlink<>.
+ *                              is \link sttcl::internal::SttclMutex\endlink<>.
  * @tparam EventQueueType The event queue implementation class, default
  *                        is \link sttcl::internal::SttclEventQueue\endlink<>
  */
