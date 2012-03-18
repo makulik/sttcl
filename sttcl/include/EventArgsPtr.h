@@ -46,6 +46,14 @@ template
 >
 class EventArgsPtr
 {
+public:
+	/**
+	 * The signature of a release function.
+	 * @param ptr The pointee to release (delete).
+	 */
+	typedef void (*ReleaseFunc)(T* ptr);
+
+private:
 	struct PtrRef
 	{
 		T* pointee;
@@ -67,11 +75,6 @@ class EventArgsPtr
 	};
 
 public:
-	/**
-	 * The signature of a release function.
-	 * @param ptr The pointee to release (delete).
-	 */
-	typedef void (*ReleaseFunc)(T* ptr);
 
 	/**
 	 * Default constructor for class EventArgsPtr.
