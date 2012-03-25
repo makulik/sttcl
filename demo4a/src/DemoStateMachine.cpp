@@ -30,7 +30,7 @@ void DemoStateMachine::event1()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent1(this,sttcl::EventArgsPtr<EventArgsClass>(new EventArgsClass("event1 args")));
+		currentState->handleEvent1(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event1 args")));
 	}
 }
 
@@ -40,7 +40,7 @@ void DemoStateMachine::event2()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent2(this,sttcl::EventArgsPtr<EventArgsClass>(new EventArgsClass("event2 args")));
+		currentState->handleEvent2(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event2 args")));
 	}
 }
 
@@ -50,7 +50,7 @@ void DemoStateMachine::event3()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent3(this,sttcl::EventArgsPtr<EventArgsClass>(new EventArgsClass("event3 args")));
+		currentState->handleEvent3(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event3 args")));
 	}
 }
 
@@ -60,7 +60,7 @@ void DemoStateMachine::event4()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent4(this,sttcl::EventArgsPtr<EventArgsClass>(new EventArgsClass("event4 args")));
+		currentState->handleEvent4(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event4 args")));
 	}
 }
 

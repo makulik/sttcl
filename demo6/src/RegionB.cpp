@@ -16,6 +16,7 @@ using namespace Application;
 
 RegionB::RegionB(RegionContainerClass* regionContainer)
 : RegionB::RegionBaseClass(regionContainer,sttcl::TimeDuration<>(0,0,10))
+//: RegionB::RegionBaseClass()
 {
 }
 

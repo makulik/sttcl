@@ -15,15 +15,18 @@
 namespace Application
 {
 
+class ConcurrentStateMachine;
 class DemoStateMachine;
+
 class RegionA
 : public sttcl::Region<RegionA,DemoStateMachine,IConcurrentStateMachine>
 {
 public:
 	typedef sttcl::Region<RegionA,DemoStateMachine,IConcurrentStateMachine> RegionBaseClass;
 	typedef typename RegionBaseClass::InnerStateClass InnerStateClass;
+	typedef ConcurrentStateMachine RegionContainerClass;
 
-	RegionA();
+	RegionA(RegionContainerClass* regionContainer);
 	virtual ~RegionA();
 
 	virtual void handleEvent1(IDemoState::Context* context);

@@ -13,6 +13,7 @@
 #include "IConcurrentStatemachine.h"
 #include "RegionA.h"
 #include "RegionB.h"
+#include "IDemoState.h"
 
 namespace Application
 {
@@ -22,6 +23,8 @@ class ConcurrentStateMachine
 {
 public:
 	typedef sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass> CompositeStateBase;
+	typedef typename CompositeStateBase::RegionsBaseType RegionsBasetype;
+
 
 	ConcurrentStateMachine(DemoStateMachine* context);
 	virtual ~ConcurrentStateMachine();
@@ -44,6 +47,8 @@ public:
      * @param finalizeSubStateMachines Indicates to finalize any sub state machines.
      */
     void finalizeImpl(bool finalizeSubStateMachines);
+
+    void regionCompletedImpl(RegionsBasetype* region);
 
 private:
 	RegionA regionA;

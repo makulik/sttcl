@@ -209,16 +209,16 @@ typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<State
 \endcode
  *
  * You can also specify a type or class to pass additional event arguments to the dispatched event methods. These event
- * arguments need to be managed using a thread safe smart pointer that is provided with the sttcl::EventArgsPtr template
+ * arguments need to be managed using a thread safe smart pointer that is provided with the sttcl::RefCountPtr template
  * class. If you specify the \em EventArgs template parameter to the sttcl::ConcurrentCompositeState and matching
  * sttcl::Region classes, the outer and inner state interface method signatures must look like this:
  * \code
-typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*,EventArgsPtr<EventArgs>);
-typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState>*,EventArgsPtr<EventArgs>);
+typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*,RefCountPtr<EventArgs>);
+typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState>*,RefCountPtr<EventArgs>);
 \endcode
  *
  * Its your responsibility to create an appropriate hierarchy of event argument classes and to decode these for particular
- * event methods if necessary. The EventArgsPtr template needs to be instantiated with a common base class in this case.
+ * event methods if necessary. The RefCountPtr template needs to be instantiated with a common base class in this case.
  *
  * Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState implementation providing a region for
  * each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState
