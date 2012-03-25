@@ -16,6 +16,7 @@ namespace Application
 {
 
 class DemoStateMachine;
+class ConcurrentStateMachine;
 
 class RegionB
 : public sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine,EventArgsClass>
@@ -23,14 +24,15 @@ class RegionB
 public:
 	typedef sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine,EventArgsClass> RegionBaseClass;
 	typedef typename RegionBaseClass::InnerStateClass InnerStateClass;
+	typedef ConcurrentStateMachine RegionContainerClass;
 
-	RegionB();
+	RegionB(RegionContainerClass* regionContainer);
 	virtual ~RegionB();
 
-	virtual void handleEvent1(IDemoState::Context* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent2(IDemoState::Context* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent3(IDemoState::Context* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent4(IDemoState::Context* context,sttcl::EventArgsPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent1(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent2(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent3(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent4(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
 
 	void entryImpl(DemoStateMachine* context);
 	void exitImpl(DemoStateMachine* context);

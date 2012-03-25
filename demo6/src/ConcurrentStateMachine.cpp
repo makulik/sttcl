@@ -85,3 +85,10 @@ void ConcurrentStateMachine::endDoImpl(DemoStateMachine* context)
 	cout << "ConcurrentStateMachine, ending do action ..." << endl;
 	CompositeStateBase::endDoImpl(context);
 }
+
+void ConcurrentStateMachine::regionCompletedImpl(RegionsBasetype* region)
+{
+	cout << "ConcurrentStateMachine, region completed ..." << endl;
+	CompositeStateBase::regionCompletedImpl(region);
+}
+

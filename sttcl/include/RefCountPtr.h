@@ -1,5 +1,5 @@
 /**
- * @file EventArgsPtr.h
+ * @file RefCountPtr.h
  *
  * Copyright (c) 2012, Guenther Makulik All rights reserved.
  *
@@ -22,8 +22,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef EVENTARGSPTR_H_
-#define EVENTARGSPTR_H_
+#ifndef REFCOUNTPTR_H_
+#define REFCOUNTPTR_H_
 
 #include "SttclMutex.h"
 #include <stdlib.h>
@@ -38,14 +38,22 @@ namespace sttcl
  * with void pointees, since void event argument types won't be instantiated in the
  * event dispatch interfaces.
  * @tparam T The event arguments type.
- * @tparam MutexType The mutex type used to guarantee thread safety of the EventArgsPtr instances.
+ * @tparam MutexType The mutex type used to guarantee thread safety of the RefCountPtr instances.
  */
 template
 < typename T
 , class MutexType = internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL>
 >
-class EventArgsPtr
+class RefCountPtr
 {
+public:
+	/**
+	 * The signature of a release function.
+	 * @param ptr The pointee to release (delete).
+	 */
+	typedef void (*ReleaseFunc)(T* ptr);
+
+private:
 	struct PtrRef
 	{
 		T* pointee;
@@ -67,26 +75,21 @@ class EventArgsPtr
 	};
 
 public:
-	/**
-	 * The signature of a release function.
-	 * @param ptr The pointee to release (delete).
-	 */
-	typedef void (*ReleaseFunc)(T* ptr);
 
 	/**
-	 * Default constructor for class EventArgsPtr.
+	 * Default constructor for class RefCountPtr.
 	 */
-	EventArgsPtr()
+	RefCountPtr()
 	: ptrRef(0)
 	{
 	}
 
 	/**
-	 * Constructor for class EventArgsPtr.
+	 * Constructor for class RefCountPtr.
 	 * @param argPointee The pointee to manage.
 	 * @param argReleaseFunc An optional alternate release function for the pointee.
 	 */
-	EventArgsPtr(T* argPointee, ReleaseFunc argReleaseFunc = EventArgsPtr<T,MutexType>::release)
+	RefCountPtr(T* argPointee, ReleaseFunc argReleaseFunc = RefCountPtr<T,MutexType>::release)
 	: ptrRef(0)
 	{
 		if(argPointee)
@@ -96,20 +99,20 @@ public:
 		}
 	}
 	/**
-	 * Copy constructor for class EventArgsPtr. This operation will increment the reference
+	 * Copy constructor for class RefCountPtr. This operation will increment the reference
 	 * count of the copied pointee.
 	 * @param rhs The other instance to copy from.
 	 */
-	EventArgsPtr(const EventArgsPtr<T,MutexType>& rhs)
+	RefCountPtr(const RefCountPtr<T,MutexType>& rhs)
 	: ptrRef(rhs.ptrRef)
 	{
 		incrementRefCount();
 	}
 	/**
-	 * Destructor for class EventArgsPtr. This operation will decrement the reference count
+	 * Destructor for class RefCountPtr. This operation will decrement the reference count
 	 * of the managed pointee.
 	 */
-	~EventArgsPtr()
+	~RefCountPtr()
 	{
 		decrementRefCount();
 	}
@@ -120,7 +123,7 @@ public:
 	 * @param rhs The other instance to copy from.
 	 * @return A reference to this instance.
 	 */
-	EventArgsPtr& operator=(const EventArgsPtr& rhs)
+	RefCountPtr& operator=(const RefCountPtr& rhs)
 	{
 		if(ptrRef && ptrRef != rhs.ptrRef)
 		{
@@ -191,7 +194,7 @@ template
 < typename T
 , class MutexType
 >
-void EventArgsPtr<T,MutexType>::incrementRefCount()
+void RefCountPtr<T,MutexType>::incrementRefCount()
 {
 	if(ptrRef)
 	{
@@ -204,7 +207,7 @@ template
 < typename T
 , class MutexType
 >
-void EventArgsPtr<T,MutexType>::decrementRefCount()
+void RefCountPtr<T,MutexType>::decrementRefCount()
 {
 	if(ptrRef)
 	{
@@ -233,16 +236,16 @@ template
 < typename T
 , class MutexType
 >
-void EventArgsPtr<T,MutexType>::release(T* ptr)
+void RefCountPtr<T,MutexType>::release(T* ptr)
 {
 	delete ptr;
 }
 
 /**
- * Specializes EventArgsPtr for void.
+ * Specializes RefCountPtr for void.
  */
 template<class MutexType>
-class EventArgsPtr<void,MutexType>
+class RefCountPtr<void,MutexType>
 {
 	static void release(void* ptr)
 	{
@@ -251,4 +254,4 @@ class EventArgsPtr<void,MutexType>
 };
 
 } /* namespace sttcl */
-#endif /* EVENTARGSPTR_H_ */
+#endif /* REFCOUNTPTR_H_ */

@@ -1,12 +1,12 @@
 /*
- * RegionA.h
+ * RegionB.h
  *
  *  Created on: 31.12.2011
  *      Author: Admin
  */
 
-#ifndef REGIONA_H_
-#define REGIONA_H_
+#ifndef REGIONB_H_
+#define REGIONB_H_
 
 #include "Region.h"
 #include "IConcurrentStatemachine.h"
@@ -15,19 +15,19 @@
 namespace Application
 {
 
-class DemoStateMachine;
 class ConcurrentStateMachine;
+class DemoStateMachine;
 
-class RegionA
-: public sttcl::Region<RegionA,DemoStateMachine,IConcurrentStateMachine,EventArgsClass>
+class RegionB
+: public sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine,EventArgsClass>
 {
 public:
-	typedef sttcl::Region<RegionA,DemoStateMachine,IConcurrentStateMachine,EventArgsClass> RegionBaseClass;
+	typedef sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine,EventArgsClass> RegionBaseClass;
 	typedef typename RegionBaseClass::InnerStateClass InnerStateClass;
 	typedef ConcurrentStateMachine RegionContainerClass;
 
-	RegionA(RegionContainerClass* regionContainer);
-	virtual ~RegionA();
+	RegionB(RegionContainerClass* regionContainer);
+	virtual ~RegionB();
 
 	virtual void handleEvent1(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
 	virtual void handleEvent2(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
@@ -44,8 +44,9 @@ public:
     void finalizeImpl(bool finalizeSubStateMachines);
 
 	InnerStateClass* getInitialStateImpl() const;
+
 };
 
 }
 
-#endif /* REGIONA_H_ */
+#endif /* REGIONB_H_ */

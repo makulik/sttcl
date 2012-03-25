@@ -254,9 +254,9 @@ public:
      */
     inline void endDoImpl(Context* context)
     {
+		endDoActionSemaphore.post();
     	if(!StateThreadType::isSelf(stateThread))
     	{
-    		endDoActionSemaphore.post();
     		if(isDoActionRunning())
     		{
     			static_cast<StateImpl*>(this)->unblockDoActionImpl();

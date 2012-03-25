@@ -34,6 +34,32 @@ namespace internal
 {
 
 template
+< class StateMachineImpl
+, class IInnerState
+, class EventArgs
+>
+class RegionContainer
+{
+public:
+	/**
+	 * The region base class type.
+	 */
+	typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseType;
+
+	/**
+	 * Destructor for the RegionContainer class.
+	 */
+	virtual ~RegionContainer() {}
+
+    /**
+     * Called when a region sub state machine completes (finalizes).
+     * @param state A pointer to the finalized region.
+     */
+    virtual void regionCompleted(RegionBaseType* region) = 0;
+};
+
+
+template
 < class CompositeStateImpl
 , class StateMachineImpl
 , class IInnerState
@@ -65,7 +91,7 @@ protected:
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+	typedef typename EventArgsSelectorType::RefCountPtr RefCountPtr;
 
 	/**
      * The outer event handler signature.
@@ -88,7 +114,7 @@ protected:
      * @param eventHandler The event handler to call inside all region threads.
      * @param eventArgs The event arguments to pass to the event handler calls.
      */
-	void broadcastEvent(Context* context,OuterEventHandler eventHandler,EventArgsPtr eventArgs)
+	void broadcastEvent(Context* context,OuterEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		bool allRegionsFinalized = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
@@ -148,7 +174,7 @@ protected:
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+	typedef typename EventArgsSelectorType::RefCountPtr RefCountPtr;
 
 	/**
      * The outer event handler signature.
@@ -267,6 +293,7 @@ class ConcurrentCompositeStateBase
   	  , EventArgs
   	  , StateBaseImpl
   	  >::RESULT_TYPE
+, public RegionContainer<StateMachineImpl,IInnerState,EventArgs>
 {
 public:
 	typedef ConcurrentCompositeBaseImplementationSelector
@@ -310,7 +337,7 @@ public:
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+	typedef typename EventArgsSelectorType::RefCountPtr RefCountPtr;
 
 	/**
      * The outer event handler signature.
@@ -327,8 +354,9 @@ public:
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
 	 *                   state.
 	 */
-    ConcurrentCompositeStateBase(const RegionsArray& argRegions)
+    ConcurrentCompositeStateBase(Context* argContextStateMachine, const RegionsArray& argRegions)
 	: BaseClassType(argRegions)
+	, contextStateMachine(argContextStateMachine)
 	{
 	}
 
@@ -452,6 +480,34 @@ public:
 			}
 		}
     }
+
+    /**
+     * Called when a containe region is completed (finalized).
+     * @param region The finalized region.
+     */
+    void regionCompletedImpl(RegionBaseType* region)
+    {
+    	bool allRegionsCompleted = true;
+		for(unsigned int i = 0; i < NumOfRegions; ++i)
+		{
+			if(!BaseClassType::regions[i]->isRegionFinalized())
+			{
+				allRegionsCompleted = false;
+			}
+		}
+		if(allRegionsCompleted)
+		{
+			contextStateMachine->subStateMachineCompleted(this);
+		}
+    }
+
+private:
+    virtual void regionCompleted(RegionBaseType* region)
+    {
+    	static_cast<CompositeStateImpl*>(this)->regionCompletedImpl(region);
+    }
+
+    Context* contextStateMachine;
 };
 
 }
@@ -494,8 +550,8 @@ public:
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
 	 *                   state.
 	 */
-	ConcurrentCompositeState(const RegionsArray& argRegions)
-	: ConcurrenCompositeStateBaseType(argRegions)
+	ConcurrentCompositeState(StateMachineImpl* context, const RegionsArray& argRegions)
+	: ConcurrenCompositeStateBaseType(context,argRegions)
 	{
 	}
 

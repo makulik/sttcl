@@ -13,7 +13,9 @@ using namespace Application;
 using Application::ConcurrentStateMachine;
 
 ConcurrentStateMachine::ConcurrentStateMachine(DemoStateMachine* argContext)
-: CompositeStateBase(regions)
+: CompositeStateBase(argContext,regions)
+, regionA(this)
+, regionB(this)
 , context(argContext)
 {
 	regions[0] = &regionA;

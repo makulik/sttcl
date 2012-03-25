@@ -78,6 +78,7 @@ public:
 
 	/**
 	 * Runs the thread method within a separate thread.
+	 * @param args Arguments passed to the thread method.
 	 */
 	bool run(void* args)
 	{
@@ -113,7 +114,7 @@ public:
 private:
 	SttclThread(); //!< Forbidden
 	SttclThread(const SttclThread<Impl>& rhs); //!< Forbidden
-	SttclThread& operator=(const SttclThread<Impl>& rhs); //!< Forbidden
+	SttclThread<Impl>& operator=(const SttclThread<Impl>& rhs); //!< Forbidden
 };
 }
 }

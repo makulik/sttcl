@@ -6,6 +6,7 @@
  */
 
 #include "../DemoStateMachine.h"
+#include "../ConcurrentStateMachine.h"
 #include "../RegionB.h"
 #include "../DemoStateB1.h"
 #include <iostream>
@@ -13,8 +14,8 @@
 using namespace std;
 using namespace Application;
 
-RegionB::RegionB()
-: RegionB::RegionBaseClass(sttcl::TimeDuration<>(0,0,10))
+RegionB::RegionB(RegionContainerClass* regionContainer)
+: RegionB::RegionBaseClass(regionContainer,sttcl::TimeDuration<>(0,0,10))
 {
 }
 

@@ -15,8 +15,8 @@
 namespace Application
 {
 
-class DemoStateMachine;
 class ConcurrentStateMachine;
+class DemoStateMachine;
 
 class RegionA
 : public sttcl::Region<RegionA,DemoStateMachine,IConcurrentStateMachine,EventArgsClass>

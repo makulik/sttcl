@@ -27,13 +27,10 @@
 
 #include "CompositeState.h"
 #include "ActiveState.h"
-#include "EventArgsPtr.h"
+#include "RefCountPtr.h"
 #include "SttclMutex.h"
 #include "SttclSemaphore.h"
-#if !defined(STTCL_USE_STL)
-#else
-#include <deque>
-#endif
+#include "EventQueue.h"
 
 namespace sttcl
 {
@@ -64,7 +61,7 @@ struct EventArgsInterfaceSelector
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef sttcl::EventArgsPtr<EventArgsType> EventArgsPtr;
+	typedef sttcl::RefCountPtr<EventArgsType> RefCountPtr;
 
 	/**
 	 * The region event handler signature. All methods of the \em StateInterface interface
@@ -72,7 +69,7 @@ struct EventArgsInterfaceSelector
 	 * machine. The second parameter is a pointer to additional event arguments as specified
 	 * with the EventArgs template parameter.
 	 */
-    typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*,EventArgsPtr);
+    typedef void (StateInterface::*OuterEventHandler)(StateMachineImpl*,RefCountPtr);
 
     /**
 	 * The inner states event handler signature. All methods of the \em IInnerState interface
@@ -81,7 +78,7 @@ struct EventArgsInterfaceSelector
 	 * inner state. The third parameter is a pointer to additional event arguments as specified
 	 * with the EventArgs template parameter.
 	 */
-    typedef void (IInnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState,EventArgsType>*,EventArgsPtr);
+    typedef void (IInnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<StateMachineImpl,StateInterface,IInnerState,EventArgsType>*,RefCountPtr);
 };
 
 /**
@@ -97,7 +94,7 @@ struct EventArgsInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,vo
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef sttcl::EventArgsPtr<void> EventArgsPtr;
+	typedef sttcl::RefCountPtr<void> RefCountPtr;
 
 	/**
 	 * The region event handler signature. All methods of the \em StateInterface interface
@@ -129,7 +126,7 @@ public:
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+	typedef typename EventArgsSelectorType::RefCountPtr RefCountPtr;
 
 	/**
      * The outer event handler signature.
@@ -147,7 +144,7 @@ public:
      * @param eventHandler The event handler to call inside the region thread.
      * @param eventArgs The event arguments to pass to the event handler call.
      */
-	virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, EventArgsPtr eventArgs) = 0;
+	virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, RefCountPtr eventArgs) = 0;
 
 	virtual ~IRegionEventDispatchWithArgs() {}
 };
@@ -165,7 +162,7 @@ public:
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+	typedef typename EventArgsSelectorType::RefCountPtr RefCountPtr;
 
 	/**
      * The outer event handler signature.
@@ -231,6 +228,14 @@ template
 , class EventArgs
 >
 struct DispatchedEvent;
+
+template
+< class StateMachineImpl
+, class IInnerState
+, class EventArgs
+>
+class RegionContainer;
+
 }
 
 /**
@@ -249,12 +254,14 @@ class RegionBase
 : public sttcl::internal::RegionEventDispatchInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,EventArgs>::RESULT_TYPE
 {
 public:
+	typedef sttcl::internal::RegionContainer<StateMachineImpl,IInnerState,EventArgs> RegionContainerClass;
+
 	typedef typename sttcl::internal::RegionEventDispatchInterfaceSelector<StateMachineImpl,StateInterface,IInnerState,EventArgs>::RESULT_TYPE RegionEventDispatchInterface;
 
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename RegionEventDispatchInterface::EventArgsPtr EventArgsPtr;
+	typedef typename RegionEventDispatchInterface::RefCountPtr RefCountPtr;
 
     typedef typename RegionEventDispatchInterface::OuterEventHandler OuterEventHandler;
 
@@ -269,7 +276,8 @@ public:
 	/**
 	 * Constructor for class RegionBase.
 	 */
-	RegionBase()
+	RegionBase(RegionContainerClass* argRegionContainer)
+    : regionContainer(argRegionContainer)
 	{
 	}
 
@@ -351,6 +359,8 @@ public:
 
 	virtual void queueDispatchedEvent(const sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>& dispatchedEvent) = 0;
 
+protected:
+	RegionContainerClass* regionContainer;
 };
 
 namespace internal
@@ -376,7 +386,7 @@ struct DispatchedEvent
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+	typedef typename EventArgsSelectorType::RefCountPtr RefCountPtr;
 
 	/**
      * The outer event handler signature.
@@ -408,7 +418,7 @@ struct DispatchedEvent
 	/**
 	 * The event arguments pointer to pass to the dispatched inner event handler method.
 	 */
-	mutable EventArgsPtr eventArgs;
+	mutable RefCountPtr eventArgs;
 	/**
 	 * The dispatched internal event handler method.
 	 */
@@ -425,7 +435,7 @@ struct DispatchedEvent
 	 * @param argHandler
 	 * @param argEventArgs
 	 */
-	DispatchedEvent(StateMachineImpl* argContext, IInnerState* argState, InnerEventHandler argHandler, EventArgsPtr argEventArgs)
+	DispatchedEvent(StateMachineImpl* argContext, IInnerState* argState, InnerEventHandler argHandler, RefCountPtr argEventArgs)
 	: context(argContext)
 	, state(argState)
 	, handler(argHandler)
@@ -511,19 +521,21 @@ public:
      */
     typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseClass;
 
-    typedef typename RegionBaseClass::EventArgsPtr EventArgsPtr;
+    typedef typename RegionBaseClass::RegionContainerClass RegionContainerClass;
+
+    typedef typename RegionBaseClass::RefCountPtr RefCountPtr;
 
     typedef typename RegionBaseClass::InnerEventHandler InnerEventHandler;
 
     typedef typename RegionBaseClass::OuterEventHandler OuterEventHandler;
 
-    RegionBaseImplWithEventArgs()
-    : RegionBaseClass()
+    RegionBaseImplWithEventArgs(RegionContainerClass* argRegionContainer)
+    : RegionBaseClass(argRegionContainer)
     {}
 
     virtual ~RegionBaseImplWithEventArgs() {}
 
-    virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, EventArgsPtr eventArgs)
+    virtual void handleBroadcastedEvent(StateMachineImpl* context,OuterEventHandler eventHandler, RefCountPtr eventArgs)
 	{
 		(static_cast<Implementation*>(this)->*eventHandler)(context,eventArgs);
 	}
@@ -536,7 +548,7 @@ public:
 	 * @param eventHandler
 	 * @param eventArgs
 	 */
-	void dispatchEvent(StateMachineImpl* context,IInnerState* state, InnerEventHandler eventHandler, EventArgsPtr eventArgs)
+	void dispatchEvent(StateMachineImpl* context,IInnerState* state, InnerEventHandler eventHandler, RefCountPtr eventArgs)
 	{
 		if(state)
 		{
@@ -545,7 +557,7 @@ public:
 	}
 
 protected:
-	void callDispatchedEventHandler(StateMachineImpl* context,IInnerState* state,InnerEventHandler eventHandler,EventArgsPtr eventArgs)
+	void callDispatchedEventHandler(StateMachineImpl* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		(state->*eventHandler)(context,this,eventArgs);
 	}
@@ -580,14 +592,16 @@ public:
      */
     typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseClass;
 
-    typedef typename RegionBaseClass::EventArgsPtr EventArgsPtr;
+    typedef typename RegionBaseClass::RegionContainerClass RegionContainerClass;
+
+    typedef typename RegionBaseClass::RefCountPtr RefCountPtr;
 
     typedef typename RegionBaseClass::InnerEventHandler InnerEventHandler;
 
     typedef typename RegionBaseClass::OuterEventHandler OuterEventHandler;
 
-    RegionBaseImplWithoutEventArgs()
-    : RegionBaseClass()
+    RegionBaseImplWithoutEventArgs(RegionContainerClass* argRegionContainer)
+    : RegionBaseClass(argRegionContainer)
     {}
 
     virtual ~RegionBaseImplWithoutEventArgs() {}
@@ -608,12 +622,12 @@ public:
 	{
 		if(state)
 		{
-			queueDispatchedEvent(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,void>(context,state,eventHandler,EventArgsPtr()));
+			queueDispatchedEvent(sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,void>(context,state,eventHandler,RefCountPtr()));
 		}
 	}
 
 protected:
-	void callDispatchedEventHandler(StateMachineImpl* context,IInnerState* state,InnerEventHandler eventHandler,EventArgsPtr eventArgs)
+	void callDispatchedEventHandler(StateMachineImpl* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		(state->*eventHandler)(context,this);
 	}
@@ -660,123 +674,6 @@ struct RegionBaseImplementationSelector<RegionImpl,StateMachineImpl,StateInterfa
 };
 }
 
-#if !defined(STTCL_USE_STL)
-#else
-#if !defined(STTCL_DEFAULT_DEQUEIMPL)
-#define STTCL_DEFAULT_DEQUEIMPL(__T__) std::deque<__T__>
-#endif
-#endif
-
-#if !defined(STTCL_DEFAULT_DEQUEIMPL)
-#error "You need to define a default double ended queue implementation for sttcl"
-#endif
-
-namespace internal
-{
-/**
- * Represents a queue used to dispatch events to a waiting thread.
- */
-template
-< class T
-, class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
-, class SemaphoreType = sttcl::internal::SttclSemaphore<STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType>
-, class MutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
-, class InnerQueueType = STTCL_DEFAULT_DEQUEIMPL(T)
-// , class InnerQueueType = std::deque<T>
->
-class SttclEventQueue
-{
-public:
-	/**
-	 * Constructor for class SttclEventQueue.
-	 */
-	SttclEventQueue()
-	: eventQueue()
-	{
-	}
-	/**
-	 * Destructor for class SttclEventQueue.
-	 */
-	~SttclEventQueue()
-	{
-	}
-
-	/**
-	 * Puts an event to the end of the queue and signals that events are available.
-	 * @param event
-	 */
-	void push_back(const T& event)
-	{
-		{ sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
-			eventQueue.push_back(event);
-		}
-		eventsAvailable.post();
-	}
-
-	/**
-	 * Gets the event from the front of the queue.
-	 * @return
-	 */
-	T& front()
-	{
-		sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
-		return eventQueue.front();
-	}
-
-	/**
-	 * Removes the item at front of the queue.
-	 */
-	void pop_front()
-	{
-		sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
-		eventQueue.pop_front();
-	}
-
-	/**
-	 * Blocks the calling thread until events are available in the queue.
-	 * @return \c true if events are available, \c false if an error occurred.
-	 */
-	bool waitForEvents()
-	{
-		return eventsAvailable.wait() && !empty();
-	}
-
-	/**
-	 * Blocks the calling thread until events are available in the queue.
-	 * @return \c true if events are available, \c false if no events were available within the
-	 *         specified timeout.
-	 */
-	bool waitForEvents(TimeDurationType timeout)
-	{
-		return eventsAvailable.try_wait(timeout) && !empty();
-	}
-
-	/**
-	 * Indicates that the event queue is empty.
-	 * @return \c true if the queue is empty, \c false otherwise.
-	 */
-	bool empty()
-	{
-		sttcl::internal::AutoLocker<MutexType> lock(eventQueueMutex);
-		return eventQueue.empty();
-	}
-
-	/**
-	 * Unblocks waiting threads.
-	 */
-	void unblock()
-	{
-		eventsAvailable.post();
-	}
-private:
-	InnerQueueType eventQueue;
-	MutexType eventQueueMutex;
-	SemaphoreType eventsAvailable;
-};
-
-
-}
-
 /**
  * Represents a region within a matching ConcurrentCompositeState implementation.
  * @tparam RegionImpl The inheriting class.
@@ -798,7 +695,7 @@ private:
  * @tparam MutexType The mutex implementation class, default
  *                              is \link sttcl::internal::SttclMutex\endlink<>.
  * @tparam EventQueueType The event queue implementation class, default
- *                        is \link sttcl::internal::SttclEventQueue\endlink<>
+ *                        is \link sttcl::EventQueue\endlink<>
  */
 template
 < class RegionImpl
@@ -810,7 +707,7 @@ template
 , class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
 , class SemaphoreType = sttcl::internal::SttclSemaphore<STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType>
 , class MutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
-, class EventQueueType = sttcl::internal::SttclEventQueue<sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>,TimeDurationType,SemaphoreType,MutexType>
+, class EventQueueType = sttcl::EventQueue<sttcl::internal::DispatchedEvent<StateMachineImpl,IInnerState,EventArgs>,TimeDurationType,SemaphoreType,MutexType>
 >
 class Region
 : public CompositeState
@@ -898,12 +795,14 @@ public:
 
     typedef typename SelectedRegionBase::RegionBaseClass RegionBaseClass;
 
+    typedef typename SelectedRegionBase::RegionBaseClass::RegionContainerClass RegionContainerClass;
+
     typedef sttcl::internal::EventArgsInterfaceSelector<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> EventArgsSelectorType;
 
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
 	 */
-	typedef typename EventArgsSelectorType::EventArgsPtr EventArgsPtr;
+	typedef typename EventArgsSelectorType::RefCountPtr RefCountPtr;
 
 	/**
      * The outer event handler signature.
@@ -974,8 +873,9 @@ public:
      * Constructor for class Region.
      * @param argDoActionFrequency
      */
-	Region(TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
+	Region(RegionContainerClass* argRegionContainer, TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
 	: CompositeStateBase(&SelfClassType::regionDoAction)
+	, SelectedRegionBase(argRegionContainer)
 	, eventDispatchQueue()
 	, checkEventFrequency(argDoActionFrequency)
 	{
@@ -1193,6 +1093,7 @@ private:
 	virtual void internalFinalize(bool recursive)
 	{
     	static_cast<StateMachineImplementationBase*>(this)->finalizeImpl(recursive);
+		RegionBaseClass::regionContainer->regionCompleted(this);
 	}
 
 	void unblockEventsAvailable()
