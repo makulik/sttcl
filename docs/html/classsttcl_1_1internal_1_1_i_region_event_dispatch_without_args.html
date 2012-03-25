@@ -116,11 +116,11 @@ Public Types</h2></td></tr>
 <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, <br class="typebreak"/>
 EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#ad14500043c86d2edfea622c6bb78949e">EventArgsSelectorType</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#afe576ad907b814048a3ac7ae84db5b0c">EventArgsSelectorType::EventArgsPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a99c59f27b284bba28ba16acdaaa79bb1">EventArgsPtr</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a2d3fb503de01490cc4956500fa83ebb0">EventArgsSelectorType::RefCountPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#aca138aaff004cee1de457d9dca6c1102">RefCountPtr</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">OuterEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a69527da2cb50db4315569c53ed679594">EventArgsSelectorType::OuterEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">OuterEventHandler</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#adc790183b311487085ab0af4dfec8903">InnerEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a32b4a4711183beefc906ec58d4ef585a">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#adc790183b311487085ab0af4dfec8903">InnerEventHandler</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#ab836f2eb9045d01964a06e5dd586dd6d">handleBroadcastedEvent</a> (StateMachineImpl *context, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">OuterEventHandler</a> eventHandler)=0</td></tr>
@@ -130,22 +130,6 @@ Public Member Functions</h2></td></tr>
  class sttcl::internal::IRegionEventDispatchWithoutArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</h3>
 
 <hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a99c59f27b284bba28ba16acdaaa79bb1"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithoutArgs::EventArgsPtr" ref="a99c59f27b284bba28ba16acdaaa79bb1" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#afe576ad907b814048a3ac7ae84db5b0c">EventArgsSelectorType::EventArgsPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a99c59f27b284bba28ba16acdaaa79bb1">EventArgsPtr</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>The pointer type used to pass event arguments to the contained regions inner states. </p>
-
-</div>
-</div>
 <a class="anchor" id="ad14500043c86d2edfea622c6bb78949e"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithoutArgs::EventArgsSelectorType" ref="ad14500043c86d2edfea622c6bb78949e" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -168,7 +152,7 @@ template&lt;class StateMachineImpl , class StateInterface , class IInnerState , 
 template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#adc790183b311487085ab0af4dfec8903">InnerEventHandler</a></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a32b4a4711183beefc906ec58d4ef585a">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#adc790183b311487085ab0af4dfec8903">InnerEventHandler</a></td>
         </tr>
       </table>
 </div>
@@ -184,12 +168,28 @@ template&lt;class StateMachineImpl , class StateInterface , class IInnerState , 
 template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">OuterEventHandler</a></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a69527da2cb50db4315569c53ed679594">EventArgsSelectorType::OuterEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a9b67ff674e2262a52747feb7d268b97f">OuterEventHandler</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>The outer event handler signature. </p>
+
+</div>
+</div>
+<a class="anchor" id="aca138aaff004cee1de457d9dca6c1102"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithoutArgs::RefCountPtr" ref="aca138aaff004cee1de457d9dca6c1102" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a2d3fb503de01490cc4956500fa83ebb0">EventArgsSelectorType::RefCountPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#aca138aaff004cee1de457d9dca6c1102">RefCountPtr</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The pointer type used to pass event arguments to the contained regions inner states. </p>
 
 </div>
 </div>
@@ -275,7 +275,7 @@ template&lt;class StateMachineImpl , class StateInterface , class IInnerState , 
 </div>
 
 
-    <li class="footer">Generated on Fri Mar 16 2012 22:40:13 for sttcl by
+    <li class="footer">Generated on Sun Mar 25 2012 16:25:00 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

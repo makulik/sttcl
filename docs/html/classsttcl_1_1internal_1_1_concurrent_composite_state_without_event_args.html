@@ -123,11 +123,11 @@ IInnerState, void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a cla
 StateMachineImpl::StateInterface, <br class="typebreak"/>
 IInnerState, void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a3ffa810371b159f5a73dc77a3e482fd7">EventArgsSelectorType</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#afe576ad907b814048a3ac7ae84db5b0c">EventArgsSelectorType::EventArgsPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a4fe71b61ef6b632d0df3b4b81c827e3f">EventArgsPtr</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a2d3fb503de01490cc4956500fa83ebb0">EventArgsSelectorType::RefCountPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a61a04530be975c5af753f5c44a38f3ea">RefCountPtr</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#adeadd1acc7dff0b97a6e741e7c026cc0">OuterEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a69527da2cb50db4315569c53ed679594">EventArgsSelectorType::OuterEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#adeadd1acc7dff0b97a6e741e7c026cc0">OuterEventHandler</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a4124ed2f89c5543aa70c281ba6735699">InnerEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a32b4a4711183beefc906ec58d4ef585a">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a4124ed2f89c5543aa70c281ba6735699">InnerEventHandler</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a15c8991731d04a1809bcb476f8c0f23d">ConcurrentCompositeStateWithoutEventArgs</a> (const <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#af17aaa993f43d040ddbbd78cf5b38990">RegionsArray</a> &amp;argRegions)</td></tr>
@@ -156,22 +156,6 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 
 </div>
 </div>
-<a class="anchor" id="a4fe71b61ef6b632d0df3b4b81c827e3f"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithoutEventArgs::EventArgsPtr" ref="a4fe71b61ef6b632d0df3b4b81c827e3f" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class StateBaseImpl &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#afe576ad907b814048a3ac7ae84db5b0c">EventArgsSelectorType::EventArgsPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a4fe71b61ef6b632d0df3b4b81c827e3f">EventArgsPtr</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>The pointer type used to pass event arguments to the contained regions inner states. </p>
-
-</div>
-</div>
 <a class="anchor" id="a3ffa810371b159f5a73dc77a3e482fd7"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithoutEventArgs::EventArgsSelectorType" ref="a3ffa810371b159f5a73dc77a3e482fd7" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +178,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a4124ed2f89c5543aa70c281ba6735699">InnerEventHandler</a><code> [protected]</code></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a32b4a4711183beefc906ec58d4ef585a">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a4124ed2f89c5543aa70c281ba6735699">InnerEventHandler</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -210,12 +194,28 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#adeadd1acc7dff0b97a6e741e7c026cc0">OuterEventHandler</a><code> [protected]</code></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a69527da2cb50db4315569c53ed679594">EventArgsSelectorType::OuterEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#adeadd1acc7dff0b97a6e741e7c026cc0">OuterEventHandler</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>The outer event handler signature. </p>
+
+</div>
+</div>
+<a class="anchor" id="a61a04530be975c5af753f5c44a38f3ea"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithoutEventArgs::RefCountPtr" ref="a61a04530be975c5af753f5c44a38f3ea" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class StateBaseImpl &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a2d3fb503de01490cc4956500fa83ebb0">EventArgsSelectorType::RefCountPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a61a04530be975c5af753f5c44a38f3ea">RefCountPtr</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The pointer type used to pass event arguments to the contained regions inner states. </p>
 
 </div>
 </div>
@@ -350,7 +350,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 </div>
 
 
-    <li class="footer">Generated on Fri Mar 16 2012 22:40:13 for sttcl by
+    <li class="footer">Generated on Sun Mar 25 2012 16:25:00 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
