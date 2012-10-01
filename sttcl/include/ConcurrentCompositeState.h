@@ -34,7 +34,7 @@ namespace internal
 {
 
 template
-< class StateMachineImpl
+< class CompositeStateImpl
 , class IInnerState
 , class EventArgs
 >
@@ -44,7 +44,7 @@ public:
 	/**
 	 * The region base class type.
 	 */
-	typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseType;
+	typedef RegionBase<CompositeStateImpl,IInnerState,EventArgs> RegionBaseType;
 
 	/**
 	 * Destructor for the RegionContainer class.
@@ -70,12 +70,18 @@ template
 class ConcurrentCompositeStateWithEventArgs
 : public StateBaseImpl
 {
+public:
+//    void changeStateImpl(StateMachineImpl* context,StateBaseImpl* newState)
+//    {
+//    	StateBaseImpl::changeState(context,newState);
+//    }
+
 protected:
 
 	/**
 	 * The region base class type.
 	 */
-	typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> RegionBaseType;
+	typedef RegionBase<CompositeStateImpl,IInnerState,EventArgs> RegionBaseType;
 	/**
 	 * The type of the regions array.
 	 */
@@ -86,7 +92,7 @@ protected:
      */
 	typedef StateMachineImpl Context;
 
-	typedef sttcl::internal::EventArgsInterfaceSelector<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> EventArgsSelectorType;
+	typedef sttcl::internal::EventArgsInterfaceSelector<CompositeStateImpl,IInnerState,EventArgs> EventArgsSelectorType;
 
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
@@ -96,7 +102,7 @@ protected:
 	/**
      * The outer event handler signature.
      */
-	typedef typename EventArgsSelectorType::OuterEventHandler OuterEventHandler;
+	typedef typename StateMachineImpl::StateInterface OuterEventHandler;
 
 	/**
      * The inner event handler signature.
@@ -114,7 +120,7 @@ protected:
      * @param eventHandler The event handler to call inside all region threads.
      * @param eventArgs The event arguments to pass to the event handler calls.
      */
-	void broadcastEvent(Context* context,OuterEventHandler eventHandler,RefCountPtr eventArgs)
+	void broadcastEvent(Context* context,InnerEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		bool allRegionsFinalized = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
@@ -122,13 +128,13 @@ protected:
 			if(!regions[i]->isRegionFinalized())
 			{
 				allRegionsFinalized = false;
-				regions[i]->handleBroadcastedEvent(context,eventHandler,eventArgs);
+				regions[i]->handleBroadcastedEvent(static_cast<CompositeStateImpl*>(this),eventHandler,eventArgs);
 			}
 			else
 			{
 				if(regions[i]->isRegionThreadRunning())
 				{
-					regions[i]->endDoRegion(context);
+					regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
 					regions[i]->joinRegionThread();
 				}
 			}
@@ -138,8 +144,9 @@ protected:
 			context->subStateMachineCompleted(this);
 		}
 	}
-protected:
+
 	const RegionsArray& regions;
+
 };
 
 template
@@ -152,12 +159,17 @@ template
 class ConcurrentCompositeStateWithoutEventArgs
 : public StateBaseImpl
 {
+public:
+//    void changeStateImpl(StateMachineImpl* context,StateBaseImpl* newState)
+//    {
+//    	StateBaseImpl::changeState(context,newState);
+//    }
 protected:
 
 	/**
 	 * The region base class type.
 	 */
-	typedef RegionBase<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,void> RegionBaseType;
+	typedef RegionBase<CompositeStateImpl,IInnerState,void> RegionBaseType;
 
 	/**
 	 * The type of the regions array.
@@ -167,9 +179,9 @@ protected:
     /**
      * The context state machine implementation type.
      */
-	typedef StateMachineImpl Context;
+	typedef CompositeStateImpl Context;
 
-	typedef sttcl::internal::EventArgsInterfaceSelector<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,void> EventArgsSelectorType;
+	typedef sttcl::internal::EventArgsInterfaceSelector<CompositeStateImpl,IInnerState,void> EventArgsSelectorType;
 
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
@@ -196,7 +208,7 @@ protected:
      * @param context A pointer to the containing state machine.
      * @param eventHandler The event handler to call inside all region threads.
      */
-	void broadcastEvent(Context* context,OuterEventHandler eventHandler)
+	void broadcastEvent(Context* context,InnerEventHandler eventHandler)
 	{
 		bool allRegionsFinalized = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
@@ -204,7 +216,7 @@ protected:
 			if(!regions[i]->isRegionFinalized())
 			{
 				allRegionsFinalized = false;
-				regions[i]->handleBroadcastedEvent(context,eventHandler);
+				regions[i]->handleBroadcastedEvent(this,eventHandler);
 			}
 			else
 			{
@@ -221,7 +233,6 @@ protected:
 		}
 	}
 
-protected:
 	const RegionsArray& regions;
 };
 
@@ -293,7 +304,7 @@ class ConcurrentCompositeStateBase
   	  , EventArgs
   	  , StateBaseImpl
   	  >::RESULT_TYPE
-, public RegionContainer<StateMachineImpl,IInnerState,EventArgs>
+, public RegionContainer<CompositeStateImpl,IInnerState,EventArgs>
 {
 public:
 	typedef ConcurrentCompositeBaseImplementationSelector
@@ -332,7 +343,7 @@ public:
      */
 	typedef StateMachineImpl Context;
 
-	typedef sttcl::internal::EventArgsInterfaceSelector<StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs> EventArgsSelectorType;
+	typedef sttcl::internal::EventArgsInterfaceSelector<StateMachineImpl,IInnerState,EventArgs> EventArgsSelectorType;
 
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
@@ -342,7 +353,7 @@ public:
 	/**
      * The outer event handler signature.
      */
-	typedef typename EventArgsSelectorType::OuterEventHandler OuterEventHandler;
+	typedef typename StateMachineImpl::StateInterface OuterEventHandler;
 
 	/**
      * The inner event handler signature.
@@ -379,7 +390,7 @@ public:
 		{
 			if(BaseClassType::regions[i]->isRegionInitialized())
 			{
-				BaseClassType::regions[i]->enterRegion(context);
+				BaseClassType::regions[i]->enterRegion(static_cast<CompositeStateImpl*>(this));
 			}
 		}
     }
@@ -395,7 +406,7 @@ public:
 		{
 			if(BaseClassType::regions[i]->isRegionInitialized())
 			{
-				BaseClassType::regions[i]->exitRegion(context);
+				BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
 			}
 		}
     	StateImplementationBase::exitImpl(context);
@@ -437,6 +448,11 @@ public:
     	return result;
     }
 
+    void finalize(bool finalizeSubStateMachines = true)
+    {
+    	finalizeImpl(finalizeSubStateMachines);
+    }
+
     /**
      * The default finalizeSubStateMachines() implementation.
      * @param recursive Indicates to finalize nested sub state machines recursively.
@@ -461,7 +477,7 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			BaseClassType::regions[i]->startDoRegion(context);
+			BaseClassType::regions[i]->startDoRegion(static_cast<CompositeStateImpl*>(this));
 		}
     }
 
@@ -476,7 +492,7 @@ public:
 		{
 			if(BaseClassType::regions[i]->isRegionThreadRunning())
 			{
-				BaseClassType::regions[i]->endDoRegion(context);
+				BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
 			}
 		}
     }
@@ -501,6 +517,11 @@ public:
 		}
     }
 
+    virtual Context* getContextStateMachine()
+    {
+    	return contextStateMachine;
+    }
+
 private:
     virtual void regionCompleted(RegionBaseType* region)
     {
@@ -512,6 +533,16 @@ private:
 
 }
 
+/**
+ * Represents the base class for an orthogonal composite state implementation.
+ * @tparam CompositeStateImpl The implementing class.
+ * @tparam StateMachineImpl The containing state machine class.
+ * @tparam IInnerState The inner state's interface class type.
+ * @tparam NumOfRegions The number of orthogonal state regions (default is 1).
+ * @tparam EventArgs The dispatch event arguments type (default is void).
+ * @tparam StateBaseImpl The State class base implementation (default is
+ *         State<CompositeStateImpl,StateMachineImpl,StateMachineImpl::StateInterface>)
+ */
 template
 < class CompositeStateImpl
 , class StateMachineImpl
@@ -540,11 +571,15 @@ public:
 	  	  	  , StateBaseImpl
 	  	  	  > ConcurrenCompositeStateBaseType;
 
+	typedef StateMachineImpl StateMachineClass;
+
 	typedef typename ConcurrenCompositeStateBaseType::RegionBaseType RegionsBaseType;
 
 	typedef typename ConcurrenCompositeStateBaseType::RegionsArray RegionsArray;
 
 	typedef IInnerState InnerStateInterface;
+
+	typedef typename StateMachineImpl::StateInterface OuterStateInterface;
 	/**
 	 * Constructor for class ConcurrentCompositeState.
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
@@ -561,6 +596,17 @@ public:
 	virtual ~ConcurrentCompositeState()
 	{
 	}
+
+    /**
+     * Changes \em context state machine to another sibling state.
+     * @param context A pointer to the containing state machine.
+     * @param newState A pointer to the sibling state to change to.
+     */
+    void changeState(StateMachineImpl* context,sttcl::StateBase<StateMachineImpl,OuterStateInterface>* newState)
+    {
+    	static_cast<CompositeStateImpl*>(this)->changeStateImpl(context,newState);
+    }
+
 };
 }
 

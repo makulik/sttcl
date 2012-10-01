@@ -290,7 +290,7 @@ protected:
     {
     	StateBaseClass* result = static_cast<const Context*>(this)->getInitialStateImpl();
     	assert(result);
-        return result;
+    	return result;
     }
 
     // Default implementations

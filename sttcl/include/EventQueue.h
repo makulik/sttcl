@@ -33,8 +33,7 @@
 #include <deque>
 #endif
 
-#if !defined(STTCL_USE_STL)
-#else
+#if defined(STTCL_USE_STL)
 #if !defined(STTCL_DEFAULT_DEQUEIMPL)
 #define STTCL_DEFAULT_DEQUEIMPL(__T__) std::deque<__T__>
 #endif
@@ -44,8 +43,12 @@
 #error "You need to define a default double ended queue implementation for sttcl"
 #endif
 
+#define EAIGNORE_BEGIN
+#define EAIGNORE_END
+
 namespace sttcl
 {
+
 /**
  * Represents a queue used to dispatch events to a waiting thread.
  */
@@ -54,7 +57,9 @@ template
 , class TimeDurationType = TimeDuration<STTCL_DEFAULT_TIMEDURATIONIMPL>
 , class SemaphoreType = sttcl::internal::SttclSemaphore<STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType>
 , class MutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
+EAIGNORE_BEGIN
 , class InnerQueueType = STTCL_DEFAULT_DEQUEIMPL(T)
+EAIGNORE_END
 >
 class EventQueue
 {

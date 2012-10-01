@@ -31,37 +31,38 @@
 namespace sttcl
 {
 
-/**
- * Represents a smart pointer class for STTCL dispatched event arguments.
- * The implementation provides a simple reference counting smart pointer.
- * There's also a specialization for \em T as void, but it will never be really used
- * with void pointees, since void event argument types won't be instantiated in the
- * event dispatch interfaces.
- * @tparam T The event arguments type.
- * @tparam MutexType The mutex type used to guarantee thread safety of the RefCountPtr instances.
- */
-template
-< typename T
-, class MutexType = internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL>
->
-class RefCountPtr
+namespace internal
+{
+template<class MutexType>
+class RefCountPtrBase
 {
 public:
 	/**
 	 * The signature of a release function.
 	 * @param ptr The pointee to release (delete).
 	 */
-	typedef void (*ReleaseFunc)(T* ptr);
+	typedef void (*ReleaseFunc)(void* ptr);
 
-private:
+	/**
+	 * Destructor for class RefCountPtrBase. This operation will decrement the reference count
+	 * of the managed pointee.
+	 */
+	~RefCountPtrBase()
+	{
+		decrementRefCount();
+	}
+
+
+protected:
+
 	struct PtrRef
 	{
-		T* pointee;
+		void* pointee;
 		int refcount;
 		MutexType refcountMutex;
 		ReleaseFunc releaseFunc;
 
-		PtrRef(T* argPointee, ReleaseFunc argReleaseFunc)
+		PtrRef(void* argPointee, ReleaseFunc argReleaseFunc)
 		: pointee(argPointee)
 		, refcount(0)
 		, refcountMutex()
@@ -74,22 +75,18 @@ private:
 		}
 	};
 
-public:
-
 	/**
-	 * Default constructor for class RefCountPtr.
+	 * Default constructor for class RefCountPtrBase.
 	 */
-	RefCountPtr()
+	RefCountPtrBase()
 	: ptrRef(0)
 	{
 	}
 
 	/**
-	 * Constructor for class RefCountPtr.
-	 * @param argPointee The pointee to manage.
-	 * @param argReleaseFunc An optional alternate release function for the pointee.
+	 * Default constructor for class RefCountPtrBase.
 	 */
-	RefCountPtr(T* argPointee, ReleaseFunc argReleaseFunc = RefCountPtr<T,MutexType>::release)
+	RefCountPtrBase(void* argPointee, ReleaseFunc argReleaseFunc)
 	: ptrRef(0)
 	{
 		if(argPointee)
@@ -98,32 +95,18 @@ public:
 			incrementRefCount();
 		}
 	}
+
 	/**
-	 * Copy constructor for class RefCountPtr. This operation will increment the reference
-	 * count of the copied pointee.
+	 * Copy constructor for class RefCountPtrBase.
 	 * @param rhs The other instance to copy from.
 	 */
-	RefCountPtr(const RefCountPtr<T,MutexType>& rhs)
+	RefCountPtrBase(const RefCountPtrBase& rhs)
 	: ptrRef(rhs.ptrRef)
 	{
 		incrementRefCount();
 	}
-	/**
-	 * Destructor for class RefCountPtr. This operation will decrement the reference count
-	 * of the managed pointee.
-	 */
-	~RefCountPtr()
-	{
-		decrementRefCount();
-	}
 
-	/**
-	 * Assignment operator. This operation will increment the reference count of the copied
-	 * pointee.
-	 * @param rhs The other instance to copy from.
-	 * @return A reference to this instance.
-	 */
-	RefCountPtr& operator=(const RefCountPtr& rhs)
+	RefCountPtrBase& operator=(const RefCountPtrBase<MutexType>& rhs)
 	{
 		if(ptrRef && ptrRef != rhs.ptrRef)
 		{
@@ -134,67 +117,16 @@ public:
 		return *this;
 	}
 
-	/**
-	 * Gets the pointee.
-	 * @return The pointee.
-	 */
-	T* get() const
-	{
-		if(ptrRef)
-		{
-			return ptrRef->pointee;
-		}
-		return 0;
-	}
-
-	/**
-	 * Gets the pointee.
-	 */
-	operator T*() const
-	{
-		return get();
-	}
-
-	/**
-	 * Arrow derefernce operator.
-	 * @return The pointee if available.
-	 */
-	T* operator->()
-	{
-		if(ptrRef)
-		{
-			return ptrRef->pointee;
-		}
-		return 0;
-	}
-
-	/**
-	 * Star dereference operator.
-	 * @return A reference to the pointee if available.
-	 */
-	template<typename U>
-	U& operator*()
-	{
-		static U dummy;
-		if(ptrRef)
-		{
-			return *reinterpret_cast<U*>(ptrRef->pointee);
-		}
-		return dummy;
-	}
-
-private:
 	void incrementRefCount();
 	void decrementRefCount();
-	static void release(T* ptr);
-	PtrRef* ptrRef;
+
+	mutable PtrRef* ptrRef;
 };
 
 template
-< typename T
-, class MutexType
+< class MutexType
 >
-void RefCountPtr<T,MutexType>::incrementRefCount()
+void RefCountPtrBase<MutexType>::incrementRefCount()
 {
 	if(ptrRef)
 	{
@@ -204,10 +136,9 @@ void RefCountPtr<T,MutexType>::incrementRefCount()
 }
 
 template
-< typename T
-, class MutexType
+< class MutexType
 >
-void RefCountPtr<T,MutexType>::decrementRefCount()
+void RefCountPtrBase<MutexType>::decrementRefCount()
 {
 	if(ptrRef)
 	{
@@ -231,14 +162,158 @@ void RefCountPtr<T,MutexType>::decrementRefCount()
 		}
 	}
 }
+}
+
+/**
+ * Represents a smart pointer class for STTCL dispatched event arguments.
+ * The implementation provides a simple reference counting smart pointer.
+ * There's also a specialization for \em T as void, but it will never be really used
+ * with void pointees, since void event argument types won't be instantiated in the
+ * event dispatch interfaces.
+ * @tparam T The event arguments type.
+ * @tparam MutexType The mutex type used to guarantee thread safety of the RefCountPtr instances.
+ */
+template
+< typename T
+, class MutexType = internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL>
+>
+class RefCountPtr
+: public sttcl::internal::RefCountPtrBase<MutexType>
+{
+public:
+
+	/**
+	 * Default constructor for class RefCountPtr.
+	 */
+	RefCountPtr()
+	: sttcl::internal::RefCountPtrBase<MutexType>()
+	{
+	}
+
+	/**
+	 * Constructor for class RefCountPtr.
+	 * @param argPointee The pointee to manage.
+	 * @param argReleaseFunc An optional alternate release function for the pointee.
+	 */
+	RefCountPtr(T* argPointee, typename sttcl::internal::RefCountPtrBase<MutexType>::ReleaseFunc argReleaseFunc = RefCountPtr<T,MutexType>::release)
+	: sttcl::internal::RefCountPtrBase<MutexType>(argPointee,argReleaseFunc)
+	{
+	}
+	/**
+	 * Copy constructor for class RefCountPtr. This operation will increment the reference
+	 * count of the copied pointee.
+	 * @param rhs The other instance to copy from.
+	 */
+	RefCountPtr(const RefCountPtr<T,MutexType>& rhs)
+	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
+	{
+	}
+
+	/**
+	 * Copy constructor for class RefCountPtr. This operation will increment the reference
+	 * count of the copied pointee.
+	 * @param rhs The other instance to copy from.
+	 */
+	template<typename U>
+	RefCountPtr(const RefCountPtr<U,MutexType>& rhs)
+	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
+	//: ptrRef(static_cast<const RefCountPtr<T,MutexType>::PtrRef*>(rhs.ptrRef))
+	//: ptrRef(rhs.ptrRef)
+	{
+	}
+
+	/**
+	 * Destructor for class RefCountPtr. This operation will decrement the reference count
+	 * of the managed pointee.
+	 */
+	~RefCountPtr()
+	{
+	}
+
+	/**
+	 * Assignment operator. This operation will increment the reference count of the copied
+	 * pointee.
+	 * @param rhs The other instance to copy from.
+	 * @return A reference to this instance.
+	 */
+	RefCountPtr& operator=(const RefCountPtr<T,MutexType>& rhs)
+	{
+		sttcl::internal::RefCountPtrBase<MutexType>::operator=(rhs);
+		return *this;
+	}
+
+	/**
+	 * Assignment operator. This operation will increment the reference count of the copied
+	 * pointee.
+	 * @param rhs The other instance to copy from.
+	 * @return A reference to this instance.
+	 */
+	template<typename U>
+	RefCountPtr& operator=(const RefCountPtr<U,MutexType>& rhs)
+	{
+		sttcl::internal::RefCountPtrBase<MutexType>::operator=(rhs);
+		return *this;
+	}
+
+	/**
+	 * Gets the pointee.
+	 * @return The pointee.
+	 */
+	T* get() const
+	{
+		if(sttcl::internal::RefCountPtrBase<MutexType>::ptrRef)
+		{
+			return sttcl::internal::RefCountPtrBase<MutexType>::ptrRef->pointee;
+		}
+		return 0;
+	}
+
+	/**
+	 * Gets the pointee.
+	 */
+	operator T*() const
+	{
+		return get();
+	}
+
+	/**
+	 * Arrow derefernce operator.
+	 * @return The pointee if available.
+	 */
+	T* operator->()
+	{
+		if(sttcl::internal::RefCountPtrBase<MutexType>::ptrRef)
+		{
+			return reinterpret_cast<T*>(sttcl::internal::RefCountPtrBase<MutexType>::ptrRef->pointee);
+		}
+		return 0;
+	}
+
+	/**
+	 * Star dereference operator.
+	 * @return A reference to the pointee if available.
+	 */
+	T& operator*()
+	{
+		static T dummy;
+		if(sttcl::internal::RefCountPtrBase<MutexType>::ptrRef)
+		{
+			return *(reinterpret_cast<T*>(sttcl::internal::RefCountPtrBase<MutexType>::ptrRef->pointee));
+		}
+		return dummy;
+	}
+
+private:
+	static void release(void* ptr);
+};
 
 template
 < typename T
 , class MutexType
 >
-void RefCountPtr<T,MutexType>::release(T* ptr)
+void RefCountPtr<T,MutexType>::release(void* ptr)
 {
-	delete ptr;
+	delete reinterpret_cast<T*>(ptr);
 }
 
 /**

@@ -61,35 +61,55 @@ void SttclPosixMutex::lock()
 
 bool SttclPosixMutex::try_lock(const TimeDuration<>& timeout)
 {
-	if(valid)
-	{
-		if(timeout == TimeDuration<>::Zero)
-		{
-			if(pthread_mutex_trylock(&mutexHandle) == 0)
-			{
-				return true;
-			}
-		}
-		else
-		{
+    if(valid)
+    {
+        if(timeout == TimeDuration<>::Zero)
+        {
+             if(pthread_mutex_trylock(&mutexHandle) == 0)
+             {
+                 return true;
+             }
+        }
+        else
+        {
+            struct timespec now;
+            clock_gettime(CLOCK_REALTIME,&now);
+            TimeDuration<> tnow(now);
+            tnow += timeout;
 #if defined(_POSIX_TIMEOUTS)
-			struct timespec now;
-			clock_gettime(CLOCK_REALTIME,&now);
-			TimeDuration<> tnow(now);
-			tnow += timeout;
-			struct timespec until;
-			until = tnow.getNativeValue();
-			if(pthread_mutex_timedlock(&mutexHandle,&until) == 0)
-			{
-				return true;
-			}
+            struct timespec until;
+            until = tnow.getNativeValue();
+            if(pthread_mutex_timedlock(&mutexHandle,&until) == 0)
+            {
+                return true;
+            }
 #else
-			if(pthread_mutex_trylock(&mutexHandle) == 0)
-			{
-				return true;
-			}
+            long milliseconds = timeout.milliseconds();
+            while(milliseconds > 0)
+            {
+                 if(pthread_mutex_trylock(&mutexHandle) == 0)
+                 {
+                     return true;
+                 }
+
+                 struct timespec interval;
+                 struct timespec remaining;
+                 interval.tv_sec = 0;
+                 interval.tv_nsec = 1000000;
+                 do
+                 {
+                     remaining.tv_sec = 0;
+                     remaining.tv_nsec = 0;
+                     if(nanosleep(&interval,&remaining) < 0)
+                     {
+                         interval.tv_sec = remaining.tv_sec;
+                         interval.tv_nsec = remaining.tv_nsec;
+                     }
+                } while(remaining.tv_sec > 0 || remaining.tv_nsec > 0);
+                --milliseconds;
+            }
 #endif
-		}
+        }
 	}
 	return false;
 }

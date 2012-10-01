@@ -133,7 +133,7 @@ template
 , class ActiveStateMutexType = internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL,TimeDurationType>
 >
 class ActiveState
-: public StateBase<StateMachineImpl,IState>
+: public sttcl::StateBase<StateMachineImpl,IState>
 {
 	friend class sttcl::internal::ThreadFunctionHelper;
 public:
