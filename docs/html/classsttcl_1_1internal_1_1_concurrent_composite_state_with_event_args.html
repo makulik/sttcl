@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -119,26 +119,24 @@ Inheritance diagram for sttcl::internal::ConcurrentCompositeStateWithEventArgs&l
 <tr><td colspan="2"><h2><a name="pro-types"></a>
 Protected Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a><br class="typebreak"/>
-&lt; StateMachineImpl, typename <br class="typebreak"/>
-StateMachineImpl::StateInterface, <br class="typebreak"/>
-IInnerState, EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a2a963b2f3e68eab1b32ca41e16b9e90e">RegionBaseType</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a2a963b2f3e68eab1b32ca41e16b9e90e">RegionBaseType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a> [NumOfRegions]</td></tr>
+&lt; CompositeStateImpl, <br class="typebreak"/>
+<a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#aec5ec05999559a67b07081beb00a20b5">RegionBaseType</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#aec5ec05999559a67b07081beb00a20b5">RegionBaseType</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a> [NumOfRegions]</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef StateMachineImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ac0ee533fc8957a6fb607f16de27e4cf4">Context</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">sttcl::internal::EventArgsInterfaceSelector</a><br class="typebreak"/>
-&lt; StateMachineImpl, typename <br class="typebreak"/>
-StateMachineImpl::StateInterface, <br class="typebreak"/>
-IInnerState, EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a973b66a21f44ee1cd798ef846a3e8c65">EventArgsSelectorType</a></td></tr>
+&lt; CompositeStateImpl, <br class="typebreak"/>
+<a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#aca9c9a6a695cccee4ec0cc5d4c3720e4">EventArgsSelectorType</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#afe576ad907b814048a3ac7ae84db5b0c">EventArgsSelectorType::EventArgsPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a67fbbcc0d68ce1c5e2711ea8ed0bbfd3">EventArgsPtr</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">EventArgsSelectorType::RefCountPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ada17324cef72c590090c26b1e4b07deb">RefCountPtr</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a8a3ef1305b53cad3ee0aa6922ae8bb3e">OuterEventHandler</a></td></tr>
+StateMachineImpl::StateInterface&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a0488c573a18b2f605a77940c563a7c78">OuterEventHandler</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4197cb01dcf913160e809d61a9ef1b48">InnerEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4197cb01dcf913160e809d61a9ef1b48">InnerEventHandler</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a15bb36a1ba10704759f53f1c63332882">ConcurrentCompositeStateWithEventArgs</a> (const <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a> &amp;argRegions)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a9c29f18d23b092de36ef89d70b8eaa76">broadcastEvent</a> (<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ac0ee533fc8957a6fb607f16de27e4cf4">Context</a> *context, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a8a3ef1305b53cad3ee0aa6922ae8bb3e">OuterEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a67fbbcc0d68ce1c5e2711ea8ed0bbfd3">EventArgsPtr</a> eventArgs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a9f7cf56f44bf4070a835e737e253fcc3">broadcastEvent</a> (<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ac0ee533fc8957a6fb607f16de27e4cf4">Context</a> *context, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4197cb01dcf913160e809d61a9ef1b48">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ada17324cef72c590090c26b1e4b07deb">RefCountPtr</a> eventArgs)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4b1955d392bf92fd521ae7f928fc2d50">regions</a></td></tr>
@@ -154,7 +152,7 @@ Protected Attributes</h2></td></tr>
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef StateMachineImpl <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ac0ee533fc8957a6fb607f16de27e4cf4">Context</a><code> [protected]</code></td>
+          <td class="memname">typedef StateMachineImpl <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ac0ee533fc8957a6fb607f16de27e4cf4">Context</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -165,38 +163,20 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 
 </div>
 </div>
-<a class="anchor" id="a67fbbcc0d68ce1c5e2711ea8ed0bbfd3"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::EventArgsPtr" ref="a67fbbcc0d68ce1c5e2711ea8ed0bbfd3" args="" -->
+<a class="anchor" id="aca9c9a6a695cccee4ec0cc5d4c3720e4"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::EventArgsSelectorType" ref="aca9c9a6a695cccee4ec0cc5d4c3720e4" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#afe576ad907b814048a3ac7ae84db5b0c">EventArgsSelectorType::EventArgsPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a67fbbcc0d68ce1c5e2711ea8ed0bbfd3">EventArgsPtr</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>The pointer type used to pass event arguments to the contained regions inner states. </p>
-
-<p>Reimplemented in <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a6b3929331c6df994bd1ff63541f69bca">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a973b66a21f44ee1cd798ef846a3e8c65"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::EventArgsSelectorType" ref="a973b66a21f44ee1cd798ef846a3e8c65" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">sttcl::internal::EventArgsInterfaceSelector</a>&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt; <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a973b66a21f44ee1cd798ef846a3e8c65">EventArgsSelectorType</a><code> [protected]</code></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">sttcl::internal::EventArgsInterfaceSelector</a>&lt;CompositeStateImpl,<a class="el" href="class_i_inner_state.html">IInnerState</a>,EventArgs&gt; <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#aca9c9a6a695cccee4ec0cc5d4c3720e4">EventArgsSelectorType</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a0e427fc8860d9de66e4da67198f225d6">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a66f2464b09e14014554ce03cf5fd380c">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>.</p>
 
 </div>
 </div>
@@ -207,7 +187,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a6c4f0afe3017651470cc05e6ad312cea">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4197cb01dcf913160e809d61a9ef1b48">InnerEventHandler</a><code> [protected]</code></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4197cb01dcf913160e809d61a9ef1b48">InnerEventHandler</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -218,32 +198,50 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 
 </div>
 </div>
-<a class="anchor" id="a8a3ef1305b53cad3ee0aa6922ae8bb3e"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::OuterEventHandler" ref="a8a3ef1305b53cad3ee0aa6922ae8bb3e" args="" -->
+<a class="anchor" id="a0488c573a18b2f605a77940c563a7c78"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::OuterEventHandler" ref="a0488c573a18b2f605a77940c563a7c78" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ab002a7308051d523f622083110b003de">EventArgsSelectorType::OuterEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a8a3ef1305b53cad3ee0aa6922ae8bb3e">OuterEventHandler</a><code> [protected]</code></td>
+          <td class="memname">typedef StateMachineImpl::StateInterface <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a0488c573a18b2f605a77940c563a7c78">OuterEventHandler</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>The outer event handler signature. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a3f8fba56ed809d7b0ae6b14252cdff00">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a9a0d02c47b7c2e1948542e2240dc9edd">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2a963b2f3e68eab1b32ca41e16b9e90e"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::RegionBaseType" ref="a2a963b2f3e68eab1b32ca41e16b9e90e" args="" -->
+<a class="anchor" id="ada17324cef72c590090c26b1e4b07deb"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::RefCountPtr" ref="ada17324cef72c590090c26b1e4b07deb" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;StateMachineImpl,typename StateMachineImpl::StateInterface,IInnerState,EventArgs&gt; <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a2a963b2f3e68eab1b32ca41e16b9e90e">RegionBaseType</a><code> [protected]</code></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">EventArgsSelectorType::RefCountPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ada17324cef72c590090c26b1e4b07deb">RefCountPtr</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>The pointer type used to pass event arguments to the contained regions inner states. </p>
+
+<p>Reimplemented in <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a7f4bc67dbc90add8693865431d0e41a9">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aec5ec05999559a67b07081beb00a20b5"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::RegionBaseType" ref="aec5ec05999559a67b07081beb00a20b5" args="" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1_region_base.html">RegionBase</a>&lt;CompositeStateImpl,<a class="el" href="class_i_inner_state.html">IInnerState</a>,EventArgs&gt; <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#aec5ec05999559a67b07081beb00a20b5">RegionBaseType</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -261,7 +259,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a2a963b2f3e68eab1b32ca41e16b9e90e">RegionBaseType</a>* <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a>[NumOfRegions]<code> [protected]</code></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#aec5ec05999559a67b07081beb00a20b5">RegionBaseType</a>* <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a>[NumOfRegions]<code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -280,7 +278,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">ConcurrentCompositeStateWithEventArgs</a> </td>
+          <td class="memname"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">ConcurrentCompositeStateWithEventArgs</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a> &amp;&#160;</td>
           <td class="paramname"><em>argRegions</em></td><td>)</td>
@@ -293,14 +291,14 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a9c29f18d23b092de36ef89d70b8eaa76"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::broadcastEvent" ref="a9c29f18d23b092de36ef89d70b8eaa76" args="(Context *context, OuterEventHandler eventHandler, EventArgsPtr eventArgs)" -->
+<a class="anchor" id="a9f7cf56f44bf4070a835e737e253fcc3"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateWithEventArgs::broadcastEvent" ref="a9f7cf56f44bf4070a835e737e253fcc3" args="(Context *context, InnerEventHandler eventHandler, RefCountPtr eventArgs)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::broadcastEvent </td>
+          <td class="memname">void <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::broadcastEvent </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ac0ee533fc8957a6fb607f16de27e4cf4">Context</a> *&#160;</td>
           <td class="paramname"><em>context</em>, </td>
@@ -308,13 +306,13 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a8a3ef1305b53cad3ee0aa6922ae8bb3e">OuterEventHandler</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4197cb01dcf913160e809d61a9ef1b48">InnerEventHandler</a>&#160;</td>
           <td class="paramname"><em>eventHandler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a67fbbcc0d68ce1c5e2711ea8ed0bbfd3">EventArgsPtr</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ada17324cef72c590090c26b1e4b07deb">RefCountPtr</a>&#160;</td>
           <td class="paramname"><em>eventArgs</em>&#160;</td>
         </tr>
         <tr>
@@ -345,7 +343,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a>&amp; <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4b1955d392bf92fd521ae7f928fc2d50">regions</a><code> [protected]</code></td>
+          <td class="memname">const <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">RegionsArray</a>&amp; <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4b1955d392bf92fd521ae7f928fc2d50">regions</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -368,7 +366,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -378,7 +376,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:37 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:40 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

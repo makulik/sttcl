@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -76,6 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div>
@@ -107,13 +108,14 @@ Include dependency graph for ConcurrentCompositeState.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_concurrent_composite_state_8h__incl.png" border="0" usemap="#sttcl_2include_2_concurrent_composite_state_8h" alt=""/></div>
 <map name="sttcl_2include_2_concurrent_composite_state_8h" id="sttcl_2include_2_concurrent_composite_state_8h">
-<area shape="rect" id="node3" href="_composite_state_8h.html" title="CompositeState.h" alt="" coords="7,155,133,181"/><area shape="rect" id="node7" href="_region_8h.html" title="Region.h" alt="" coords="178,80,251,107"/><area shape="rect" id="node5" href="_state_8h.html" title="State.h" alt="" coords="5,229,69,256"/><area shape="rect" id="node10" href="_active_state_8h.html" title="ActiveState.h" alt="" coords="209,155,308,181"/><area shape="rect" id="node15" href="_sttcl_mutex_8h.html" title="SttclMutex.h" alt="" coords="419,229,515,256"/><area shape="rect" id="node19" href="_sttcl_semaphore_8h.html" title="SttclSemaphore.h" alt="" coords="94,229,220,256"/><area shape="rect" id="node23" href="_event_args_ptr_8h.html" title="EventArgsPtr.h" alt="" coords="412,155,521,181"/><area shape="rect" id="node13" href="_sttcl_thread_8h.html" title="SttclThread.h" alt="" coords="296,229,395,256"/><area shape="rect" id="node17" href="_sttcl_time_8h.html" title="SttclTime.h" alt="" coords="215,304,303,331"/></map>
+<area shape="rect" id="node3" href="_composite_state_8h.html" title="CompositeState.h" alt="" coords="43,155,169,181"/><area shape="rect" id="node7" href="_region_8h.html" title="Region.h" alt="" coords="294,80,367,107"/><area shape="rect" id="node5" href="_state_8h.html" title="State.h" alt="" coords="5,229,69,256"/><area shape="rect" id="node10" href="_active_state_8h.html" title="ActiveState.h" alt="" coords="195,155,293,181"/><area shape="rect" id="node15" href="_sttcl_mutex_8h.html" title="SttclMutex.h" alt="" coords="469,229,565,256"/><area shape="rect" id="node19" href="_sttcl_semaphore_8h.html" title="SttclSemaphore.h" alt="" coords="267,229,393,256"/><area shape="rect" id="node23" href="_ref_count_ptr_8h.html" title="RefCountPtr.h" alt="" coords="547,155,649,181"/><area shape="rect" id="node30" href="_event_queue_8h.html" title="EventQueue.h" alt="" coords="369,155,471,181"/><area shape="rect" id="node13" href="_sttcl_thread_8h.html" title="SttclThread.h" alt="" coords="144,229,243,256"/><area shape="rect" id="node17" href="_sttcl_time_8h.html" title="SttclTime.h" alt="" coords="337,304,425,331"/></map>
 </div>
 </div>
 <p><a href="_concurrent_composite_state_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_container.html">sttcl::internal::RegionContainer&lt; CompositeStateImpl, IInnerState, EventArgs &gt;</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector.html">sttcl::internal::ConcurrentCompositeBaseImplementationSelector&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a></td></tr>
@@ -132,7 +134,7 @@ Namespaces</h2></td></tr>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Copyright (c) 2012, Guenther Makulik All rights reserved.</p>
 <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-<p>1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 3) Neither the name of the &lt;ORGANIZATION&gt; nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+<p>1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 2) Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 3) Neither the name STTCL nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. </p>
 </div></div>
 </div>
@@ -144,7 +146,7 @@ Namespaces</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -154,7 +156,7 @@ Namespaces</h2></td></tr>
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:35 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:38 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

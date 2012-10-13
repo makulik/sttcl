@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$structsttcl_1_1_composite_state_history_type.html" title="sttcl::CompositeStateHistoryType" alt="" coords="6,5,223,32"/>
+<area shape="rect" id="node1" href="$class_i_inner_state.html" title="IInnerState" alt="" coords="6,5,90,32"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; RegionContainerImpl, IInnerState \&gt;" alt="" coords="139,5,469,32"/>
 </map>

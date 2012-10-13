@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBaseImplWithEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1347,5,1986,32"/>
-<area shape="rect" id="node9" href="$classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBaseImplWithoutEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1339,56,1995,83"/>
-<area shape="rect" id="node2" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs\&gt;::RESULT_TYPE" alt="" coords="5,31,763,57"/>
-<area shape="rect" id="node7" href="$classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType \&gt;" alt="" coords="2043,5,3050,32"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBaseImplWithEventArgs\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1204,5,1769,32"/>
+<area shape="rect" id="node9" href="$classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBaseImplWithoutEventArgs\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1195,56,1778,83"/>
+<area shape="rect" id="node2" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt;RegionContainerImpl,IInnerState,EventArgs\&gt;::RESULT_TYPE" alt="" coords="5,31,693,57"/>
+<area shape="rect" id="node7" href="$classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1827,5,2274,32"/>
 </map>

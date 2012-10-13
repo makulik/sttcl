@@ -1,3 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt; StateMachineImpl, StateInterface, IInnerState, void \&gt;" alt="" coords="6,5,647,32"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html" title="sttcl::internal::ConcurrentCompositeStateWithEventArgs\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="5,5,931,32"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_base.html" title="sttcl::internal::ConcurrentCompositeStateBase\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="979,31,1848,57"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1_concurrent_composite_state.html" title="sttcl::ConcurrentCompositeState\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="1896,31,2685,57"/>
+<area shape="rect" id="node6" href="$classsttcl_1_1internal_1_1_region_container.html" title="sttcl::internal::RegionContainer\&lt; CompositeStateImpl, IInnerState, EventArgs \&gt;" alt="" coords="229,56,707,83"/>
 </map>

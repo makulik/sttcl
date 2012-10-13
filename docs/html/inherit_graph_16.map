@@ -1,3 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html" title="sttcl::internal::IRegionEventDispatchWithoutArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="5,5,661,32"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_ref_count_ptr_base.html" title="sttcl::internal::RefCountPtrBase\&lt; MutexType \&gt;" alt="" coords="5,5,299,32"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1_ref_count_ptr.html" title="sttcl::RefCountPtr\&lt; T, MutexType \&gt;" alt="" coords="347,5,575,32"/>
 </map>

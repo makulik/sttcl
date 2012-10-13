@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node2" href="$classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="811,5,1290,32"/>
-<area shape="rect" id="node4" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt;StateMachineImpl,StateInterface,IInnerState,EventArgs\&gt;::RESULT_TYPE" alt="" coords="5,5,763,32"/>
+<area shape="rect" id="node2" href="$classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="741,5,1147,32"/>
+<area shape="rect" id="node4" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt;RegionContainerImpl,IInnerState,EventArgs\&gt;::RESULT_TYPE" alt="" coords="5,5,693,32"/>
 </map>

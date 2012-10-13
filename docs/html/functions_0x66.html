@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -139,33 +139,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
 <li>finalize()
-: <a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a067ea03bc3e489c86b88ac7b9f431747">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
 </li>
 <li>finalizeImpl()
-: <a class="el" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#a01d48331353f28dd13689d4835307812">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a10b73d2434dc079c432fdbcc2d4f72ab">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#a7d3404641d4bf1f619af564341df04d9">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+, <a class="el" href="classsttcl_1_1_composite_state.html#a6566ef504b9ab16ee385f2806ee2bb68">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1_state_machine.html#a6a9ed40b1cc03820deb1ce26e79ed000">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a10b73d2434dc079c432fdbcc2d4f72ab">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 </li>
 <li>finalizeRegion()
-: <a class="el" href="classsttcl_1_1_region_base.html#a2e4940a6e44043721076c9fded8afe17">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#a2ae31e9ac49dcb88897775503610d16e">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>finalizeStateHistory()
-: <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446">sttcl::internal::CompositeStateBaseWithDeepHistory&lt; InnerStateType &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb">sttcl::internal::CompositeStateBase&lt; InnerStateType &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#a25dbc261f6bcf1e82d6e2387ab604446">sttcl::internal::CompositeStateBaseWithDeepHistory&lt; InnerStateType &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#acb741bb11768640166b3da9b6916323d">sttcl::internal::CompositeStateBaseWithShallowHistory&lt; InnerStateType &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base.html#a50c3d3737d19e38f784c0f0fdde0e1eb">sttcl::internal::CompositeStateBase&lt; InnerStateType &gt;</a>
 </li>
 <li>finalizeSubStateMachines()
 : <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#ae251a137fa259ef20fd326cebdb59a9d">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1_state_base.html#a12ec6cbdd4927ab279a0d07c0ed09aa0">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a>
+, <a class="el" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 </li>
 <li>finalizeSubStateMachinesImpl()
 : <a class="el" href="classsttcl_1_1_state.html#a1057dd539794089ceeb8c57d1269ccc2">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a>
 , <a class="el" href="classsttcl_1_1_active_state.html#a9c2b3f0e57fbd959cbc519e086fe8b3e">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType &gt;</a>
 </li>
 <li>front()
-: <a class="el" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html#a3bf2d23d760b387a9cc3de407590b3af">sttcl::internal::SttclEventQueue&lt; T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1_event_queue.html#a8c43756b815bec9c946d0157a65bbf6c">sttcl::EventQueue&lt; T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType &gt;</a>
 </li>
 </ul>
 </div>
@@ -177,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -187,7 +188,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:39 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

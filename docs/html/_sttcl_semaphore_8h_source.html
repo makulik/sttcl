@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -76,6 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div>
@@ -112,50 +113,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00036"></a>00036 <span class="preprocessor">#define STTCL_DEFAULT_SEMAPHOREIMPL sttcl::internal::boost_impl::SttclBoostSemaphore</span>
 <a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#elif defined(STTCL_CX11_SEMAPHORE) or defined(STTCL_CX11_IMPL)</span>
 <a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#include &quot;../C++11Threads/SttclCx11Semaphore.h&quot;</span>
-<a name="l00039"></a>00039 <span class="preprocessor">#define STTCL_DEFAULT_SEMAPHOREIMPL sttcl::internal::cx11_impl::SttclCx11Semaphore</span>
-<a name="l00040"></a>00040 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00041"></a>00041 <span class="preprocessor"></span>
-<a name="l00042"></a>00042 <span class="preprocessor">#ifndef STTCL_DEFAULT_SEMAPHOREIMPL</span>
-<a name="l00043"></a>00043 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default semaphore implementation for sttcl&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00039"></a>00039 <span class="preprocessor">#error &quot;Sorry! Builtin support for C++11 isn&#39;t available yet&quot;</span>
+<a name="l00040"></a>00040 <span class="preprocessor"></span><span class="preprocessor">#define STTCL_DEFAULT_SEMAPHOREIMPL sttcl::internal::cx11_impl::SttclCx11Semaphore</span>
+<a name="l00041"></a>00041 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00043"></a>00043 <span class="preprocessor">#ifndef STTCL_DEFAULT_SEMAPHOREIMPL</span>
+<a name="l00044"></a>00044 <span class="preprocessor"></span><span class="preprocessor">#error &quot;You need to define a default semaphore implementation for sttcl&quot;</span>
 <a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00046"></a>00046 <span class="preprocessor"></span>
-<a name="l00047"></a>00047 <span class="keyword">namespace </span>sttcl
-<a name="l00048"></a>00048 {
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="keyword">namespace </span>internal
-<a name="l00051"></a>00051 {
-<a name="l00058"></a>00058 <span class="keyword">template</span>
-<a name="l00059"></a>00059 &lt; <span class="keyword">class </span>Impl = STTCL_DEFAULT_SEMAPHOREIMPL
-<a name="l00060"></a>00060 , <span class="keyword">class </span>TimeDurationType = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;
-<a name="l00061"></a>00061 &gt;
-<a name="l00062"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">00062</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">SttclSemaphore</a>
-<a name="l00063"></a>00063 : <span class="keyword">public</span> Impl
-<a name="l00064"></a>00064 {
-<a name="l00065"></a>00065 <span class="keyword">public</span>:
-<a name="l00070"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">00070</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">SttclSemaphore</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initialCount = 0) : Impl(initialCount) {}
-<a name="l00074"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">00074</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">~SttclSemaphore</a>() {}
-<a name="l00075"></a>00075 
-<a name="l00079"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">00079</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">wait</a>()
-<a name="l00080"></a>00080         {
-<a name="l00081"></a>00081                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">wait</a>();
-<a name="l00082"></a>00082         }
-<a name="l00083"></a>00083 
-<a name="l00090"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">00090</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a>(<span class="keyword">const</span> TimeDurationType&amp; timeout = TimeDurationType::Zero)
-<a name="l00091"></a>00091         {
-<a name="l00092"></a>00092                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a>(timeout);
-<a name="l00093"></a>00093         }
-<a name="l00094"></a>00094 
-<a name="l00098"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">00098</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a>()
-<a name="l00099"></a>00099         {
-<a name="l00100"></a>00100                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a>();
-<a name="l00101"></a>00101         }
-<a name="l00102"></a>00102 };
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104 }
+<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00047"></a>00047 <span class="preprocessor"></span>
+<a name="l00048"></a>00048 <span class="keyword">namespace </span>sttcl
+<a name="l00049"></a>00049 {
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051 <span class="keyword">namespace </span>internal
+<a name="l00052"></a>00052 {
+<a name="l00059"></a>00059 <span class="keyword">template</span>
+<a name="l00060"></a>00060 &lt; <span class="keyword">class </span>Impl = STTCL_DEFAULT_SEMAPHOREIMPL
+<a name="l00061"></a>00061 , <span class="keyword">class </span>TimeDurationType = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;
+<a name="l00062"></a>00062 &gt;
+<a name="l00063"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">00063</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">SttclSemaphore</a>
+<a name="l00064"></a>00064 : <span class="keyword">public</span> Impl
+<a name="l00065"></a>00065 {
+<a name="l00066"></a>00066 <span class="keyword">public</span>:
+<a name="l00071"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">00071</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ac1c2de1ff3363f90be651c91b7cd5fae">SttclSemaphore</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> initialCount = 0) : Impl(initialCount) {}
+<a name="l00075"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">00075</a>         <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#ab04baf920747ec8ade9407bfad3c5970">~SttclSemaphore</a>() {}
+<a name="l00076"></a>00076 
+<a name="l00080"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">00080</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">wait</a>()
+<a name="l00081"></a>00081         {
+<a name="l00082"></a>00082                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a29bf4dce585b1e961e2a7cc6cb36f2c9">wait</a>();
+<a name="l00083"></a>00083         }
+<a name="l00084"></a>00084 
+<a name="l00091"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">00091</a>         <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a>(<span class="keyword">const</span> TimeDurationType&amp; timeout = TimeDurationType::Zero)
+<a name="l00092"></a>00092         {
+<a name="l00093"></a>00093                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a77c69482fd277f429f008828e4ec38d3">try_wait</a>(timeout);
+<a name="l00094"></a>00094         }
+<a name="l00095"></a>00095 
+<a name="l00099"></a><a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">00099</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a>()
+<a name="l00100"></a>00100         {
+<a name="l00101"></a>00101                 <span class="keyword">static_cast&lt;</span>Impl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html#a4bfba74d8e1ba64fbd596dbd8c359aae">post</a>();
+<a name="l00102"></a>00102         }
+<a name="l00103"></a>00103 };
+<a name="l00104"></a>00104 
 <a name="l00105"></a>00105 }
-<a name="l00106"></a>00106 
-<a name="l00107"></a>00107 <span class="preprocessor">#endif </span><span class="comment">/* STTCLSEMAPHORE_H_ */</span>
+<a name="l00106"></a>00106 }
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 <span class="preprocessor">#endif </span><span class="comment">/* STTCLSEMAPHORE_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -166,7 +168,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -176,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:35 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:37 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

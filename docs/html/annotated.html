@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -103,6 +103,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><table>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt; Lockable &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_class_method_thread.html">sttcl::ClassMethodThread&lt; T, UserArgs, ThreadImpl, MutexImpl &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_composite_state_base.html">sttcl::internal::CompositeStateBase&lt; InnerStateType &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html">sttcl::internal::CompositeStateBaseSelector&lt; HistoryType, InnerStateType &gt;</a></td><td class="indexvalue"></td></tr>
@@ -117,30 +118,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">sttcl::internal::EventArgsInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, EventArgsType &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_state_machine_impl_00_01_state_in1736ea8797feccfc9c96c455ed8619ab.html">sttcl::internal::EventArgsInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, void &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_event_args_ptr.html">sttcl::EventArgsPtr&lt; T, MutexType &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_event_args_ptr_3_01void_00_01_mutex_type_01_4.html">sttcl::EventArgsPtr&lt; void, MutexType &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, void &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, void &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">sttcl::internal::EventArgsInterfaceSelector&lt; RegionContainerImpl, IInnerState, EventArgsType &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html">sttcl::internal::EventArgsInterfaceSelector&lt; RegionContainerImpl, IInnerState, void &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_event_queue.html">sttcl::EventQueue&lt; T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="class_i_inner_state.html">IInnerState</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html">sttcl::internal::IRegionEventDispatchWithoutArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;::PtrRef</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr&lt; T, MutexType &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_ref_count_ptr_3_01void_00_01_mutex_type_01_4.html">sttcl::RefCountPtr&lt; void, MutexType &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_region.html">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_region_base.html">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_region_coe78b2d19010cf1d68a1f3de2273cd7c2.html">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, RegionContainerImpl, IInnerState, void &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_region_container.html">sttcl::internal::RegionContainer&lt; CompositeStateImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_region_container_impl_e9420c5ce39d44bed2b2a5827d18dbe0.html">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; RegionContainerImpl, IInnerState, void &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_state.html">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_state_base.html">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_state_machine.html">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_event_queue.html">sttcl::internal::SttclEventQueue&lt; T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">sttcl::internal::SttclMutex&lt; Impl, TimeDurationType &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">sttcl::internal::SttclSemaphore&lt; Impl, TimeDurationType &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1internal_1_1_sttcl_thread.html">sttcl::internal::SttclThread&lt; Impl &gt;</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="structsttcl_1_1internal_1_1_thread_function_helper.html">sttcl::internal::ThreadFunctionHelper</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="class_thread_impl.html">ThreadImpl</a></td><td class="indexvalue"></td></tr>
   <tr><td class="indexkey"><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration&lt; Implementation &gt;</a></td><td class="indexvalue"></td></tr>
 </table>
 </div>
@@ -152,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -162,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:39 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

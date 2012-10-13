@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -139,77 +139,122 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
 <li>recursiveInternalEvent
-: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a7aefda5379df0018982a202e5ed1c576">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a94bf7c486e1017a091189e1b10c9b09e">sttcl::internal::DispatchedEvent&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+</li>
+<li>refcount
+: <a class="el" href="structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html#aabfaacbd4372f7e580a78f5b130f1bd3">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;::PtrRef</a>
+</li>
+<li>refcountMutex
+: <a class="el" href="structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html#a7481aafffbf482d84ee4206b1f0a8b2f">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;::PtrRef</a>
+</li>
+<li>RefCountPtr
+: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ada17324cef72c590090c26b1e4b07deb">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html#a9fac78a875cc3bcd8a5842219cc56904">sttcl::internal::EventArgsInterfaceSelector&lt; RegionContainerImpl, IInnerState, void &gt;</a>
+, <a class="el" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">sttcl::RefCountPtr&lt; T, MutexType &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_ref_count_ptr.html#aff3eda32bb2f79b0356c1e89d8f1e719">sttcl::RefCountPtr&lt; T, MutexType &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a61a04530be975c5af753f5c44a38f3ea">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a8f4ea6a94f9549f3df92409540af5af2">sttcl::internal::IRegionEventDispatchWithoutArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_region_base.html#ae83c4ce4a9a49db10eb9f82a0c23efef">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a7f4bc67dbc90add8693865431d0e41a9">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">sttcl::internal::DispatchedEvent&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a8e81b5722f2c9150d6daaa642f4bbbb4">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">sttcl::internal::EventArgsInterfaceSelector&lt; RegionContainerImpl, IInnerState, EventArgsType &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a550eee031be9b12e80188c213991fc62">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#a4aad4a9a08695aa9fb0f003f50643a16">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+</li>
+<li>RefCountPtrBase()
+: <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;</a>
 </li>
 <li>Region()
-: <a class="el" href="classsttcl_1_1_region.html#a87b881a84950d0c597edbc0f46f0b17d">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1_region.html#a90626dde43b1bce7f2f2e4a858e214d5">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 </li>
 <li>RegionBase()
-: <a class="el" href="classsttcl_1_1_region_base.html#a23254c565fca00c8163b60e2b1178b68">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#a64267b495c2ef7aa93506cd0b4b15ffb">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
-<li>RegionBase&lt; StateMachineImpl, typename StateMachineImpl::StateInterface, IInnerState, EventArgs &gt;
-: <a class="el" href="classsttcl_1_1_region.html#af251ecb951ff10a096395bb3d9545104">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+<li>RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;
+: <a class="el" href="classsttcl_1_1_region.html#a201b1cf2085e9f42add46984fb40582c">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 </li>
 <li>RegionBaseClass
-: <a class="el" href="classsttcl_1_1_region.html#afadfa28420f01351cd5a6217b8fe7105">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0aae45de6e15ec0f2bc9a6bcf51a22c2">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abcff71888144914548e5359201379661">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#af8d1f3972e3fbc485dd7ff9e2d1abcc4">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a443fa5575f9caec09adb6b4f39c19e52">sttcl::internal::DispatchedEvent&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a6081133de04cb130d9f01bca62fcf76e">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a749edd2b426e1d1d89f8d8c4dcdd9ad3">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#a1d108591e0c56bd45d894cb116e4559b">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 </li>
 <li>RegionBaseImplWithEventArgs()
-: <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a48df7ac2508b8a02329e6aec46d6248d">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#adccb18031d4a5ef4e6dfac3eb75d1b12">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>RegionBaseImplWithoutEventArgs()
-: <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ac78ec55413144c423357f13d622192ed">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afa6a8003200f14e3d0632c351337c180">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>RegionBaseType
-: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a2a963b2f3e68eab1b32ca41e16b9e90e">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#ae3ce2e10eef4f5e0aac3cca3d1e1b680">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_region_container.html#a2381e7e676e96e764bfb079845dbb220">sttcl::internal::RegionContainer&lt; CompositeStateImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#aec5ec05999559a67b07081beb00a20b5">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#addb5e73b59b2f06f3439cd6ed89d1c97">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#ab1053628d9ddbfe77fa66e64cbbf2612">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 </li>
+<li>regionCompleted()
+: <a class="el" href="classsttcl_1_1internal_1_1_region_container.html#aef101be5bd973fd79742e719c7fc4959">sttcl::internal::RegionContainer&lt; CompositeStateImpl, IInnerState, EventArgs &gt;</a>
+</li>
+<li>regionCompletedImpl()
+: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a67c8e006b2895e9b6abed325dbabdc24">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+</li>
+<li>regionContainer
+: <a class="el" href="classsttcl_1_1_region_base.html#aa34b8ed439941a0e4c607c8cb04b660c">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+</li>
+<li>RegionContainerClass
+: <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ad6bbc38302cb392ea670698a87135ec1">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+</li>
 <li>RegionEventDispatchInterface
-: <a class="el" href="classsttcl_1_1_region_base.html#a06f05a8ab56c95a2887c50fac16a533c">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#a19b22511ba0949db06922dcfc5fa0618">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>regions
-: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a06949889cf9d92103e2f04e1a47ba918">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4b1955d392bf92fd521ae7f928fc2d50">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4b1955d392bf92fd521ae7f928fc2d50">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a06949889cf9d92103e2f04e1a47ba918">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
 </li>
 <li>RegionsArray
-: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#af17aaa993f43d040ddbbd78cf5b38990">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#af17aaa993f43d040ddbbd78cf5b38990">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a3a6e1b060c04d5990dbb3b91e0c4319d">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1_concurrent_composite_state.html#a5946b169435ddd0659559aaa85a15722">sttcl::ConcurrentCompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#ad78cb76bbb0bea2ddb0dd1d9b7361a5f">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 </li>
 <li>RegionsBaseType
 : <a class="el" href="classsttcl_1_1_concurrent_composite_state.html#a336aff9e0fc9f9db8c8e8808518c3631">sttcl::ConcurrentCompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 </li>
 <li>RegionStateBase
-: <a class="el" href="classsttcl_1_1_region.html#ac692a7c639597f94514e17d9e7edeb54">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1_region.html#a0f9e2168ef54ccd9709d0efdf929afb9">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+</li>
+<li>RegionStateMachine
+: <a class="el" href="classsttcl_1_1_region.html#a541b499905f61bdeb09af86e9edf2cb4">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 </li>
 <li>RegionThreadImpl
-: <a class="el" href="classsttcl_1_1_region.html#a9c9f42604a72a4873ffce31fb13f4ebb">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1_region.html#a0d2d647f08350dd3b78308f302ecd862">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 </li>
 <li>ReleaseFunc
-: <a class="el" href="classsttcl_1_1_event_args_ptr.html#a5fc7c04ac49cb7196c7c178fa8a02392">sttcl::EventArgsPtr&lt; T, MutexType &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#aff3c26a90ecb212b54a0355426a19dcd">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;</a>
+</li>
+<li>releaseFunc
+: <a class="el" href="structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html#a37bc79bb3afb2d8c8ee98a2d705dbd91">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;::PtrRef</a>
 </li>
 <li>RESULT_TYPE
-: <a class="el" href="structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector.html#ad06b98599987c8cff6259b0f4709a367">sttcl::internal::ConcurrentCompositeBaseImplementationSelector&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_state_machine_impl_00_1c9e40e315de455ca32a621514c3137d.html#a79e148ec2f81b10cc7f53efdfc52b7bd">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, void &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_state_mac1fcf30d5c7aa13a0afb15f44330e128b.html#af2d2fff4434b3859cf0a0ae6be9ab9b7">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, void &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector_3_01_composite_sta8d142f762a15d3fea340a63ac0dbad6c.html#a693643ae46dd4eb788ed9c01c461a9ce">sttcl::internal::ConcurrentCompositeBaseImplementationSelector&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, void, StateBaseImpl &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#acadd11f8192747b1f98cf951b3066381">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html#aef8d99069684aaba1521c63f0c4531a7">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#a7dfb628901b4c735073030831df2ed80">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector.html#ad06b98599987c8cff6259b0f4709a367">sttcl::internal::ConcurrentCompositeBaseImplementationSelector&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_region_container_impl_e9420c5ce39d44bed2b2a5827d18dbe0.html#a5148a312d049c1f291b66c6cdd7b40af">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; RegionContainerImpl, IInnerState, void &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_region_coe78b2d19010cf1d68a1f3de2273cd7c2.html#a05eb54815fe4a16def6f6532035b47ad">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, RegionContainerImpl, IInnerState, void &gt;</a>
 , <a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html#a187d14d9e307c3d22b912a1ce3da548b">sttcl::internal::CompositeStateBaseSelector&lt; CompositeStateHistoryType::Deep, InnerStateType &gt;</a>
 , <a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector.html#a7d2a248565bda97a262b14427d5ac2d7">sttcl::internal::CompositeStateBaseSelector&lt; HistoryType, InnerStateType &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector_3_01_composite_sta8d142f762a15d3fea340a63ac0dbad6c.html#a693643ae46dd4eb788ed9c01c461a9ce">sttcl::internal::ConcurrentCompositeBaseImplementationSelector&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, void, StateBaseImpl &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html#a23c278b033d62b12b206893f8b53469e">sttcl::internal::RegionEventDispatchInterfaceSelector&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 , <a class="el" href="structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html#a34b80b7a05eaab4751a0c2701388dc03">sttcl::internal::CompositeStateBaseSelector&lt; CompositeStateHistoryType::Shallow, InnerStateType &gt;</a>
 </li>
 <li>resumeStateHistory()
-: <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aee82eb9318e75261ef0ad364dbe568e9">sttcl::internal::CompositeStateBaseWithDeepHistory&lt; InnerStateType &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239">sttcl::internal::CompositeStateBase&lt; InnerStateType &gt;</a>
+: <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base.html#aefd049787c69bd528bd26732f434f239">sttcl::internal::CompositeStateBase&lt; InnerStateType &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html#aee82eb9318e75261ef0ad364dbe568e9">sttcl::internal::CompositeStateBaseWithDeepHistory&lt; InnerStateType &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html#a047ddf4a5fd40b43e94db147e8ef8f49">sttcl::internal::CompositeStateBaseWithShallowHistory&lt; InnerStateType &gt;</a>
 </li>
 <li>run()
 : <a class="el" href="classsttcl_1_1internal_1_1_sttcl_thread.html#a3bc913eee0f1c9f920ab4397ca21dc60">sttcl::internal::SttclThread&lt; Impl &gt;</a>
+, <a class="el" href="classsttcl_1_1_class_method_thread.html#a380cde4b2c1bd7077cba4f9d2875b233">sttcl::ClassMethodThread&lt; T, UserArgs, ThreadImpl, MutexImpl &gt;</a>
 </li>
 </ul>
 </div>
@@ -221,7 +266,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -231,7 +276,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:39 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

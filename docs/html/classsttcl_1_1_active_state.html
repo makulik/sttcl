@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -172,7 +172,7 @@ class sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadTyp
     <tr><td class="paramname">StateImpl</td><td>The state implementation type. </td></tr>
     <tr><td class="paramname">StateMachineImpl</td><td>The state machine implementation type. </td></tr>
     <tr><td class="paramname">IState</td><td>Specifies the internal interface of state implementations for the state machine. </td></tr>
-    <tr><td class="paramname">StateThreadType</td><td>The thread implementation class, default is <a class="el" href="">sttcl::SttclThread</a>&lt;&gt;. </td></tr>
+    <tr><td class="paramname">StateThreadType</td><td>The thread implementation class, default is <a class="el" href="classsttcl_1_1internal_1_1_sttcl_thread.html">sttcl::internal::SttclThread</a>&lt;&gt;. </td></tr>
     <tr><td class="paramname">EndDoActionSemaphoreType</td><td>The semaphore implementation class, default is <a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">sttcl::internal::SttclSemaphore</a>&lt;&gt;. </td></tr>
     <tr><td class="paramname">TimeDurationType</td><td>The time duration representation implementation class, default is <a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt;. </td></tr>
     <tr><td class="paramname">ActiveStateMutexType</td><td>The mutex implementation class, default is <a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">sttcl::internal::SttclMutex</a>&lt;&gt;. </td></tr>
@@ -212,7 +212,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 
 <p>Reimplemented from <a class="el" href="classsttcl_1_1_state_base.html#aad4c537987df18690b41a6473d90b492">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a58f8c6018b4f6451f5236a11d0335244">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a476d09edbdbf810b54065da825ad0c77">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#aef42d5937e90051bc938b3ed22de08ce">sttcl::CompositeState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
@@ -246,7 +246,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 <div class="memdoc">
 <p>The implementation class type. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#aa4d61de6d84b6cbdf5e41c8214e145a8">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ae65397db4b1e6618f036790abb0d4982">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">sttcl::CompositeState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 <div class="memdoc">
 <p>The state do action type. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ac73348fa7d44bce9d7ce666c6f23c77b">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a3ef6a7801bb7d6f21fef179d49a72eb1">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a948cfd0066f29c45155072b4248449cf">sttcl::CompositeState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
@@ -416,8 +416,6 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_composite_state.html#a55c38272b610bbea7235f30d448a398f">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a011eae8c156b321a4d4c6857588fdd05"></a><!-- doxytag: member="sttcl::ActiveState::checkDirectTransitionImpl" ref="a011eae8c156b321a4d4c6857588fdd05" args="(Context *context, bool &amp;finalize, StateBaseType *&amp;nextState)" -->
@@ -503,7 +501,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 <p>Default implementation for checking if endDo() was requested. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd><code>true</code> if the do action loop should be left, <code>false</code> otherwise. </dd></dl>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a31b2119f2520966e2c107162bc25a467">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a4edfe989467d0973cf34793d69d0fb4d">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
 
 </div>
 </div>
@@ -531,8 +529,6 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a0ed7169166d35d31467cd4b55c523f40">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a58768f5b9b7e8fb99f72446435cc6c20"></a><!-- doxytag: member="sttcl::ActiveState::entryImpl" ref="a58768f5b9b7e8fb99f72446435cc6c20" args="(Context *context)" -->
@@ -559,7 +555,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#af4debfb86ca489e700cb3eeea827d259">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">sttcl::CompositeState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
@@ -587,7 +583,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a66e9487e8c2b25f355ec37e7bf4026ad">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, and <a class="el" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">sttcl::CompositeState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, StateMachineImpl, StateMachineImpl::StateInterface, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">sttcl::CompositeState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, HistoryType, ActiveState&lt; Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType &gt;, StateMachine&lt; RegionImpl, IInnerState &gt; &gt;</a>.</p>
 
 </div>
 </div>
@@ -608,7 +604,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 <div class="memdoc">
 <p>Default implementation for the <a class="el" href="classsttcl_1_1_active_state.html#a66fb621dc298f821eb31aaf9d371304c">exitingDoActionImpl()</a> method. The method is called when the do action thread is exiting. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a36bd937643d8b2555cd09b525a8615dd">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ae7522ccd391f1694661941a70dbd7900">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
 
 </div>
 </div>
@@ -738,7 +734,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 <div class="memdoc">
 <p>Default implementation to join the active state thread. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a1e82e7fd84b09a148b0c52ead8c11939">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
 
 </div>
 </div>
@@ -805,7 +801,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 <div class="memdoc">
 <p>Default implementation called to unblock any blocking methods waiting in the do action call. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a3c68deaa29105f775458c1b997c6776c">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a6844a115104c3b0a7eee3ea34a7563dc">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
 
 </div>
 </div>
@@ -839,7 +835,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -849,7 +845,7 @@ template&lt;class StateImpl, class StateMachineImpl, class IState, class StateTh
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:39 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

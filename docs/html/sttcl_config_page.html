@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -99,10 +99,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </p>
 <p>STTCL uses wrapper classes (adapters) for the environment specific implementations of the above mentioned capabilities: </p>
 <ul>
-<li><a class="el" href="">sttcl::SttclThread</a>&lt;&gt; as thread adapter </li>
-<li><a class="el" href="">sttcl::SttclMutex</a>&lt;&gt; as mutex abstraction (needs timed/unblocking try_lock() implementation) </li>
-<li><a class="el" href="">sttcl::SttclSemaphore</a>&lt;&gt; as semaphore abstraction (needs timed/unblocking try_wait() implementation) </li>
-<li><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a>&lt;&gt; as abstraction for a "real"-time duration</li>
+<li><a class="el" href="classsttcl_1_1internal_1_1_sttcl_thread.html">sttcl::internal::SttclThread</a> as thread adapter </li>
+<li><a class="el" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">sttcl::internal::SttclMutex</a> as mutex abstraction (needs timed/unblocking try_lock() implementation) </li>
+<li><a class="el" href="classsttcl_1_1internal_1_1_sttcl_semaphore.html">sttcl::internal::SttclSemaphore</a> as semaphore abstraction (needs timed/unblocking try_wait() implementation) </li>
+<li><a class="el" href="classsttcl_1_1_time_duration.html">sttcl::TimeDuration</a> as abstraction for a "real"-time duration</li>
 </ul>
 <h3><a class="anchor" id="sttcl_config_sec_1"></a>
 4.1 Configuring STTCL builtin concurrency implementations</h3>
@@ -110,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <ul>
 <li><code>STTCL_BOOST_IMPL</code> to select the boost implementation as default </li>
 <li><code>STTCL_POSIX_IMPL</code> to select the POSIX implementation as default </li>
-<li><code>STTCL_CX11_IMPL</code> to select the C++ 11 standard implementation as default</li>
+<li><code>STTCL_CX11_IMPL</code> to select the C++ 11 standard implementation as default (not yet available)</li>
 </ul>
 <h3><a class="anchor" id="sttcl_config_sec_2"></a>
 4.2 Providing custom implementations for concurrency</h3>
@@ -129,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -139,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:38 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

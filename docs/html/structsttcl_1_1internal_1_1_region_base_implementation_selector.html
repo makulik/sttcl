@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>sttcl: sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt; Struct Template Reference</title>
+<title>sttcl: sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt; Struct Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-types">Public Types</a>  </div>
   <div class="headertitle">
-<div class="title">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt; Struct Template Reference</div>  </div>
+<div class="title">sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt; Struct Template Reference</div>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::internal::RegionBaseImplementationSelector" -->
@@ -111,32 +111,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">RegionBaseImplWithEventArgs</a><br class="typebreak"/>
-&lt; RegionImpl, StateMachineImpl, <br class="typebreak"/>
-<a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, <br class="typebreak"/>
-EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#acadd11f8192747b1f98cf951b3066381">RESULT_TYPE</a></td></tr>
+&lt; RegionImpl, <br class="typebreak"/>
+RegionContainerImpl, <br class="typebreak"/>
+<a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#a7dfb628901b4c735073030831df2ed80">RESULT_TYPE</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class RegionImpl, class StateMachineImpl, class StateInterface, class IInnerState, class EventArgs&gt;<br/>
-struct sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</h3>
+<div class="textblock"><h3>template&lt;class RegionImpl, class RegionContainerImpl, class IInnerState, class EventArgs&gt;<br/>
+struct sttcl::internal::RegionBaseImplementationSelector&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</h3>
 
 <p>Used to select the region base implementation. </p>
 <dl><dt><b>Template Parameters:</b></dt><dd>
   <table class="">
-    <tr><td class="paramname">StateMachineImpl</td><td></td></tr>
+    <tr><td class="paramname">RegionContainerImpl</td><td></td></tr>
     <tr><td class="paramname">StateInterface</td><td></td></tr>
     <tr><td class="paramname">EventArgs</td><td></td></tr>
   </table>
   </dd>
 </dl>
 </div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="acadd11f8192747b1f98cf951b3066381"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplementationSelector::RESULT_TYPE" ref="acadd11f8192747b1f98cf951b3066381" args="" -->
+<a class="anchor" id="a7dfb628901b4c735073030831df2ed80"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplementationSelector::RESULT_TYPE" ref="a7dfb628901b4c735073030831df2ed80" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class RegionImpl, class StateMachineImpl, class StateInterface, class IInnerState, class EventArgs&gt; </div>
+template&lt;class RegionImpl, class RegionContainerImpl, class IInnerState, class EventArgs&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">RegionBaseImplWithEventArgs</a>&lt;RegionImpl,StateMachineImpl,<a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>,IInnerState,EventArgs&gt; <a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">sttcl::internal::RegionBaseImplementationSelector</a>&lt; RegionImpl, StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#acadd11f8192747b1f98cf951b3066381">RESULT_TYPE</a></td>
+          <td class="memname">typedef <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">RegionBaseImplWithEventArgs</a>&lt;RegionImpl,RegionContainerImpl,<a class="el" href="class_i_inner_state.html">IInnerState</a>,EventArgs&gt; <a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html">sttcl::internal::RegionBaseImplementationSelector</a>&lt; RegionImpl, RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::<a class="el" href="structsttcl_1_1internal_1_1_region_base_implementation_selector.html#a7dfb628901b4c735073030831df2ed80">RESULT_TYPE</a></td>
         </tr>
       </table>
 </div>
@@ -160,7 +160,7 @@ template&lt;class RegionImpl, class StateMachineImpl, class StateInterface, clas
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -170,7 +170,7 @@ template&lt;class RegionImpl, class StateMachineImpl, class StateInterface, clas
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:37 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:41 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -32,7 +32,7 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">v0.9a</span>
    </div>
    
   </td>
@@ -97,11 +97,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a class="el" href="usage_page.html#usage_sec_1">2.1 Declare a StateMachine implementation</a><br/>
  <a class="el" href="usage_page.html#usage_sec_2">2.2 Declare State implementations</a><br/>
  <a class="el" href="usage_page.html#usage_sec_3">2.3 Implement the state machine interfaces</a><br/>
- <a class="el" href="usage_page.html#usage_sec_4">2.4 Implement state actions and transitions</a><br/>
+ <a class="el" href="usage_page.html#usage_sec_4">2.4 STTCL 'implementation hooks'</a><br/>
+ <a class="el" href="usage_page.html#usage_sec_5">2.5 Implement state actions and transitions</a><br/>
+ <a class="el" href="usage_page.html#usage_sec_6">2.6 Composite states</a><br/>
+ <a class="el" href="usage_page.html#usage_sec_7">2.7 Composite state regions, forks/joins</a><br/>
 </p>
 <h3><a class="anchor" id="usage_sec_1"></a>
 2.1 Declare a StateMachine implementation</h3>
-<p>Analyze your UML 2.2 state diagram and declare all necessary variables and event (trigger methods) needed for the state machine. Declare an appropriate instance of <code>sttcl::StateMachine&lt;&gt;</code> as base class for your state machine class.</p>
+<p>Analyze your UML 2.2 state diagram and declare all necessary variables and event (trigger methods) needed for the state machine. Declare an appropriate instance of <code><a class="el" href="classsttcl_1_1_state_machine.html">sttcl::StateMachine</a></code> as base class for your state machine class.</p>
 <div class="fragment"><pre class="fragment"><span class="keyword">class </span>MyStateMachine;
 
 <span class="keyword">class </span>IStateEventHandlers
@@ -123,10 +126,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
         <span class="comment">// ...</span>
 };
 </pre></div><p>According to the GoF state pattern implementation variants you can decide where to hold the necessary state instances and make their sibling states accessible for them, so they can realize event triggered transitions. As a rule of thumb the state implementation classes can be instantiated as singletons (see <a href="http://en.wikipedia.org/wiki/Singleton_Pattern">GoF Singleton pattern</a>) if they have no member variables other than application scope configurations. Otherwise the available states should be embedded members of the state machine implementation class and are accessible from the state machine context for state implementation classes.</p>
-<dl class="note"><dt><b>Note:</b></dt><dd>State implementation classes inheriting from the sttcl::ActiveState&lt;&gt; or sttcl::CompositeState&lt;&gt; template classes implicitly have embedded members in the base classes.</dd></dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>State implementation classes inheriting from the <a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState</a> or <a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState</a> template classes implicitly have embedded members in the base classes.</dd></dl>
 <h3><a class="anchor" id="usage_sec_2"></a>
 2.2 Declare State implementations</h3>
-<p>Implement a state class for each state in your UML 2.2 state machine diagram. Declare the appropriate instance of the sttcl::State&lt;&gt; template class as base class for all state classes. </p>
+<p>Implement a state class for each state in your UML 2.2 state machine diagram. Declare the appropriate instance of the <a class="el" href="classsttcl_1_1_state.html">sttcl::State</a> template class as base class for all state classes. </p>
 <div class="fragment"><pre class="fragment"><span class="keyword">class </span>MyStateMachine;
 
 <span class="keyword">class </span>MyState1 : <span class="keyword">public</span> sttcl::State&lt;MyState1,MyStateMachine,IStateEventHandlers&gt;
@@ -159,23 +162,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 2.5 Implement state actions and transitions</h3>
 <p>Transition actions are implemented within the event handler methods of the state classes. See the table in <a class="el" href="uml2gof_page.html#uml2gof_sec">3 Mapping of the UML state diagram notation elements to the GoF State pattern</a> for more details how UML2.2 state diagram elements can be implemented using the GoF state pattern and STTCL.</p>
 <p>State entry and exit actions can be implemented using the implementation hooks entryImpl() and exitImpl() in the state implementation class.</p>
-<p>State do actions can be implemented in a method of the state implementation class, that is passed to the base class constructor. The sttcl::ActiveState&lt;&gt; base class supports asynchronous execution of the state do action. It implements a thread function loop, that calls the do action method until the state is exited.</p>
+<p>State do actions can be implemented in a method of the state implementation class, that is passed to the base class constructor. The <a class="el" href="classsttcl_1_1_active_state.html">sttcl::ActiveState</a> base class supports asynchronous execution of the state do action. It implements a thread function loop, that calls the do action method until the state is exited.</p>
 <p>Direct state transitions (i.e. transitions between states without a triggering event method) are a special case. You can handle these by overriding the checkDirectTransitionImpl() implementation hook in the state implementation class.</p>
 <h3><a class="anchor" id="usage_sec_6"></a>
 2.6 Composite states</h3>
-<p>To implement composite states you can use the sttcl::CompositeState&lt;&gt; template base class. This class inherits both, the sttcl::State&lt;&gt; and the sttcl::StateMachine&lt;&gt; template base classes. The first is used to specify a valid state signature to embed the composite state implementation in an outer state machine implementation. The second specifies the sub state machine of the composite state and specifies the signature for any inner states of the composite state implementation.</p>
+<p>To implement composite states you can use the <a class="el" href="classsttcl_1_1_composite_state.html">sttcl::CompositeState</a> template base class. This class inherits both, the <a class="el" href="classsttcl_1_1_state.html">sttcl::State</a> and the <a class="el" href="classsttcl_1_1_state_machine.html">sttcl::StateMachine</a> template base classes. The first is used to specify a valid state signature to embed the composite state implementation in an outer state machine implementation. The second specifies the sub state machine of the composite state and specifies the signature for any inner states of the composite state implementation.</p>
 <p>To use a history pseudo state within the composite state diagram you may optionally specify the <em>HistoryType</em> template parameter. The state history behavior will automatically appear on any entry of the composite state implementation until it is (re-)initialized.</p>
 <h3><a class="anchor" id="usage_sec_7"></a>
 2.7 Composite state regions, forks/joins</h3>
-<p>If you need orthogonal state machine regions or transition paths that go out a fork pseudo state you can use the sttcl::ConcurrentCompositeState&lt;&gt; and sttcl::Region&lt;&gt; template base classes. The sttcl::ConcurrentCompositeState&lt;&gt; base class needs to be initialized with a fixed array of pointers to sttcl::Region&lt;&gt; implementation instances in the constructor. The overall number of regions contained in the sttcl::ConcurrentCompositeState&lt;&gt; implementation is specified using the <em>NumOfRegions</em> template parameter. To broadcast events to the contained regions the state interface methods used for the sttcl::ConcurrentCompositeState&lt;&gt; implementation need to have a special signature as follows: </p>
-<div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>::*OuterEventHandler)(StateMachineImpl*);
-</pre></div><p>Each of the sttcl::Region&lt;&gt; implementations runs its own internal thread, where state transitions of the contained states (including initialization, finalization and history behavior) are performed. That event method calls to the sttcl::ConcurrentCompositeState&lt;&gt; <em>IInnerState</em> interface methods can be dispatched to these region threads, all of the inner state interfaces methods need to have a special signature as follows: </p>
+<p>If you need orthogonal state machine regions or transition paths that go out a fork pseudo state you can use the <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> and <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a> template base classes. The <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> base class needs to be initialized with a fixed array of pointers to <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a> implementation instances in the constructor. The overall number of regions contained in the <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> implementation is specified using the <em>NumOfRegions</em> template parameter. To broadcast events to the contained regions the state interface methods used for the <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> implementation need to have a special signature as follows: </p>
+<div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (StateInterface::*OuterEventHandler)(StateMachineImpl*);
+</pre></div><p>Each of the <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a> implementations runs its own internal thread, where state transitions of the contained states (including initialization, finalization and history behavior) are performed. That event method calls to the <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> <em><a class="el" href="class_i_inner_state.html">IInnerState</a></em> interface methods can be dispatched to these region threads, all of the inner state interfaces methods need to have a special signature as follows: </p>
 <div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase&lt;StateMachineImpl,StateInterface,IInnerState&gt;*);
-</pre></div><p>You can also specify a type or class to pass additional event arguments to the dispatched event methods. These event arguments need to be managed using a thread safe smart pointer that is provided with the <a class="el" href="classsttcl_1_1_event_args_ptr.html">sttcl::EventArgsPtr</a> template class. If you specify the <em>EventArgs</em> template parameter to the sttcl::ConcurrentCompositeState&lt;&gt; and matching sttcl::Region&lt;&gt; classes, the outer and inner state interface method signatures must look like this: </p>
-<div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (<a class="code" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>::*OuterEventHandler)(StateMachineImpl*,EventArgsPtr&lt;EventArgs&gt;);
-<span class="keyword">typedef</span> void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase&lt;StateMachineImpl,StateInterface,IInnerState&gt;*,EventArgsPtr&lt;EventArgs&gt;);
-</pre></div><p>Its your responsibility to create an appropriate hierarchy of event argument classes and to decode these for particular event methods if necessary. The EventArgsPtr template needs to be instantiated with a common base class in this case.</p>
-<p>Fork pseudo states can be represented by a sttcl::ConcurrentCompositeState&lt;&gt; implementation providing a region for each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the sttcl::ConcurrentCompositeState&lt;&gt; class. </p>
+</pre></div><p>You can also specify a type or class to pass additional event arguments to the dispatched event methods. These event arguments need to be managed using a thread safe smart pointer that is provided with the <a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a> template class. If you specify the <em>EventArgs</em> template parameter to the <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> and matching <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a> classes, the outer and inner state interface method signatures must look like this: </p>
+<div class="fragment"><pre class="fragment"><span class="keyword">typedef</span> void (StateInterface::*OuterEventHandler)(StateMachineImpl*,RefCountPtr&lt;EventArgs&gt;);
+<span class="keyword">typedef</span> void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase&lt;StateMachineImpl,StateInterface,IInnerState&gt;*,RefCountPtr&lt;EventArgs&gt;);
+</pre></div><p>Its your responsibility to create an appropriate hierarchy of event argument classes and to decode these for particular event methods if necessary. The RefCountPtr template needs to be instantiated with a common base class in this case.</p>
+<p>Fork pseudo states can be represented by a <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> implementation providing a region for each of the forks outgoing transitions. A join pseudo state equivalents the finalized state of the <a class="el" href="classsttcl_1_1_concurrent_composite_state.html">sttcl::ConcurrentCompositeState</a> class. </p>
 </div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -185,7 +188,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -195,7 +198,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Thu Mar 15 2012 22:05:36 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 16:41:38 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
