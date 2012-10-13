@@ -1,3 +1,3 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$structsttcl_1_1internal_1_1_region_base_implementation_selector.html" title="sttcl::internal::RegionBaseImplementationSelector\&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="5,5,741,32"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html" title="sttcl::internal::IRegionEventDispatchWithoutArgs\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="6,5,589,32"/>
 </map>

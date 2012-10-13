@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>sttcl: sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt; Class Template Reference</title>
+<title>sttcl: sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt; Class Template Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -100,17 +100,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt; Class Template Reference</div>  </div>
+<div class="title">sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt; Class Template Reference</div>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="sttcl::internal::IRegionEventDispatchWithArgs" -->
 <p><code>#include &lt;<a class="el" href="_region_8h_source.html">Region.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;:</div>
+Inheritance diagram for sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args__inherit__graph.png" border="0" usemap="#sttcl_1_1internal_1_1_i_region_event_dispatch_with_args_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="sttcl_1_1internal_1_1_i_region_event_dispatch_with_args_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_inherit__map" id="sttcl_1_1internal_1_1_i_region_event_dispatch_with_args_3_01_state_machine_impl_00_01_state_interface_00_01_i_inner_state_00_01_event_args_01_4_inherit__map">
-<area shape="rect" id="node3" href="classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="694,31,1173,57"/><area shape="rect" id="node5" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBaseImplWithEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1230,5,1869,32"/><area shape="rect" id="node9" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBaseImplWithoutEventArgs\&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs \&gt;" alt="" coords="1221,56,1877,83"/><area shape="rect" id="node7" href="classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType \&gt;" alt="" coords="1926,5,2933,32"/></map>
+<div class="center"><img src="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args__inherit__graph.png" border="0" usemap="#sttcl_1_1internal_1_1_i_region_event_dispatch_with_args_3_01_region_container_impl_00_01_i_inner_state_00_01_event_args_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="sttcl_1_1internal_1_1_i_region_event_dispatch_with_args_3_01_region_container_impl_00_01_i_inner_state_00_01_event_args_01_4_inherit__map" id="sttcl_1_1internal_1_1_i_region_event_dispatch_with_args_3_01_region_container_impl_00_01_i_inner_state_00_01_event_args_01_4_inherit__map">
+<area shape="rect" id="node3" href="classsttcl_1_1_region_base.html" title="sttcl::RegionBase\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="619,31,1024,57"/><area shape="rect" id="node5" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBaseImplWithEventArgs\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1081,5,1647,32"/><area shape="rect" id="node9" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBaseImplWithoutEventArgs\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1073,56,1655,83"/><area shape="rect" id="node7" href="classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1705,5,2151,32"/></map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args-members.html">List of all members.</a></p>
@@ -119,104 +119,83 @@ Inheritance diagram for sttcl::internal::IRegionEventDispatchWithArgs&lt; StateM
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsInterfaceSelector</a><br class="typebreak"/>
-&lt; StateMachineImpl, <br class="typebreak"/>
-<a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, <br class="typebreak"/>
-EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a9a3e7e2d09eebfd93fe8ebc94492ec6f">EventArgsSelectorType</a></td></tr>
+&lt; RegionContainerImpl, <br class="typebreak"/>
+<a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a1a9863250e0b9444c690fa7d88998294">EventArgsSelectorType</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a2d3fb503de01490cc4956500fa83ebb0">EventArgsSelectorType::RefCountPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#ad77a8ecd9fef9edf1cbe5b6f6fa3eae6">RefCountPtr</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">EventArgsSelectorType::RefCountPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a69527da2cb50db4315569c53ed679594">EventArgsSelectorType::OuterEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a32b4a4711183beefc906ec58d4ef585a">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a925e3a29cfe0d29b9e2e5ef8c63b1f16">handleBroadcastedEvent</a> (StateMachineImpl *context, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#ad77a8ecd9fef9edf1cbe5b6f6fa3eae6">RefCountPtr</a> eventArgs)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#aa7054e8bb7616d196ce7c51468819e13">~IRegionEventDispatchWithArgs</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#af1f97e4fbb27409a816ace83a267d289">handleBroadcastedEvent</a> (RegionContainerImpl *context, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> eventArgs)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a0b3c048e26f8383935c7b9504e266565">~IRegionEventDispatchWithArgs</a> ()</td></tr>
 </table>
-<h3>template&lt;class StateMachineImpl, class StateInterface, class IInnerState, class EventArgs&gt;<br/>
- class sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</h3>
+<h3>template&lt;class RegionContainerImpl, class IInnerState, class EventArgs&gt;<br/>
+ class sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</h3>
 
 <hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a9a3e7e2d09eebfd93fe8ebc94492ec6f"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::EventArgsSelectorType" ref="a9a3e7e2d09eebfd93fe8ebc94492ec6f" args="" -->
+<a class="anchor" id="a1a9863250e0b9444c690fa7d88998294"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::EventArgsSelectorType" ref="a1a9863250e0b9444c690fa7d88998294" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
+template&lt;class RegionContainerImpl , class IInnerState , class EventArgs &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsInterfaceSelector</a>&lt;StateMachineImpl,<a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>,IInnerState,EventArgs&gt; <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a9a3e7e2d09eebfd93fe8ebc94492ec6f">EventArgsSelectorType</a></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html">EventArgsInterfaceSelector</a>&lt;RegionContainerImpl,<a class="el" href="class_i_inner_state.html">IInnerState</a>,EventArgs&gt; <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a1a9863250e0b9444c690fa7d88998294">EventArgsSelectorType</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a563f1a9484fd4fe7ac4bfeb0d519b662">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a38472e5fc6404a81e4792a1d2d8134b4">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a178b57c924247e371a47d25f7922dc2c"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::InnerEventHandler" ref="a178b57c924247e371a47d25f7922dc2c" args="" -->
+<a class="anchor" id="a286b80307d4078b5a72d118ece382032"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::InnerEventHandler" ref="a286b80307d4078b5a72d118ece382032" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
+template&lt;class RegionContainerImpl , class IInnerState , class EventArgs &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a32b4a4711183beefc906ec58d4ef585a">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">InnerEventHandler</a></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>The inner event handler signature. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#ac8bae8f36c0f88ce11db416746b4b165">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a12c9d8515172853bf74776536f81f482">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9d1b185050f77d8f06831404188982aa">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a505bde43176d27c4f2bd4116c28181ac">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#aae4e823e80b65d3afa7b60aecc9ef2ec">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1_region_base.html#a2c6267bafe43243cacb1e5c222320570">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acbe8813e7980dc2dde25aaa3136338d6"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::OuterEventHandler" ref="acbe8813e7980dc2dde25aaa3136338d6" args="" -->
+<a class="anchor" id="a78e800656bda506ce6e2377e5a1cf759"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::RefCountPtr" ref="a78e800656bda506ce6e2377e5a1cf759" args="" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
+template&lt;class RegionContainerImpl , class IInnerState , class EventArgs &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a69527da2cb50db4315569c53ed679594">EventArgsSelectorType::OuterEventHandler</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>The outer event handler signature. </p>
-
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#af4b2ef13508ac35e7de699e5af761522">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#afe6c052a0d59ff6bde94bced289c12bb">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abe13835517a7804831305d688003bacc">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1_region_base.html#a493797e2b87af73b0b2f23bc639ce174">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad77a8ecd9fef9edf1cbe5b6f6fa3eae6"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::RefCountPtr" ref="ad77a8ecd9fef9edf1cbe5b6f6fa3eae6" args="" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a2d3fb503de01490cc4956500fa83ebb0">EventArgsSelectorType::RefCountPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#ad77a8ecd9fef9edf1cbe5b6f6fa3eae6">RefCountPtr</a></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">EventArgsSelectorType::RefCountPtr</a> <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>The pointer type used to pass event arguments to the contained regions inner states. </p>
 
-<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#aa35539050bc3d10c0bd553f75043755f">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a0b5ab0502f8d847461bb46b7f2f430eb">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#affa8504b2c822521f455684a17fc0691">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1_region_base.html#a1dbe07b82e8f3965dcd62304ec427ada">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+<p>Reimplemented in <a class="el" href="classsttcl_1_1_region.html#a4aad4a9a08695aa9fb0f003f50643a16">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a550eee031be9b12e80188c213991fc62">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a8e81b5722f2c9150d6daaa642f4bbbb4">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>, and <a class="el" href="classsttcl_1_1_region_base.html#ae83c4ce4a9a49db10eb9f82a0c23efef">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa7054e8bb7616d196ce7c51468819e13"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::~IRegionEventDispatchWithArgs" ref="aa7054e8bb7616d196ce7c51468819e13" args="()" -->
+<a class="anchor" id="a0b3c048e26f8383935c7b9504e266565"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::~IRegionEventDispatchWithArgs" ref="a0b3c048e26f8383935c7b9504e266565" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
+template&lt;class RegionContainerImpl , class IInnerState , class EventArgs &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::~<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">IRegionEventDispatchWithArgs</a> </td>
+          <td class="memname">virtual <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::~<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">IRegionEventDispatchWithArgs</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline, virtual]</code></td>
@@ -228,28 +207,28 @@ template&lt;class StateMachineImpl , class StateInterface , class IInnerState , 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a925e3a29cfe0d29b9e2e5ef8c63b1f16"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::handleBroadcastedEvent" ref="a925e3a29cfe0d29b9e2e5ef8c63b1f16" args="(StateMachineImpl *context, OuterEventHandler eventHandler, RefCountPtr eventArgs)=0" -->
+<a class="anchor" id="af1f97e4fbb27409a816ace83a267d289"></a><!-- doxytag: member="sttcl::internal::IRegionEventDispatchWithArgs::handleBroadcastedEvent" ref="af1f97e4fbb27409a816ace83a267d289" args="(RegionContainerImpl *context, InnerEventHandler eventHandler, RefCountPtr eventArgs)=0" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class StateMachineImpl , class StateInterface , class IInnerState , class EventArgs &gt; </div>
+template&lt;class RegionContainerImpl , class IInnerState , class EventArgs &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; StateMachineImpl, <a class="el" href="class_state_machine_impl_1_1_state_interface.html">StateInterface</a>, IInnerState, EventArgs &gt;::handleBroadcastedEvent </td>
+          <td class="memname">virtual void <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html">sttcl::internal::IRegionEventDispatchWithArgs</a>&lt; RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::handleBroadcastedEvent </td>
           <td>(</td>
-          <td class="paramtype">StateMachineImpl *&#160;</td>
+          <td class="paramtype">RegionContainerImpl *&#160;</td>
           <td class="paramname"><em>context</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#acbe8813e7980dc2dde25aaa3136338d6">OuterEventHandler</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a>&#160;</td>
           <td class="paramname"><em>eventHandler</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#ad77a8ecd9fef9edf1cbe5b6f6fa3eae6">RefCountPtr</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a>&#160;</td>
           <td class="paramname"><em>eventArgs</em>&#160;</td>
         </tr>
         <tr>
@@ -270,7 +249,7 @@ template&lt;class StateMachineImpl , class StateInterface , class IInnerState , 
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad2f91efcbb10c5809fc9904a41c66ec6">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a2695873fa563f28a9377c041b6247fb1">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>.</p>
 
 </div>
 </div>
@@ -289,7 +268,7 @@ template&lt;class StateMachineImpl , class StateInterface , class IInnerState , 
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -299,7 +278,7 @@ template&lt;class StateMachineImpl , class StateInterface , class IInnerState , 
 </div>
 
 
-    <li class="footer">Generated on Sun Mar 25 2012 16:25:00 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 15:28:05 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

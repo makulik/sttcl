@@ -1,5 +1,5 @@
 <map id="G" name="G">
 <area shape="rect" id="node2" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_base.html" title="sttcl::internal::ConcurrentCompositeStateBase\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="1064,31,1933,57"/>
 <area shape="rect" id="node4" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html" title="ConcurrentCompositeBaseImplementationSelector\&lt; CompositeStateImpl , StateMachineImpl , IInnerState , NumOfRegions , EventArgs , StateBaseImpl \&gt;::RESULT_TYPE" alt="" coords="5,5,1016,32"/>
-<area shape="rect" id="node6" href="$classsttcl_1_1internal_1_1_region_container.html" title="sttcl::internal::RegionContainer\&lt; StateMachineImpl, IInnerState, EventArgs \&gt;" alt="" coords="278,56,743,83"/>
+<area shape="rect" id="node6" href="$classsttcl_1_1internal_1_1_region_container.html" title="sttcl::internal::RegionContainer\&lt; CompositeStateImpl, IInnerState, EventArgs \&gt;" alt="" coords="271,56,750,83"/>
 </map>

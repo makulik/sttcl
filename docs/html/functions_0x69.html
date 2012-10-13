@@ -141,10 +141,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Implementation
 : <a class="el" href="classsttcl_1_1_active_state.html#ae6a6175b7083f311266a9cdaf4671656">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType &gt;</a>
 , <a class="el" href="classsttcl_1_1_composite_state.html#a346c80df3f25856f52311fcf8ab9e5da">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a508bbc234615ea6f3b72cc73703cc6e4">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#aa4d61de6d84b6cbdf5e41c8214e145a8">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ab04166cf3e9d537c91b5797b9cb3c041">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a86a81cde94f746d167b406b17846794c">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#ae65397db4b1e6618f036790abb0d4982">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abef9e1267206a7ad06925b44d924cb6e">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 , <a class="el" href="classsttcl_1_1_state.html#a7727ac5a1e145e53475f097a91739730">sttcl::State&lt; StateImpl, StateMachineImpl, IState &gt;</a>
+</li>
+<li>incrementRefCount()
+: <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">sttcl::internal::RefCountPtrBase&lt; MutexType &gt;</a>
 </li>
 <li>initialize()
 : <a class="el" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
@@ -152,16 +155,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>initializeImpl()
 : <a class="el" href="classsttcl_1_1_composite_state.html#a240aadc441115b995b69b0e406ff43cb">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#ad099c8ca9b09361962ac255607b07c6c">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#af3ee7f57de210fe133f0f3cd23dde186">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#aa4d140dec52a91d8f613c2477b4cb27d">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 , <a class="el" href="classsttcl_1_1_state_machine.html#aa676ab89ca07be236b095b780f0932f1">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
 </li>
 <li>initializeRegion()
-: <a class="el" href="classsttcl_1_1_region_base.html#a435340ee43dd5b6df58d22ab7a4d59ec">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#a50ea2e08c39d5b1aaaa48e00614ef06c">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>initSubStateMachines()
-: <a class="el" href="classsttcl_1_1_composite_state.html#ac01251e11a1f6ed4c3c12c1d483f95a4">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
+: <a class="el" href="classsttcl_1_1_state_base.html#ae373d4221c5d4c2e95709d486e961920">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a>
+, <a class="el" href="classsttcl_1_1_composite_state.html#ac01251e11a1f6ed4c3c12c1d483f95a4">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a41bc3ea7904594850336a70db90db274">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="classsttcl_1_1_state_base.html#ae373d4221c5d4c2e95709d486e961920">sttcl::StateBase&lt; StateMachineImpl, IState &gt;</a>
 </li>
 <li>initSubStateMachinesImpl()
 : <a class="el" href="classsttcl_1_1_active_state.html#a6c74bfdc7b8b658e5f52a37a2430292f">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType &gt;</a>
@@ -171,35 +174,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html#a4197cb01dcf913160e809d61a9ef1b48">sttcl::internal::ConcurrentCompositeStateWithEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html#a4124ed2f89c5543aa70c281ba6735699">sttcl::internal::ConcurrentCompositeStateWithoutEventArgs&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl &gt;</a>
 , <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#ae0d8cd9cb665c0fdd02a00f852822765">sttcl::internal::ConcurrentCompositeStateBase&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a32b4a4711183beefc906ec58d4ef585a">sttcl::internal::EventArgsInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, EventArgsType &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_state_machine_impl_00_01_state_in1736ea8797feccfc9c96c455ed8619ab.html#ae34e600b0e0d5786615fa1704cefa2cb">sttcl::internal::EventArgsInterfaceSelector&lt; StateMachineImpl, StateInterface, IInnerState, void &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a178b57c924247e371a47d25f7922dc2c">sttcl::internal::IRegionEventDispatchWithArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a9d1b185050f77d8f06831404188982aa">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#adc790183b311487085ab0af4dfec8903">sttcl::internal::IRegionEventDispatchWithoutArgs&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1_region_base.html#a5895875fdec1555c0b80ace732c44801">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3f095ed5b5c4adf49103f3abd56584e1">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a12c9d8515172853bf74776536f81f482">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#ac8bae8f36c0f88ce11db416746b4b165">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">sttcl::internal::EventArgsInterfaceSelector&lt; RegionContainerImpl, IInnerState, EventArgsType &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html#a56c421292a4083eadb7c70712beb764c">sttcl::internal::EventArgsInterfaceSelector&lt; RegionContainerImpl, IInnerState, void &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a2e1048a44a34ff56d321be4d69dcfa4d">sttcl::internal::IRegionEventDispatchWithoutArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_region_base.html#a2c6267bafe43243cacb1e5c222320570">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">sttcl::internal::DispatchedEvent&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#aae4e823e80b65d3afa7b60aecc9ef2ec">sttcl::internal::RegionBaseImplWithEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a505bde43176d27c4f2bd4116c28181ac">sttcl::internal::RegionBaseImplWithoutEventArgs&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 </li>
 <li>InnerStateClass
-: <a class="el" href="classsttcl_1_1_region.html#a30d1f57b8e48ebe0adaf5b479c4f2ad6">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="classsttcl_1_1_region.html#a82d0dd1e9ed97595494513608e57161e">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 , <a class="el" href="classsttcl_1_1_composite_state.html#a5b519d05f0c2f52e0fc3f532ad808023">sttcl::CompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl &gt;</a>
 </li>
 <li>InnerStateInterface
 : <a class="el" href="classsttcl_1_1_concurrent_composite_state.html#a6b4476aae5d8ab9cbebb70dcf3fd1af3">sttcl::ConcurrentCompositeState&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl &gt;</a>
 </li>
 <li>InternalEventHandler
-: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a4d660b5d409e541ce05cb15b1690eacc">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
-, <a class="el" href="classsttcl_1_1_region.html#ae0010270ecc733a62305a5a86e085799">sttcl::Region&lt; RegionImpl, StateMachineImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
+: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a695d2df7612edaf8c50334f60d7eccf7">sttcl::internal::DispatchedEvent&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
+, <a class="el" href="classsttcl_1_1_region.html#a64628a78075e4471030d20383bcff584">sttcl::Region&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;</a>
 </li>
 <li>internalFinalize()
-: <a class="el" href="classsttcl_1_1_region_base.html#a14a035be203072af07b4e609aeb18b31">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#a53e899818b3672f0008f2f0a5f1e2b6e">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>internalHandler
-: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a3c60483549d1e5d29c99d254a93b5299">sttcl::internal::DispatchedEvent&lt; StateMachineImpl, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a48e82eb41cf896dca4a97b2da0d18692">sttcl::internal::DispatchedEvent&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>internalInitialize()
-: <a class="el" href="classsttcl_1_1_region_base.html#a2bdbd9bf7976f10643a0a81f57513692">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#a87ba3f489db6ef9039844823076ae98c">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>isDoActionRunning()
 : <a class="el" href="classsttcl_1_1_active_state.html#a82b5031f6ffbabf1fb30cad7c006d2bc">sttcl::ActiveState&lt; StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType &gt;</a>
@@ -223,13 +226,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classsttcl_1_1_state_machine.html#a08d8e922f8e1477e93ab589fb7d1ba60">sttcl::StateMachine&lt; StateMachineImpl, IState &gt;</a>
 </li>
 <li>isRegionFinalized()
-: <a class="el" href="classsttcl_1_1_region_base.html#a4ac1344dc64adab3a144c1887529a642">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#af3f53afe0b86e87f811b630de2fbb65e">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>isRegionInitialized()
-: <a class="el" href="classsttcl_1_1_region_base.html#ac22ce7b712de597f2aad4990c5f17dbe">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#a2a6fb7f8c9913c071120baab93049234">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>isRegionThreadRunning()
-: <a class="el" href="classsttcl_1_1_region_base.html#a7a23f65f834fa5fe6709d3024b16a099">sttcl::RegionBase&lt; StateMachineImpl, StateInterface, IInnerState, EventArgs &gt;</a>
+: <a class="el" href="classsttcl_1_1_region_base.html#ad6b934ae33f6af22cad3bb473fdafcc8">sttcl::RegionBase&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>
 </li>
 <li>isRunning()
 : <a class="el" href="classsttcl_1_1_class_method_thread.html#ad36e1b39bd85a5004f51029bcf320ae1">sttcl::ClassMethodThread&lt; T, UserArgs, ThreadImpl, MutexImpl &gt;</a>
@@ -247,7 +250,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -257,7 +260,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sun Mar 25 2012 16:24:59 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 15:28:04 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -97,36 +97,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">sttcl::RefCountPtr&lt; T, MutexType &gt; Class Template Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="sttcl::RefCountPtr" -->
+<!-- doxytag: class="sttcl::RefCountPtr" --><!-- doxytag: inherits="sttcl::internal::RefCountPtrBase" -->
 <p><code>#include &lt;<a class="el" href="_ref_count_ptr_8h_source.html">RefCountPtr.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for sttcl::RefCountPtr&lt; T, MutexType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsttcl_1_1_ref_count_ptr__inherit__graph.png" border="0" usemap="#sttcl_1_1_ref_count_ptr_3_01_t_00_01_mutex_type_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="sttcl_1_1_ref_count_ptr_3_01_t_00_01_mutex_type_01_4_inherit__map" id="sttcl_1_1_ref_count_ptr_3_01_t_00_01_mutex_type_01_4_inherit__map">
+<area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html" title="sttcl::internal::RefCountPtrBase\&lt; MutexType \&gt;" alt="" coords="5,5,299,32"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<div class="dynheader">
+Collaboration diagram for sttcl::RefCountPtr&lt; T, MutexType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsttcl_1_1_ref_count_ptr__coll__graph.png" border="0" usemap="#sttcl_1_1_ref_count_ptr_3_01_t_00_01_mutex_type_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="sttcl_1_1_ref_count_ptr_3_01_t_00_01_mutex_type_01_4_coll__map" id="sttcl_1_1_ref_count_ptr_3_01_t_00_01_mutex_type_01_4_coll__map">
+<area shape="rect" id="node2" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html" title="sttcl::internal::RefCountPtrBase\&lt; MutexType \&gt;" alt="" coords="27,96,320,123"/><area shape="rect" id="node4" href="structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html" title="sttcl::internal::RefCountPtrBase\&lt; MutexType \&gt;::PtrRef" alt="" coords="5,5,341,32"/></map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="classsttcl_1_1_ref_count_ptr-members.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>PtrRef</b></td></tr>
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a3ccf9fe9865fc2d9d0a6487775829bd7">ReleaseFunc</a> )(T *ptr)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#afe49f45c9cfe7dd66f0dbe0688bc885f">RefCountPtr</a> (T *argPointee, <a class="el" href="classsttcl_1_1_ref_count_ptr.html#a3ccf9fe9865fc2d9d0a6487775829bd7">ReleaseFunc</a> argReleaseFunc=<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt;::release)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#aefcdc2abba6929ae4c041e1c031b0c98">RefCountPtr</a> (T *argPointee, typename <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase</a>&lt; MutexType &gt;::<a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#aff3c26a90ecb212b54a0355426a19dcd">ReleaseFunc</a> argReleaseFunc=<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt;::release)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#aff3eda32bb2f79b0356c1e89d8f1e719">RefCountPtr</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;rhs)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#ad0d591b5fa4a8a507e470a1fdca4c314">RefCountPtr</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; U, MutexType &gt; &amp;rhs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a14f9a692f330c5638f714f8024ac63ff">~RefCountPtr</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#aa07d3d220ed491296a218cbe9696ff5f">operator=</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> &amp;rhs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">operator=</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;rhs)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#ad4c7ede93c7d99e862efa921b639e618">operator=</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; U, MutexType &gt; &amp;rhs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a91af8fc3dd60aafdbd1f311f3627b5f2">get</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#ad2ad2f01ec7f82e40391f46a4197adf8">operator T *</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a414ad630d851c17aed0f30da8dd94db4">operator-&gt;</a> ()</td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">U &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#acf56c5dd69a68cd633a6ed35bfe66001">operator*</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#afc4600514ce758c1f91f2f4beb04a2f2">operator*</a> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;&gt;<br/>
@@ -140,30 +149,7 @@ class sttcl::RefCountPtr&lt; T, MutexType &gt;</h3>
   </table>
   </dd>
 </dl>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a3ccf9fe9865fc2d9d0a6487775829bd7"></a><!-- doxytag: member="sttcl::RefCountPtr::ReleaseFunc" ref="a3ccf9fe9865fc2d9d0a6487775829bd7" args=")(T *ptr)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef void(* <a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::<a class="el" href="classsttcl_1_1_ref_count_ptr.html#a3ccf9fe9865fc2d9d0a6487775829bd7">ReleaseFunc</a>)(T *ptr)</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>The signature of a release function. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptr</td><td>The pointee to release (delete). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a94e8ed060fac3359e2b185728221bf6f"></a><!-- doxytag: member="sttcl::RefCountPtr::RefCountPtr" ref="a94e8ed060fac3359e2b185728221bf6f" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +169,7 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
 
 </div>
 </div>
-<a class="anchor" id="afe49f45c9cfe7dd66f0dbe0688bc885f"></a><!-- doxytag: member="sttcl::RefCountPtr::RefCountPtr" ref="afe49f45c9cfe7dd66f0dbe0688bc885f" args="(T *argPointee, ReleaseFunc argReleaseFunc=RefCountPtr&lt; T, MutexType &gt;::release)" -->
+<a class="anchor" id="aefcdc2abba6929ae4c041e1c031b0c98"></a><!-- doxytag: member="sttcl::RefCountPtr::RefCountPtr" ref="aefcdc2abba6929ae4c041e1c031b0c98" args="(T *argPointee, typename sttcl::internal::RefCountPtrBase&lt; MutexType &gt;::ReleaseFunc argReleaseFunc=RefCountPtr&lt; T, MutexType &gt;::release)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -198,7 +184,7 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a3ccf9fe9865fc2d9d0a6487775829bd7">ReleaseFunc</a>&#160;</td>
+          <td class="paramtype">typename <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase</a>&lt; MutexType &gt;::<a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#aff3c26a90ecb212b54a0355426a19dcd">ReleaseFunc</a>&#160;</td>
           <td class="paramname"><em>argReleaseFunc</em> = <code><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt;T,MutexType&gt;::release</code>&#160;</td>
         </tr>
         <tr>
@@ -230,6 +216,34 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
           <td class="memname"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Copy constructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will increment the reference count of the copied pointee. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>The other instance to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad0d591b5fa4a8a507e470a1fdca4c314"></a><!-- doxytag: member="sttcl::RefCountPtr::RefCountPtr" ref="ad0d591b5fa4a8a507e470a1fdca4c314" args="(const RefCountPtr&lt; U, MutexType &gt; &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;&gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; U, MutexType &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -305,16 +319,14 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
 
 </div>
 </div>
-<a class="anchor" id="acf56c5dd69a68cd633a6ed35bfe66001"></a><!-- doxytag: member="sttcl::RefCountPtr::operator*" ref="acf56c5dd69a68cd633a6ed35bfe66001" args="()" -->
+<a class="anchor" id="afc4600514ce758c1f91f2f4beb04a2f2"></a><!-- doxytag: member="sttcl::RefCountPtr::operator*" ref="afc4600514ce758c1f91f2f4beb04a2f2" args="()" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">U&amp; <a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::operator* </td>
+          <td class="memname">T&amp; <a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::operator* </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -347,7 +359,7 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
 
 </div>
 </div>
-<a class="anchor" id="aa07d3d220ed491296a218cbe9696ff5f"></a><!-- doxytag: member="sttcl::RefCountPtr::operator=" ref="aa07d3d220ed491296a218cbe9696ff5f" args="(const RefCountPtr &amp;rhs)" -->
+<a class="anchor" id="aa3394e2c7bb75c47d201d8a40ac6d625"></a><!-- doxytag: member="sttcl::RefCountPtr::operator=" ref="aa3394e2c7bb75c47d201d8a40ac6d625" args="(const RefCountPtr&lt; T, MutexType &gt; &amp;rhs)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -357,6 +369,35 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
           <td class="memname"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; <a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::operator= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Assignment operator. This operation will increment the reference count of the copied pointee. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>The other instance to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>A reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad4c7ede93c7d99e862efa921b639e618"></a><!-- doxytag: member="sttcl::RefCountPtr::operator=" ref="ad4c7ede93c7d99e862efa921b639e618" args="(const RefCountPtr&lt; U, MutexType &gt; &amp;rhs)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;&gt; </div>
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; <a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; U, MutexType &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -388,7 +429,7 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -398,7 +439,7 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
 </div>
 
 
-    <li class="footer">Generated on Sun Mar 25 2012 16:25:00 for sttcl by
+    <li class="footer">Generated on Sat Oct 13 2012 15:28:05 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
