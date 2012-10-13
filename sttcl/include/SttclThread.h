@@ -34,6 +34,7 @@
 #define STTCL_DEFAULT_THREADIMPL sttcl::internal::boost_impl::SttclBoostThread
 #elif defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
 #include "../C++11Threads/SttclCx11Thread.h"
+#error "Sorry! Builtin support for C++11 isn't available yet"
 #define STTCL_DEFAULT_THREADIMPL sttcl::internal::cx11_impl::SttclCx11Thread
 #endif
 

@@ -34,6 +34,7 @@
 #define STTCL_DEFAULT_TIMEDURATIONIMPL sttcl::internal::boost_impl::SttclBoostTimeDuration
 #elif defined(STTCL_CX11_TIME) or defined(STTCL_CX11_IMPL)
 #include "../C++Time/SttclCx11Time.h"
+#error "Sorry! Builtin support for C++11 isn't available yet"
 #define STTCL_DEFAULT_TIMEDURATIONIMPL sttcl::internal::cx11_impl::SttclCx11TimeDuration
 #endif
 
