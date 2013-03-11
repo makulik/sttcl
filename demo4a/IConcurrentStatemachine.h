@@ -15,7 +15,7 @@
 namespace Application
 {
 
-class DemoStateMachine;
+class ConcurrentStateMachine;
 
 class IConcurrentStateMachine;
 
@@ -23,7 +23,7 @@ class IConcurrentStateMachine
 {
 public:
 	typedef DemoStateMachine Context;
-	typedef sttcl::RegionBase<DemoStateMachine,IDemoState,IConcurrentStateMachine,EventArgsClass> RegionContext;
+	typedef sttcl::RegionBase<ConcurrentStateMachine,IConcurrentStateMachine,EventArgsClass> RegionContext;
 
 	virtual void handleEvent1(Context* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
 	virtual void handleEvent2(Context* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;

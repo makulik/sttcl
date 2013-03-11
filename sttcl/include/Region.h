@@ -68,7 +68,7 @@ struct EventArgsInterfaceSelector
 	 * inner state. The third parameter is a pointer to additional event arguments as specified
 	 * with the EventArgs template parameter.
 	 */
-    typedef void (IInnerState::*InnerEventHandler)(RegionContainerImpl*,RegionBase<RegionContainerImpl,IInnerState,EventArgsType>*,RefCountPtr);
+    typedef void (IInnerState::*InnerEventHandler)(RegionContainerImpl*,RegionBase<RegionContainerImpl,IInnerState,EventArgsType>*,const RefCountPtr&);
 };
 
 /**

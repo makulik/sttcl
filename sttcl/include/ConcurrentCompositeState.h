@@ -120,7 +120,7 @@ protected:
      * @param eventHandler The event handler to call inside all region threads.
      * @param eventArgs The event arguments to pass to the event handler calls.
      */
-	void broadcastEvent(Context* context,InnerEventHandler eventHandler,RefCountPtr eventArgs)
+	void broadcastEvent(Context* context,InnerEventHandler eventHandler,const RefCountPtr& eventArgs)
 	{
 		bool allRegionsFinalized = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
@@ -367,7 +367,7 @@ public:
 	 */
     ConcurrentCompositeStateBase(Context* argContextStateMachine, const RegionsArray& argRegions)
 	: BaseClassType(argRegions)
-	, contextStateMachine(argContextStateMachine)
+	, contextStateMachine_(argContextStateMachine)
 	{
 	}
 
@@ -513,14 +513,11 @@ public:
 		}
 		if(allRegionsCompleted)
 		{
-			contextStateMachine->subStateMachineCompleted(this);
+			context()->subStateMachineCompleted(this);
 		}
     }
 
-    virtual Context* getContextStateMachine()
-    {
-    	return contextStateMachine;
-    }
+    Context* context() const { return contextStateMachine_; }
 
 private:
     virtual void regionCompleted(RegionBaseType* region)
@@ -528,7 +525,7 @@ private:
     	static_cast<CompositeStateImpl*>(this)->regionCompletedImpl(region);
     }
 
-    Context* contextStateMachine;
+    Context* contextStateMachine_;
 };
 
 }
