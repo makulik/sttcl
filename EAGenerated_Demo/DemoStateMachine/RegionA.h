@@ -26,10 +26,10 @@ public:
 	RegionA(State3* regionContainer);
 	virtual ~RegionA();
 	RegionA::InnerStateClass* getInitialStateImpl() const;
-	virtual void handleEvent1(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs);
-	virtual void handleEvent2(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs);
-	virtual void handleEvent3(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs);
-	virtual void handleEvent4(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs);
+	virtual void handleEvent1(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs);
+	virtual void handleEvent2(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs);
+	virtual void handleEvent3(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs);
+	virtual void handleEvent4(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs);
 
 };
 #endif // !defined(EA_E1368E4E_D5B8_48a1_829F_A49246FC6950__INCLUDED_)

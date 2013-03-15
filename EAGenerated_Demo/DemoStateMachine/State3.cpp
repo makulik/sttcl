@@ -51,8 +51,8 @@ void State3::handleEvent1(DemoStateMachine* context, int p1, std::string& p2){
 	sttcl::RefCountPtr<Event1Args> event1Args(new Event1Args());
 	event1Args->p1 = p1;
 	event1Args->p2 = p2;
-	
-	CompositeStateBase::broadcastEvent(this,&State3_IInnerEvents::handleEvent1,event1Args);
+	sttcl::RefCountPtr<State3_DispatchEventArgsBase> dispatchArgs(event1Args);
+	CompositeStateBase::broadcastEvent(context,&State3_IInnerEvents::handleEvent1,dispatchArgs);
 	// Then take on with the transitions
 	
 	
@@ -67,7 +67,8 @@ void State3::handleEvent2(DemoStateMachine* context, double p1, double p2){
 	event2Args->p1 = p1;
 	event2Args->p2 = p2;
 	
-	CompositeStateBase::broadcastEvent(this,&State3_IInnerEvents::handleEvent2,event2Args);
+	sttcl::RefCountPtr<State3_DispatchEventArgsBase> dispatchArgs(event2Args);
+	CompositeStateBase::broadcastEvent(context,&State3_IInnerEvents::handleEvent2,dispatchArgs);
 	// Then take on with the transitions
 	CompositeStateBase::changeState(context,&(context->getState2()));
 	
@@ -80,7 +81,8 @@ void State3::handleEvent3(DemoStateMachine* context){
 	// Create & initialize dispatched event args
 	sttcl::RefCountPtr<Event3Args> event3Args(new Event3Args());
 	
-	CompositeStateBase::broadcastEvent(this,&State3_IInnerEvents::handleEvent3,event3Args);
+	sttcl::RefCountPtr<State3_DispatchEventArgsBase> dispatchArgs(event3Args);
+	CompositeStateBase::broadcastEvent(context,&State3_IInnerEvents::handleEvent3,dispatchArgs);
 	// Then take on with the transitions
 	CompositeStateBase::changeState(context,&(State1::getInstance()));
 	
@@ -97,7 +99,8 @@ void State3::handleEvent4(DemoStateMachine* context, int p1, long p2, std::vecto
 	event4Args->p2 = p2;
 	event4Args->p3 = p3;
 	
-	CompositeStateBase::broadcastEvent(this,&State3_IInnerEvents::handleEvent4,event4Args);
+	sttcl::RefCountPtr<State3_DispatchEventArgsBase> dispatchArgs(event4Args);
+	CompositeStateBase::broadcastEvent(context,&State3_IInnerEvents::handleEvent4,dispatchArgs);
 	// Then take on with the transitions
 	context->finalize();
 	

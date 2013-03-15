@@ -25,8 +25,17 @@
 #ifndef STATEMACHINE_H_
 #define STATEMACHINE_H_
 
+#include "SttclConfig.h"
+
 #include "State.h"
 #include <cassert>
+#if defined(STTCL_DEBUG)
+#include <iostream>
+//#if defined(STTCL_HAVE_RTTI)
+#include <typeinfo>
+//#endif
+#endif
+
 
 namespace sttcl
 {
@@ -205,7 +214,12 @@ public:
             		finalize(true);
             	}
             }
-            changeState(getInitialState());
+
+            StateBaseClass* initialState = getInitialState();
+            if(initialState)
+            {
+				changeState(initialState);
+            }
         	StateBaseClass* currentState = getState();
         	if(currentState)
         	{
@@ -289,7 +303,12 @@ protected:
     StateBaseClass* getInitialState() const
     {
     	StateBaseClass* result = static_cast<const Context*>(this)->getInitialStateImpl();
-    	assert(result);
+#if defined(STTCL_DEBUG) // && defined(STTCL_HAVE_RTTI)
+    	if(!result)
+    	{
+    		std::cout << "WARNING: " << typeid(static_cast<const Context*>(this)).name() << ".getInitialStateImpl() returned NULL" << std::endl;
+    	}
+#endif
     	return result;
     }
 
@@ -329,7 +348,7 @@ private:
 template<class StateMachineImpl, class IState>
 void StateMachine<StateMachineImpl,IState>::changeState(typename StateMachine<StateMachineImpl,IState>::StateBaseClass* newState)
 {
-    if(!isFinalized() || isInitalizing())
+    if(isInitalizing() || !isFinalized())
     {
     	if(newState)
 		{
