@@ -7,9 +7,9 @@
 
 #include <iostream>
 
+#include "../DemoStateMachine.h"
 #include "../ConcurrentStateMachine.h"
 #include "../CmdInterpreter.h"
-#include "../DemoStateMachine.h"
 #include "../InputEvent.h"
 #include "../SubStateMachineCompletedEvent.h"
 
@@ -68,7 +68,7 @@ void DemoStateMachine::event1()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent1(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event1 args")));
+		currentState->handleEvent1(this,"event1 args");
 	}
 }
 
@@ -78,7 +78,7 @@ void DemoStateMachine::event2()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent2(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event2 args")));
+		currentState->handleEvent1(this,"event2 args");
 	}
 }
 
@@ -88,7 +88,7 @@ void DemoStateMachine::event3()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent3(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event3 args")));
+		currentState->handleEvent1(this,"event3 args");
 	}
 }
 
@@ -98,7 +98,7 @@ void DemoStateMachine::event4()
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent4(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event4 args")));
+		currentState->handleEvent1(this,"event4 args");
 	}
 }
 

@@ -16,6 +16,7 @@ namespace Application
 class EventArgsClass
 {
 public:
+	EventArgsClass();
 	EventArgsClass(const std::string& argData);
 	virtual ~EventArgsClass();
 

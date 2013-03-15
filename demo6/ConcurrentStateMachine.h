@@ -11,28 +11,30 @@
 #include "DemoStateMachine.h"
 #include "ConcurrentCompositeState.h"
 #include "IConcurrentStatemachine.h"
-#include "RegionA.h"
-#include "RegionB.h"
 #include "IDemoState.h"
 
 namespace Application
 {
+    class RegionA;
+    class RegionB;
 
 class ConcurrentStateMachine
 : public sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass>
 {
 public:
-	typedef sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass> CompositeStateBase;
-	typedef typename CompositeStateBase::RegionsBaseType RegionsBasetype;
+	typedef sttcl::StateBase<ConcurrentStateMachine,IConcurrentStateMachine> InnerStateBaseClass;
 
+	typedef sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass> CompositeStateBase;
+
+	typedef typename CompositeStateBase::RegionsBaseType RegionsBaseType;
 
 	ConcurrentStateMachine(DemoStateMachine* context);
 	virtual ~ConcurrentStateMachine();
 
-	virtual void handleEvent1(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent2(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent3(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent4(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent1(DemoStateMachine* context,const std::string& eventArgs);
+	virtual void handleEvent2(DemoStateMachine* context,const std::string& eventArgs);
+	virtual void handleEvent3(DemoStateMachine* context,const std::string& eventArgs);
+	virtual void handleEvent4(DemoStateMachine* context,const std::string& eventArgs);
 
     void entryImpl(DemoStateMachine* context);
     void exitImpl(DemoStateMachine* context);
@@ -48,11 +50,11 @@ public:
      */
     void finalizeImpl(bool finalizeSubStateMachines);
 
-    void regionCompletedImpl(RegionsBasetype* region);
+    void regionCompletedImpl(RegionsBaseType* region);
 
 private:
-	RegionA regionA;
-	RegionB regionB;
+	RegionA* regionA;
+	RegionB* regionB;
 	CompositeStateBase::RegionsArray regions;
 	DemoStateMachine* context;
 

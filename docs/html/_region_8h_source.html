@@ -29,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="Demo5aStateMachine.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">v0.9a</span>
+   &#160;<span id="projectnumber">v0.9b</span>
    </div>
-   
+   <div id="projectbrief">STTCL state machine framework</div>
   </td>
   
   
@@ -130,7 +132,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00058"></a>00058 {
 <a name="l00062"></a><a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">00062</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr&lt;EventArgsType&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">RefCountPtr</a>;
 <a name="l00063"></a>00063 
-<a name="l00071"></a><a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">00071</a>     <span class="keyword">typedef</span> void (<a class="code" href="class_i_inner_state.html">IInnerState</a>::*<a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">InnerEventHandler</a>)(RegionContainerImpl*,<a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;RegionContainerImpl,IInnerState,EventArgsType&gt;</a>*,<a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">RefCountPtr</a>);
+<a name="l00071"></a><a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">00071</a>     <span class="keyword">typedef</span> void (<a class="code" href="class_i_inner_state.html">IInnerState</a>::*<a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">InnerEventHandler</a>)(RegionContainerImpl*,<a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;RegionContainerImpl,IInnerState,EventArgsType&gt;</a>*,<a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp;);
 <a name="l00072"></a>00072 };
 <a name="l00073"></a>00073 
 <a name="l00077"></a>00077 <span class="keyword">template</span>
@@ -141,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00082"></a>00082 {
 <a name="l00086"></a><a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html#a9fac78a875cc3bcd8a5842219cc56904">00086</a>         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr&lt;void&gt;</a> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html#a9fac78a875cc3bcd8a5842219cc56904">RefCountPtr</a>;
 <a name="l00087"></a>00087 
-<a name="l00094"></a><a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html#a56c421292a4083eadb7c70712beb764c">00094</a>     <span class="keyword">typedef</span> void (<a class="code" href="class_i_inner_state.html">IInnerState</a>::*<a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">InnerEventHandler</a>)(RegionContainerImpl*,<a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;RegionContainerImpl,IInnerState,void&gt;</a>*);
+<a name="l00094"></a><a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html#a56c421292a4083eadb7c70712beb764c">00094</a>     <span class="keyword">typedef</span> void (<a class="code" href="class_i_inner_state.html">IInnerState</a>::*<a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">InnerEventHandler</a>)(RegionContainerImpl*,<a class="code" href="classsttcl_1_1_region_base.html">RegionBase&lt;RegionContainerImpl,IInnerState,void&gt;</a>*);
 <a name="l00095"></a>00095 };
 <a name="l00096"></a>00096 
 <a name="l00097"></a>00097 <span class="keyword">template</span>
@@ -155,9 +157,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00105"></a>00105 
 <a name="l00109"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">00109</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">EventArgsSelectorType::RefCountPtr</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a>;
 <a name="l00110"></a>00110 
-<a name="l00114"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">00114</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a>;
+<a name="l00114"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">00114</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a>;
 <a name="l00115"></a>00115 
-<a name="l00122"></a>00122         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#af1f97e4fbb27409a816ace83a267d289">handleBroadcastedEvent</a>(RegionContainerImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> eventArgs) = 0;
+<a name="l00122"></a>00122         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#ae750fc712389fa05d99878bdac715cab">handleBroadcastedEvent</a>(RegionContainerImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; eventArgs) = 0;
 <a name="l00123"></a>00123 
 <a name="l00124"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a0b3c048e26f8383935c7b9504e266565">00124</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a0b3c048e26f8383935c7b9504e266565">~IRegionEventDispatchWithArgs</a>() {}
 <a name="l00125"></a>00125 };
@@ -173,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00135"></a>00135 
 <a name="l00139"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a8f4ea6a94f9549f3df92409540af5af2">00139</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">EventArgsSelectorType::RefCountPtr</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a8f4ea6a94f9549f3df92409540af5af2">RefCountPtr</a>;
 <a name="l00140"></a>00140 
-<a name="l00144"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a2e1048a44a34ff56d321be4d69dcfa4d">00144</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a2e1048a44a34ff56d321be4d69dcfa4d">InnerEventHandler</a>;
+<a name="l00144"></a><a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a2e1048a44a34ff56d321be4d69dcfa4d">00144</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a2e1048a44a34ff56d321be4d69dcfa4d">InnerEventHandler</a>;
 <a name="l00145"></a>00145 
 <a name="l00151"></a>00151         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a362fbc4ccc3f216153849afadcdb6663">handleBroadcastedEvent</a>(RegionContainerImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html#a2e1048a44a34ff56d321be4d69dcfa4d">InnerEventHandler</a> eventHandler) = 0;
 <a name="l00152"></a>00152 
@@ -286,7 +288,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00349"></a>00349 
 <a name="l00353"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">00353</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">EventArgsSelectorType::RefCountPtr</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">RefCountPtr</a>;
 <a name="l00354"></a>00354 
-<a name="l00358"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">00358</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a>;
+<a name="l00358"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">00358</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a>;
 <a name="l00359"></a>00359 
 <a name="l00363"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a695d2df7612edaf8c50334f60d7eccf7">00363</a>     <span class="keyword">typedef</span> void (<a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>::*<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a695d2df7612edaf8c50334f60d7eccf7">InternalEventHandler</a>)(bool);
 <a name="l00364"></a>00364 
@@ -297,7 +299,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00384"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a48e82eb41cf896dca4a97b2da0d18692">00384</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a695d2df7612edaf8c50334f60d7eccf7">InternalEventHandler</a> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a48e82eb41cf896dca4a97b2da0d18692">internalHandler</a>;
 <a name="l00388"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a94bf7c486e1017a091189e1b10c9b09e">00388</a>         <span class="keywordtype">bool</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a94bf7c486e1017a091189e1b10c9b09e">recursiveInternalEvent</a>;
 <a name="l00389"></a>00389 
-<a name="l00397"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a26c197c4d8bf1c1eed9362aa6ab9267e">00397</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a>(RegionContainerImpl* argContext, <a class="code" href="class_i_inner_state.html">IInnerState</a>* argState, <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a> argHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> argEventArgs)
+<a name="l00397"></a><a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#ab630a69864b5e83a54d7c3cd000b82cd">00397</a>         <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a>(RegionContainerImpl* argContext, <a class="code" href="class_i_inner_state.html">IInnerState</a>* argState, <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a> argHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; argEventArgs)
 <a name="l00398"></a>00398         : <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a09c94b1f1645d30c9e5034db164a880d">context</a>(argContext)
 <a name="l00399"></a>00399         , <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0b1dc10a6855d53388c09ac55c8b88e3">state</a>(argState)
 <a name="l00400"></a>00400         , <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a832e343e93d7289b61955efe86a2a1d4">handler</a>(argHandler)
@@ -366,12 +368,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00489"></a>00489 
 <a name="l00490"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad2beba3b28a56a1b3023e72d9450cd9a">00490</a>     <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad2beba3b28a56a1b3023e72d9450cd9a">~RegionBaseImplWithEventArgs</a>() {}
 <a name="l00491"></a>00491 
-<a name="l00492"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a2695873fa563f28a9377c041b6247fb1">00492</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a2695873fa563f28a9377c041b6247fb1">handleBroadcastedEvent</a>(RegionContainerImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> eventArgs)
+<a name="l00492"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#aa84dc703b10a293a93be5c7aa2d02409">00492</a>     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#aa84dc703b10a293a93be5c7aa2d02409">handleBroadcastedEvent</a>(RegionContainerImpl* context,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; eventArgs)
 <a name="l00493"></a>00493         {
 <a name="l00494"></a>00494                 (<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#abef9e1267206a7ad06925b44d924cb6e">Implementation</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;*eventHandler)(context,<span class="keyword">this</span>,eventArgs);
 <a name="l00495"></a>00495         }
 <a name="l00496"></a>00496 
-<a name="l00505"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a749205b3cafdd9a1e57d952390a4cdbf">00505</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a749205b3cafdd9a1e57d952390a4cdbf">dispatchEvent</a>(RegionContainerImpl* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* state, <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> eventArgs)
+<a name="l00505"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a7c9e31bb68a833f5653e8486b7b7d0a2">00505</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a7c9e31bb68a833f5653e8486b7b7d0a2">dispatchEvent</a>(RegionContainerImpl* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* state, <a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; eventArgs)
 <a name="l00506"></a>00506         {
 <a name="l00507"></a>00507                 <span class="keywordflow">if</span>(state)
 <a name="l00508"></a>00508                 {
@@ -380,7 +382,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00511"></a>00511         }
 <a name="l00512"></a>00512 
 <a name="l00513"></a>00513 <span class="keyword">protected</span>:
-<a name="l00514"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a4549edb05e370e82c09524b7ed1009a4">00514</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a4549edb05e370e82c09524b7ed1009a4">callDispatchedEventHandler</a>(RegionContainerImpl* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> eventArgs)
+<a name="l00514"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad48677a6d58428071c7a5d88a0e934f0">00514</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad48677a6d58428071c7a5d88a0e934f0">callDispatchedEventHandler</a>(RegionContainerImpl* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; eventArgs)
 <a name="l00515"></a>00515         {
 <a name="l00516"></a>00516                 (state-&gt;*eventHandler)(context,<span class="keyword">this</span>,eventArgs);
 <a name="l00517"></a>00517         }
@@ -428,7 +430,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00579"></a>00579         }
 <a name="l00580"></a>00580 
 <a name="l00581"></a>00581 <span class="keyword">protected</span>:
-<a name="l00582"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a2934231fd5abcd78b44a63b464729a72">00582</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#a2934231fd5abcd78b44a63b464729a72">callDispatchedEventHandler</a>(<a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ad6bbc38302cb392ea670698a87135ec1">RegionContainerClass</a>* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> eventArgs)
+<a name="l00582"></a><a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ad678a2179ca20ed2a3d7fbcdc725c835">00582</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ad678a2179ca20ed2a3d7fbcdc725c835">callDispatchedEventHandler</a>(<a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html#ad6bbc38302cb392ea670698a87135ec1">RegionContainerClass</a>* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* state,<a class="code" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler,<a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; eventArgs)
 <a name="l00583"></a>00583         {
 <a name="l00584"></a>00584                 (state-&gt;*eventHandler)(context,<span class="keyword">this</span>);
 <a name="l00585"></a>00585         }
@@ -540,7 +542,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00748"></a>00748 
 <a name="l00752"></a><a class="code" href="classsttcl_1_1_region.html#a4aad4a9a08695aa9fb0f003f50643a16">00752</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">EventArgsSelectorType::RefCountPtr</a> <a class="code" href="classsttcl_1_1_region.html#a4aad4a9a08695aa9fb0f003f50643a16">RefCountPtr</a>;
 <a name="l00753"></a>00753 
-<a name="l00757"></a><a class="code" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">00757</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">InnerEventHandler</a>;
+<a name="l00757"></a><a class="code" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">00757</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a> <a class="code" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">InnerEventHandler</a>;
 <a name="l00758"></a>00758 
 <a name="l00762"></a><a class="code" href="classsttcl_1_1_region.html#a64628a78075e4471030d20383bcff584">00762</a>     <span class="keyword">typedef</span> void (<a class="code" href="classsttcl_1_1_region_base.html">RegionBaseClass</a>::*<a class="code" href="classsttcl_1_1_region.html#a64628a78075e4471030d20383bcff584">InternalEventHandler</a>)(bool);
 <a name="l00763"></a>00763 
@@ -763,7 +765,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l01074"></a>01074                                 }
 <a name="l01075"></a>01075                                 <span class="keywordflow">else</span>
 <a name="l01076"></a>01076                                 {
-<a name="l01077"></a>01077                                         <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a4549edb05e370e82c09524b7ed1009a4">callDispatchedEventHandler</a>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a09c94b1f1645d30c9e5034db164a880d">context</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0b1dc10a6855d53388c09ac55c8b88e3">state</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a832e343e93d7289b61955efe86a2a1d4">handler</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2e884e5635ff27d743170733a8648b50">eventArgs</a>);
+<a name="l01077"></a>01077                                         <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad48677a6d58428071c7a5d88a0e934f0">callDispatchedEventHandler</a>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a09c94b1f1645d30c9e5034db164a880d">context</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0b1dc10a6855d53388c09ac55c8b88e3">state</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a832e343e93d7289b61955efe86a2a1d4">handler</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2e884e5635ff27d743170733a8648b50">eventArgs</a>);
 <a name="l01078"></a>01078                                 }
 <a name="l01079"></a>01079                         }
 <a name="l01080"></a>01080                 }
@@ -796,7 +798,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sat Oct 13 2012 16:41:37 for sttcl by
+    <li class="footer">Generated on Fri Mar 15 2013 21:02:26 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -13,7 +13,6 @@
 #include "ClassMethodThread.h"
 #include "EventQueue.h"
 #include "EventArgsClass.h"
-#include "Event.h"
 #include "RefCountPtr.h"
 
 namespace Application
@@ -28,7 +27,7 @@ class DemoStateMachine
     friend class CmdInterpreter;
 public:
 	typedef sttcl::StateMachine<DemoStateMachine,IDemoState> StateMachineBase;
-	typedef sttcl::RefCountPtr<Event> EventPtr;
+	typedef sttcl::RefCountPtr<EventArgsClass> EventPtr;
 
 	DemoStateMachine();
 	virtual ~DemoStateMachine();

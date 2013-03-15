@@ -29,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="Demo5aStateMachine.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">v0.9a</span>
+   &#160;<span id="projectnumber">v0.9b</span>
    </div>
-   
+   <div id="projectbrief">STTCL state machine framework</div>
   </td>
   
   
@@ -161,7 +163,7 @@ RegionContainerImpl, <br class="typebreak"/>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">EventArgsSelectorType::RefCountPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a4aad4a9a08695aa9fb0f003f50643a16">RefCountPtr</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">InnerEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#aaf78a09a9ebfa34555826293a512e01e">InnerEventHandler</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void(RegionBaseClass::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a64628a78075e4471030d20383bcff584">InternalEventHandler</a> )(bool)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 <a class="el" href="classsttcl_1_1_composite_state.html#a85ed542f8f10424716755753f72c990d">CompositeStateBase::StateImplementationBase</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a></td></tr>
@@ -335,7 +337,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
 template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , class EventArgs  = void, CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None, class StateThreadType  = sttcl::internal::SttclThread&lt;&gt;, class TimeDurationType  = TimeDuration&lt;STTCL_DEFAULT_TIMEDURATIONIMPL&gt;, class SemaphoreType  = sttcl::internal::SttclSemaphore&lt;STTCL_DEFAULT_SEMAPHOREIMPL,TimeDurationType&gt;, class MutexType  = sttcl::internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL,TimeDurationType&gt;, class EventQueueType  = sttcl::EventQueue&lt;sttcl::internal::DispatchedEvent&lt;RegionContainerImpl,IInnerState,EventArgs&gt;,TimeDurationType,SemaphoreType,MutexType&gt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="classsttcl_1_1_region.html">sttcl::Region</a>&lt; RegionImpl, RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType &gt;::<a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a></td>
         </tr>
       </table>
 </div>
@@ -1041,7 +1043,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
 </div>
 
 
-    <li class="footer">Generated on Sat Oct 13 2012 16:41:40 for sttcl by
+    <li class="footer">Generated on Fri Mar 15 2013 21:02:28 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

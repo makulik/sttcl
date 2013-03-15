@@ -24,7 +24,7 @@ RegionA::~RegionA()
 {
 }
 
-void RegionA::handleEvent1(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionA::handleEvent1(DemoStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionA, handling event1 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -34,7 +34,7 @@ void RegionA::handleEvent1(IDemoState::Context* context,sttcl::RefCountPtr<Event
 	}
 }
 
-void RegionA::handleEvent2(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionA::handleEvent2(DemoStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionA, handling event2 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -44,7 +44,7 @@ void RegionA::handleEvent2(IDemoState::Context* context,sttcl::RefCountPtr<Event
 	}
 }
 
-void RegionA::handleEvent3(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionA::handleEvent3(DemoStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionA, handling event3 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -54,7 +54,7 @@ void RegionA::handleEvent3(IDemoState::Context* context,sttcl::RefCountPtr<Event
 	}
 }
 
-void RegionA::handleEvent4(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionA::handleEvent4(DemoStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "RegionA, handling event4 ..." << endl;
 	InnerStateClass* currentState = getState();

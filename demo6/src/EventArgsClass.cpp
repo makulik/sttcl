@@ -12,6 +12,11 @@ using namespace std;
 using namespace Application;
 using Application::EventArgsClass;
 
+EventArgsClass::EventArgsClass()
+: data()
+{
+}
+
 EventArgsClass::EventArgsClass(const string& argData)
 : data(argData)
 {

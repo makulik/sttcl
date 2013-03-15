@@ -9,26 +9,24 @@
 #define ICONCURRENTSTATEMACHINE_H_
 
 #include "Region.h"
-#include "IDemoState.h"
+#include "DemoStateMachine.h"
 #include "EventArgsClass.h"
 
 namespace Application
 {
 
-class DemoStateMachine;
-
-class IConcurrentStateMachine;
+class ConcurrentStateMachine;
 
 class IConcurrentStateMachine
 {
 public:
 	typedef DemoStateMachine Context;
-	typedef sttcl::RegionBase<DemoStateMachine,IDemoState,IConcurrentStateMachine,EventArgsClass> RegionContext;
+	typedef sttcl::RegionBase<DemoStateMachine,ConcurrentStateMachine,EventArgsClass> RegionContext;
 
-	virtual void handleEvent1(Context* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
-	virtual void handleEvent2(Context* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
-	virtual void handleEvent3(Context* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
-	virtual void handleEvent4(Context* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
+	virtual void handleEvent1(DemoStateMachine* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
+	virtual void handleEvent2(DemoStateMachine* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
+	virtual void handleEvent3(DemoStateMachine* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
+	virtual void handleEvent4(DemoStateMachine* context,RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
 	virtual ~IConcurrentStateMachine() {}
 };
 

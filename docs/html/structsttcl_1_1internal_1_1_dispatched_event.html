@@ -29,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="Demo5aStateMachine.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">v0.9a</span>
+   &#160;<span id="projectnumber">v0.9b</span>
    </div>
-   
+   <div id="projectbrief">STTCL state machine framework</div>
   </td>
   
   
@@ -128,11 +130,11 @@ Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
 <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#acb69c6b3fa33c956e2237ffec87604a5">EventArgsSelectorType::RefCountPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">RefCountPtr</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a></td></tr>
+<a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef void(RegionBaseClass::*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a695d2df7612edaf8c50334f60d7eccf7">InternalEventHandler</a> )(bool)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a26c197c4d8bf1c1eed9362aa6ab9267e">DispatchedEvent</a> (RegionContainerImpl *argContext, <a class="el" href="class_i_inner_state.html">IInnerState</a> *argState, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a> argHandler, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">RefCountPtr</a> argEventArgs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#ab630a69864b5e83a54d7c3cd000b82cd">DispatchedEvent</a> (RegionContainerImpl *argContext, <a class="el" href="class_i_inner_state.html">IInnerState</a> *argState, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a> argHandler, <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">RefCountPtr</a> &amp;argEventArgs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0d31cc15afe5edb14734a2770454b5e3">DispatchedEvent</a> (<a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a695d2df7612edaf8c50334f60d7eccf7">InternalEventHandler</a> argInternalHandler, bool argRecursiveInternalEvent)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a1579ccb9f999f6009166ffd2a16417cd">DispatchedEvent</a> (const <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a> &amp;rhs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#ac1ce663ae85c3a0c6639c5743d2f266b">operator=</a> (const <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">DispatchedEvent</a> &amp;rhs)</td></tr>
@@ -173,7 +175,7 @@ template&lt;class RegionContainerImpl, class IInnerState, class EventArgs&gt; </
 template&lt;class RegionContainerImpl, class IInnerState, class EventArgs&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#a47949185f981b6d23314d046921354c4">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent</a>&lt; RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::<a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a></td>
+          <td class="memname">typedef <a class="el" href="structsttcl_1_1internal_1_1_event_args_interface_selector.html#ac7a3b2b022bdd9ced6b51da8f7d639e2">EventArgsSelectorType::InnerEventHandler</a> <a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent</a>&lt; RegionContainerImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, EventArgs &gt;::<a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#af7017c675b081e295ac0b2a1595cf642">InnerEventHandler</a></td>
         </tr>
       </table>
 </div>
@@ -231,7 +233,7 @@ template&lt;class RegionContainerImpl, class IInnerState, class EventArgs&gt; </
 </div>
 </div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a26c197c4d8bf1c1eed9362aa6ab9267e"></a><!-- doxytag: member="sttcl::internal::DispatchedEvent::DispatchedEvent" ref="a26c197c4d8bf1c1eed9362aa6ab9267e" args="(RegionContainerImpl *argContext, IInnerState *argState, InnerEventHandler argHandler, RefCountPtr argEventArgs)" -->
+<a class="anchor" id="ab630a69864b5e83a54d7c3cd000b82cd"></a><!-- doxytag: member="sttcl::internal::DispatchedEvent::DispatchedEvent" ref="ab630a69864b5e83a54d7c3cd000b82cd" args="(RegionContainerImpl *argContext, IInnerState *argState, InnerEventHandler argHandler, RefCountPtr &amp;argEventArgs)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -258,7 +260,7 @@ template&lt;class RegionContainerImpl, class IInnerState, class EventArgs&gt; </
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">RefCountPtr</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2cfd6f4fb4a5a23ec4168fe304d7ec8c">RefCountPtr</a> &amp;&#160;</td>
           <td class="paramname"><em>argEventArgs</em>&#160;</td>
         </tr>
         <tr>
@@ -494,7 +496,7 @@ template&lt;class RegionContainerImpl, class IInnerState, class EventArgs&gt; </
 </div>
 
 
-    <li class="footer">Generated on Sat Oct 13 2012 16:41:40 for sttcl by
+    <li class="footer">Generated on Fri Mar 15 2013 21:02:29 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

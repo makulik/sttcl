@@ -8,8 +8,7 @@
 #ifndef IDEMOSTATE_H_
 #define IDEMOSTATE_H_
 
-#include "EventArgsClass.h"
-#include "RefCountPtr.h"
+#include <string>
 
 namespace Application
 {
@@ -21,10 +20,10 @@ class IDemoState
 public:
 	typedef DemoStateMachine Context;
 
-	virtual void handleEvent1(Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
-	virtual void handleEvent2(Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
-	virtual void handleEvent3(Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
-	virtual void handleEvent4(Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs) = 0;
+	virtual void handleEvent1(Context* context,const std::string& eventArgs) = 0;
+	virtual void handleEvent2(Context* context,const std::string& eventArgs) = 0;
+	virtual void handleEvent3(Context* context,const std::string& eventArgs) = 0;
+	virtual void handleEvent4(Context* context,const std::string& eventArgs) = 0;
 	virtual ~IDemoState() {}
 };
 

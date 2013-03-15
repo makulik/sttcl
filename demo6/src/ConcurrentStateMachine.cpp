@@ -6,6 +6,8 @@
  */
 
 #include "../ConcurrentStateMachine.h"
+#include "../RegionA.h"
+#include "../RegionB.h"
 #include <iostream>
 
 using namespace std;
@@ -14,40 +16,46 @@ using Application::ConcurrentStateMachine;
 
 ConcurrentStateMachine::ConcurrentStateMachine(DemoStateMachine* argContext)
 : CompositeStateBase(argContext,regions)
-, regionA(this)
-, regionB(this)
+, regionA(new RegionA(this))
+, regionB(new RegionB(this))
 , context(argContext)
 {
-	regions[0] = &regionA;
-	regions[1] = &regionB;
+	regions[0] = regionA;
+	regions[1] = regionB;
 }
 
 ConcurrentStateMachine::~ConcurrentStateMachine()
 {
+	delete regionA;
+	delete regionB;
 }
 
-void ConcurrentStateMachine::handleEvent1(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void ConcurrentStateMachine::handleEvent1(DemoStateMachine* context,const std::string& eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event1 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent1,eventArgs);
+	sttcl::RefCountPtr<EventArgsClass> eventArgsPtr(new EventArgsClass(eventArgs));
+	broadcastEvent(this,&IConcurrentStateMachine::handleEvent1,eventArgsPtr);
 }
 
-void ConcurrentStateMachine::handleEvent2(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void ConcurrentStateMachine::handleEvent2(DemoStateMachine* context,const std::string& eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event2 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent2,eventArgs);
+	sttcl::RefCountPtr<EventArgsClass> eventArgsPtr(new EventArgsClass(eventArgs));
+	broadcastEvent(this,&IConcurrentStateMachine::handleEvent2,eventArgsPtr);
 }
 
-void ConcurrentStateMachine::handleEvent3(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void ConcurrentStateMachine::handleEvent3(DemoStateMachine* context,const std::string& eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event3 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent3,eventArgs);
+	sttcl::RefCountPtr<EventArgsClass> eventArgsPtr(new EventArgsClass(eventArgs));
+	broadcastEvent(this,&IConcurrentStateMachine::handleEvent3,eventArgsPtr);
 }
 
-void ConcurrentStateMachine::handleEvent4(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void ConcurrentStateMachine::handleEvent4(DemoStateMachine* context,const std::string& eventArgs)
 {
 	cout << "ConcurrentStateMachine, handling event4 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent4,eventArgs);
+	sttcl::RefCountPtr<EventArgsClass> eventArgsPtr(new EventArgsClass(eventArgs));
+	broadcastEvent(this,&IConcurrentStateMachine::handleEvent4,eventArgsPtr);
 }
 
 void ConcurrentStateMachine::entryImpl(DemoStateMachine* context)
@@ -86,7 +94,7 @@ void ConcurrentStateMachine::endDoImpl(DemoStateMachine* context)
 	CompositeStateBase::endDoImpl(context);
 }
 
-void ConcurrentStateMachine::regionCompletedImpl(RegionsBasetype* region)
+void ConcurrentStateMachine::regionCompletedImpl(RegionsBaseType* region)
 {
 	cout << "ConcurrentStateMachine, region completed ..." << endl;
 	CompositeStateBase::regionCompletedImpl(region);
