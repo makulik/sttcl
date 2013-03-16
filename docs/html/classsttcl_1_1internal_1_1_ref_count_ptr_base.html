@@ -141,7 +141,6 @@ Protected Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#aa2335a86b4555ffb1f1fd2a72324fa68">RefCountPtrBase</a> (void *argPointee, <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#aff3c26a90ecb212b54a0355426a19dcd">ReleaseFunc</a> argReleaseFunc)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a31a4832d4fcb2edf9a103d0c059521b9">RefCountPtrBase</a> (const <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a> &amp;rhs)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a3610c5f00e26484fd29cdec91d357e19">RefCountPtrBase</a> (<a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a> &amp;rhs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ab8105c3346d0fc056584ff94d69b1c8a">operator=</a> (const <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a>&lt; MutexType &gt; &amp;rhs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">incrementRefCount</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">decrementRefCount</a> ()</td></tr>
@@ -270,32 +269,6 @@ template&lt;class MutexType&gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a3610c5f00e26484fd29cdec91d357e19"></a><!-- doxytag: member="sttcl::internal::RefCountPtrBase::RefCountPtrBase" ref="a3610c5f00e26484fd29cdec91d357e19" args="(RefCountPtrBase &amp;rhs)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class MutexType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase</a>&lt; MutexType &gt;::<a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a>&lt; MutexType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td><code> [inline, protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Copy constructor for class <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a>. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rhs</td><td>The other instance to copy from. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="a9b4c786669fd371cfb4453b1b680a81d"></a><!-- doxytag: member="sttcl::internal::RefCountPtrBase::decrementRefCount" ref="a9b4c786669fd371cfb4453b1b680a81d" args="()" -->
 <div class="memitem">
@@ -349,6 +322,13 @@ template&lt;class MutexType&gt; </div>
       </table>
 </div>
 <div class="memdoc">
+<p>Copy constructor for class <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>The other instance to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -393,7 +373,7 @@ template&lt;class MutexType&gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Fri Mar 15 2013 21:02:28 for sttcl by
+    <li class="footer">Generated on Sat Mar 16 2013 11:20:13 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

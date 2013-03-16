@@ -139,11 +139,11 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#adccb18031d4a5ef4e6dfac3eb75d1b12">RegionBaseImplWithEventArgs</a> (RegionContainerImpl *argRegionContainer)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad2beba3b28a56a1b3023e72d9450cd9a">~RegionBaseImplWithEventArgs</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#aa84dc703b10a293a93be5c7aa2d02409">handleBroadcastedEvent</a> (RegionContainerImpl *context, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> &amp;eventArgs)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a7c9e31bb68a833f5653e8486b7b7d0a2">dispatchEvent</a> (RegionContainerImpl *context, <a class="el" href="class_i_inner_state.html">IInnerState</a> *state, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> &amp;eventArgs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a2695873fa563f28a9377c041b6247fb1">handleBroadcastedEvent</a> (RegionContainerImpl *context, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> eventArgs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a749205b3cafdd9a1e57d952390a4cdbf">dispatchEvent</a> (RegionContainerImpl *context, <a class="el" href="class_i_inner_state.html">IInnerState</a> *state, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> eventArgs)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#ad48677a6d58428071c7a5d88a0e934f0">callDispatchedEventHandler</a> (RegionContainerImpl *context, <a class="el" href="class_i_inner_state.html">IInnerState</a> *state, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> &amp;eventArgs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a4549edb05e370e82c09524b7ed1009a4">callDispatchedEventHandler</a> (RegionContainerImpl *context, <a class="el" href="class_i_inner_state.html">IInnerState</a> *state, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a286b80307d4078b5a72d118ece382032">InnerEventHandler</a> eventHandler, <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> eventArgs)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class RegionImpl, class RegionContainerImpl, class IInnerState, class EventArgs&gt;<br/>
@@ -275,7 +275,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ad48677a6d58428071c7a5d88a0e934f0"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplWithEventArgs::callDispatchedEventHandler" ref="ad48677a6d58428071c7a5d88a0e934f0" args="(RegionContainerImpl *context, IInnerState *state, InnerEventHandler eventHandler, RefCountPtr &amp;eventArgs)" -->
+<a class="anchor" id="a4549edb05e370e82c09524b7ed1009a4"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplWithEventArgs::callDispatchedEventHandler" ref="a4549edb05e370e82c09524b7ed1009a4" args="(RegionContainerImpl *context, IInnerState *state, InnerEventHandler eventHandler, RefCountPtr eventArgs)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -302,7 +302,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a>&#160;</td>
           <td class="paramname"><em>eventArgs</em>&#160;</td>
         </tr>
         <tr>
@@ -316,7 +316,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
 
 </div>
 </div>
-<a class="anchor" id="a7c9e31bb68a833f5653e8486b7b7d0a2"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplWithEventArgs::dispatchEvent" ref="a7c9e31bb68a833f5653e8486b7b7d0a2" args="(RegionContainerImpl *context, IInnerState *state, InnerEventHandler eventHandler, RefCountPtr &amp;eventArgs)" -->
+<a class="anchor" id="a749205b3cafdd9a1e57d952390a4cdbf"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplWithEventArgs::dispatchEvent" ref="a749205b3cafdd9a1e57d952390a4cdbf" args="(RegionContainerImpl *context, IInnerState *state, InnerEventHandler eventHandler, RefCountPtr eventArgs)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -343,7 +343,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a>&#160;</td>
           <td class="paramname"><em>eventArgs</em>&#160;</td>
         </tr>
         <tr>
@@ -367,7 +367,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
 
 </div>
 </div>
-<a class="anchor" id="aa84dc703b10a293a93be5c7aa2d02409"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplWithEventArgs::handleBroadcastedEvent" ref="aa84dc703b10a293a93be5c7aa2d02409" args="(RegionContainerImpl *context, InnerEventHandler eventHandler, RefCountPtr &amp;eventArgs)" -->
+<a class="anchor" id="a2695873fa563f28a9377c041b6247fb1"></a><!-- doxytag: member="sttcl::internal::RegionBaseImplWithEventArgs::handleBroadcastedEvent" ref="a2695873fa563f28a9377c041b6247fb1" args="(RegionContainerImpl *context, InnerEventHandler eventHandler, RefCountPtr eventArgs)" -->
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -388,7 +388,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#a78e800656bda506ce6e2377e5a1cf759">RefCountPtr</a>&#160;</td>
           <td class="paramname"><em>eventArgs</em>&#160;</td>
         </tr>
         <tr>
@@ -409,7 +409,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
   </dd>
 </dl>
 
-<p>Implements <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#ae750fc712389fa05d99878bdac715cab">sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>.</p>
+<p>Implements <a class="el" href="classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html#af1f97e4fbb27409a816ace83a267d289">sttcl::internal::IRegionEventDispatchWithArgs&lt; RegionContainerImpl, IInnerState, EventArgs &gt;</a>.</p>
 
 </div>
 </div>
@@ -438,7 +438,7 @@ template&lt;class RegionImpl , class RegionContainerImpl , class IInnerState , c
 </div>
 
 
-    <li class="footer">Generated on Fri Mar 15 2013 21:02:29 for sttcl by
+    <li class="footer">Generated on Sat Mar 16 2013 11:20:13 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

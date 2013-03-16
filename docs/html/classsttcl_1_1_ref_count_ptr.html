@@ -128,11 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#aefcdc2abba6929ae4c041e1c031b0c98">RefCountPtr</a> (T *argPointee, typename <a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase</a>&lt; MutexType &gt;::<a class="el" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#aff3c26a90ecb212b54a0355426a19dcd">ReleaseFunc</a> argReleaseFunc=<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt;::release)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#aff3eda32bb2f79b0356c1e89d8f1e719">RefCountPtr</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;rhs)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a55fa59feb55472c009983e79c915c3d6">RefCountPtr</a> (<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;rhs)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#ad0d591b5fa4a8a507e470a1fdca4c314">RefCountPtr</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; U, MutexType &gt; &amp;rhs)</td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a8fda0ee4757e90f4286bf1e681f664b2">RefCountPtr</a> (<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; U, MutexType &gt; &amp;rhs)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#a14f9a692f330c5638f714f8024ac63ff">~RefCountPtr</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">operator=</a> (const <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;rhs)</td></tr>
 <tr><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
@@ -237,32 +234,6 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
 
 </div>
 </div>
-<a class="anchor" id="a55fa59feb55472c009983e79c915c3d6"></a><!-- doxytag: member="sttcl::RefCountPtr::RefCountPtr" ref="a55fa59feb55472c009983e79c915c3d6" args="(RefCountPtr&lt; T, MutexType &gt; &amp;rhs)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; T, MutexType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Copy constructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will increment the reference count of the copied pointee. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rhs</td><td>The other instance to copy from. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="ad0d591b5fa4a8a507e470a1fdca4c314"></a><!-- doxytag: member="sttcl::RefCountPtr::RefCountPtr" ref="ad0d591b5fa4a8a507e470a1fdca4c314" args="(const RefCountPtr&lt; U, MutexType &gt; &amp;rhs)" -->
 <div class="memitem">
 <div class="memproto">
@@ -284,34 +255,7 @@ template&lt;typename U &gt; </div>
 <p>Copy constructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will increment the reference count of the copied pointee. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">rhs</td><td>The other instance to copy from. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a8fda0ee4757e90f4286bf1e681f664b2"></a><!-- doxytag: member="sttcl::RefCountPtr::RefCountPtr" ref="a8fda0ee4757e90f4286bf1e681f664b2" args="(RefCountPtr&lt; U, MutexType &gt; &amp;rhs)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;&gt; </div>
-<div class="memtemplate">
-template&lt;typename U &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">sttcl::RefCountPtr</a>&lt; T, MutexType &gt;::<a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a> </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt; U, MutexType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Copy constructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will increment the reference count of the copied pointee. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
+    <tr><td class="paramname">rhs</td><td>The other instance to copy from. Copy constructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will increment the reference count of the copied pointee. </td></tr>
     <tr><td class="paramname">rhs</td><td>The other instance to copy from. </td></tr>
   </table>
   </dd>
@@ -334,7 +278,13 @@ template&lt;typename T, class MutexType = internal::SttclMutex&lt;STTCL_DEFAULT_
       </table>
 </div>
 <div class="memdoc">
-<p>Destructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will decrement the reference count of the managed pointee. </p>
+<p>Copy constructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will increment the reference count of the copied pointee. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>The other instance to copy from. Destructor for class <a class="el" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>. This operation will decrement the reference count of the managed pointee. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -498,7 +448,7 @@ template&lt;typename U &gt; </div>
 </div>
 
 
-    <li class="footer">Generated on Fri Mar 15 2013 21:02:28 for sttcl by
+    <li class="footer">Generated on Sat Mar 16 2013 11:20:12 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>
