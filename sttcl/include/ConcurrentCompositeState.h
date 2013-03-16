@@ -120,7 +120,7 @@ protected:
      * @param eventHandler The event handler to call inside all region threads.
      * @param eventArgs The event arguments to pass to the event handler calls.
      */
-	void broadcastEvent(Context* context,InnerEventHandler eventHandler,RefCountPtr& eventArgs)
+	void broadcastEvent(Context* context,InnerEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		bool allRegionsFinalized = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)

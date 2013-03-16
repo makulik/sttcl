@@ -34,19 +34,19 @@ State5& State5::getInstance(){
 }
 
 
-void State5::handleEvent1(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void State5::handleEvent1(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 	sttcl::RefCountPtr<State3::Event1Args> event1Args(eventArgs);
 
 }
 
 
-void State5::handleEvent2(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void State5::handleEvent2(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 	sttcl::RefCountPtr<State3::Event2Args> event2Args(eventArgs);
 
 }
 
 
-void State5::handleEvent3(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void State5::handleEvent3(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 	RegionA* region = static_cast<RegionA*>(regionContext);
 	sttcl::RefCountPtr<State3::Event3Args> event3Args(eventArgs);
 	changeState(region,&(State4::getInstance()));
@@ -54,7 +54,7 @@ void State5::handleEvent3(State3* context, RegionContext* regionContext, sttcl::
 }
 
 
-void State5::handleEvent4(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void State5::handleEvent4(State3* context, RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 	RegionA* region = static_cast<RegionA*>(regionContext);
 	sttcl::RefCountPtr<State3::Event4Args> event4Args(eventArgs);
 	region->finalize();

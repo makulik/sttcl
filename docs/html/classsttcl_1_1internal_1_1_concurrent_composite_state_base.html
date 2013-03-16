@@ -29,12 +29,14 @@
  <tbody>
  <tr style="height: 56px;">
   
+  <td id="projectlogo"><img alt="Logo" src="Demo5aStateMachine.png"/></td>
+  
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">sttcl
-   &#160;<span id="projectnumber">v0.9a</span>
+   &#160;<span id="projectnumber">v0.9b</span>
    </div>
-   
+   <div id="projectbrief">STTCL state machine framework</div>
   </td>
   
   
@@ -165,7 +167,7 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#aea6e9aeba2a87ef986852e6feffecb67">startDoImpl</a> (<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a8c8cd4f0aefcb99392a8b85c176e54a5">Context</a> *context)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#ac46d40941c0b9ad52d916158e666ab19">endDoImpl</a> (<a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a8c8cd4f0aefcb99392a8b85c176e54a5">Context</a> *context)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a67c8e006b2895e9b6abed325dbabdc24">regionCompletedImpl</a> (<a class="el" href="classsttcl_1_1internal_1_1_region_container.html#a2381e7e676e96e764bfb079845dbb220">RegionBaseType</a> *region)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a8c8cd4f0aefcb99392a8b85c176e54a5">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a8ebf994160ec95c0e1f67773113cfaf0">getContextStateMachine</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a8c8cd4f0aefcb99392a8b85c176e54a5">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a13aacba47619a4177ab2a20712c89cce">context</a> () const </td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class CompositeStateImpl, class StateMachineImpl, class IInnerState, unsigned int NumOfRegions, class EventArgs, class StateBaseImpl&gt;<br/>
@@ -446,6 +448,24 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a13aacba47619a4177ab2a20712c89cce"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateBase::context" ref="a13aacba47619a4177ab2a20712c89cce" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a8c8cd4f0aefcb99392a8b85c176e54a5">Context</a>* <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html">sttcl::internal::ConcurrentCompositeStateBase</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::context </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ac46d40941c0b9ad52d916158e666ab19"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateBase::endDoImpl" ref="ac46d40941c0b9ad52d916158e666ab19" args="(Context *context)" -->
 <div class="memitem">
 <div class="memproto">
@@ -595,24 +615,6 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 
 </div>
 </div>
-<a class="anchor" id="a8ebf994160ec95c0e1f67773113cfaf0"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateBase::getContextStateMachine" ref="a8ebf994160ec95c0e1f67773113cfaf0" args="()" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerState , unsigned int NumOfRegions, class EventArgs , class StateBaseImpl &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html#a8c8cd4f0aefcb99392a8b85c176e54a5">Context</a>* <a class="el" href="classsttcl_1_1internal_1_1_concurrent_composite_state_base.html">sttcl::internal::ConcurrentCompositeStateBase</a>&lt; CompositeStateImpl, StateMachineImpl, <a class="el" href="class_i_inner_state.html">IInnerState</a>, NumOfRegions, EventArgs, StateBaseImpl &gt;::getContextStateMachine </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="ad099c8ca9b09361962ac255607b07c6c"></a><!-- doxytag: member="sttcl::internal::ConcurrentCompositeStateBase::initializeImpl" ref="ad099c8ca9b09361962ac255607b07c6c" args="(bool recursive)" -->
 <div class="memitem">
 <div class="memproto">
@@ -743,7 +745,7 @@ template&lt;class CompositeStateImpl , class StateMachineImpl , class IInnerStat
 </div>
 
 
-    <li class="footer">Generated on Sat Oct 13 2012 16:41:40 for sttcl by
+    <li class="footer">Generated on Sat Mar 16 2013 11:20:12 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

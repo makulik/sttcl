@@ -110,11 +110,11 @@ protected:
 	 * Copy constructor for class RefCountPtrBase.
 	 * @param rhs The other instance to copy from.
 	 */
-	RefCountPtrBase(RefCountPtrBase& rhs)
-	: ptrRef(rhs.ptrRef)
-	{
-		incrementRefCount();
-	}
+//	RefCountPtrBase(RefCountPtrBase& rhs)
+//	: ptrRef(rhs.ptrRef)
+//	{
+//		incrementRefCount();
+//	}
 
 	RefCountPtrBase& operator=(const RefCountPtrBase<MutexType>& rhs)
 	{
@@ -225,10 +225,10 @@ public:
 	 * count of the copied pointee.
 	 * @param rhs The other instance to copy from.
 	 */
-	RefCountPtr(RefCountPtr<T,MutexType>& rhs)
-	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
-	{
-	}
+//	RefCountPtr(RefCountPtr<T,MutexType>& rhs)
+//	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
+//	{
+//	}
 
 	/**
 	 * Copy constructor for class RefCountPtr. This operation will increment the reference
@@ -248,13 +248,13 @@ public:
 	 * count of the copied pointee.
 	 * @param rhs The other instance to copy from.
 	 */
-	template<typename U>
-	RefCountPtr(RefCountPtr<U,MutexType>& rhs)
-	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
-	//: ptrRef(static_cast<const RefCountPtr<T,MutexType>::PtrRef*>(rhs.ptrRef))
-	//: ptrRef(rhs.ptrRef)
-	{
-	}
+//	template<typename U>
+//	RefCountPtr(RefCountPtr<U,MutexType>& rhs)
+//	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
+//	//: ptrRef(static_cast<const RefCountPtr<T,MutexType>::PtrRef*>(rhs.ptrRef))
+//	//: ptrRef(rhs.ptrRef)
+//	{
+//	}
 
 	/**
 	 * Destructor for class RefCountPtr. This operation will decrement the reference count

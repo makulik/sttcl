@@ -68,7 +68,7 @@ struct EventArgsInterfaceSelector
 	 * inner state. The third parameter is a pointer to additional event arguments as specified
 	 * with the EventArgs template parameter.
 	 */
-    typedef void (IInnerState::*InnerEventHandler)(RegionContainerImpl*,RegionBase<RegionContainerImpl,IInnerState,EventArgsType>*,RefCountPtr&);
+    typedef void (IInnerState::*InnerEventHandler)(RegionContainerImpl*,RegionBase<RegionContainerImpl,IInnerState,EventArgsType>*,RefCountPtr);
 };
 
 /**
@@ -119,7 +119,7 @@ public:
      * @param eventHandler The event handler to call inside the region thread.
      * @param eventArgs The event arguments to pass to the event handler call.
      */
-	virtual void handleBroadcastedEvent(RegionContainerImpl* context,InnerEventHandler eventHandler, RefCountPtr& eventArgs) = 0;
+	virtual void handleBroadcastedEvent(RegionContainerImpl* context,InnerEventHandler eventHandler, RefCountPtr eventArgs) = 0;
 
 	virtual ~IRegionEventDispatchWithArgs() {}
 };
@@ -394,7 +394,7 @@ struct DispatchedEvent
 	 * @param argHandler
 	 * @param argEventArgs
 	 */
-	DispatchedEvent(RegionContainerImpl* argContext, IInnerState* argState, InnerEventHandler argHandler, RefCountPtr& argEventArgs)
+	DispatchedEvent(RegionContainerImpl* argContext, IInnerState* argState, InnerEventHandler argHandler, RefCountPtr argEventArgs)
 	: context(argContext)
 	, state(argState)
 	, handler(argHandler)
@@ -489,7 +489,7 @@ public:
 
     virtual ~RegionBaseImplWithEventArgs() {}
 
-    virtual void handleBroadcastedEvent(RegionContainerImpl* context,InnerEventHandler eventHandler, RefCountPtr& eventArgs)
+    virtual void handleBroadcastedEvent(RegionContainerImpl* context,InnerEventHandler eventHandler, RefCountPtr eventArgs)
 	{
 		(static_cast<Implementation*>(this)->*eventHandler)(context,this,eventArgs);
 	}
@@ -502,7 +502,7 @@ public:
 	 * @param eventHandler
 	 * @param eventArgs
 	 */
-	void dispatchEvent(RegionContainerImpl* context,IInnerState* state, InnerEventHandler eventHandler, RefCountPtr& eventArgs)
+	void dispatchEvent(RegionContainerImpl* context,IInnerState* state, InnerEventHandler eventHandler, RefCountPtr eventArgs)
 	{
 		if(state)
 		{
@@ -511,7 +511,7 @@ public:
 	}
 
 protected:
-	void callDispatchedEventHandler(RegionContainerImpl* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr& eventArgs)
+	void callDispatchedEventHandler(RegionContainerImpl* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		(state->*eventHandler)(context,this,eventArgs);
 	}
@@ -579,7 +579,7 @@ public:
 	}
 
 protected:
-	void callDispatchedEventHandler(RegionContainerClass* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr& eventArgs)
+	void callDispatchedEventHandler(RegionContainerClass* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		(state->*eventHandler)(context,this);
 	}

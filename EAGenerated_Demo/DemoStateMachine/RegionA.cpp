@@ -26,7 +26,7 @@ RegionA::InnerStateClass* RegionA::getInitialStateImpl() const {
 }
 
 
-void RegionA::handleEvent1(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void RegionA::handleEvent1(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 
 	InnerStateClass* currentState = getState();
 	if(currentState)
@@ -37,7 +37,7 @@ void RegionA::handleEvent1(State3* context, State3_IInnerEvents::RegionContext* 
 }
 
 
-void RegionA::handleEvent2(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void RegionA::handleEvent2(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 
 	InnerStateClass* currentState = getState();
 	if(currentState)
@@ -48,7 +48,7 @@ void RegionA::handleEvent2(State3* context, State3_IInnerEvents::RegionContext* 
 }
 
 
-void RegionA::handleEvent3(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void RegionA::handleEvent3(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 
 	InnerStateClass* currentState = getState();
 	if(currentState)
@@ -59,7 +59,7 @@ void RegionA::handleEvent3(State3* context, State3_IInnerEvents::RegionContext* 
 }
 
 
-void RegionA::handleEvent4(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase>& eventArgs){
+void RegionA::handleEvent4(State3* context, State3_IInnerEvents::RegionContext* regionContext, sttcl::RefCountPtr<State3_DispatchEventArgsBase> eventArgs){
 
 	InnerStateClass* currentState = getState();
 	if(currentState)

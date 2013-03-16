@@ -171,6 +171,7 @@ var NAVTREE =
       [ "sttcl/include/Region.h", "_region_8h.html", null ],
       [ "sttcl/include/State.h", "_state_8h.html", null ],
       [ "sttcl/include/StateMachine.h", "_state_machine_8h.html", null ],
+      [ "sttcl/include/SttclConfig.h", "_sttcl_config_8h.html", null ],
       [ "sttcl/include/SttclDoxygen.h", "_sttcl_doxygen_8h.html", null ],
       [ "sttcl/include/SttclMutex.h", "_sttcl_mutex_8h.html", null ],
       [ "sttcl/include/SttclSemaphore.h", "_sttcl_semaphore_8h.html", null ],
