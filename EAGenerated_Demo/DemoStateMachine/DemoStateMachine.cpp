@@ -19,8 +19,6 @@ DemoStateMachine::DemoStateMachine()
 
 }
 
-
-
 DemoStateMachine::~DemoStateMachine(){
 	delete state3;
 	delete state2;
