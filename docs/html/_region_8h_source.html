@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   
-  <td id="projectlogo"><img alt="Logo" src="Demo5aStateMachine.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="STTCL_Logo.png"/></td>
   
   
   <td style="padding-left: 0.5em;">
@@ -567,217 +567,217 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00809"></a>00809 
 <a name="l00813"></a><a class="code" href="classsttcl_1_1_region.html#a0d2d647f08350dd3b78308f302ecd862">00813</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> StateImplementationBase::StateThreadImpl <a class="code" href="classsttcl_1_1_region.html#a0d2d647f08350dd3b78308f302ecd862">RegionThreadImpl</a>;
 <a name="l00814"></a>00814 
-<a name="l00819"></a><a class="code" href="classsttcl_1_1_region.html#a90626dde43b1bce7f2f2e4a858e214d5">00819</a>         <a class="code" href="classsttcl_1_1_region.html#a90626dde43b1bce7f2f2e4a858e214d5">Region</a>(RegionContainerImpl* argRegionContainer, TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
-<a name="l00820"></a>00820         : <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>(&amp;<a class="code" href="classsttcl_1_1_region.html">SelfClassType</a>::regionDoAction)
-<a name="l00821"></a>00821         , <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">SelectedRegionBase</a>(argRegionContainer)
-<a name="l00822"></a>00822         , eventDispatchQueue()
-<a name="l00823"></a>00823         , checkEventFrequency(argDoActionFrequency)
-<a name="l00824"></a>00824         {
-<a name="l00825"></a>00825         }
-<a name="l00826"></a>00826 
-<a name="l00830"></a><a class="code" href="classsttcl_1_1_region.html#af74596f952909d1dbc152bdf4780c322">00830</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_region.html#af74596f952909d1dbc152bdf4780c322">~Region</a>()
-<a name="l00831"></a>00831         {
-<a name="l00832"></a>00832         }
-<a name="l00833"></a>00833 
-<a name="l00840"></a><a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">00840</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">dispatchInternalEvent</a>(<a class="code" href="classsttcl_1_1_region.html#a64628a78075e4471030d20383bcff584">InternalEventHandler</a> internalEventHandler, <span class="keywordtype">bool</span> recursive)
-<a name="l00841"></a>00841         {
-<a name="l00842"></a>00842                 eventDispatchQueue.push_back(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a>(internalEventHandler,recursive));
-<a name="l00843"></a>00843         }
-<a name="l00844"></a>00844 
-<a name="l00850"></a><a class="code" href="classsttcl_1_1_region.html#af6f011482f63d9caa01763320711a262">00850</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#af6f011482f63d9caa01763320711a262">changeStateImpl</a>(RegionContainerImpl* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* newState)
-<a name="l00851"></a>00851     {
-<a name="l00852"></a>00852     }
-<a name="l00853"></a>00853 
-<a name="l00858"></a><a class="code" href="classsttcl_1_1_region.html#ac5f29b001c646237d18dad7401f03ad6">00858</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#ac5f29b001c646237d18dad7401f03ad6">changeState</a>(<a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a>* newState)
-<a name="l00859"></a>00859         {
-<a name="l00860"></a>00860                 <a class="code" href="classsttcl_1_1_region.html#ac5f29b001c646237d18dad7401f03ad6">RegionStateMachine::changeState</a>(newState);
-<a name="l00861"></a>00861         }
-<a name="l00862"></a>00862 
-<a name="l00866"></a><a class="code" href="classsttcl_1_1_region.html#a881d578d0f626d6f74ccd88f363e19da">00866</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a881d578d0f626d6f74ccd88f363e19da">startingRegionThread</a>()
-<a name="l00867"></a>00867         {
-<a name="l00868"></a>00868 
-<a name="l00869"></a>00869         }
-<a name="l00870"></a>00870 
-<a name="l00874"></a><a class="code" href="classsttcl_1_1_region.html#a202962d827eeff16b09922de1d913022">00874</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a202962d827eeff16b09922de1d913022">endingRegionThread</a>()
-<a name="l00875"></a>00875         {
-<a name="l00876"></a>00876 
-<a name="l00877"></a>00877         }
-<a name="l00878"></a>00878 
-<a name="l00883"></a><a class="code" href="classsttcl_1_1_region.html#a6b68b9676a7fcbe81f0236434b6f6531">00883</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a6b68b9676a7fcbe81f0236434b6f6531">entryImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a476d09edbdbf810b54065da825ad0c77">Context</a>* context)
-<a name="l00884"></a>00884     {
-<a name="l00885"></a>00885         <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">CompositeStateBase::entryImpl</a>(context);
-<a name="l00886"></a>00886     }
-<a name="l00887"></a>00887 
-<a name="l00892"></a><a class="code" href="classsttcl_1_1_region.html#abc3a82e3b03a87e380dbe97818c215df">00892</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#abc3a82e3b03a87e380dbe97818c215df">exitImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a476d09edbdbf810b54065da825ad0c77">Context</a>* context)
-<a name="l00893"></a>00893     {
-<a name="l00894"></a>00894         <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">CompositeStateBase::exitImpl</a>(context);
-<a name="l00895"></a>00895     }
-<a name="l00896"></a>00896 
-<a name="l00902"></a><a class="code" href="classsttcl_1_1_region.html#aa4d140dec52a91d8f613c2477b4cb27d">00902</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#aa4d140dec52a91d8f613c2477b4cb27d">initializeImpl</a>(<span class="keywordtype">bool</span> force)
-<a name="l00903"></a>00903     {
-<a name="l00904"></a>00904         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
-<a name="l00905"></a>00905         {
-<a name="l00906"></a>00906                         <span class="comment">// dispatch initialization to region thread</span>
-<a name="l00907"></a>00907                 <a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a87ba3f489db6ef9039844823076ae98c">RegionBaseClass::internalInitialize</a>,force);
-<a name="l00908"></a>00908         }
-<a name="l00909"></a>00909         <span class="keywordflow">else</span>
-<a name="l00910"></a>00910         {
-<a name="l00911"></a>00911                 internalInitialize(force);
-<a name="l00912"></a>00912         }
-<a name="l00913"></a>00913         <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00914"></a>00914     }
-<a name="l00915"></a>00915 
-<a name="l00921"></a><a class="code" href="classsttcl_1_1_region.html#a7d3404641d4bf1f619af564341df04d9">00921</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a7d3404641d4bf1f619af564341df04d9">finalizeImpl</a>(<span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">finalizeSubStateMachines</a>)
-<a name="l00922"></a>00922     {
-<a name="l00923"></a>00923         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
-<a name="l00924"></a>00924         {
-<a name="l00925"></a>00925                         <span class="comment">// dispatch finalization to region thread</span>
-<a name="l00926"></a>00926                         <a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a53e899818b3672f0008f2f0a5f1e2b6e">RegionBaseClass::internalFinalize</a>,finalizeSubStateMachines);
-<a name="l00927"></a>00927         }
-<a name="l00928"></a>00928         <span class="keywordflow">else</span>
-<a name="l00929"></a>00929         {
-<a name="l00930"></a>00930                 internalFinalize(finalizeSubStateMachines);
-<a name="l00931"></a>00931         }
-<a name="l00932"></a>00932     }
-<a name="l00933"></a>00933 
-<a name="l00938"></a><a class="code" href="classsttcl_1_1_region.html#a4edfe989467d0973cf34793d69d0fb4d">00938</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#a4edfe989467d0973cf34793d69d0fb4d">endDoActionRequestedImpl</a>()
-<a name="l00939"></a>00939     {
-<a name="l00940"></a>00940         <span class="keywordflow">return</span> <span class="comment">//static_cast&lt;RegionContainerImplementationBase*&gt;(this)-&gt;isFinalized() ||</span>
-<a name="l00941"></a>00941                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a4edfe989467d0973cf34793d69d0fb4d">endDoActionRequestedImpl</a>();
-<a name="l00942"></a>00942     }
-<a name="l00943"></a>00943 
-<a name="l00947"></a><a class="code" href="classsttcl_1_1_region.html#ae7522ccd391f1694661941a70dbd7900">00947</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#ae7522ccd391f1694661941a70dbd7900">exitingDoActionImpl</a>()
-<a name="l00948"></a>00948     {
-<a name="l00949"></a>00949                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a202962d827eeff16b09922de1d913022">endingRegionThread</a>();
-<a name="l00950"></a>00950     }
-<a name="l00951"></a>00951 
-<a name="l00955"></a><a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">00955</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">joinDoActionThreadImpl</a>()
-<a name="l00956"></a>00956     {
-<a name="l00957"></a>00957                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">joinDoActionThreadImpl</a>();
-<a name="l00958"></a>00958     }
-<a name="l00959"></a>00959 
-<a name="l00964"></a><a class="code" href="classsttcl_1_1_region.html#a6844a115104c3b0a7eee3ea34a7563dc">00964</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a6844a115104c3b0a7eee3ea34a7563dc">unblockDoActionImpl</a>()
-<a name="l00965"></a>00965     {
-<a name="l00966"></a>00966                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a6844a115104c3b0a7eee3ea34a7563dc">unblockDoActionImpl</a>();
-<a name="l00967"></a>00967                 unblockEventsAvailable();
-<a name="l00968"></a>00968     }
-<a name="l00969"></a>00969 
-<a name="l00974"></a><a class="code" href="classsttcl_1_1_region.html#a5d12144d07065a81ebd89021540068a4">00974</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a5d12144d07065a81ebd89021540068a4">endDoImpl</a>(RegionContainerImpl* context)
-<a name="l00975"></a>00975     {
-<a name="l00976"></a>00976            <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
-<a name="l00977"></a>00977            {
-<a name="l00978"></a>00978                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a5d12144d07065a81ebd89021540068a4">endDoImpl</a>(context);
-<a name="l00979"></a>00979            }
-<a name="l00980"></a>00980     }
-<a name="l00981"></a>00981 
-<a name="l00982"></a>00982 <span class="keyword">private</span>:
-<a name="l00983"></a>00983         <span class="keyword">virtual</span> <span class="keywordtype">void</span> queueDispatchedEvent(<span class="keyword">const</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a>&amp; dispatchedEvent)
-<a name="l00984"></a>00984         {
-<a name="l00985"></a>00985                 eventDispatchQueue.push_back(dispatchedEvent);
-<a name="l00986"></a>00986         }
-<a name="l00987"></a>00987 
-<a name="l00988"></a>00988         <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterRegion(RegionContainerImpl* context)
-<a name="l00989"></a>00989         {
-<a name="l00990"></a>00990                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;entry(context);
-<a name="l00991"></a>00991         }
-<a name="l00992"></a>00992 
-<a name="l00993"></a>00993         <span class="keyword">virtual</span> <span class="keywordtype">void</span> exitRegion(RegionContainerImpl* context)
-<a name="l00994"></a>00994         {
-<a name="l00995"></a>00995                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;exit(context);
-<a name="l00996"></a>00996         }
-<a name="l00997"></a>00997 
-<a name="l00998"></a>00998         <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDoRegion(RegionContainerImpl* context)
-<a name="l00999"></a>00999         {
-<a name="l01000"></a>01000                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a881d578d0f626d6f74ccd88f363e19da">startingRegionThread</a>();
-<a name="l01001"></a>01001                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;startDo(context);
-<a name="l01002"></a>01002         }
-<a name="l01003"></a>01003 
-<a name="l01004"></a>01004         <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDoRegion(RegionContainerImpl* context)
-<a name="l01005"></a>01005         {
-<a name="l01006"></a>01006                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;endDo(context);
-<a name="l01007"></a>01007         }
-<a name="l01008"></a>01008 
-<a name="l01009"></a>01009         <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeRegion(<span class="keywordtype">bool</span> recursive)
-<a name="l01010"></a>01010         {
-<a name="l01011"></a>01011                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">finalize</a>(recursive);
-<a name="l01012"></a>01012         }
-<a name="l01013"></a>01013 
-<a name="l01014"></a>01014         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> initializeRegion(<span class="keywordtype">bool</span> recursive)
-<a name="l01015"></a>01015         {
-<a name="l01016"></a>01016                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e">initialize</a>(recursive);
-<a name="l01017"></a>01017                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77">isReady</a>();
-<a name="l01018"></a>01018         }
-<a name="l01019"></a>01019 
-<a name="l01020"></a>01020         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionInitialized()
-<a name="l01021"></a>01021         {
-<a name="l01022"></a>01022                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a490d472365cca1b3c4f0163748ae0b41">isInitialized</a>();
-<a name="l01023"></a>01023         }
-<a name="l01024"></a>01024 
-<a name="l01025"></a>01025         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionFinalized()
-<a name="l01026"></a>01026         {
-<a name="l01027"></a>01027                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a73412a128b6e2904ab951a6d9fc17aee">isFinalized</a>();
-<a name="l01028"></a>01028         }
-<a name="l01029"></a>01029 
-<a name="l01030"></a>01030         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionThreadRunning()<span class="keyword"> const</span>
-<a name="l01031"></a>01031 <span class="keyword">        </span>{
-<a name="l01032"></a>01032                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a82b5031f6ffbabf1fb30cad7c006d2bc">isDoActionRunning</a>();
-<a name="l01033"></a>01033         }
-<a name="l01034"></a>01034 
-<a name="l01035"></a>01035         <span class="keyword">virtual</span> <span class="keywordtype">void</span> joinRegionThread()
-<a name="l01036"></a>01036         {
-<a name="l01037"></a>01037                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">joinDoActionThreadImpl</a>();
-<a name="l01038"></a>01038         }
-<a name="l01039"></a>01039 
-<a name="l01040"></a>01040         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalInitialize(<span class="keywordtype">bool</span> recursive)
-<a name="l01041"></a>01041         {
-<a name="l01042"></a>01042         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a541b499905f61bdeb09af86e9edf2cb4">RegionStateMachine</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#aa4d140dec52a91d8f613c2477b4cb27d">initializeImpl</a>(recursive);
-<a name="l01043"></a>01043         }
-<a name="l01044"></a>01044 
-<a name="l01045"></a>01045         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalFinalize(<span class="keywordtype">bool</span> recursive)
-<a name="l01046"></a>01046         {
-<a name="l01047"></a>01047         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a541b499905f61bdeb09af86e9edf2cb4">RegionStateMachine</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a7d3404641d4bf1f619af564341df04d9">finalizeImpl</a>(recursive);
-<a name="l01048"></a>01048         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_region_container.html">sttcl::internal::RegionContainer&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a> IRegionContainer;
-<a name="l01049"></a>01049         IRegionContainer* iregionContainer = <span class="keyword">static_cast&lt;</span>IRegionContainer*<span class="keyword">&gt;</span>(<a class="code" href="classsttcl_1_1_region_base.html#aa34b8ed439941a0e4c607c8cb04b660c">RegionBaseClass::regionContainer</a>);
-<a name="l01050"></a>01050         iregionContainer-&gt;<a class="code" href="classsttcl_1_1internal_1_1_region_container.html#aef101be5bd973fd79742e719c7fc4959">regionCompleted</a>(<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a201b1cf2085e9f42add46984fb40582c">RegionBase&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>));
-<a name="l01051"></a>01051         }
-<a name="l01052"></a>01052 
-<a name="l01053"></a>01053         <span class="keywordtype">void</span> unblockEventsAvailable()
-<a name="l01054"></a>01054         {
-<a name="l01055"></a>01055                 eventDispatchQueue.unblock();
-<a name="l01056"></a>01056         }
-<a name="l01057"></a>01057 
-<a name="l01058"></a>01058         <span class="keywordtype">bool</span> checkEventsAvailable()
-<a name="l01059"></a>01059         {
-<a name="l01060"></a>01060                 <span class="keywordflow">return</span> eventDispatchQueue.waitForEvents(checkEventFrequency);
-<a name="l01061"></a>01061         }
-<a name="l01062"></a>01062 
-<a name="l01063"></a>01063         <span class="keywordtype">void</span> regionDoAction(<span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">ActiveStateImpl::Context</a>* context, <span class="keywordtype">bool</span> firstCall)
-<a name="l01064"></a>01064         {
-<a name="l01065"></a>01065                 <span class="keywordflow">if</span>(checkEventsAvailable())
-<a name="l01066"></a>01066                 {
-<a name="l01067"></a>01067                         <span class="keywordflow">while</span>(!eventDispatchQueue.empty())
-<a name="l01068"></a>01068                         {
-<a name="l01069"></a>01069                                 <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a> dispatchedEvent = eventDispatchQueue.front();
-<a name="l01070"></a>01070                                 eventDispatchQueue.pop_front();
-<a name="l01071"></a>01071                                 <span class="keywordflow">if</span>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a48e82eb41cf896dca4a97b2da0d18692">internalHandler</a>)
-<a name="l01072"></a>01072                                 {
-<a name="l01073"></a>01073                                         (this-&gt;*dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a48e82eb41cf896dca4a97b2da0d18692">internalHandler</a>)(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a94bf7c486e1017a091189e1b10c9b09e">recursiveInternalEvent</a>);
-<a name="l01074"></a>01074                                 }
-<a name="l01075"></a>01075                                 <span class="keywordflow">else</span>
-<a name="l01076"></a>01076                                 {
-<a name="l01077"></a>01077                                         <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a4549edb05e370e82c09524b7ed1009a4">callDispatchedEventHandler</a>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a09c94b1f1645d30c9e5034db164a880d">context</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0b1dc10a6855d53388c09ac55c8b88e3">state</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a832e343e93d7289b61955efe86a2a1d4">handler</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2e884e5635ff27d743170733a8648b50">eventArgs</a>);
-<a name="l01078"></a>01078                                 }
-<a name="l01079"></a>01079                         }
-<a name="l01080"></a>01080                 }
-<a name="l01081"></a>01081         }
-<a name="l01082"></a>01082 
-<a name="l01083"></a>01083         EventQueueType eventDispatchQueue;
-<a name="l01084"></a>01084         TimeDurationType checkEventFrequency;
-<a name="l01085"></a>01085 };
-<a name="l01086"></a>01086 
-<a name="l01087"></a>01087 }
-<a name="l01088"></a>01088 
-<a name="l01089"></a>01089 <span class="preprocessor">#endif </span><span class="comment">/* REGION_H_ */</span>
+<a name="l00820"></a><a class="code" href="classsttcl_1_1_region.html#a90626dde43b1bce7f2f2e4a858e214d5">00820</a>         <a class="code" href="classsttcl_1_1_region.html#a90626dde43b1bce7f2f2e4a858e214d5">Region</a>(RegionContainerImpl* argRegionContainer, TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
+<a name="l00821"></a>00821         : <a class="code" href="classsttcl_1_1_composite_state.html">CompositeStateBase</a>(&amp;<a class="code" href="classsttcl_1_1_region.html">SelfClassType</a>::regionDoAction)
+<a name="l00822"></a>00822         , <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html">SelectedRegionBase</a>(argRegionContainer)
+<a name="l00823"></a>00823         , eventDispatchQueue()
+<a name="l00824"></a>00824         , checkEventFrequency(argDoActionFrequency)
+<a name="l00825"></a>00825         {
+<a name="l00826"></a>00826         }
+<a name="l00827"></a>00827 
+<a name="l00831"></a><a class="code" href="classsttcl_1_1_region.html#af74596f952909d1dbc152bdf4780c322">00831</a>         <span class="keyword">virtual</span> <a class="code" href="classsttcl_1_1_region.html#af74596f952909d1dbc152bdf4780c322">~Region</a>()
+<a name="l00832"></a>00832         {
+<a name="l00833"></a>00833         }
+<a name="l00834"></a>00834 
+<a name="l00841"></a><a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">00841</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">dispatchInternalEvent</a>(<a class="code" href="classsttcl_1_1_region.html#a64628a78075e4471030d20383bcff584">InternalEventHandler</a> internalEventHandler, <span class="keywordtype">bool</span> recursive)
+<a name="l00842"></a>00842         {
+<a name="l00843"></a>00843                 eventDispatchQueue.push_back(<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a>(internalEventHandler,recursive));
+<a name="l00844"></a>00844         }
+<a name="l00845"></a>00845 
+<a name="l00851"></a><a class="code" href="classsttcl_1_1_region.html#af6f011482f63d9caa01763320711a262">00851</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#af6f011482f63d9caa01763320711a262">changeStateImpl</a>(RegionContainerImpl* context,<a class="code" href="class_i_inner_state.html">IInnerState</a>* newState)
+<a name="l00852"></a>00852     {
+<a name="l00853"></a>00853     }
+<a name="l00854"></a>00854 
+<a name="l00859"></a><a class="code" href="classsttcl_1_1_region.html#ac5f29b001c646237d18dad7401f03ad6">00859</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#ac5f29b001c646237d18dad7401f03ad6">changeState</a>(<a class="code" href="classsttcl_1_1_state_base.html">RegionStateBase</a>* newState)
+<a name="l00860"></a>00860         {
+<a name="l00861"></a>00861                 <a class="code" href="classsttcl_1_1_region.html#ac5f29b001c646237d18dad7401f03ad6">RegionStateMachine::changeState</a>(newState);
+<a name="l00862"></a>00862         }
+<a name="l00863"></a>00863 
+<a name="l00867"></a><a class="code" href="classsttcl_1_1_region.html#a881d578d0f626d6f74ccd88f363e19da">00867</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a881d578d0f626d6f74ccd88f363e19da">startingRegionThread</a>()
+<a name="l00868"></a>00868         {
+<a name="l00869"></a>00869 
+<a name="l00870"></a>00870         }
+<a name="l00871"></a>00871 
+<a name="l00875"></a><a class="code" href="classsttcl_1_1_region.html#a202962d827eeff16b09922de1d913022">00875</a>         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a202962d827eeff16b09922de1d913022">endingRegionThread</a>()
+<a name="l00876"></a>00876         {
+<a name="l00877"></a>00877 
+<a name="l00878"></a>00878         }
+<a name="l00879"></a>00879 
+<a name="l00884"></a><a class="code" href="classsttcl_1_1_region.html#a6b68b9676a7fcbe81f0236434b6f6531">00884</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a6b68b9676a7fcbe81f0236434b6f6531">entryImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a476d09edbdbf810b54065da825ad0c77">Context</a>* context)
+<a name="l00885"></a>00885     {
+<a name="l00886"></a>00886         <a class="code" href="classsttcl_1_1_composite_state.html#a24b1a72cf3d98b22e7b177ac110babdc">CompositeStateBase::entryImpl</a>(context);
+<a name="l00887"></a>00887     }
+<a name="l00888"></a>00888 
+<a name="l00893"></a><a class="code" href="classsttcl_1_1_region.html#abc3a82e3b03a87e380dbe97818c215df">00893</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#abc3a82e3b03a87e380dbe97818c215df">exitImpl</a>(<a class="code" href="classsttcl_1_1_region.html#a476d09edbdbf810b54065da825ad0c77">Context</a>* context)
+<a name="l00894"></a>00894     {
+<a name="l00895"></a>00895         <a class="code" href="classsttcl_1_1_composite_state.html#a83858517932fb0168bfa188b29f48f07">CompositeStateBase::exitImpl</a>(context);
+<a name="l00896"></a>00896     }
+<a name="l00897"></a>00897 
+<a name="l00903"></a><a class="code" href="classsttcl_1_1_region.html#aa4d140dec52a91d8f613c2477b4cb27d">00903</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#aa4d140dec52a91d8f613c2477b4cb27d">initializeImpl</a>(<span class="keywordtype">bool</span> force)
+<a name="l00904"></a>00904     {
+<a name="l00905"></a>00905         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
+<a name="l00906"></a>00906         {
+<a name="l00907"></a>00907                         <span class="comment">// dispatch initialization to region thread</span>
+<a name="l00908"></a>00908                 <a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a87ba3f489db6ef9039844823076ae98c">RegionBaseClass::internalInitialize</a>,force);
+<a name="l00909"></a>00909         }
+<a name="l00910"></a>00910         <span class="keywordflow">else</span>
+<a name="l00911"></a>00911         {
+<a name="l00912"></a>00912                 internalInitialize(force);
+<a name="l00913"></a>00913         }
+<a name="l00914"></a>00914         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00915"></a>00915     }
+<a name="l00916"></a>00916 
+<a name="l00922"></a><a class="code" href="classsttcl_1_1_region.html#a7d3404641d4bf1f619af564341df04d9">00922</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a7d3404641d4bf1f619af564341df04d9">finalizeImpl</a>(<span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_composite_state.html#a0624ad12b60a0e62afc843c1ca1cedf5">finalizeSubStateMachines</a>)
+<a name="l00923"></a>00923     {
+<a name="l00924"></a>00924         <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
+<a name="l00925"></a>00925         {
+<a name="l00926"></a>00926                         <span class="comment">// dispatch finalization to region thread</span>
+<a name="l00927"></a>00927                         <a class="code" href="classsttcl_1_1_region.html#a712189ee45fc5434bacca96cfd4f4462">dispatchInternalEvent</a>(&amp;<a class="code" href="classsttcl_1_1_region_base.html#a53e899818b3672f0008f2f0a5f1e2b6e">RegionBaseClass::internalFinalize</a>,finalizeSubStateMachines);
+<a name="l00928"></a>00928         }
+<a name="l00929"></a>00929         <span class="keywordflow">else</span>
+<a name="l00930"></a>00930         {
+<a name="l00931"></a>00931                 internalFinalize(finalizeSubStateMachines);
+<a name="l00932"></a>00932         }
+<a name="l00933"></a>00933     }
+<a name="l00934"></a>00934 
+<a name="l00939"></a><a class="code" href="classsttcl_1_1_region.html#a4edfe989467d0973cf34793d69d0fb4d">00939</a>     <span class="keywordtype">bool</span> <a class="code" href="classsttcl_1_1_region.html#a4edfe989467d0973cf34793d69d0fb4d">endDoActionRequestedImpl</a>()
+<a name="l00940"></a>00940     {
+<a name="l00941"></a>00941         <span class="keywordflow">return</span> <span class="comment">//static_cast&lt;RegionContainerImplementationBase*&gt;(this)-&gt;isFinalized() ||</span>
+<a name="l00942"></a>00942                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a4edfe989467d0973cf34793d69d0fb4d">endDoActionRequestedImpl</a>();
+<a name="l00943"></a>00943     }
+<a name="l00944"></a>00944 
+<a name="l00948"></a><a class="code" href="classsttcl_1_1_region.html#ae7522ccd391f1694661941a70dbd7900">00948</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#ae7522ccd391f1694661941a70dbd7900">exitingDoActionImpl</a>()
+<a name="l00949"></a>00949     {
+<a name="l00950"></a>00950                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a202962d827eeff16b09922de1d913022">endingRegionThread</a>();
+<a name="l00951"></a>00951     }
+<a name="l00952"></a>00952 
+<a name="l00956"></a><a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">00956</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">joinDoActionThreadImpl</a>()
+<a name="l00957"></a>00957     {
+<a name="l00958"></a>00958                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">joinDoActionThreadImpl</a>();
+<a name="l00959"></a>00959     }
+<a name="l00960"></a>00960 
+<a name="l00965"></a><a class="code" href="classsttcl_1_1_region.html#a6844a115104c3b0a7eee3ea34a7563dc">00965</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a6844a115104c3b0a7eee3ea34a7563dc">unblockDoActionImpl</a>()
+<a name="l00966"></a>00966     {
+<a name="l00967"></a>00967                 <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a6844a115104c3b0a7eee3ea34a7563dc">unblockDoActionImpl</a>();
+<a name="l00968"></a>00968                 unblockEventsAvailable();
+<a name="l00969"></a>00969     }
+<a name="l00970"></a>00970 
+<a name="l00975"></a><a class="code" href="classsttcl_1_1_region.html#a5d12144d07065a81ebd89021540068a4">00975</a>     <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1_region.html#a5d12144d07065a81ebd89021540068a4">endDoImpl</a>(RegionContainerImpl* context)
+<a name="l00976"></a>00976     {
+<a name="l00977"></a>00977            <span class="keywordflow">if</span>(!RegionThreadImpl::isSelf(static_cast&lt;StateImplementationBase*&gt;(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a75ebc1317588120503851cf23054456c">getStateThread</a>()))
+<a name="l00978"></a>00978            {
+<a name="l00979"></a>00979                    <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a6f7742858a8f4c26187da1c49f2fb185">StateImplementationBase</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a5d12144d07065a81ebd89021540068a4">endDoImpl</a>(context);
+<a name="l00980"></a>00980            }
+<a name="l00981"></a>00981     }
+<a name="l00982"></a>00982 
+<a name="l00983"></a>00983 <span class="keyword">private</span>:
+<a name="l00984"></a>00984         <span class="keyword">virtual</span> <span class="keywordtype">void</span> queueDispatchedEvent(<span class="keyword">const</span> <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a>&amp; dispatchedEvent)
+<a name="l00985"></a>00985         {
+<a name="l00986"></a>00986                 eventDispatchQueue.push_back(dispatchedEvent);
+<a name="l00987"></a>00987         }
+<a name="l00988"></a>00988 
+<a name="l00989"></a>00989         <span class="keyword">virtual</span> <span class="keywordtype">void</span> enterRegion(RegionContainerImpl* context)
+<a name="l00990"></a>00990         {
+<a name="l00991"></a>00991                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;entry(context);
+<a name="l00992"></a>00992         }
+<a name="l00993"></a>00993 
+<a name="l00994"></a>00994         <span class="keyword">virtual</span> <span class="keywordtype">void</span> exitRegion(RegionContainerImpl* context)
+<a name="l00995"></a>00995         {
+<a name="l00996"></a>00996                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;exit(context);
+<a name="l00997"></a>00997         }
+<a name="l00998"></a>00998 
+<a name="l00999"></a>00999         <span class="keyword">virtual</span> <span class="keywordtype">void</span> startDoRegion(RegionContainerImpl* context)
+<a name="l01000"></a>01000         {
+<a name="l01001"></a>01001                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a881d578d0f626d6f74ccd88f363e19da">startingRegionThread</a>();
+<a name="l01002"></a>01002                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;startDo(context);
+<a name="l01003"></a>01003         }
+<a name="l01004"></a>01004 
+<a name="l01005"></a>01005         <span class="keyword">virtual</span> <span class="keywordtype">void</span> endDoRegion(RegionContainerImpl* context)
+<a name="l01006"></a>01006         {
+<a name="l01007"></a>01007                 <span class="keyword">static_cast&lt;</span>StateBase&lt;RegionContainerImpl,IInnerState&gt;*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;endDo(context);
+<a name="l01008"></a>01008         }
+<a name="l01009"></a>01009 
+<a name="l01010"></a>01010         <span class="keyword">virtual</span> <span class="keywordtype">void</span> finalizeRegion(<span class="keywordtype">bool</span> recursive)
+<a name="l01011"></a>01011         {
+<a name="l01012"></a>01012                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#abca3e36bc9264ce270e6d97dc49c697d">finalize</a>(recursive);
+<a name="l01013"></a>01013         }
+<a name="l01014"></a>01014 
+<a name="l01015"></a>01015         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> initializeRegion(<span class="keywordtype">bool</span> recursive)
+<a name="l01016"></a>01016         {
+<a name="l01017"></a>01017                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#aab53be2829a43be85bf5ba8d2979970e">initialize</a>(recursive);
+<a name="l01018"></a>01018                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a3fcd7b7588bff33b6274fcca32b2cc77">isReady</a>();
+<a name="l01019"></a>01019         }
+<a name="l01020"></a>01020 
+<a name="l01021"></a>01021         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionInitialized()
+<a name="l01022"></a>01022         {
+<a name="l01023"></a>01023                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a490d472365cca1b3c4f0163748ae0b41">isInitialized</a>();
+<a name="l01024"></a>01024         }
+<a name="l01025"></a>01025 
+<a name="l01026"></a>01026         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionFinalized()
+<a name="l01027"></a>01027         {
+<a name="l01028"></a>01028                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_state_machine.html#a73412a128b6e2904ab951a6d9fc17aee">isFinalized</a>();
+<a name="l01029"></a>01029         }
+<a name="l01030"></a>01030 
+<a name="l01031"></a>01031         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isRegionThreadRunning()<span class="keyword"> const</span>
+<a name="l01032"></a>01032 <span class="keyword">        </span>{
+<a name="l01033"></a>01033                 <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_active_state.html#a82b5031f6ffbabf1fb30cad7c006d2bc">isDoActionRunning</a>();
+<a name="l01034"></a>01034         }
+<a name="l01035"></a>01035 
+<a name="l01036"></a>01036         <span class="keyword">virtual</span> <span class="keywordtype">void</span> joinRegionThread()
+<a name="l01037"></a>01037         {
+<a name="l01038"></a>01038                 <span class="keyword">static_cast&lt;</span>RegionImpl*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#ae88aff289ceeb53d16133dd35c3199dc">joinDoActionThreadImpl</a>();
+<a name="l01039"></a>01039         }
+<a name="l01040"></a>01040 
+<a name="l01041"></a>01041         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalInitialize(<span class="keywordtype">bool</span> recursive)
+<a name="l01042"></a>01042         {
+<a name="l01043"></a>01043         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a541b499905f61bdeb09af86e9edf2cb4">RegionStateMachine</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#aa4d140dec52a91d8f613c2477b4cb27d">initializeImpl</a>(recursive);
+<a name="l01044"></a>01044         }
+<a name="l01045"></a>01045 
+<a name="l01046"></a>01046         <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalFinalize(<span class="keywordtype">bool</span> recursive)
+<a name="l01047"></a>01047         {
+<a name="l01048"></a>01048         <span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a541b499905f61bdeb09af86e9edf2cb4">RegionStateMachine</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;<a class="code" href="classsttcl_1_1_region.html#a7d3404641d4bf1f619af564341df04d9">finalizeImpl</a>(recursive);
+<a name="l01049"></a>01049         <span class="keyword">typedef</span> <a class="code" href="classsttcl_1_1internal_1_1_region_container.html">sttcl::internal::RegionContainer&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a> IRegionContainer;
+<a name="l01050"></a>01050         IRegionContainer* iregionContainer = <span class="keyword">static_cast&lt;</span>IRegionContainer*<span class="keyword">&gt;</span>(<a class="code" href="classsttcl_1_1_region_base.html#aa34b8ed439941a0e4c607c8cb04b660c">RegionBaseClass::regionContainer</a>);
+<a name="l01051"></a>01051         iregionContainer-&gt;<a class="code" href="classsttcl_1_1internal_1_1_region_container.html#aef101be5bd973fd79742e719c7fc4959">regionCompleted</a>(<span class="keyword">static_cast&lt;</span><a class="code" href="classsttcl_1_1_region.html#a201b1cf2085e9f42add46984fb40582c">RegionBase&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>));
+<a name="l01052"></a>01052         }
+<a name="l01053"></a>01053 
+<a name="l01054"></a>01054         <span class="keywordtype">void</span> unblockEventsAvailable()
+<a name="l01055"></a>01055         {
+<a name="l01056"></a>01056                 eventDispatchQueue.unblock();
+<a name="l01057"></a>01057         }
+<a name="l01058"></a>01058 
+<a name="l01059"></a>01059         <span class="keywordtype">bool</span> checkEventsAvailable()
+<a name="l01060"></a>01060         {
+<a name="l01061"></a>01061                 <span class="keywordflow">return</span> eventDispatchQueue.waitForEvents(checkEventFrequency);
+<a name="l01062"></a>01062         }
+<a name="l01063"></a>01063 
+<a name="l01064"></a>01064         <span class="keywordtype">void</span> regionDoAction(<span class="keyword">typename</span> <a class="code" href="classsttcl_1_1_active_state.html#a1faf2181552fb0048c7b6bcb3bedca95">ActiveStateImpl::Context</a>* context, <span class="keywordtype">bool</span> firstCall)
+<a name="l01065"></a>01065         {
+<a name="l01066"></a>01066                 <span class="keywordflow">if</span>(checkEventsAvailable())
+<a name="l01067"></a>01067                 {
+<a name="l01068"></a>01068                         <span class="keywordflow">while</span>(!eventDispatchQueue.empty())
+<a name="l01069"></a>01069                         {
+<a name="l01070"></a>01070                                 <a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html">sttcl::internal::DispatchedEvent&lt;RegionContainerImpl,IInnerState,EventArgs&gt;</a> dispatchedEvent = eventDispatchQueue.front();
+<a name="l01071"></a>01071                                 eventDispatchQueue.pop_front();
+<a name="l01072"></a>01072                                 <span class="keywordflow">if</span>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a48e82eb41cf896dca4a97b2da0d18692">internalHandler</a>)
+<a name="l01073"></a>01073                                 {
+<a name="l01074"></a>01074                                         (this-&gt;*dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a48e82eb41cf896dca4a97b2da0d18692">internalHandler</a>)(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a94bf7c486e1017a091189e1b10c9b09e">recursiveInternalEvent</a>);
+<a name="l01075"></a>01075                                 }
+<a name="l01076"></a>01076                                 <span class="keywordflow">else</span>
+<a name="l01077"></a>01077                                 {
+<a name="l01078"></a>01078                                         <a class="code" href="classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html#a4549edb05e370e82c09524b7ed1009a4">callDispatchedEventHandler</a>(dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a09c94b1f1645d30c9e5034db164a880d">context</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a0b1dc10a6855d53388c09ac55c8b88e3">state</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a832e343e93d7289b61955efe86a2a1d4">handler</a>,dispatchedEvent.<a class="code" href="structsttcl_1_1internal_1_1_dispatched_event.html#a2e884e5635ff27d743170733a8648b50">eventArgs</a>);
+<a name="l01079"></a>01079                                 }
+<a name="l01080"></a>01080                         }
+<a name="l01081"></a>01081                 }
+<a name="l01082"></a>01082         }
+<a name="l01083"></a>01083 
+<a name="l01084"></a>01084         EventQueueType eventDispatchQueue;
+<a name="l01085"></a>01085         TimeDurationType checkEventFrequency;
+<a name="l01086"></a>01086 };
+<a name="l01087"></a>01087 
+<a name="l01088"></a>01088 }
+<a name="l01089"></a>01089 
+<a name="l01090"></a>01090 <span class="preprocessor">#endif </span><span class="comment">/* REGION_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -798,7 +798,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sat Mar 16 2013 11:20:09 for sttcl by
+    <li class="footer">Generated on Sat Mar 16 2013 14:06:36 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   
-  <td id="projectlogo"><img alt="Logo" src="Demo5aStateMachine.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="STTCL_Logo.png"/></td>
   
   
   <td style="padding-left: 0.5em;">
@@ -167,189 +167,170 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00106"></a>00106                 <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">incrementRefCount</a>();
 <a name="l00107"></a>00107         }
 <a name="l00108"></a>00108 
-<a name="l00113"></a>00113 <span class="comment">//      RefCountPtrBase(RefCountPtrBase&amp; rhs)</span>
-<a name="l00114"></a>00114 <span class="comment">//      : ptrRef(rhs.ptrRef)</span>
-<a name="l00115"></a>00115 <span class="comment">//      {</span>
-<a name="l00116"></a>00116 <span class="comment">//              incrementRefCount();</span>
-<a name="l00117"></a>00117 <span class="comment">//      }</span>
-<a name="l00118"></a>00118 
-<a name="l00119"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ab8105c3346d0fc056584ff94d69b1c8a">00119</a>         <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a>&amp; <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ab8105c3346d0fc056584ff94d69b1c8a">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase&lt;MutexType&gt;</a>&amp; rhs)
-<a name="l00120"></a>00120         {
-<a name="l00121"></a>00121                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a> &amp;&amp; <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a> != rhs.<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a>)
-<a name="l00122"></a>00122                 {
-<a name="l00123"></a>00123                         <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">decrementRefCount</a>();
-<a name="l00124"></a>00124                 }
-<a name="l00125"></a>00125                 <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a> = rhs.<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a>;
-<a name="l00126"></a>00126                 <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">incrementRefCount</a>();
-<a name="l00127"></a>00127                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00128"></a>00128         }
-<a name="l00129"></a>00129 
-<a name="l00130"></a>00130         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">incrementRefCount</a>();
-<a name="l00131"></a>00131         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">decrementRefCount</a>();
-<a name="l00132"></a>00132 
-<a name="l00133"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">00133</a>         <span class="keyword">mutable</span> <a class="code" href="structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html">PtrRef</a>* <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a>;
-<a name="l00134"></a>00134 };
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136 <span class="keyword">template</span>
-<a name="l00137"></a>00137 &lt; <span class="keyword">class </span>MutexType
-<a name="l00138"></a>00138 &gt;
-<a name="l00139"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">00139</a> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">RefCountPtrBase&lt;MutexType&gt;::incrementRefCount</a>()
-<a name="l00140"></a>00140 {
-<a name="l00141"></a>00141         <span class="keywordflow">if</span>(ptrRef)
-<a name="l00142"></a>00142         {
-<a name="l00143"></a>00143                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(ptrRef-&gt;refcountMutex);
-<a name="l00144"></a>00144                 ++(ptrRef-&gt;refcount);
-<a name="l00145"></a>00145         }
-<a name="l00146"></a>00146 }
-<a name="l00147"></a>00147 
-<a name="l00148"></a>00148 <span class="keyword">template</span>
-<a name="l00149"></a>00149 &lt; <span class="keyword">class </span>MutexType
-<a name="l00150"></a>00150 &gt;
-<a name="l00151"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">00151</a> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">RefCountPtrBase&lt;MutexType&gt;::decrementRefCount</a>()
-<a name="l00152"></a>00152 {
-<a name="l00153"></a>00153         <span class="keywordflow">if</span>(ptrRef)
-<a name="l00154"></a>00154         {
-<a name="l00155"></a>00155                 <span class="keywordtype">bool</span> destroy = <span class="keyword">false</span>;
-<a name="l00156"></a>00156                 { <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(ptrRef-&gt;refcountMutex);
-<a name="l00157"></a>00157                         --(ptrRef-&gt;refcount);
-<a name="l00158"></a>00158                         <span class="keywordflow">if</span>(ptrRef-&gt;refcount &lt;= 0)
-<a name="l00159"></a>00159                         {
-<a name="l00160"></a>00160                                 <span class="keywordflow">if</span>(ptrRef-&gt;releaseFunc)
-<a name="l00161"></a>00161                                 {
-<a name="l00162"></a>00162                                         (*ptrRef-&gt;releaseFunc)(ptrRef-&gt;pointee);
-<a name="l00163"></a>00163                                         ptrRef-&gt;pointee = 0;
-<a name="l00164"></a>00164                                 }
-<a name="l00165"></a>00165                                 destroy = <span class="keyword">true</span>;
-<a name="l00166"></a>00166                         }
+<a name="l00114"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ab8105c3346d0fc056584ff94d69b1c8a">00114</a>         <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase</a>&amp; <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ab8105c3346d0fc056584ff94d69b1c8a">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">RefCountPtrBase&lt;MutexType&gt;</a>&amp; rhs)
+<a name="l00115"></a>00115         {
+<a name="l00116"></a>00116                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a> &amp;&amp; <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a> != rhs.<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a>)
+<a name="l00117"></a>00117                 {
+<a name="l00118"></a>00118                         <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">decrementRefCount</a>();
+<a name="l00119"></a>00119                 }
+<a name="l00120"></a>00120                 <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a> = rhs.<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a>;
+<a name="l00121"></a>00121                 <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">incrementRefCount</a>();
+<a name="l00122"></a>00122                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00123"></a>00123         }
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">incrementRefCount</a>();
+<a name="l00126"></a>00126         <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">decrementRefCount</a>();
+<a name="l00127"></a>00127 
+<a name="l00128"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">00128</a>         <span class="keyword">mutable</span> <a class="code" href="structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html">PtrRef</a>* <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#ac3ebf4f05dc617734ff3809f1fa40064">ptrRef</a>;
+<a name="l00129"></a>00129 };
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131 <span class="keyword">template</span>
+<a name="l00132"></a>00132 &lt; <span class="keyword">class </span>MutexType
+<a name="l00133"></a>00133 &gt;
+<a name="l00134"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">00134</a> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a402747624e4e4758c1ed533dc5eba87c">RefCountPtrBase&lt;MutexType&gt;::incrementRefCount</a>()
+<a name="l00135"></a>00135 {
+<a name="l00136"></a>00136         <span class="keywordflow">if</span>(ptrRef)
+<a name="l00137"></a>00137         {
+<a name="l00138"></a>00138                 <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(ptrRef-&gt;refcountMutex);
+<a name="l00139"></a>00139                 ++(ptrRef-&gt;refcount);
+<a name="l00140"></a>00140         }
+<a name="l00141"></a>00141 }
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143 <span class="keyword">template</span>
+<a name="l00144"></a>00144 &lt; <span class="keyword">class </span>MutexType
+<a name="l00145"></a>00145 &gt;
+<a name="l00146"></a><a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">00146</a> <span class="keywordtype">void</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a9b4c786669fd371cfb4453b1b680a81d">RefCountPtrBase&lt;MutexType&gt;::decrementRefCount</a>()
+<a name="l00147"></a>00147 {
+<a name="l00148"></a>00148         <span class="keywordflow">if</span>(ptrRef)
+<a name="l00149"></a>00149         {
+<a name="l00150"></a>00150                 <span class="keywordtype">bool</span> destroy = <span class="keyword">false</span>;
+<a name="l00151"></a>00151                 { <a class="code" href="classsttcl_1_1internal_1_1_auto_locker.html">sttcl::internal::AutoLocker&lt;MutexType&gt;</a> lock(ptrRef-&gt;refcountMutex);
+<a name="l00152"></a>00152                         --(ptrRef-&gt;refcount);
+<a name="l00153"></a>00153                         <span class="keywordflow">if</span>(ptrRef-&gt;refcount &lt;= 0)
+<a name="l00154"></a>00154                         {
+<a name="l00155"></a>00155                                 <span class="keywordflow">if</span>(ptrRef-&gt;releaseFunc)
+<a name="l00156"></a>00156                                 {
+<a name="l00157"></a>00157                                         (*ptrRef-&gt;releaseFunc)(ptrRef-&gt;pointee);
+<a name="l00158"></a>00158                                         ptrRef-&gt;pointee = 0;
+<a name="l00159"></a>00159                                 }
+<a name="l00160"></a>00160                                 destroy = <span class="keyword">true</span>;
+<a name="l00161"></a>00161                         }
+<a name="l00162"></a>00162                 }
+<a name="l00163"></a>00163                 <span class="keywordflow">if</span>(destroy)
+<a name="l00164"></a>00164                 {
+<a name="l00165"></a>00165                         <span class="keyword">delete</span> ptrRef;
+<a name="l00166"></a>00166                         ptrRef = 0;
 <a name="l00167"></a>00167                 }
-<a name="l00168"></a>00168                 <span class="keywordflow">if</span>(destroy)
-<a name="l00169"></a>00169                 {
-<a name="l00170"></a>00170                         <span class="keyword">delete</span> ptrRef;
-<a name="l00171"></a>00171                         ptrRef = 0;
-<a name="l00172"></a>00172                 }
-<a name="l00173"></a>00173         }
-<a name="l00174"></a>00174 }
-<a name="l00175"></a>00175 }
-<a name="l00176"></a>00176 
-<a name="l00186"></a>00186 <span class="keyword">template</span>
-<a name="l00187"></a>00187 &lt; <span class="keyword">typename</span> T
-<a name="l00188"></a>00188 , <span class="keyword">class </span>MutexType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;</a>
-<a name="l00189"></a>00189 &gt;
-<a name="l00190"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html">00190</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>
-<a name="l00191"></a>00191 : <span class="keyword">public</span> sttcl::internal::RefCountPtrBase&lt;MutexType&gt;
-<a name="l00192"></a>00192 {
-<a name="l00193"></a>00193 <span class="keyword">public</span>:
-<a name="l00194"></a>00194 
-<a name="l00198"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">00198</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>()
-<a name="l00199"></a>00199         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;()
-<a name="l00200"></a>00200         {
-<a name="l00201"></a>00201         }
-<a name="l00202"></a>00202 
-<a name="l00208"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#aefcdc2abba6929ae4c041e1c031b0c98">00208</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>(T* argPointee, <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ReleaseFunc</a> argReleaseFunc = <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;T,MutexType&gt;::release</a>)
-<a name="l00209"></a>00209         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;(argPointee,argReleaseFunc)
-<a name="l00210"></a>00210         {
-<a name="l00211"></a>00211         }
-<a name="l00212"></a>00212 
-<a name="l00218"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#aff3eda32bb2f79b0356c1e89d8f1e719">00218</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;T,MutexType&gt;</a>&amp; rhs)
-<a name="l00219"></a>00219         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;(rhs)
-<a name="l00220"></a>00220         {
-<a name="l00221"></a>00221         }
-<a name="l00222"></a>00222 
-<a name="l00228"></a>00228 <span class="comment">//      RefCountPtr(RefCountPtr&lt;T,MutexType&gt;&amp; rhs)</span>
-<a name="l00229"></a>00229 <span class="comment">//      : sttcl::internal::RefCountPtrBase&lt;MutexType&gt;(rhs)</span>
-<a name="l00230"></a>00230 <span class="comment">//      {</span>
-<a name="l00231"></a>00231 <span class="comment">//      }</span>
-<a name="l00232"></a>00232 
-<a name="l00238"></a>00238         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;
-<a name="l00239"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad0d591b5fa4a8a507e470a1fdca4c314">00239</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;U,MutexType&gt;</a>&amp; rhs)
-<a name="l00240"></a>00240         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;(rhs)
-<a name="l00241"></a>00241         <span class="comment">//: ptrRef(static_cast&lt;const RefCountPtr&lt;T,MutexType&gt;::PtrRef*&gt;(rhs.ptrRef))</span>
-<a name="l00242"></a>00242         <span class="comment">//: ptrRef(rhs.ptrRef)</span>
-<a name="l00243"></a>00243         {
-<a name="l00244"></a>00244         }
-<a name="l00245"></a>00245 
-<a name="l00251"></a>00251 <span class="comment">//      template&lt;typename U&gt;</span>
-<a name="l00252"></a>00252 <span class="comment">//      RefCountPtr(RefCountPtr&lt;U,MutexType&gt;&amp; rhs)</span>
-<a name="l00253"></a>00253 <span class="comment">//      : sttcl::internal::RefCountPtrBase&lt;MutexType&gt;(rhs)</span>
-<a name="l00254"></a>00254 <span class="comment">//      //: ptrRef(static_cast&lt;const RefCountPtr&lt;T,MutexType&gt;::PtrRef*&gt;(rhs.ptrRef))</span>
-<a name="l00255"></a>00255 <span class="comment">//      //: ptrRef(rhs.ptrRef)</span>
-<a name="l00256"></a>00256 <span class="comment">//      {</span>
-<a name="l00257"></a>00257 <span class="comment">//      }</span>
-<a name="l00258"></a>00258 
-<a name="l00263"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a14f9a692f330c5638f714f8024ac63ff">00263</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a14f9a692f330c5638f714f8024ac63ff">~RefCountPtr</a>()
-<a name="l00264"></a>00264         {
-<a name="l00265"></a>00265         }
-<a name="l00266"></a>00266 
-<a name="l00273"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">00273</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;T,MutexType&gt;</a>&amp; rhs)
-<a name="l00274"></a>00274         {
-<a name="l00275"></a>00275                 <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::operator=</a>(rhs);
-<a name="l00276"></a>00276                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00277"></a>00277         }
-<a name="l00278"></a>00278 
-<a name="l00285"></a>00285         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;
-<a name="l00286"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad4c7ede93c7d99e862efa921b639e618">00286</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;U,MutexType&gt;</a>&amp; rhs)
-<a name="l00287"></a>00287         {
-<a name="l00288"></a>00288                 <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::operator=</a>(rhs);
-<a name="l00289"></a>00289                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
-<a name="l00290"></a>00290         }
-<a name="l00291"></a>00291 
-<a name="l00296"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a91af8fc3dd60aafdbd1f311f3627b5f2">00296</a>         T* <span class="keyword">get</span>() <span class="keyword">const</span>
-<a name="l00297"></a>00297         {
-<a name="l00298"></a>00298                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>)
-<a name="l00299"></a>00299                 {
-<a name="l00300"></a>00300                         <span class="keywordflow">return</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>-&gt;pointee;
-<a name="l00301"></a>00301                 }
-<a name="l00302"></a>00302                 <span class="keywordflow">return</span> 0;
-<a name="l00303"></a>00303         }
-<a name="l00304"></a>00304 
-<a name="l00308"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad2ad2f01ec7f82e40391f46a4197adf8">00308</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad2ad2f01ec7f82e40391f46a4197adf8">operator T*</a>()<span class="keyword"> const</span>
-<a name="l00309"></a>00309 <span class="keyword">        </span>{
-<a name="l00310"></a>00310                 <span class="keywordflow">return</span> <span class="keyword">get</span>();
-<a name="l00311"></a>00311         }
-<a name="l00312"></a>00312 
-<a name="l00317"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a414ad630d851c17aed0f30da8dd94db4">00317</a>         T* <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a414ad630d851c17aed0f30da8dd94db4">operator-&gt;</a>()
-<a name="l00318"></a>00318         {
-<a name="l00319"></a>00319                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>)
-<a name="l00320"></a>00320                 {
-<a name="l00321"></a>00321                         <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>-&gt;pointee);
-<a name="l00322"></a>00322                 }
-<a name="l00323"></a>00323                 <span class="keywordflow">return</span> 0;
-<a name="l00324"></a>00324         }
-<a name="l00325"></a>00325 
-<a name="l00330"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#afc4600514ce758c1f91f2f4beb04a2f2">00330</a>         T&amp; <a class="code" href="classsttcl_1_1_ref_count_ptr.html#afc4600514ce758c1f91f2f4beb04a2f2">operator*</a>()
-<a name="l00331"></a>00331         {
-<a name="l00332"></a>00332                 <span class="keyword">static</span> T dummy;
-<a name="l00333"></a>00333                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>)
-<a name="l00334"></a>00334                 {
-<a name="l00335"></a>00335                         <span class="keywordflow">return</span> *(<span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>-&gt;pointee));
-<a name="l00336"></a>00336                 }
-<a name="l00337"></a>00337                 <span class="keywordflow">return</span> dummy;
-<a name="l00338"></a>00338         }
-<a name="l00339"></a>00339 
-<a name="l00340"></a>00340 <span class="keyword">private</span>:
-<a name="l00341"></a>00341         <span class="keyword">static</span> <span class="keywordtype">void</span> release(<span class="keywordtype">void</span>* ptr);
-<a name="l00342"></a>00342 };
-<a name="l00343"></a>00343 
-<a name="l00344"></a>00344 <span class="keyword">template</span>
-<a name="l00345"></a>00345 &lt; <span class="keyword">typename</span> T
-<a name="l00346"></a>00346 , <span class="keyword">class </span>MutexType
-<a name="l00347"></a>00347 &gt;
-<a name="l00348"></a>00348 <span class="keywordtype">void</span> RefCountPtr&lt;T,MutexType&gt;::release(<span class="keywordtype">void</span>* ptr)
-<a name="l00349"></a>00349 {
-<a name="l00350"></a>00350         <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(ptr);
-<a name="l00351"></a>00351 }
-<a name="l00352"></a>00352 
-<a name="l00356"></a>00356 <span class="keyword">template</span>&lt;<span class="keyword">class</span> MutexType&gt;
-<a name="l00357"></a><a class="code" href="classsttcl_1_1_ref_count_ptr_3_01void_00_01_mutex_type_01_4.html">00357</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt;void,MutexType&gt;
-<a name="l00358"></a>00358 {
-<a name="l00359"></a>00359         <span class="keyword">static</span> <span class="keywordtype">void</span> release(<span class="keywordtype">void</span>* ptr)
-<a name="l00360"></a>00360         {
-<a name="l00361"></a>00361 <span class="comment">//              free(ptr);</span>
-<a name="l00362"></a>00362         }
-<a name="l00363"></a>00363 };
-<a name="l00364"></a>00364 
-<a name="l00365"></a>00365 } <span class="comment">/* namespace sttcl */</span>
-<a name="l00366"></a>00366 <span class="preprocessor">#endif </span><span class="comment">/* REFCOUNTPTR_H_ */</span>
+<a name="l00168"></a>00168         }
+<a name="l00169"></a>00169 }
+<a name="l00170"></a>00170 }
+<a name="l00171"></a>00171 
+<a name="l00181"></a>00181 <span class="keyword">template</span>
+<a name="l00182"></a>00182 &lt; <span class="keyword">typename</span> T
+<a name="l00183"></a>00183 , <span class="keyword">class </span>MutexType = <a class="code" href="classsttcl_1_1internal_1_1_sttcl_mutex.html">internal::SttclMutex&lt;STTCL_DEFAULT_MUTEXIMPL&gt;</a>
+<a name="l00184"></a>00184 &gt;
+<a name="l00185"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html">00185</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>
+<a name="l00186"></a>00186 : <span class="keyword">public</span> sttcl::internal::RefCountPtrBase&lt;MutexType&gt;
+<a name="l00187"></a>00187 {
+<a name="l00188"></a>00188 <span class="keyword">public</span>:
+<a name="l00189"></a>00189 
+<a name="l00193"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">00193</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>()
+<a name="l00194"></a>00194         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;()
+<a name="l00195"></a>00195         {
+<a name="l00196"></a>00196         }
+<a name="l00197"></a>00197 
+<a name="l00203"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#aefcdc2abba6929ae4c041e1c031b0c98">00203</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>(T* argPointee, <span class="keyword">typename</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ReleaseFunc</a> argReleaseFunc = <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;T,MutexType&gt;::release</a>)
+<a name="l00204"></a>00204         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;(argPointee,argReleaseFunc)
+<a name="l00205"></a>00205         {
+<a name="l00206"></a>00206         }
+<a name="l00207"></a>00207 
+<a name="l00213"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#aff3eda32bb2f79b0356c1e89d8f1e719">00213</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;T,MutexType&gt;</a>&amp; rhs)
+<a name="l00214"></a>00214         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;(rhs)
+<a name="l00215"></a>00215         {
+<a name="l00216"></a>00216         }
+<a name="l00217"></a>00217 
+<a name="l00223"></a>00223         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;
+<a name="l00224"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad0d591b5fa4a8a507e470a1fdca4c314">00224</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a94e8ed060fac3359e2b185728221bf6f">RefCountPtr</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;U,MutexType&gt;</a>&amp; rhs)
+<a name="l00225"></a>00225         : sttcl::internal::<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html#a60ac3c753c7e597bf7e5f5d3d285edbf">RefCountPtrBase</a>&lt;MutexType&gt;(rhs)
+<a name="l00226"></a>00226         <span class="comment">//: ptrRef(static_cast&lt;const RefCountPtr&lt;T,MutexType&gt;::PtrRef*&gt;(rhs.ptrRef))</span>
+<a name="l00227"></a>00227         <span class="comment">//: ptrRef(rhs.ptrRef)</span>
+<a name="l00228"></a>00228         {
+<a name="l00229"></a>00229         }
+<a name="l00230"></a>00230 
+<a name="l00235"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a14f9a692f330c5638f714f8024ac63ff">00235</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a14f9a692f330c5638f714f8024ac63ff">~RefCountPtr</a>()
+<a name="l00236"></a>00236         {
+<a name="l00237"></a>00237         }
+<a name="l00238"></a>00238 
+<a name="l00245"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">00245</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;T,MutexType&gt;</a>&amp; rhs)
+<a name="l00246"></a>00246         {
+<a name="l00247"></a>00247                 <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::operator=</a>(rhs);
+<a name="l00248"></a>00248                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00249"></a>00249         }
+<a name="l00250"></a>00250 
+<a name="l00257"></a>00257         <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;
+<a name="l00258"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad4c7ede93c7d99e862efa921b639e618">00258</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&amp; <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">operator=</a>(<span class="keyword">const</span> <a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr&lt;U,MutexType&gt;</a>&amp; rhs)
+<a name="l00259"></a>00259         {
+<a name="l00260"></a>00260                 <a class="code" href="classsttcl_1_1_ref_count_ptr.html#aa3394e2c7bb75c47d201d8a40ac6d625">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::operator=</a>(rhs);
+<a name="l00261"></a>00261                 <span class="keywordflow">return</span> *<span class="keyword">this</span>;
+<a name="l00262"></a>00262         }
+<a name="l00263"></a>00263 
+<a name="l00268"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a91af8fc3dd60aafdbd1f311f3627b5f2">00268</a>         T* <span class="keyword">get</span>() <span class="keyword">const</span>
+<a name="l00269"></a>00269         {
+<a name="l00270"></a>00270                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>)
+<a name="l00271"></a>00271                 {
+<a name="l00272"></a>00272                         <span class="keywordflow">return</span> <a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>-&gt;pointee;
+<a name="l00273"></a>00273                 }
+<a name="l00274"></a>00274                 <span class="keywordflow">return</span> 0;
+<a name="l00275"></a>00275         }
+<a name="l00276"></a>00276 
+<a name="l00280"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad2ad2f01ec7f82e40391f46a4197adf8">00280</a>         <a class="code" href="classsttcl_1_1_ref_count_ptr.html#ad2ad2f01ec7f82e40391f46a4197adf8">operator T*</a>()<span class="keyword"> const</span>
+<a name="l00281"></a>00281 <span class="keyword">        </span>{
+<a name="l00282"></a>00282                 <span class="keywordflow">return</span> <span class="keyword">get</span>();
+<a name="l00283"></a>00283         }
+<a name="l00284"></a>00284 
+<a name="l00289"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#a414ad630d851c17aed0f30da8dd94db4">00289</a>         T* <a class="code" href="classsttcl_1_1_ref_count_ptr.html#a414ad630d851c17aed0f30da8dd94db4">operator-&gt;</a>()
+<a name="l00290"></a>00290         {
+<a name="l00291"></a>00291                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>)
+<a name="l00292"></a>00292                 {
+<a name="l00293"></a>00293                         <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>-&gt;pointee);
+<a name="l00294"></a>00294                 }
+<a name="l00295"></a>00295                 <span class="keywordflow">return</span> 0;
+<a name="l00296"></a>00296         }
+<a name="l00297"></a>00297 
+<a name="l00302"></a><a class="code" href="classsttcl_1_1_ref_count_ptr.html#afc4600514ce758c1f91f2f4beb04a2f2">00302</a>         T&amp; <a class="code" href="classsttcl_1_1_ref_count_ptr.html#afc4600514ce758c1f91f2f4beb04a2f2">operator*</a>()
+<a name="l00303"></a>00303         {
+<a name="l00304"></a>00304                 <span class="keyword">static</span> T dummy;
+<a name="l00305"></a>00305                 <span class="keywordflow">if</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>)
+<a name="l00306"></a>00306                 {
+<a name="l00307"></a>00307                         <span class="keywordflow">return</span> *(<span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(<a class="code" href="classsttcl_1_1internal_1_1_ref_count_ptr_base.html">sttcl::internal::RefCountPtrBase&lt;MutexType&gt;::ptrRef</a>-&gt;pointee));
+<a name="l00308"></a>00308                 }
+<a name="l00309"></a>00309                 <span class="keywordflow">return</span> dummy;
+<a name="l00310"></a>00310         }
+<a name="l00311"></a>00311 
+<a name="l00312"></a>00312 <span class="keyword">private</span>:
+<a name="l00313"></a>00313         <span class="keyword">static</span> <span class="keywordtype">void</span> release(<span class="keywordtype">void</span>* ptr);
+<a name="l00314"></a>00314 };
+<a name="l00315"></a>00315 
+<a name="l00316"></a>00316 <span class="keyword">template</span>
+<a name="l00317"></a>00317 &lt; <span class="keyword">typename</span> T
+<a name="l00318"></a>00318 , <span class="keyword">class </span>MutexType
+<a name="l00319"></a>00319 &gt;
+<a name="l00320"></a>00320 <span class="keywordtype">void</span> RefCountPtr&lt;T,MutexType&gt;::release(<span class="keywordtype">void</span>* ptr)
+<a name="l00321"></a>00321 {
+<a name="l00322"></a>00322         <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(ptr);
+<a name="l00323"></a>00323 }
+<a name="l00324"></a>00324 
+<a name="l00328"></a>00328 <span class="keyword">template</span>&lt;<span class="keyword">class</span> MutexType&gt;
+<a name="l00329"></a><a class="code" href="classsttcl_1_1_ref_count_ptr_3_01void_00_01_mutex_type_01_4.html">00329</a> <span class="keyword">class </span><a class="code" href="classsttcl_1_1_ref_count_ptr.html">RefCountPtr</a>&lt;void,MutexType&gt;
+<a name="l00330"></a>00330 {
+<a name="l00331"></a>00331         <span class="keyword">static</span> <span class="keywordtype">void</span> release(<span class="keywordtype">void</span>* ptr)
+<a name="l00332"></a>00332         {
+<a name="l00333"></a>00333 <span class="comment">//              free(ptr);</span>
+<a name="l00334"></a>00334         }
+<a name="l00335"></a>00335 };
+<a name="l00336"></a>00336 
+<a name="l00337"></a>00337 } <span class="comment">/* namespace sttcl */</span>
+<a name="l00338"></a>00338 <span class="preprocessor">#endif </span><span class="comment">/* REFCOUNTPTR_H_ */</span>
 </pre></div></div>
 </div>
   <div id="nav-path" class="navpath">
@@ -370,7 +351,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 
-    <li class="footer">Generated on Sat Mar 16 2013 11:20:09 for sttcl by
+    <li class="footer">Generated on Sat Mar 16 2013 14:06:36 for sttcl by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.5.1 </li>
    </ul>

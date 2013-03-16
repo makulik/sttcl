@@ -53,7 +53,7 @@ public:
 
     /**
      * Called when a region sub state machine completes (finalizes).
-     * @param state A pointer to the finalized region.
+     * @param region A pointer to the finalized region.
      */
     virtual void regionCompleted(RegionBaseType* region) = 0;
 };
@@ -362,6 +362,7 @@ public:
 
 	/**
 	 * Constructor for class ConcurrentCompositeState.
+	 * @param argContextStateMachine A pointer to the containing state machine.
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
 	 *                   state.
 	 */
@@ -579,6 +580,7 @@ public:
 	typedef typename StateMachineImpl::StateInterface OuterStateInterface;
 	/**
 	 * Constructor for class ConcurrentCompositeState.
+	 * @param context A pointer to the containing state machine.
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
 	 *                   state.
 	 */

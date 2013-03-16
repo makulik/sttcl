@@ -814,6 +814,7 @@ public:
 
     /**
      * Constructor for class Region.
+     * @param argRegionContainer
      * @param argDoActionFrequency
      */
 	Region(RegionContainerImpl* argRegionContainer, TimeDurationType argDoActionFrequency = TimeDurationType::Zero)
