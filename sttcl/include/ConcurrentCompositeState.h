@@ -362,7 +362,7 @@ public:
 
 	/**
 	 * Constructor for class ConcurrentCompositeState.
-	 * @param argContextStateMachine A pointer to the containing state machine.
+	 * @param argContextStateMachine The containing state machine context.
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
 	 *                   state.
 	 */
@@ -580,7 +580,7 @@ public:
 	typedef typename StateMachineImpl::StateInterface OuterStateInterface;
 	/**
 	 * Constructor for class ConcurrentCompositeState.
-	 * @param context A pointer to the containing state machine.
+	 * @param context The containing state machine context.
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
 	 *                   state.
 	 */

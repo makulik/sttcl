@@ -107,10 +107,15 @@ protected:
 	}
 
 	/**
-	 * Assignment operator for RefCountPtrBase.
+	 * Copy constructor for class RefCountPtrBase.
 	 * @param rhs The other instance to copy from.
-	 * @return A reference to this instance.
 	 */
+//	RefCountPtrBase(RefCountPtrBase& rhs)
+//	: ptrRef(rhs.ptrRef)
+//	{
+//		incrementRefCount();
+//	}
+
 	RefCountPtrBase& operator=(const RefCountPtrBase<MutexType>& rhs)
 	{
 		if(ptrRef && ptrRef != rhs.ptrRef)
@@ -214,6 +219,16 @@ public:
 	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
 	{
 	}
+
+	/**
+	 * Copy constructor for class RefCountPtr. This operation will increment the reference
+	 * count of the copied pointee.
+	 * @param rhs The other instance to copy from.
+	 */
+//	RefCountPtr(RefCountPtr<T,MutexType>& rhs)
+//	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
+//	{
+//	}
 
 	/**
 	 * Copy constructor for class RefCountPtr. This operation will increment the reference
