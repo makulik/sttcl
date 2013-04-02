@@ -179,7 +179,7 @@ protected:
     /**
      * The context state machine implementation type.
      */
-	typedef CompositeStateImpl Context;
+	typedef StateMachineImpl Context;
 
 	typedef sttcl::internal::EventArgsInterfaceSelector<CompositeStateImpl,IInnerState,void> EventArgsSelectorType;
 
@@ -191,7 +191,7 @@ protected:
 	/**
      * The outer event handler signature.
      */
-	typedef typename EventArgsSelectorType::OuterEventHandler OuterEventHandler;
+	typedef typename StateMachineImpl::StateInterface OuterEventHandler;
 
 	/**
      * The inner event handler signature.
@@ -216,13 +216,13 @@ protected:
 			if(!regions[i]->isRegionFinalized())
 			{
 				allRegionsFinalized = false;
-				regions[i]->handleBroadcastedEvent(this,eventHandler);
+				regions[i]->handleBroadcastedEvent(static_cast<CompositeStateImpl*>(this),eventHandler);
 			}
 			else
 			{
 				if(regions[i]->isRegionThreadRunning())
 				{
-					regions[i]->endDoRegion(context);
+					regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
 					regions[i]->joinRegionThread();
 				}
 			}

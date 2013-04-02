@@ -4,22 +4,24 @@
  *  Created on: 31.12.2011
  *      Author: Admin
  */
+#include <iostream>
 
 #include "../ConcurrentStateMachine.h"
-#include <iostream>
+#include "../RegionA.h"
+#include "../RegionB.h"
 
 using namespace std;
 using namespace Application;
 using Application::ConcurrentStateMachine;
 
 ConcurrentStateMachine::ConcurrentStateMachine(DemoStateMachine* argContext)
-: CompositeStateBase(argContext,regions)
-, regionA(this)
-, regionB(this)
-, context(argContext)
+: ConcurrentStateMachine::CompositeStateBase(argContext,regions)
+, regionA(new RegionA(this))
+, regionB(new RegionB(this))
+//, context(argContext)
 {
-	regions[0] = &regionA;
-	regions[1] = &regionB;
+	regions[0] = regionA;
+	regions[1] = regionB;
 }
 
 ConcurrentStateMachine::~ConcurrentStateMachine()
@@ -29,25 +31,25 @@ ConcurrentStateMachine::~ConcurrentStateMachine()
 void ConcurrentStateMachine::handleEvent1(DemoStateMachine* context)
 {
 	cout << "ConcurrentStateMachine, handling event1 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent1);
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent1);
 }
 
 void ConcurrentStateMachine::handleEvent2(DemoStateMachine* context)
 {
 	cout << "ConcurrentStateMachine, handling event2 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent2);
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent2);
 }
 
 void ConcurrentStateMachine::handleEvent3(DemoStateMachine* context)
 {
 	cout << "ConcurrentStateMachine, handling event3 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent3);
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent3);
 }
 
 void ConcurrentStateMachine::handleEvent4(DemoStateMachine* context)
 {
 	cout << "ConcurrentStateMachine, handling event4 ..." << endl;
-	CompositeStateBase::broadcastEvent(context,&IDemoState::handleEvent4);
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent4);
 }
 
 void ConcurrentStateMachine::entryImpl(DemoStateMachine* context)

@@ -9,25 +9,21 @@
 #define ICONCURRENTSTATEMACHINE_H_
 
 #include "Region.h"
-#include "IDemoState.h"
 
 namespace Application
 {
 
-class DemoStateMachine;
-
-class IConcurrentStateMachine;
+class ConcurrentStateMachine;
 
 class IConcurrentStateMachine
 {
 public:
-	typedef DemoStateMachine Context;
-	typedef sttcl::RegionBase<DemoStateMachine,IDemoState,IConcurrentStateMachine> RegionContext;
+	typedef sttcl::RegionBase<Application::ConcurrentStateMachine, Application::IConcurrentStateMachine, void> RegionContext;
 
-	virtual void handleEvent1(Context* context,RegionContext* regionContext) = 0;
-	virtual void handleEvent2(Context* context,RegionContext* regionContext) = 0;
-	virtual void handleEvent3(Context* context,RegionContext* regionContext) = 0;
-	virtual void handleEvent4(Context* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent1(ConcurrentStateMachine* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent2(ConcurrentStateMachine* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent3(ConcurrentStateMachine* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent4(ConcurrentStateMachine* context,RegionContext* regionContext) = 0;
 	virtual ~IConcurrentStateMachine() {}
 };
 

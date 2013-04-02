@@ -9,33 +9,32 @@
 #define REGIONB_H_
 
 #include "Region.h"
-#include "IConcurrentStatemachine.h"
 #include "DemoStateMachine.h"
+#include "ConcurrentStatemachine.h"
 
 namespace Application
 {
 
-class DemoStateMachine;
 class ConcurrentStateMachine;
 
 class RegionB
-: public sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine>
+: public sttcl::Region<RegionB,ConcurrentStateMachine,IConcurrentStateMachine>
 {
 public:
-	typedef sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine> RegionBaseClass;
+	typedef sttcl::Region<RegionB,ConcurrentStateMachine,IConcurrentStateMachine> RegionBaseClass;
 	typedef typename RegionBaseClass::InnerStateClass InnerStateClass;
 	typedef ConcurrentStateMachine RegionContainerClass;
 
-	RegionB(RegionContainerClass* regionContainer);
+	RegionB(ConcurrentStateMachine* regionContainer);
 	virtual ~RegionB();
 
-	virtual void handleEvent1(IDemoState::Context* context);
-	virtual void handleEvent2(IDemoState::Context* context);
-	virtual void handleEvent3(IDemoState::Context* context);
-	virtual void handleEvent4(IDemoState::Context* context);
+	virtual void handleEvent1(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext);
+	virtual void handleEvent2(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext);
+	virtual void handleEvent3(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext);
+	virtual void handleEvent4(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext);
 
-	void entryImpl(DemoStateMachine* context);
-	void exitImpl(DemoStateMachine* context);
+	void entryImpl(ConcurrentStateMachine* context);
+	void exitImpl(ConcurrentStateMachine* context);
 
 	void startingRegionThread();
 	void endingRegionThread();

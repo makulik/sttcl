@@ -21,21 +21,21 @@ DemoStateA3::~DemoStateA3()
 {
 }
 
-void DemoStateA3::handleEvent1(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA3::handleEvent1(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA3, handling event1 ..." << endl;
 	changeState(regionContext->getRegionContext<RegionA>(),&DemoStateA2::getInstance());
 }
-void DemoStateA3::handleEvent2(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA3::handleEvent2(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA3, handling event2 ..." << endl;
 }
-void DemoStateA3::handleEvent3(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA3::handleEvent3(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA3, handling event3 ..." << endl;
 	changeState(regionContext->getRegionContext<RegionA>(),&DemoStateA1::getInstance());
 }
-void DemoStateA3::handleEvent4(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA3::handleEvent4(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA3, handling event4 ..." << endl;
 }

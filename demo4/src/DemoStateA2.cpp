@@ -21,21 +21,21 @@ DemoStateA2::~DemoStateA2()
 {
 }
 
-void DemoStateA2::handleEvent1(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA2::handleEvent1(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA2, handling event1 ..." << endl;
 	regionContext->getRegionContext<RegionA>()->finalize();
 }
-void DemoStateA2::handleEvent2(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA2::handleEvent2(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA2, handling event2 ..." << endl;
 	changeState(regionContext->getRegionContext<RegionA>(),&DemoStateA3::getInstance());
 }
-void DemoStateA2::handleEvent3(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA2::handleEvent3(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA2, handling event3 ..." << endl;
 }
-void DemoStateA2::handleEvent4(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext)
+void DemoStateA2::handleEvent4(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "DemoStateA2, handling event4 ..." << endl;
 }

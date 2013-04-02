@@ -21,10 +21,10 @@ public:
 	DemoStateB2();
 	virtual ~DemoStateB2();
 
-	virtual void handleEvent1(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext);
-	virtual void handleEvent2(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext);
-	virtual void handleEvent3(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext);
-	virtual void handleEvent4(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext);
+	virtual void handleEvent1(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext);
+	virtual void handleEvent2(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext);
+	virtual void handleEvent3(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext);
+	virtual void handleEvent4(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext);
 
 	void entryImpl(IConcurrentStateMachine::RegionContext* regionContext);
 	void exitImpl(IConcurrentStateMachine::RegionContext* regionContext);

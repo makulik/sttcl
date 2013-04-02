@@ -14,7 +14,7 @@
 using namespace std;
 using namespace Application;
 
-RegionA::RegionA(RegionContainerClass* regionContainer)
+RegionA::RegionA(ConcurrentStateMachine* regionContainer)
 : RegionA::RegionBaseClass(regionContainer,sttcl::TimeDuration<>(0,0,10))
 {
 }
@@ -23,7 +23,7 @@ RegionA::~RegionA()
 {
 }
 
-void RegionA::handleEvent1(IDemoState::Context* context)
+void RegionA::handleEvent1(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "RegionA, handling event1 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -33,7 +33,7 @@ void RegionA::handleEvent1(IDemoState::Context* context)
 	}
 }
 
-void RegionA::handleEvent2(IDemoState::Context* context)
+void RegionA::handleEvent2(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "RegionA, handling event2 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -43,7 +43,7 @@ void RegionA::handleEvent2(IDemoState::Context* context)
 	}
 }
 
-void RegionA::handleEvent3(IDemoState::Context* context)
+void RegionA::handleEvent3(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "RegionA, handling event3 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -53,7 +53,7 @@ void RegionA::handleEvent3(IDemoState::Context* context)
 	}
 }
 
-void RegionA::handleEvent4(IDemoState::Context* context)
+void RegionA::handleEvent4(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext)
 {
 	cout << "RegionA, handling event4 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -63,13 +63,13 @@ void RegionA::handleEvent4(IDemoState::Context* context)
 	}
 }
 
-void RegionA::entryImpl(DemoStateMachine* context)
+void RegionA::entryImpl(ConcurrentStateMachine* context)
 {
 	RegionBaseClass::entryImpl(context);
 	cout << "RegionA, entering ..." << endl;
 }
 
-void RegionA::exitImpl(DemoStateMachine* context)
+void RegionA::exitImpl(ConcurrentStateMachine* context)
 {
 	RegionBaseClass::exitImpl(context);
 	cout << "RegionA, exiting ..." << endl;

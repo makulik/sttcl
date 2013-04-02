@@ -38,7 +38,7 @@ namespace sttcl
 template
 < class RegionContainerImpl
 , class IInnerState
-, class EventArgs
+, class EventArgs = void
 >
 class RegionBase;
 
@@ -131,7 +131,7 @@ template
 > class IRegionEventDispatchWithoutArgs
 {
 public:
-	typedef EventArgsInterfaceSelector<RegionContainerImpl,IInnerState,EventArgs> EventArgsSelectorType;
+	typedef EventArgsInterfaceSelector<RegionContainerImpl,IInnerState,void> EventArgsSelectorType;
 
 	/**
 	 * The pointer type used to pass event arguments to the contained regions inner states.
@@ -214,7 +214,7 @@ class RegionContainer;
 template
 < class RegionContainerImpl
 , class IInnerState
-, class EventArgs = void
+, class EventArgs //= void
 >
 class RegionBase
 : public sttcl::internal::RegionEventDispatchInterfaceSelector<RegionContainerImpl,IInnerState,EventArgs>::RESULT_TYPE
@@ -545,13 +545,13 @@ public:
      */
     typedef RegionBase<RegionContainerImpl,IInnerState,EventArgs> RegionBaseClass;
 
-    typedef typename RegionBaseClass::RegionContainerClass RegionContainerClass;
+//    typedef typename RegionBaseClass::RegionContainerClass RegionContainerClass;
 
     typedef typename RegionBaseClass::RefCountPtr RefCountPtr;
 
     typedef typename RegionBaseClass::InnerEventHandler InnerEventHandler;
 
-    RegionBaseImplWithoutEventArgs(RegionContainerClass* argRegionContainer)
+    RegionBaseImplWithoutEventArgs(RegionContainerImpl* argRegionContainer)
     : RegionBaseClass(argRegionContainer)
     {}
 
@@ -559,7 +559,7 @@ public:
 
     virtual void handleBroadcastedEvent(RegionContainerImpl* context,InnerEventHandler eventHandler)
 	{
-		(static_cast<Implementation*>(this)->*eventHandler)(context);
+		(static_cast<Implementation*>(this)->*eventHandler)(context,this);
 	}
 
 	/**
@@ -569,7 +569,7 @@ public:
 	 * @param state
 	 * @param eventHandler
 	 */
-	void dispatchEvent(RegionContainerClass* context,IInnerState* state, InnerEventHandler eventHandler)
+	void dispatchEvent(RegionContainerImpl* context,IInnerState* state, InnerEventHandler eventHandler)
 	{
 		if(state)
 		{
@@ -579,7 +579,7 @@ public:
 	}
 
 protected:
-	void callDispatchedEventHandler(RegionContainerClass* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr eventArgs)
+	void callDispatchedEventHandler(RegionContainerImpl* context,IInnerState* state,InnerEventHandler eventHandler,RefCountPtr eventArgs)
 	{
 		(state->*eventHandler)(context,this);
 	}
