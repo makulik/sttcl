@@ -8,8 +8,8 @@
 #ifndef IDEMOSTATE_H_
 #define IDEMOSTATE_H_
 
-#include "EventArgsClass.h"
 #include "RefCountPtr.h"
+#include "EventArgsClass.h"
 
 namespace Application
 {

@@ -21,21 +21,21 @@ DemoStateA2::~DemoStateA2()
 {
 }
 
-void DemoStateA2::handleEvent1(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA2::handleEvent1(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "DemoStateA2, handling event1, args data: '" << eventArgs->getData() << "' ..." << endl;
 	regionContext->getRegionContext<RegionA>()->finalize();
 }
-void DemoStateA2::handleEvent2(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA2::handleEvent2(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "DemoStateA2, handling event2, args data: '" << eventArgs->getData() << "' ..." << endl;
 	changeState(regionContext->getRegionContext<RegionA>(),&DemoStateA3::getInstance());
 }
-void DemoStateA2::handleEvent3(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA2::handleEvent3(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "DemoStateA2, handling event3, args data: '" << eventArgs->getData() << "' ..." << endl;
 }
-void DemoStateA2::handleEvent4(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA2::handleEvent4(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
 {
 	cout << "DemoStateA2, handling event4, args data: '" << eventArgs->getData() << "' ..." << endl;
 }

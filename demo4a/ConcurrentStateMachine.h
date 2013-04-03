@@ -8,14 +8,16 @@
 #ifndef CONCURRENTSTATEMACHINE_H_
 #define CONCURRENTSTATEMACHINE_H_
 
-#include "DemoStateMachine.h"
 #include "ConcurrentCompositeState.h"
+#include "DemoStateMachine.h"
 #include "IConcurrentStatemachine.h"
-#include "RegionA.h"
-#include "RegionB.h"
+#include "EventArgsClass.h"
 
 namespace Application
 {
+
+class RegionA;
+class RegionB;
 
 class ConcurrentStateMachine
 : public sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass>
@@ -46,10 +48,10 @@ public:
     void finalizeImpl(bool finalizeSubStateMachines);
 
 private:
-	RegionA regionA;
-	RegionB regionB;
+	RegionA* regionA;
+	RegionB* regionB;
 	CompositeStateBase::RegionsArray regions;
-	DemoStateMachine* context;
+	//DemoStateMachine* context;
 
 };
 
