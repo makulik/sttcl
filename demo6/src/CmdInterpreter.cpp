@@ -23,7 +23,7 @@ CmdInterpreter::~CmdInterpreter()
 {
 }
 
-bool CmdInterpreter::sendCmd(const std::string& cmd)
+bool CmdInterpreter::sendCmd(const std::string& cmd, const sttcl::RefCountPtr<Event>& eventArgs)
 {
 	if(isTerminationCmd(cmd))
 	{
@@ -54,7 +54,7 @@ bool CmdInterpreter::sendCmd(const std::string& cmd)
 				istr >> event;
 				if(!istr.fail())
 				{
-					triggerEvent(event);
+					triggerEvent(event,eventArgs);
 				}
 				else
 				{
@@ -127,23 +127,23 @@ void CmdInterpreter::splitCmdLine(const string& cmdLine, vector<string>& cmdPart
 	}
 }
 
-void CmdInterpreter::triggerEvent(int event)
+void CmdInterpreter::triggerEvent(int event, const sttcl::RefCountPtr<Event>& eventArgs)
 {
 	if(!stateMachine->isFinalized())
 	{
 		switch(event)
 		{
 		case 1:
-			stateMachine->event1();
+			stateMachine->event1(eventArgs);
 			break;
 		case 2:
-			stateMachine->event2();
+			stateMachine->event2(eventArgs);
 			break;
 		case 3:
-			stateMachine->event3();
+			stateMachine->event3(eventArgs);
 			break;
 		case 4:
-			stateMachine->event4();
+			stateMachine->event4(eventArgs);
 			break;
 		default:
 			cerr << "Error: Unknown event number '" << event << "'." << endl;

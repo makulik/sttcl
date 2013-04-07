@@ -16,8 +16,6 @@
 namespace Application
 {
 
-class ConcurrentStateMachine;
-
 class RegionB
 : public sttcl::Region<RegionB,ConcurrentStateMachine,IConcurrentStateMachine,EventArgsClass>
 {

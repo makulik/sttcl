@@ -24,6 +24,8 @@ public:
 
 	InputEvent& operator=(const InputEvent& rhs);
 
+	virtual std::ostream& printData(std::ostream& os) const;
+
 	const std::string& getInput() const
 	{
 		return input;

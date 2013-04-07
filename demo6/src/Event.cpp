@@ -18,3 +18,12 @@ Event::Event()
 Event::~Event()
 {
 }
+
+std::ostream& Application::Event::printData(std::ostream& os) const {
+	os << "Event: Unknown derivate.";
+	return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const Application::Event& event) {
+	return event.printData(os);
+}

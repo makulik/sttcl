@@ -18,4 +18,10 @@ SubStateMachineCompletedEvent::~SubStateMachineCompletedEvent() {
 	// TODO Auto-generated destructor stub
 }
 
+std::ostream& SubStateMachineCompletedEvent::printData(std::ostream& os) const {
+	os << "SubStateMachineCompletedEvent";
+	return os;
+}
+
+
 } /* namespace Application */

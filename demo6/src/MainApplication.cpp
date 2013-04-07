@@ -35,11 +35,12 @@ int MainApplication::run()
 		{
 			continue;
 		}
+
+		cout << "> ";
+		cout.flush();
+		getline(input,cmd);
 		if(!stateMachine.isTerminated())
 		{
-			cout << "> ";
-			cout.flush();
-			getline(input,cmd);
 			if(!cmd.empty())
 			{
 				DemoStateMachine::EventPtr inputEvent(new InputEvent(cmd));
@@ -52,11 +53,11 @@ int MainApplication::run()
 		}
 		else
 		{
+			cout << "State machine was terminated ..." << endl;
+			stateMachine.waitForTermination();
 			exit = true;
 		}
 	} while(!exit);
-
-	stateMachine.waitForTermination();
 
 	return result;
 }

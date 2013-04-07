@@ -32,3 +32,8 @@ InputEvent& InputEvent::operator =(const InputEvent& rhs)
 	input = rhs.input;
 	return *this;
 }
+
+std::ostream& Application::InputEvent::printData(std::ostream& os) const {
+	os << getInput();
+	return os;
+}

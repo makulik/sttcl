@@ -19,6 +19,8 @@ class SubStateMachineCompletedEvent
 public:
 	SubStateMachineCompletedEvent();
 	virtual ~SubStateMachineCompletedEvent();
+
+	virtual std::ostream& printData(std::ostream& os) const;
 };
 
 } /* namespace Application */

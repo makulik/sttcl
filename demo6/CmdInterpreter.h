@@ -22,14 +22,14 @@ public:
 	CmdInterpreter(DemoStateMachine* argStateMachine);
 	virtual ~CmdInterpreter();
 
-	bool sendCmd(const std::string& cmd);
+	bool sendCmd(const std::string& cmd, const sttcl::RefCountPtr<Event>& eventArgs);
 	bool isTerminationCmd(const std::string& cmd);
 
 private:
 	DemoStateMachine* stateMachine;
 
 	void splitCmdLine(const std::string& cmdLine,std::vector<std::string>& cmdParts);
-	void triggerEvent(int event);
+	void triggerEvent(int event, const sttcl::RefCountPtr<Event>& eventArgs);
 	void setVar(const std::string& var, const std::string& value);
 	void getVar(const std::string& var);
 	void printHelp();

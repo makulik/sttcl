@@ -211,6 +211,17 @@ public:
 	}
 
 	/**
+	 * Constructor for class RefCountPtr.
+	 * @param argPointee The pointee to manage.
+	 * @param argReleaseFunc An optional alternate release function for the pointee.
+	 */
+	template<typename U>
+	RefCountPtr(U* argPointee, typename sttcl::internal::RefCountPtrBase<MutexType>::ReleaseFunc argReleaseFunc = RefCountPtr<T,MutexType>::release)
+	: sttcl::internal::RefCountPtrBase<MutexType>(dynamic_cast<T*>(argPointee),argReleaseFunc)
+	{
+	}
+
+	/**
 	 * Copy constructor for class RefCountPtr. This operation will increment the reference
 	 * count of the copied pointee.
 	 * @param rhs The other instance to copy from.
@@ -225,21 +236,9 @@ public:
 	 * count of the copied pointee.
 	 * @param rhs The other instance to copy from.
 	 */
-//	RefCountPtr(RefCountPtr<T,MutexType>& rhs)
-//	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
-//	{
-//	}
-
-	/**
-	 * Copy constructor for class RefCountPtr. This operation will increment the reference
-	 * count of the copied pointee.
-	 * @param rhs The other instance to copy from.
-	 */
 	template<typename U>
 	RefCountPtr(const RefCountPtr<U,MutexType>& rhs)
 	: sttcl::internal::RefCountPtrBase<MutexType>(rhs)
-	//: ptrRef(static_cast<const RefCountPtr<T,MutexType>::PtrRef*>(rhs.ptrRef))
-	//: ptrRef(rhs.ptrRef)
 	{
 	}
 
@@ -272,7 +271,10 @@ public:
 	template<typename U>
 	RefCountPtr& operator=(const RefCountPtr<U,MutexType>& rhs)
 	{
-		sttcl::internal::RefCountPtrBase<MutexType>::operator=(rhs);
+		if(dynamic_cast<T*>(rhs.get()))
+		{
+			sttcl::internal::RefCountPtrBase<MutexType>::operator=(rhs);
+		}
 		return *this;
 	}
 
@@ -284,7 +286,7 @@ public:
 	{
 		if(sttcl::internal::RefCountPtrBase<MutexType>::ptrRef)
 		{
-			return sttcl::internal::RefCountPtrBase<MutexType>::ptrRef->pointee;
+			return (T*)(sttcl::internal::RefCountPtrBase<MutexType>::ptrRef->pointee);
 		}
 		return 0;
 	}

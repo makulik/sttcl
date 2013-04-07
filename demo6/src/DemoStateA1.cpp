@@ -21,22 +21,22 @@ DemoStateA1::~DemoStateA1()
 {
 }
 
-void DemoStateA1::handleEvent1(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA1::handleEvent1(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
-	cout << "DemoStateA1, handling event1, args data: '" << eventArgs->getData() << "' ..." << endl;
+	cout << "DemoStateA1, handling event1, args data: '" << *eventArgs << "' ..." << endl;
 	changeState(regionContext->getRegionContext<RegionA>(),&DemoStateA2::getInstance());
 }
-void DemoStateA1::handleEvent2(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA1::handleEvent2(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
-	cout << "DemoStateA1, handling event2, args data: '" << eventArgs->getData() << "' ..." << endl;
+	cout << "DemoStateA1, handling event2, args data: '" << *eventArgs << "' ..." << endl;
 }
-void DemoStateA1::handleEvent3(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA1::handleEvent3(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
-	cout << "DemoStateA1, handling event3, args data: '" << eventArgs->getData() << "' ..." << endl;
+	cout << "DemoStateA1, handling event3, args data: '" << *eventArgs << "' ..." << endl;
 }
-void DemoStateA1::handleEvent4(IConcurrentStateMachine::Context* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void DemoStateA1::handleEvent4(ConcurrentStateMachine* context,IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
-	cout << "DemoStateA1, handling event4, args data: '" << eventArgs->getData() << "' ..." << endl;
+	cout << "DemoStateA1, handling event4, args data: '" << *eventArgs << "' ..." << endl;
 }
 
 void DemoStateA1::entryImpl(IConcurrentStateMachine::RegionContext* regionContext)

@@ -8,31 +8,32 @@
 #ifndef CONCURRENTSTATEMACHINE_H_
 #define CONCURRENTSTATEMACHINE_H_
 
-#include "DemoStateMachine.h"
 #include "ConcurrentCompositeState.h"
+#include "DemoStateMachine.h"
 #include "IConcurrentStatemachine.h"
-#include "RegionA.h"
-#include "RegionB.h"
-#include "IDemoState.h"
+#include "Event.h"
 
 namespace Application
 {
 
+class RegionA;
+class RegionB;
+
 class ConcurrentStateMachine
-: public sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass>
+: public sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,Event>
 {
 public:
-	typedef sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,EventArgsClass> CompositeStateBase;
+	typedef sttcl::ConcurrentCompositeState<ConcurrentStateMachine,DemoStateMachine,IConcurrentStateMachine,2,Event> CompositeStateBase;
 	typedef typename CompositeStateBase::RegionsBaseType RegionsBasetype;
 
 
 	ConcurrentStateMachine(DemoStateMachine* context);
 	virtual ~ConcurrentStateMachine();
 
-	virtual void handleEvent1(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent2(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent3(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent4(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent1(DemoStateMachine* context,sttcl::RefCountPtr<Event> eventArgs);
+	virtual void handleEvent2(DemoStateMachine* context,sttcl::RefCountPtr<Event> eventArgs);
+	virtual void handleEvent3(DemoStateMachine* context,sttcl::RefCountPtr<Event> eventArgs);
+	virtual void handleEvent4(DemoStateMachine* context,sttcl::RefCountPtr<Event> eventArgs);
 
     void entryImpl(DemoStateMachine* context);
     void exitImpl(DemoStateMachine* context);
@@ -51,8 +52,8 @@ public:
     void regionCompletedImpl(RegionsBasetype* region);
 
 private:
-	RegionA regionA;
-	RegionB regionB;
+	RegionA* regionA;
+	RegionB* regionB;
 	CompositeStateBase::RegionsArray regions;
 	DemoStateMachine* context;
 

@@ -9,33 +9,33 @@
 #define REGIONB_H_
 
 #include "Region.h"
-#include "IConcurrentStatemachine.h"
 #include "DemoStateMachine.h"
+#include "ConcurrentStatemachine.h"
+#include "Event.h"
 
 namespace Application
 {
 
 class ConcurrentStateMachine;
-class DemoStateMachine;
 
 class RegionB
-: public sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine,EventArgsClass>
+: public sttcl::Region<RegionB,ConcurrentStateMachine,IConcurrentStateMachine,Event>
 {
 public:
-	typedef sttcl::Region<RegionB,DemoStateMachine,IConcurrentStateMachine,EventArgsClass> RegionBaseClass;
+	typedef sttcl::Region<RegionB,ConcurrentStateMachine,IConcurrentStateMachine,Event> RegionBaseClass;
 	typedef typename RegionBaseClass::InnerStateClass InnerStateClass;
 	typedef ConcurrentStateMachine RegionContainerClass;
 
 	RegionB(RegionContainerClass* regionContainer);
 	virtual ~RegionB();
 
-	virtual void handleEvent1(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent2(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent3(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
-	virtual void handleEvent4(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs);
+	virtual void handleEvent1(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs);
+	virtual void handleEvent2(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs);
+	virtual void handleEvent3(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs);
+	virtual void handleEvent4(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs);
 
-	void entryImpl(DemoStateMachine* context);
-	void exitImpl(DemoStateMachine* context);
+	void entryImpl(ConcurrentStateMachine* context);
+	void exitImpl(ConcurrentStateMachine* context);
 
 	void startingRegionThread();
 	void endingRegionThread();

@@ -24,7 +24,7 @@ RegionB::~RegionB()
 {
 }
 
-void RegionB::handleEvent1(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionB::handleEvent1(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
 	cout << "RegionB, handling event1 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -34,7 +34,7 @@ void RegionB::handleEvent1(IDemoState::Context* context,sttcl::RefCountPtr<Event
 	}
 }
 
-void RegionB::handleEvent2(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionB::handleEvent2(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
 	cout << "RegionB, handling event2 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -44,7 +44,7 @@ void RegionB::handleEvent2(IDemoState::Context* context,sttcl::RefCountPtr<Event
 	}
 }
 
-void RegionB::handleEvent3(DemoStateMachine* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionB::handleEvent3(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
 	cout << "RegionB, handling event3 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -54,7 +54,7 @@ void RegionB::handleEvent3(DemoStateMachine* context,sttcl::RefCountPtr<EventArg
 	}
 }
 
-void RegionB::handleEvent4(IDemoState::Context* context,sttcl::RefCountPtr<EventArgsClass> eventArgs)
+void RegionB::handleEvent4(ConcurrentStateMachine* context, IConcurrentStateMachine::RegionContext* regionContext,sttcl::RefCountPtr<Event> eventArgs)
 {
 	cout << "RegionB, handling event4 ..." << endl;
 	InnerStateClass* currentState = getState();
@@ -64,13 +64,13 @@ void RegionB::handleEvent4(IDemoState::Context* context,sttcl::RefCountPtr<Event
 	}
 }
 
-void RegionB::entryImpl(DemoStateMachine* context)
+void RegionB::entryImpl(ConcurrentStateMachine* context)
 {
 	RegionBaseClass::entryImpl(context);
 	cout << "RegionB, entering ..." << endl;
 }
 
-void RegionB::exitImpl(DemoStateMachine* context)
+void RegionB::exitImpl(ConcurrentStateMachine* context)
 {
 	cout << "RegionB, exiting ..." << endl;
 	RegionBaseClass::exitImpl(context);

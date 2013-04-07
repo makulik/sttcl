@@ -12,7 +12,6 @@
 #include "StateMachine.h"
 #include "ClassMethodThread.h"
 #include "EventQueue.h"
-#include "EventArgsClass.h"
 #include "Event.h"
 #include "RefCountPtr.h"
 
@@ -44,10 +43,10 @@ public:
     void subStateMachineCompletedImpl(StateMachineBase::StateBaseClass* state);
 
 private:
-	void event1();
-	void event2();
-	void event3();
-	void event4();
+	void event1(const EventPtr& event);
+	void event2(const EventPtr& event);
+	void event3(const EventPtr& event);
+	void event4(const EventPtr& event);
 
 	void* threadMethod(void* userArgs);
 

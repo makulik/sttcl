@@ -62,52 +62,55 @@ void DemoStateMachine::waitForTermination()
 	thread.join();
 }
 
-void DemoStateMachine::event1()
+void DemoStateMachine::event1(const EventPtr& event)
 {
 	cout << "DemoStateMachine, event1 triggered ..." << endl;
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent1(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event1 args")));
+		currentState->handleEvent1(this,event);
 	}
 }
 
-void DemoStateMachine::event2()
+void DemoStateMachine::event2(const EventPtr& event)
 {
 	cout << "DemoStateMachine, event2 triggered ..." << endl;
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent2(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event2 args")));
+		currentState->handleEvent2(this,event);
 	}
 }
 
-void DemoStateMachine::event3()
+void DemoStateMachine::event3(const EventPtr& event)
 {
 	cout << "DemoStateMachine, event3 triggered ..." << endl;
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent3(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event3 args")));
+		currentState->handleEvent3(this,event);
 	}
 }
 
-void DemoStateMachine::event4()
+void DemoStateMachine::event4(const EventPtr& event)
 {
 	cout << "DemoStateMachine, event4 triggered ..." << endl;
 	StateMachineBase::StateBaseClass* currentState = getState();
 	if(currentState)
 	{
-		currentState->handleEvent4(this,sttcl::RefCountPtr<EventArgsClass>(new EventArgsClass("event4 args")));
+		currentState->handleEvent4(this,event);
 	}
 }
 
 void DemoStateMachine::subStateMachineCompletedImpl(StateMachineBase::StateBaseClass* state)
 {
-	cout << "DemoStateMachine, sub statemachine completed ..." << endl;
-	StateMachineBase::subStateMachineCompletedImpl(state);
-	DemoStateMachine::EventPtr subStateMachineEcompletedEvent(new SubStateMachineCompletedEvent());
-	sendEvent(subStateMachineEcompletedEvent);
+	if(!isFinalizing())
+	{
+		cout << "DemoStateMachine, sub statemachine completed ..." << endl;
+		StateMachineBase::subStateMachineCompletedImpl(state);
+		DemoStateMachine::EventPtr subStateMachineEcompletedEvent(new SubStateMachineCompletedEvent());
+		sendEvent(subStateMachineEcompletedEvent);
+	}
 }
 
 sttcl::StateBase<DemoStateMachine,IDemoState>* DemoStateMachine::getInitialStateImpl() const
@@ -123,7 +126,7 @@ void* DemoStateMachine::threadMethod(void* userArgs)
 
 	initialize();
 
-	while(!terminate)
+	while(!terminate && !isFinalized())
 	{
 		if(eventQueue.waitForEvents())
 		{
@@ -133,16 +136,17 @@ void* DemoStateMachine::threadMethod(void* userArgs)
 				EventPtr eventPtr = eventQueue.front();
 				eventQueue.pop_front();
 
-				InputEvent* inputEvent = dynamic_cast<InputEvent*>(eventPtr.get());
-				if(inputEvent)
+				if(dynamic_cast<InputEvent*>(eventPtr.get()))
 				{
-					terminate = cmdInterpreter->sendCmd(inputEvent->getInput());
+					sttcl::RefCountPtr<InputEvent> inputEvent(eventPtr);
+					cout << "Sending command from input '" << inputEvent->getInput() << "'" << std::endl;
+					terminate = cmdInterpreter->sendCmd(inputEvent->getInput(),inputEvent);
 				}
-				SubStateMachineCompletedEvent* subStateMachineCompletedEvent =
-						dynamic_cast<SubStateMachineCompletedEvent*>(eventPtr.get());
-				if(subStateMachineCompletedEvent)
+				else if(dynamic_cast<SubStateMachineCompletedEvent*>(eventPtr.get()))
 				{
+					sttcl::RefCountPtr<SubStateMachineCompletedEvent> subStateMachineCompletedEvent(eventPtr);
 					cout << "DemoStateMachine, sub statemachine completed, finalizing ..." << endl;
+					cout << "*** Press <ENTER> once more to end the program ***" << endl;
 					finalize();
 				}
 			}
