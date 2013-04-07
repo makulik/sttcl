@@ -29,6 +29,9 @@ int MainApplication::run()
 
 	stateMachine.run();
 
+	// Ideally the following part should be kind of an event poll loop, that allows
+	// to check for either input or state machine termination from state machine internal
+	// processing.
 	do
 	{
 		if(!stateMachine.isInitialized())
