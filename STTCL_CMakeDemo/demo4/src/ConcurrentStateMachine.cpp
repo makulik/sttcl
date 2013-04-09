@@ -1,0 +1,89 @@
+/*
+ * ConcurrentStateMachine.cpp
+ *
+ *  Created on: 31.12.2011
+ *      Author: Admin
+ */
+#include <iostream>
+
+#include "../ConcurrentStateMachine.h"
+#include "../RegionA.h"
+#include "../RegionB.h"
+
+using namespace std;
+using namespace Application;
+using Application::ConcurrentStateMachine;
+
+ConcurrentStateMachine::ConcurrentStateMachine(DemoStateMachine* argContext)
+: ConcurrentStateMachine::CompositeStateBase(argContext,regions)
+, regionA(new RegionA(this))
+, regionB(new RegionB(this))
+//, context(argContext)
+{
+	regions[0] = regionA;
+	regions[1] = regionB;
+}
+
+ConcurrentStateMachine::~ConcurrentStateMachine()
+{
+}
+
+void ConcurrentStateMachine::handleEvent1(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, handling event1 ..." << endl;
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent1);
+}
+
+void ConcurrentStateMachine::handleEvent2(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, handling event2 ..." << endl;
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent2);
+}
+
+void ConcurrentStateMachine::handleEvent3(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, handling event3 ..." << endl;
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent3);
+}
+
+void ConcurrentStateMachine::handleEvent4(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, handling event4 ..." << endl;
+	broadcastEvent(context,&IConcurrentStateMachine::handleEvent4);
+}
+
+void ConcurrentStateMachine::entryImpl(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, entering ..." << endl;
+	CompositeStateBase::entryImpl(context);
+}
+
+void ConcurrentStateMachine::exitImpl(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, exiting ..." << endl;
+	CompositeStateBase::exitImpl(context);
+}
+
+bool ConcurrentStateMachine::initializeImpl(bool force)
+{
+	cout << "ConcurrentStateMachine, initializing ..." << endl;
+	return CompositeStateBase::initializeImpl(force);
+}
+
+void ConcurrentStateMachine::finalizeImpl(bool finalizeSubStateMachines)
+{
+	cout << "ConcurrentStateMachine, finalizing ..." << endl;
+	CompositeStateBase::finalizeImpl(finalizeSubStateMachines);
+}
+
+void ConcurrentStateMachine::startDoImpl(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, starting do action ..." << endl;
+	CompositeStateBase::startDoImpl(context);
+}
+
+void ConcurrentStateMachine::endDoImpl(DemoStateMachine* context)
+{
+	cout << "ConcurrentStateMachine, ending do action ..." << endl;
+	CompositeStateBase::endDoImpl(context);
+}
