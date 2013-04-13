@@ -1,0 +1,4 @@
+var structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_region_coe78b2d19010cf1d68a1f3de2273cd7c2 =
+[
+    [ "RESULT_TYPE", "structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_region_coe78b2d19010cf1d68a1f3de2273cd7c2.html#a05eb54815fe4a16def6f6532035b47ad", null ]
+];

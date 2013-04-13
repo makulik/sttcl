@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBaseImplWithEventArgs\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1204,5,1769,32"/>
-<area shape="rect" id="node9" href="$classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBaseImplWithoutEventArgs\&lt; RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1195,56,1778,83"/>
-<area shape="rect" id="node2" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEventDispatchInterfaceSelector\&lt;RegionContainerImpl,IInnerState,EventArgs\&gt;::RESULT_TYPE" alt="" coords="5,31,693,57"/>
-<area shape="rect" id="node7" href="$classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl, RegionContainerImpl, IInnerState, EventArgs \&gt;" alt="" coords="1827,5,2274,32"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html" title="sttcl::internal::RegionBase\lImplWithEventArgs\&lt; RegionContainer\lImpl, IInnerState, EventArgs \&gt;" alt="" coords="539,5,799,61"/>
+<area shape="rect" id="node9" href="$classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html" title="sttcl::internal::RegionBase\lImplWithoutEventArgs\&lt; RegionContainer\lImpl, IInnerState, EventArgs \&gt;" alt="" coords="529,85,810,141"/>
+<area shape="rect" id="node2" href="$classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html" title="sttcl::internal::RegionEvent\lDispatchInterfaceSelector\l\&lt;RegionContainerImpl,IInnerState,\lEventArgs\&gt;::RESULT_TYPE" alt="" coords="5,38,248,109"/>
+<area shape="rect" id="node7" href="$classsttcl_1_1_region.html" title="sttcl::Region\&lt; RegionImpl,\l RegionContainerImpl, IInnerState,\l EventArgs \&gt;" alt="" coords="859,5,1098,61"/>
 </map>

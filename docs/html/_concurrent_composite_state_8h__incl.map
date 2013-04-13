@@ -1,12 +1,12 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_composite_state_8h.html" title="CompositeState.h" alt="" coords="43,155,169,181"/>
-<area shape="rect" id="node7" href="$_region_8h.html" title="Region.h" alt="" coords="294,80,367,107"/>
-<area shape="rect" id="node5" href="$_state_8h.html" title="State.h" alt="" coords="5,229,69,256"/>
-<area shape="rect" id="node10" href="$_active_state_8h.html" title="ActiveState.h" alt="" coords="195,155,293,181"/>
-<area shape="rect" id="node15" href="$_sttcl_mutex_8h.html" title="SttclMutex.h" alt="" coords="469,229,565,256"/>
-<area shape="rect" id="node19" href="$_sttcl_semaphore_8h.html" title="SttclSemaphore.h" alt="" coords="267,229,393,256"/>
-<area shape="rect" id="node23" href="$_ref_count_ptr_8h.html" title="RefCountPtr.h" alt="" coords="547,155,649,181"/>
-<area shape="rect" id="node30" href="$_event_queue_8h.html" title="EventQueue.h" alt="" coords="369,155,471,181"/>
-<area shape="rect" id="node13" href="$_sttcl_thread_8h.html" title="SttclThread.h" alt="" coords="144,229,243,256"/>
-<area shape="rect" id="node17" href="$_sttcl_time_8h.html" title="SttclTime.h" alt="" coords="337,304,425,331"/>
+<area shape="rect" id="node3" href="$_composite_state_8h.html" title="CompositeState.h" alt="" coords="40,171,179,197"/>
+<area shape="rect" id="node7" href="$_region_8h.html" title="Region.h" alt="" coords="311,96,387,123"/>
+<area shape="rect" id="node5" href="$_state_8h.html" title="State.h" alt="" coords="5,245,75,272"/>
+<area shape="rect" id="node10" href="$_active_state_8h.html" title="ActiveState.h" alt="" coords="203,171,311,197"/>
+<area shape="rect" id="node15" href="$_sttcl_mutex_8h.html" title="SttclMutex.h" alt="" coords="494,245,596,272"/>
+<area shape="rect" id="node19" href="$_sttcl_semaphore_8h.html" title="SttclSemaphore.h" alt="" coords="280,245,419,272"/>
+<area shape="rect" id="node23" href="$_ref_count_ptr_8h.html" title="RefCountPtr.h" alt="" coords="574,171,681,197"/>
+<area shape="rect" id="node30" href="$_event_queue_8h.html" title="EventQueue.h" alt="" coords="387,171,497,197"/>
+<area shape="rect" id="node13" href="$_sttcl_thread_8h.html" title="SttclThread.h" alt="" coords="149,245,256,272"/>
+<area shape="rect" id="node17" href="$_sttcl_time_8h.html" title="SttclTime.h" alt="" coords="355,320,449,347"/>
 </map>

@@ -1,0 +1,4 @@
+var structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_region_container_impl_e9420c5ce39d44bed2b2a5827d18dbe0 =
+[
+    [ "RESULT_TYPE", "structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_region_container_impl_e9420c5ce39d44bed2b2a5827d18dbe0.html#a5148a312d049c1f291b66c6cdd7b40af", null ]
+];

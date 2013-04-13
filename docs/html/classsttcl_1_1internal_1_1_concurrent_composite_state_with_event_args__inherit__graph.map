@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_base.html" title="sttcl::internal::ConcurrentCompositeStateBase\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="979,5,1848,32"/>
-<area shape="rect" id="node5" href="$classsttcl_1_1_concurrent_composite_state.html" title="sttcl::ConcurrentCompositeState\&lt; CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="1896,5,2685,32"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1internal_1_1_concurrent_composite_state_base.html" title="sttcl::internal::Concurrent\lCompositeStateBase\&lt; CompositeState\lImpl, StateMachineImpl, IInnerState,\l NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="350,13,661,83"/>
+<area shape="rect" id="node5" href="$classsttcl_1_1_concurrent_composite_state.html" title="sttcl::ConcurrentComposite\lState\&lt; CompositeStateImpl,\l StateMachineImpl, IInnerState,\l NumOfRegions, EventArgs, StateBaseImpl \&gt;" alt="" coords="710,13,1021,83"/>
 </map>

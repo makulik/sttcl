@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$class_i_inner_state.html" title="IInnerState" alt="" coords="6,5,90,32"/>
-<area shape="rect" id="node3" href="$classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; RegionContainerImpl, IInnerState \&gt;" alt="" coords="139,5,469,32"/>
+<area shape="rect" id="node1" href="$class_i_inner_state.html" title="IInnerState" alt="" coords="6,12,98,39"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1_state_base.html" title="sttcl::StateBase\&lt; Region\lContainerImpl, IInnerState \&gt;" alt="" coords="147,5,351,46"/>
 </map>
