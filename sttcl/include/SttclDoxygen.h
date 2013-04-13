@@ -250,7 +250,7 @@ typedef void (InnerState::*InnerEventHandler)(StateMachineImpl*,RegionBase<State
  * (add -D\<config\> to your compiler flags):
  * \li \c STTCL_BOOST_IMPL to select the boost implementation as default
  * \li \c STTCL_POSIX_IMPL to select the POSIX implementation as default
- * \li \c STTCL_CX11_IMPL to select the C++ 11 standard implementation as default (not yet available)
+ * \li \c STTCL_CX11_IMPL to select the C++ 11 standard implementation as default
  *
  * \subsection sttcl_config_sec_2 4.2 Providing custom implementations for concurrency
  * You may implement your own abstractions for threads, mutexes, semaphores and time duration representation. Provide the following defines to set your custom implementation as defaults (these must be seen by the STTCL header files):

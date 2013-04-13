@@ -26,6 +26,9 @@
 #define STTCLCX11SEMAPHORE_H_
 
 #if defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
+#include <mutex>
+#include <condition_variable>
+#include <locale>
 
 #include "../include/SttclTime.h"
 
@@ -36,15 +39,48 @@ namespace internal
 {
 namespace cx11_impl
 {
+class Cx11SemaphoreSurrogate {
+     private:
+         std::mutex mMutex;
+         std::condition_variable v;
+         int mV;
+     public:
+         Cx11SemaphoreSurrogate(int v): mV(v){}
+         void post(int count=1){
+             std::unique_lock<std::mutex> lock(mMutex);
+             mV+=count;
+             if (mV > 0) v.notify_all();
+         }
+         void wait(int count = 1){
+             std::unique_lock<std::mutex> lock(mMutex);
+             mV-= count;
+             while (mV < 0)
+                 v.wait(lock);
+         }
+         template<typename T>
+         bool try_wait(int count = 1, T duration = T()){
+             std::unique_lock<std::mutex> lock(mMutex);
+             mV-= count;
+             while (mV < 0)
+             {
+            	 if (v.wait_for(lock,duration) == std::cv_status::timeout)
+            	 {
+                     mV+= count;
+            		 return false;
+            	 }
+			 }
+             return true;
+         }
+ };
 /**
  * The C++ 11 standard default implementation for sttcl::SttclSemaphore<>.
  */
 class SttclCx11Semaphore
 {
 public:
-	typedef boost::interprocess::interprocess_semaphore NativeSemaphoreType;
+	typedef Cx11SemaphoreSurrogate NativeSemaphoreType;
 	SttclCx11Semaphore(unsigned int initialCount);
-	virtual ~SttclSemaphore();
+	virtual ~SttclCx11Semaphore();
 
 	void wait();
 	bool try_wait(const TimeDuration<>& timeout);

@@ -10,7 +10,7 @@
 
 #include "Region.h"
 #include "DemoStateMachine.h"
-#include "ConcurrentStatemachine.h"
+#include "ConcurrentStateMachine.h"
 #include "EventArgsClass.h"
 
 namespace Application

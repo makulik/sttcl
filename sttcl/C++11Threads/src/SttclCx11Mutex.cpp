@@ -28,7 +28,6 @@
 using namespace sttcl;
 using namespace sttcl::internal;
 using namespace sttcl::internal::cx11_impl;
-using namespace boost::posix_time;
 using sttcl::internal::cx11_impl::SttclCx11Mutex;
 
 SttclCx11Mutex::SttclCx11Mutex()
@@ -53,7 +52,7 @@ bool SttclCx11Mutex::try_lock(const TimeDuration<>& timeout)
 		return mutex.try_lock();
 	}
 
-	return mutex.timed_lock(timeout.getNativeValue());
+	return mutex.try_lock_for(timeout.getNativeValue());
 }
 
 void SttclCx11Mutex::unlock()

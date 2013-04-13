@@ -476,7 +476,7 @@ public:
     void entryImpl(Context* context)
     {
     	StateBaseImpl::entryImpl(context);
-    	StateMachineBaseImpl::setState(resumeStateHistory(static_cast<CompositeStateImpl*>(this)));
+    	StateMachineBaseImpl::setState(this->resumeStateHistory(static_cast<CompositeStateImpl*>(this)));
     }
 
     /**
@@ -487,7 +487,7 @@ public:
     void exitImpl(Context* context)
     {
 		StateMachineBaseImpl::exitCurrentState();
-    	StateMachineBaseImpl::setState(finalizeStateHistory(static_cast<CompositeStateImpl*>(this)));
+    	StateMachineBaseImpl::setState(this->finalizeStateHistory(static_cast<CompositeStateImpl*>(this)));
     	StateBaseImpl::exitImpl(context);
     }
 

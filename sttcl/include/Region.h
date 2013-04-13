@@ -506,7 +506,7 @@ public:
 	{
 		if(state)
 		{
-			queueDispatchedEvent(sttcl::internal::DispatchedEvent<RegionContainerImpl,IInnerState,EventArgs>(context,state,eventHandler,eventArgs));
+			this->queueDispatchedEvent(sttcl::internal::DispatchedEvent<RegionContainerImpl,IInnerState,EventArgs>(context,state,eventHandler,eventArgs));
 		}
 	}
 
@@ -1075,7 +1075,7 @@ private:
 				}
 				else
 				{
-					callDispatchedEventHandler(dispatchedEvent.context,dispatchedEvent.state,dispatchedEvent.handler,dispatchedEvent.eventArgs);
+					this->callDispatchedEventHandler(dispatchedEvent.context,dispatchedEvent.state,dispatchedEvent.handler,dispatchedEvent.eventArgs);
 				}
 			}
 		}

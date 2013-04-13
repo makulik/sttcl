@@ -27,6 +27,7 @@
 #if defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
 
 #include "../include/SttclTime.h"
+#include <mutex>
 
 namespace sttcl
 {
@@ -41,7 +42,7 @@ namespace cx11_impl
 class SttclCx11Mutex
 {
 public:
-	typedef boost::timed_mutex NativeMutexType;
+	typedef std::timed_mutex NativeMutexType;
 	SttclCx11Mutex();
 	virtual ~SttclCx11Mutex();
 

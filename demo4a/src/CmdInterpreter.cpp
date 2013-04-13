@@ -7,8 +7,8 @@
 
 #include <sstream>
 #include "../CmdInterpreter.h"
-#include <boost/thread.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
+//#include <boost/thread.hpp>
+//#include <boost/date_time/posix_time/posix_time.hpp>
 
 using namespace std;
 using namespace Application;

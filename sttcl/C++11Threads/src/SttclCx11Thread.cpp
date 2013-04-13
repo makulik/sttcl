@@ -40,15 +40,15 @@ SttclCx11Thread::SttclCx11Thread(ThreadMethodPtr argThreadMethod)
 
 SttclCx11Thread::~SttclCx11Thread()
 {
-	if(thread.joinable())
-	{
-		thread.join();
-	}
+//	if(thread.joinable())
+//	{
+//		thread.join();
+//	}
 }
 
 bool SttclCx11Thread::run(void* args)
 {
-	thread = boost::thread(*threadMethod,args);
+	thread = std::thread(*threadMethod,args);
 	return true;
 }
 
@@ -70,6 +70,6 @@ void SttclCx11Thread::detach()
 
 bool SttclCx11Thread::isSelf(const SttclCx11Thread& otherThread)
 {
-	return boost::this_thread::get_id() == otherThread.thread.get_id();
+	return std::this_thread::get_id() == otherThread.thread.get_id();
 }
 #endif

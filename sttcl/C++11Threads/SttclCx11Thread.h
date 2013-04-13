@@ -40,7 +40,7 @@ namespace cx11_impl
 class SttclCx11Thread
 {
 public:
-	typedef boost::thread ThreadNativeType;
+	typedef std::thread ThreadNativeType;
 
 	typedef void* (*ThreadMethodPtr)(void*);
 

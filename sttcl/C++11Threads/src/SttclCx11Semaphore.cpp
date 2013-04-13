@@ -28,7 +28,6 @@
 using namespace sttcl;
 using namespace sttcl::internal;
 using namespace sttcl::internal::cx11_impl;
-using namespace boost::posix_time;
 using sttcl::internal::cx11_impl::SttclCx11Semaphore;
 
 SttclCx11Semaphore::SttclCx11Semaphore(unsigned int initialCount)
@@ -49,11 +48,9 @@ bool SttclCx11Semaphore::try_wait(const TimeDuration<>& timeout)
 {
 	if(timeout == TimeDuration<>::Zero)
 	{
-		return semaphore.try_wait();
+		return semaphore.try_wait(1,TimeDuration<>::NativeTimeDuration::zero());
 	}
-
-	boost::posix_time::ptime absTime = boost::posix_time::microsec_clock::universal_time() + timeout.getNativeValue();
-	return semaphore.timed_wait(absTime);
+	return semaphore.try_wait(1,timeout.getNativeValue());
 }
 
 void SttclCx11Semaphore::post()

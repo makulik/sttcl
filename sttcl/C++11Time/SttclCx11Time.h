@@ -25,6 +25,8 @@
 #ifndef STTCLCX11TIME_H_
 #define STTCLCX11TIME_H_
 
+#include <chrono>
+
 #if defined(STTCL_CX11_TIME) or defined(STTCL_CX11_IMPL)
 namespace sttcl
 {
@@ -39,16 +41,16 @@ namespace cx11_impl
 class SttclCx11TimeDuration
 {
 public:
-	typedef boost::posix_time::time_duration NativeTimeDuration;
+	typedef std::chrono::nanoseconds NativeTimeDuration;
 
 	SttclCx11TimeDuration(unsigned int argHours, unsigned int argMinutes, unsigned int argSeconds = 0, unsigned int argMilliSeconds = 0, unsigned long argMicroSeconds = 0, unsigned long argNanoSeconds = 0)
-	: td(argHours,argMinutes,argSeconds,NativeTimeDuration::fractional_seconds_type(0))
+	: td(std::chrono::hours(argHours) +
+		 std::chrono::minutes(argMinutes) +
+		 std::chrono::seconds(argSeconds))
 	{
-		td += boost::posix_time::milliseconds(argMilliSeconds);
-		td += boost::posix_time::microseconds(argMicroSeconds);
-#ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
-		td += boost::posix_time::nanoseconds(argNanoSeconds);
-#endif
+		td += std::chrono::milliseconds(argMilliSeconds);
+		td += std::chrono::microseconds(argMicroSeconds);
+		td += std::chrono::nanoseconds(argNanoSeconds);
 	}
 	SttclCx11TimeDuration(const SttclCx11TimeDuration& rhs)
 	: td(rhs.td)
@@ -119,64 +121,64 @@ public:
 	}
 
 
-	long hours() const
-	{
-		return td.hours();
-	}
-
-	long minutes() const
-	{
-		return td.minutes();
-	}
-
-	long seconds() const
-	{
-		return td.seconds();
-	}
-	long milliseconds() const
-	{
-		return td.total_milliseconds();
-	}
-	long microseconds() const
-	{
-		return td.total_microseconds();
-	}
-	long nanoseconds() const
-	{
-		return td.total_nanoseconds();
-	}
-
-	void hours(int newHours)
-	{
-		NativeTimeDuration result(td);
-		result -= NativeTimeDuration(td.hours() + newHours,0,0);
-		td = result;
-	}
-	void minutes(int newMinutes)
-	{
-		NativeTimeDuration result(td);
-		result -= NativeTimeDuration(0,td.minutes() + newMinutes,0);
-		td = result;
-	}
-	void seconds(int newSeconds)
-	{
-		NativeTimeDuration result(td);
-		result -= NativeTimeDuration(0,0,td.seconds() + newSeconds);
-		td = result;
-	}
+//	long hours() const
+//	{
+//		return td.hours();
+//	}
+//
+//	long minutes() const
+//	{
+//		return td.minutes();
+//	}
+//
+//	long seconds() const
+//	{
+//		return td.seconds();
+//	}
+//	long milliseconds() const
+//	{
+//		return td.total_milliseconds();
+//	}
+//	long microseconds() const
+//	{
+//		return td.total_microseconds();
+//	}
+//	long nanoseconds() const
+//	{
+//		return td.total_nanoseconds();
+//	}
+//
+//	void hours(int newHours)
+//	{
+//		NativeTimeDuration result(td);
+//		result -= NativeTimeDuration(td.hours() + newHours,0,0);
+//		td = result;
+//	}
+//	void minutes(int newMinutes)
+//	{
+//		NativeTimeDuration result(td);
+//		result -= NativeTimeDuration(0,td.minutes() + newMinutes,0);
+//		td = result;
+//	}
+//	void seconds(int newSeconds)
+//	{
+//		NativeTimeDuration result(td);
+//		result -= NativeTimeDuration(0,0,td.seconds() + newSeconds);
+//		td = result;
+//	}
 	/*
 	void milliseconds(int newMilliSeconds)
 	{
 		NativeTimeDuration result(td);
-		result -= boost::posix_time::milliseconds(td.total_milliseconds());
-		result += boost::posix_time::milliseconds(newMilliSeconds);
+		result -= std::time::milliseconds(td.total_milliseconds());
+		result += std::time::milliseconds(newMilliSeconds);
 		td = result;
 	}
 	void microseconds(int newMicroSeconds)
 	{
 		NativeTimeDuration result(td);
-		result -= boost::posix_time::microseconds(td.total_microseconds());
-		result += boost::posix_time::microseconds(newMicroSeconds);
+		result -= std::time::microseconds(td.total_microseconds());
+		result += std::time::microseconds(newMicroSeconds);
 		td = result;
 	}
 	void nanoseconds(long newNanoSeconds)
@@ -184,8 +186,8 @@ public:
 #ifdef BOOST_DATE_TIME_HAS_NANOSECONDS
 
 		NativeTimeDuration result(td);
-		result -= boost::posix_time::nanoseconds(td.total_nanoseconds());
-		result += boost::posix_time::nanoseconds(newNanoSeconds);
+		result -= std::time::nanoseconds(td.total_nanoseconds());
+		result += std::time::nanoseconds(newNanoSeconds);
 		td = result;
 #endif
 	}
