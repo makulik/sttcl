@@ -1,0 +1,4 @@
+var structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e =
+[
+    [ "RESULT_TYPE", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html#a34b80b7a05eaab4751a0c2701388dc03", null ]
+];

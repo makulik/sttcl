@@ -2,268 +2,146 @@ var NAVTREE =
 [
   [ "sttcl", "index.html", [
     [ "STTCL state machine template class framework", "index.html", null ],
-    [ "Related Pages", "pages.html", [
-      [ "Usage of the STTCL state machine template class framework", "usage_page.html", null ],
-      [ "Mapping of the state diagram notation elements", "uml2gof_page.html", null ],
-      [ "Configuring the STTCL library for a specific OS/build environment", "sttcl_config_page.html", null ],
-      [ "Todo List", "todo.html", null ]
+    [ "Usage of the STTCL state machine template class framework", "usage_page.html", [
+      [ "2 Usage of the STTCL state machine template class framework", "usage_page.html#usage_sec", [
+        [ "2.1 Declare a StateMachine implementation", "usage_page.html#usage_sec_1", null ],
+        [ "2.2 Declare State implementations", "usage_page.html#usage_sec_2", null ],
+        [ "2.3 Implement state machine interface", "usage_page.html#usage_sec_3", null ],
+        [ "2.4 STTCL 'implementation hooks'", "usage_page.html#usage_sec_4", null ],
+        [ "2.5 Implement state actions and transitions", "usage_page.html#usage_sec_5", null ],
+        [ "2.6 Composite states", "usage_page.html#usage_sec_6", null ],
+        [ "2.7 Composite state regions, forks/joins", "usage_page.html#usage_sec_7", null ]
+      ] ]
     ] ],
-    [ "Class List", "annotated.html", [
-      [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
-      [ "sttcl::internal::AutoLocker< Lockable >", "classsttcl_1_1internal_1_1_auto_locker.html", null ],
-      [ "sttcl::ClassMethodThread< T, UserArgs, ThreadImpl, MutexImpl >", "classsttcl_1_1_class_method_thread.html", null ],
-      [ "sttcl::CompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl >", "classsttcl_1_1_composite_state.html", null ],
-      [ "sttcl::internal::CompositeStateBase< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base.html", null ],
-      [ "sttcl::internal::CompositeStateBaseSelector< HistoryType, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector.html", null ],
-      [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Deep, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html", null ],
-      [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Shallow, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html", null ],
-      [ "sttcl::internal::CompositeStateBaseWithDeepHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html", null ],
-      [ "sttcl::internal::CompositeStateBaseWithShallowHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html", null ],
-      [ "sttcl::CompositeStateHistoryType", "structsttcl_1_1_composite_state_history_type.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeBaseImplementationSelector< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeBaseImplementationSelector< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, void, StateBaseImpl >", "structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector_3_01_composite_sta8d142f762a15d3fea340a63ac0dbad6c.html", null ],
-      [ "sttcl::ConcurrentCompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1_concurrent_composite_state.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeStateBase< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1internal_1_1_concurrent_composite_state_base.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeStateWithEventArgs< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeStateWithoutEventArgs< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl >", "classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html", null ],
-      [ "sttcl::internal::DispatchedEvent< RegionContainerImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_dispatched_event.html", null ],
-      [ "sttcl::internal::EventArgsInterfaceSelector< RegionContainerImpl, IInnerState, EventArgsType >", "structsttcl_1_1internal_1_1_event_args_interface_selector.html", null ],
-      [ "sttcl::internal::EventArgsInterfaceSelector< RegionContainerImpl, IInnerState, void >", "structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html", null ],
-      [ "sttcl::EventQueue< T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType >", "classsttcl_1_1_event_queue.html", null ],
-      [ "IInnerState", "class_i_inner_state.html", null ],
-      [ "sttcl::internal::IRegionEventDispatchWithArgs< RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html", null ],
-      [ "sttcl::internal::IRegionEventDispatchWithoutArgs< RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html", null ],
-      [ "sttcl::internal::RefCountPtrBase< MutexType >::PtrRef", "structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html", null ],
-      [ "sttcl::RefCountPtr< T, MutexType >", "classsttcl_1_1_ref_count_ptr.html", null ],
-      [ "sttcl::RefCountPtr< void, MutexType >", "classsttcl_1_1_ref_count_ptr_3_01void_00_01_mutex_type_01_4.html", null ],
-      [ "sttcl::internal::RefCountPtrBase< MutexType >", "classsttcl_1_1internal_1_1_ref_count_ptr_base.html", null ],
-      [ "sttcl::Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ],
-      [ "sttcl::RegionBase< RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1_region_base.html", null ],
-      [ "sttcl::internal::RegionBaseImplementationSelector< RegionImpl, RegionContainerImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_region_base_implementation_selector.html", null ],
-      [ "sttcl::internal::RegionBaseImplementationSelector< RegionImpl, RegionContainerImpl, IInnerState, void >", "structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_region_coe78b2d19010cf1d68a1f3de2273cd7c2.html", null ],
-      [ "sttcl::internal::RegionBaseImplWithEventArgs< RegionImpl, RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html", null ],
-      [ "sttcl::internal::RegionBaseImplWithoutEventArgs< RegionImpl, RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html", null ],
-      [ "sttcl::internal::RegionContainer< CompositeStateImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_region_container.html", null ],
-      [ "sttcl::internal::RegionEventDispatchInterfaceSelector< RegionContainerImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html", null ],
-      [ "sttcl::internal::RegionEventDispatchInterfaceSelector< RegionContainerImpl, IInnerState, void >", "structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_region_container_impl_e9420c5ce39d44bed2b2a5827d18dbe0.html", null ],
-      [ "sttcl::State< StateImpl, StateMachineImpl, IState >", "classsttcl_1_1_state.html", null ],
-      [ "sttcl::StateBase< StateMachineImpl, IState >", "classsttcl_1_1_state_base.html", null ],
-      [ "sttcl::StateMachine< StateMachineImpl, IState >", "classsttcl_1_1_state_machine.html", null ],
-      [ "sttcl::internal::SttclMutex< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_mutex.html", null ],
-      [ "sttcl::internal::SttclSemaphore< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_semaphore.html", null ],
-      [ "sttcl::internal::SttclThread< Impl >", "classsttcl_1_1internal_1_1_sttcl_thread.html", null ],
-      [ "sttcl::internal::ThreadFunctionHelper", "structsttcl_1_1internal_1_1_thread_function_helper.html", null ],
-      [ "ThreadImpl", "class_thread_impl.html", null ],
-      [ "sttcl::TimeDuration< Implementation >", "classsttcl_1_1_time_duration.html", null ]
+    [ "Mapping of the state diagram notation elements", "uml2gof_page.html", [
+      [ "3 Mapping of the UML state diagram notation elements to the GoF State pattern", "uml2gof_page.html#uml2gof_sec", null ]
     ] ],
-    [ "Class Index", "classes.html", null ],
-    [ "Class Hierarchy", "hierarchy.html", [
-      [ "sttcl::internal::AutoLocker< Lockable >", "classsttcl_1_1internal_1_1_auto_locker.html", null ],
-      [ "sttcl::internal::CompositeStateBase< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base.html", [
-        [ "sttcl::CompositeState< Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, RegionContainerImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", [
-          [ "sttcl::Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ]
-        ] ],
-        [ "sttcl::CompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, HistoryType, StateBaseImpl, StateMachineBaseImpl >", "classsttcl_1_1_composite_state.html", null ]
-      ] ],
-      [ "sttcl::internal::CompositeStateBaseSelector< HistoryType, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector.html", null ],
-      [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Deep, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_411e935fc31fe5a2b2f2b11c5f685412.html", null ],
-      [ "sttcl::internal::CompositeStateBaseSelector< CompositeStateHistoryType::Shallow, InnerStateType >", "structsttcl_1_1internal_1_1_composite_state_base_selector_3_01_composite_state_history_type_1_1_982b593242060720f9ba414a3529c73e.html", null ],
-      [ "sttcl::internal::CompositeStateBaseWithDeepHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_deep_history.html", null ],
-      [ "sttcl::internal::CompositeStateBaseWithShallowHistory< InnerStateType >", "classsttcl_1_1internal_1_1_composite_state_base_with_shallow_history.html", null ],
-      [ "sttcl::CompositeStateHistoryType", "structsttcl_1_1_composite_state_history_type.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeBaseImplementationSelector< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeBaseImplementationSelector< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, void, StateBaseImpl >", "structsttcl_1_1internal_1_1_concurrent_composite_base_implementation_selector_3_01_composite_sta8d142f762a15d3fea340a63ac0dbad6c.html", null ],
-      [ "sttcl::internal::ConcurrentCompositeStateWithEventArgs< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1internal_1_1_concurrent_composite_state_with_event_args.html", [
-        [ "sttcl::internal::ConcurrentCompositeStateBase< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1internal_1_1_concurrent_composite_state_base.html", [
-          [ "sttcl::ConcurrentCompositeState< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1_concurrent_composite_state.html", null ]
-        ] ]
-      ] ],
-      [ "sttcl::internal::ConcurrentCompositeStateWithoutEventArgs< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, StateBaseImpl >", "classsttcl_1_1internal_1_1_concurrent_composite_state_without_event_args.html", null ],
-      [ "sttcl::internal::DispatchedEvent< RegionContainerImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_dispatched_event.html", null ],
-      [ "sttcl::internal::EventArgsInterfaceSelector< RegionContainerImpl, IInnerState, EventArgsType >", "structsttcl_1_1internal_1_1_event_args_interface_selector.html", null ],
-      [ "sttcl::internal::EventArgsInterfaceSelector< RegionContainerImpl, IInnerState, void >", "structsttcl_1_1internal_1_1_event_args_interface_selector_3_01_region_container_impl_00_01_i_inner_state_00_01void_01_4.html", null ],
-      [ "sttcl::EventQueue< T, TimeDurationType, SemaphoreType, MutexType, InnerQueueType >", "classsttcl_1_1_event_queue.html", null ],
-      [ "IInnerState", "class_i_inner_state.html", [
-        [ "sttcl::StateBase< RegionContainerImpl, IInnerState >", "classsttcl_1_1_state_base.html", null ]
-      ] ],
-      [ "sttcl::internal::IRegionEventDispatchWithArgs< RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_i_region_event_dispatch_with_args.html", [
-        [ "sttcl::RegionBase< RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1_region_base.html", [
-          [ "sttcl::internal::RegionBaseImplWithEventArgs< RegionImpl, RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_region_base_impl_with_event_args.html", [
-            [ "sttcl::Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >", "classsttcl_1_1_region.html", null ]
-          ] ],
-          [ "sttcl::internal::RegionBaseImplWithoutEventArgs< RegionImpl, RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_region_base_impl_without_event_args.html", null ]
-        ] ]
-      ] ],
-      [ "sttcl::internal::IRegionEventDispatchWithoutArgs< RegionContainerImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_i_region_event_dispatch_without_args.html", null ],
-      [ "sttcl::internal::RefCountPtrBase< MutexType >::PtrRef", "structsttcl_1_1internal_1_1_ref_count_ptr_base_1_1_ptr_ref.html", null ],
-      [ "sttcl::RefCountPtr< void, MutexType >", "classsttcl_1_1_ref_count_ptr_3_01void_00_01_mutex_type_01_4.html", null ],
-      [ "sttcl::internal::RefCountPtrBase< MutexType >", "classsttcl_1_1internal_1_1_ref_count_ptr_base.html", [
-        [ "sttcl::RefCountPtr< T, MutexType >", "classsttcl_1_1_ref_count_ptr.html", null ]
-      ] ],
-      [ "sttcl::internal::RegionBaseImplementationSelector< RegionImpl, RegionContainerImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_region_base_implementation_selector.html", null ],
-      [ "sttcl::internal::RegionBaseImplementationSelector< RegionImpl, RegionContainerImpl, IInnerState, void >", "structsttcl_1_1internal_1_1_region_base_implementation_selector_3_01_region_impl_00_01_region_coe78b2d19010cf1d68a1f3de2273cd7c2.html", null ],
-      [ "sttcl::internal::RegionContainer< CompositeStateImpl, IInnerState, EventArgs >", "classsttcl_1_1internal_1_1_region_container.html", [
-        [ "sttcl::internal::ConcurrentCompositeStateBase< CompositeStateImpl, StateMachineImpl, IInnerState, NumOfRegions, EventArgs, StateBaseImpl >", "classsttcl_1_1internal_1_1_concurrent_composite_state_base.html", null ]
-      ] ],
-      [ "sttcl::internal::RegionEventDispatchInterfaceSelector< RegionContainerImpl, IInnerState, EventArgs >", "structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector.html", null ],
-      [ "sttcl::internal::RegionEventDispatchInterfaceSelector< RegionContainerImpl, IInnerState, void >", "structsttcl_1_1internal_1_1_region_event_dispatch_interface_selector_3_01_region_container_impl_e9420c5ce39d44bed2b2a5827d18dbe0.html", null ],
-      [ "sttcl::StateBase< StateMachineImpl, IState >", "classsttcl_1_1_state_base.html", [
-        [ "sttcl::ActiveState< Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType >", "classsttcl_1_1_active_state.html", [
-          [ "sttcl::CompositeState< Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, RegionContainerImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
-        ] ],
-        [ "sttcl::ActiveState< StateImpl, StateMachineImpl, IState, StateThreadType, TimeDurationType, EndDoActionSemaphoreType, ActiveStateMutexType >", "classsttcl_1_1_active_state.html", null ],
-        [ "sttcl::State< StateImpl, StateMachineImpl, IState >", "classsttcl_1_1_state.html", null ]
-      ] ],
-      [ "sttcl::StateMachine< StateMachineImpl, IState >", "classsttcl_1_1_state_machine.html", null ],
-      [ "sttcl::StateMachine< RegionImpl, IInnerState >", "classsttcl_1_1_state_machine.html", [
-        [ "sttcl::CompositeState< Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, RegionContainerImpl, IInnerState, HistoryType, ActiveState< Region< RegionImpl, RegionContainerImpl, IInnerState, EventArgs, HistoryType, StateThreadType, TimeDurationType, SemaphoreType, MutexType, EventQueueType >, RegionContainerImpl, IInnerState, StateThreadType, TimeDurationType, SemaphoreType, MutexType >, StateMachine< RegionImpl, IInnerState > >", "classsttcl_1_1_composite_state.html", null ]
-      ] ],
-      [ "sttcl::internal::SttclMutex< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_mutex.html", null ],
-      [ "sttcl::internal::SttclSemaphore< Impl, TimeDurationType >", "classsttcl_1_1internal_1_1_sttcl_semaphore.html", null ],
-      [ "sttcl::internal::SttclThread< Impl >", "classsttcl_1_1internal_1_1_sttcl_thread.html", null ],
-      [ "sttcl::internal::ThreadFunctionHelper", "structsttcl_1_1internal_1_1_thread_function_helper.html", null ],
-      [ "ThreadImpl", "class_thread_impl.html", [
-        [ "sttcl::internal::SttclThread< ThreadImpl >", "classsttcl_1_1internal_1_1_sttcl_thread.html", [
-          [ "sttcl::ClassMethodThread< T, UserArgs, ThreadImpl, MutexImpl >", "classsttcl_1_1_class_method_thread.html", null ]
-        ] ]
-      ] ],
-      [ "sttcl::TimeDuration< Implementation >", "classsttcl_1_1_time_duration.html", null ]
+    [ "Configuring the STTCL library for a specific OS/build environment", "sttcl_config_page.html", [
+      [ "4 Configuring the STTCL library for a specific OS/build environment", "sttcl_config_page.html#sttcl_config_sec", [
+        [ "4.1 Configuring STTCL builtin concurrency implementations", "sttcl_config_page.html#sttcl_config_sec_1", null ],
+        [ "4.2 Providing custom implementations for concurrency", "sttcl_config_page.html#sttcl_config_sec_2", null ]
+      ] ]
     ] ],
-    [ "Class Members", "functions.html", null ],
-    [ "Namespace List", "namespaces.html", [
-      [ "sttcl", "namespacesttcl.html", null ],
-      [ "sttcl::internal", "namespacesttcl_1_1internal.html", null ],
-      [ "sttcl::internal::boost_impl", "namespacesttcl_1_1internal_1_1boost__impl.html", null ],
-      [ "sttcl::internal::cx11_impl", "namespacesttcl_1_1internal_1_1cx11__impl.html", null ],
-      [ "sttcl::internal::posix_impl", "namespacesttcl_1_1internal_1_1posix__impl.html", null ]
+    [ "Todo List", "todo.html", null ],
+    [ "Namespaces", null, [
+      [ "Namespace List", "namespaces.html", "namespaces" ]
     ] ],
-    [ "File List", "files.html", [
-      [ "sttcl/BoostThreads/SttclBoostMutex.h", "_sttcl_boost_mutex_8h.html", null ],
-      [ "sttcl/BoostThreads/SttclBoostSemaphore.h", "_sttcl_boost_semaphore_8h.html", null ],
-      [ "sttcl/BoostThreads/SttclBoostThread.h", "_sttcl_boost_thread_8h.html", null ],
-      [ "sttcl/BoostThreads/src/SttclBoostMutex.cpp", "_sttcl_boost_mutex_8cpp.html", null ],
-      [ "sttcl/BoostThreads/src/SttclBoostSemaphore.cpp", "_sttcl_boost_semaphore_8cpp.html", null ],
-      [ "sttcl/BoostThreads/src/SttclBoostThread.cpp", "_sttcl_boost_thread_8cpp.html", null ],
-      [ "sttcl/BoostTime/SttclBoostTime.h", "_sttcl_boost_time_8h.html", null ],
-      [ "sttcl/C++11Threads/SttclCx11Mutex.h", "_sttcl_cx11_mutex_8h.html", null ],
-      [ "sttcl/C++11Threads/SttclCx11Semaphore.h", "_sttcl_cx11_semaphore_8h.html", null ],
-      [ "sttcl/C++11Threads/SttclCx11Thread.h", "_sttcl_cx11_thread_8h.html", null ],
-      [ "sttcl/C++11Threads/src/SttclCx11Mutex.cpp", "_sttcl_cx11_mutex_8cpp.html", null ],
-      [ "sttcl/C++11Threads/src/SttclCx11Semaphore.cpp", "_sttcl_cx11_semaphore_8cpp.html", null ],
-      [ "sttcl/C++11Threads/src/SttclCx11Thread.cpp", "_sttcl_cx11_thread_8cpp.html", null ],
-      [ "sttcl/C++11Time/SttclCx11Time.h", "_sttcl_cx11_time_8h.html", null ],
-      [ "sttcl/Debug/BoostThreads/src/SttclBoostMutex.d", "_sttcl_boost_mutex_8d.html", null ],
-      [ "sttcl/Debug/BoostThreads/src/SttclBoostSemaphore.d", "_sttcl_boost_semaphore_8d.html", null ],
-      [ "sttcl/Debug/BoostThreads/src/SttclBoostThread.d", "_sttcl_boost_thread_8d.html", null ],
-      [ "sttcl/Debug/C++11Threads/src/SttclCx11Mutex.d", "_sttcl_cx11_mutex_8d.html", null ],
-      [ "sttcl/Debug/C++11Threads/src/SttclCx11Semaphore.d", "_sttcl_cx11_semaphore_8d.html", null ],
-      [ "sttcl/Debug/C++11Threads/src/SttclCx11Thread.d", "_sttcl_cx11_thread_8d.html", null ],
-      [ "sttcl/Debug/PosixThreads/src/SttclPosixMutex.d", "_sttcl_posix_mutex_8d.html", null ],
-      [ "sttcl/Debug/PosixThreads/src/SttclPosixSemaphore.d", "_sttcl_posix_semaphore_8d.html", null ],
-      [ "sttcl/Debug/PosixThreads/src/SttclPosixThread.d", "_sttcl_posix_thread_8d.html", null ],
-      [ "sttcl/Debug/PosixTime/src/SttclPosixTime.d", "_sttcl_posix_time_8d.html", null ],
-      [ "sttcl/include/ActiveState.h", "_active_state_8h.html", null ],
-      [ "sttcl/include/ClassMethodThread.h", "_class_method_thread_8h.html", null ],
-      [ "sttcl/include/CompositeState.h", "_composite_state_8h.html", null ],
-      [ "sttcl/include/ConcurrentCompositeState.h", "_concurrent_composite_state_8h.html", null ],
-      [ "sttcl/include/EventQueue.h", "_event_queue_8h.html", null ],
-      [ "sttcl/include/RefCountPtr.h", "_ref_count_ptr_8h.html", null ],
-      [ "sttcl/include/Region.h", "_region_8h.html", null ],
-      [ "sttcl/include/State.h", "_state_8h.html", null ],
-      [ "sttcl/include/StateMachine.h", "_state_machine_8h.html", null ],
-      [ "sttcl/include/SttclConfig.h", "_sttcl_config_8h.html", null ],
-      [ "sttcl/include/SttclDoxygen.h", "_sttcl_doxygen_8h.html", null ],
-      [ "sttcl/include/SttclMutex.h", "_sttcl_mutex_8h.html", null ],
-      [ "sttcl/include/SttclSemaphore.h", "_sttcl_semaphore_8h.html", null ],
-      [ "sttcl/include/SttclThread.h", "_sttcl_thread_8h.html", null ],
-      [ "sttcl/include/SttclTime.h", "_sttcl_time_8h.html", null ],
-      [ "sttcl/PosixThreads/SttclPosixMutex.h", "_sttcl_posix_mutex_8h.html", null ],
-      [ "sttcl/PosixThreads/SttclPosixSemaphore.h", "_sttcl_posix_semaphore_8h.html", null ],
-      [ "sttcl/PosixThreads/SttclPosixThread.h", "_sttcl_posix_thread_8h.html", null ],
-      [ "sttcl/PosixThreads/src/SttclPosixMutex.cpp", "_sttcl_posix_mutex_8cpp.html", null ],
-      [ "sttcl/PosixThreads/src/SttclPosixSemaphore.cpp", "_sttcl_posix_semaphore_8cpp.html", null ],
-      [ "sttcl/PosixThreads/src/SttclPosixThread.cpp", "_sttcl_posix_thread_8cpp.html", null ],
-      [ "sttcl/PosixTime/SttclPosixTime.h", "_sttcl_posix_time_8h.html", null ],
-      [ "sttcl/PosixTime/src/SttclPosixTime.cpp", "_sttcl_posix_time_8cpp.html", null ]
+    [ "Classes", null, [
+      [ "Class List", "annotated.html", "annotated" ],
+      [ "Class Index", "classes.html", "classes" ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ],
+        [ "Related Functions", "functions_rela.html", null ]
+      ] ]
     ] ],
-    [ "File Members", "globals.html", null ]
+    [ "Files", null, [
+      [ "File List", "files.html", "files" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
+    ] ]
   ] ]
 ];
 
+var navTreeIndex;
+var navTreeSubIndices = new Array();
+
+function getData(varName)
+{
+  var i = varName.lastIndexOf('/');
+  var n = i>=0 ? varName.substring(i+1) : varName;
+  return eval(n);
+}
+
+function stripPath(uri)
+{
+  return uri.substring(uri.lastIndexOf('/')+1);
+}
+
+function stripPath2(uri)
+{
+  var i = uri.lastIndexOf('/');
+  var s = uri.substring(i+1);
+  var m = uri.substring(0,i+1).match(/\/d\w\/d\w\w\/$/);
+  return m ? uri.substring(i-6) : s;
+}
+
+function getScript(scriptName,func,show)
+{
+  var head = document.getElementsByTagName("head")[0]; 
+  var script = document.createElement('script');
+  script.id = scriptName;
+  script.type = 'text/javascript';
+  script.onload = func; 
+  script.src = scriptName+'.js'; 
+  if ($.browser.msie && $.browser.version<=8) { 
+    // script.onload does work with older versions of IE
+    script.onreadystatechange = function() {
+      if (script.readyState=='complete' || script.readyState=='loaded') { 
+        func(); if (show) showRoot(); 
+      }
+    }
+  }
+  head.appendChild(script); 
+}
+
 function createIndent(o,domNode,node,level)
 {
-  if (node.parentNode && node.parentNode.parentNode)
-  {
+  if (node.parentNode && node.parentNode.parentNode) {
     createIndent(o,domNode,node.parentNode,level+1);
   }
   var imgNode = document.createElement("img");
-  if (level==0 && node.childrenData)
-  {
+  imgNode.width = 16;
+  imgNode.height = 22;
+  if (level==0 && node.childrenData) {
     node.plus_img = imgNode;
     node.expandToggle = document.createElement("a");
     node.expandToggle.href = "javascript:void(0)";
-    node.expandToggle.onclick = function() 
-    {
-      if (node.expanded) 
-      {
+    node.expandToggle.onclick = function() {
+      if (node.expanded) {
         $(node.getChildrenUL()).slideUp("fast");
-        if (node.isLast)
-        {
+        if (node.isLast) {
           node.plus_img.src = node.relpath+"ftv2plastnode.png";
-        }
-        else
-        {
+        } else {
           node.plus_img.src = node.relpath+"ftv2pnode.png";
         }
         node.expanded = false;
-      } 
-      else 
-      {
-        expandNode(o, node, false);
+      } else {
+        expandNode(o, node, false, false);
       }
     }
     node.expandToggle.appendChild(imgNode);
     domNode.appendChild(node.expandToggle);
-  }
-  else
-  {
+  } else {
     domNode.appendChild(imgNode);
   }
-  if (level==0)
-  {
-    if (node.isLast)
-    {
-      if (node.childrenData)
-      {
+  if (level==0) {
+    if (node.isLast) {
+      if (node.childrenData) {
         imgNode.src = node.relpath+"ftv2plastnode.png";
-      }
-      else
-      {
+      } else {
         imgNode.src = node.relpath+"ftv2lastnode.png";
         domNode.appendChild(imgNode);
       }
-    }
-    else
-    {
-      if (node.childrenData)
-      {
+    } else {
+      if (node.childrenData) {
         imgNode.src = node.relpath+"ftv2pnode.png";
-      }
-      else
-      {
+      } else {
         imgNode.src = node.relpath+"ftv2node.png";
         domNode.appendChild(imgNode);
       }
     }
-  }
-  else
-  {
-    if (node.isLast)
-    {
+  } else {
+    if (node.isLast) {
       imgNode.src = node.relpath+"ftv2blank.png";
-    }
-    else
-    {
+    } else {
       imgNode.src = node.relpath+"ftv2vertline.png";
     }
   }
@@ -296,27 +174,63 @@ function newNode(o, po, text, link, childrenData, lastNode)
   var a = document.createElement("a");
   node.labelSpan.appendChild(a);
   node.label = document.createTextNode(text);
+  node.expanded = false;
   a.appendChild(node.label);
-  if (link) 
-  {
-    a.href = node.relpath+link;
-  } 
-  else 
-  {
+  if (link) {
+    var url;
+    if (link.substring(0,1)=='^') {
+      url = link.substring(1);
+      link = url;
+    } else {
+      url = node.relpath+link;
+    }
+    a.className = stripPath(link.replace('#',':'));
+    if (link.indexOf('#')!=-1) {
+      var aname = '#'+link.split('#')[1];
+      var srcPage = stripPath($(location).attr('pathname'));
+      var targetPage = stripPath(link.split('#')[0]);
+      a.href = srcPage!=targetPage ? url : '#';
+      a.onclick = function(){
+        if (!$(a).parent().parent().hasClass('selected'))
+        {
+          $('.item').removeClass('selected');
+          $('.item').removeAttr('id');
+          $(a).parent().parent().addClass('selected');
+          $(a).parent().parent().attr('id','selected');
+        }
+        var pos, anchor = $(aname), docContent = $('#doc-content');
+        if (anchor.parent().attr('class')=='memItemLeft') {
+          pos = anchor.parent().position().top;
+        } else if (anchor.position()) {
+          pos = anchor.position().top;
+        }
+        if (pos) {
+          var dist = Math.abs(Math.min(
+                     pos-docContent.offset().top,
+                     docContent[0].scrollHeight-
+                     docContent.height()-docContent.scrollTop()));
+          docContent.animate({
+            scrollTop: pos + docContent.scrollTop() - docContent.offset().top
+          },Math.max(50,Math.min(500,dist)),function(){
+            window.location.replace(aname);
+          });
+        }
+      };
+    } else {
+      a.href = url;
+    }
+  } else {
     if (childrenData != null) 
     {
       a.className = "nolink";
       a.href = "javascript:void(0)";
       a.onclick = node.expandToggle.onclick;
-      node.expanded = false;
     }
   }
 
   node.childrenUL = null;
-  node.getChildrenUL = function() 
-  {
-    if (!node.childrenUL) 
-    {
+  node.getChildrenUL = function() {
+    if (!node.childrenUL) {
       node.childrenUL = document.createElement("ul");
       node.childrenUL.className = "children_ul";
       node.childrenUL.style.display = "none";
@@ -333,34 +247,126 @@ function showRoot()
   var headerHeight = $("#top").height();
   var footerHeight = $("#nav-path").height();
   var windowHeight = $(window).height() - headerHeight - footerHeight;
-  navtree.scrollTo('#selected',0,{offset:-windowHeight/2});
+  (function (){ // retry until we can scroll to the selected item
+    try {
+      var navtree=$('#nav-tree');
+      navtree.scrollTo('#selected',0,{offset:-windowHeight/2});
+    } catch (err) {
+      setTimeout(arguments.callee, 0);
+    }
+  })();
 }
 
-function expandNode(o, node, imm)
+function expandNode(o, node, imm, showRoot)
 {
-  if (node.childrenData && !node.expanded) 
-  {
-    if (!node.childrenVisited) 
-    {
-      getNode(o, node);
+  if (node.childrenData && !node.expanded) {
+    if (typeof(node.childrenData)==='string') {
+      var varName    = node.childrenData;
+      getScript(node.relpath+varName,function(){
+        node.childrenData = getData(varName);
+        expandNode(o, node, imm, showRoot);
+      }, showRoot);
+    } else {
+      if (!node.childrenVisited) {
+        getNode(o, node);
+      } if (imm || ($.browser.msie && $.browser.version>8)) { 
+        // somehow slideDown jumps to the start of tree for IE9 :-(
+        $(node.getChildrenUL()).show();
+      } else {
+        $(node.getChildrenUL()).slideDown("fast");
+      }
+      if (node.isLast) {
+        node.plus_img.src = node.relpath+"ftv2mlastnode.png";
+      } else {
+        node.plus_img.src = node.relpath+"ftv2mnode.png";
+      }
+      node.expanded = true;
     }
-    if (imm)
-    {
+  }
+}
+
+function glowEffect(n,duration)
+{
+  n.addClass('glow').delay(duration).queue(function(next){
+    $(this).removeClass('glow');next();
+  });
+}
+
+function highlightAnchor()
+{
+  var anchor = $($(location).attr('hash'));
+  if (anchor.parent().attr('class')=='memItemLeft'){
+    var rows = $('.memberdecls tr[class$="'+
+               window.location.hash.substring(1)+'"]');
+    glowEffect(rows.children(),300);
+  } else if (anchor.parent().is(":header")) {
+    glowEffect(anchor.parent(),1000);
+  } else {
+    glowEffect(anchor.next(),1000);
+  }
+}
+
+function selectAndHighlight(n)
+{
+  var a;
+  if ($(location).attr('hash')) {
+    var link=stripPath($(location).attr('pathname'))+':'+
+      $(location).attr('hash').substring(1);
+    a=$('.item a[class$="'+link+'"]');
+  }
+  if (a && a.length) {
+    a.parent().parent().addClass('selected');
+    a.parent().parent().attr('id','selected');
+    highlightAnchor();
+  } else if (n) {
+    $(n.itemDiv).addClass('selected');
+    $(n.itemDiv).attr('id','selected');
+  }
+  showRoot();
+}
+
+function showNode(o, node, index)
+{
+  if (node && node.childrenData) {
+    if (typeof(node.childrenData)==='string') {
+      var varName    = node.childrenData;
+      getScript(node.relpath+varName,function(){
+        node.childrenData = getData(varName);
+        showNode(o,node,index);
+      },true);
+    } else {
+      if (!node.childrenVisited) {
+        getNode(o, node);
+      }
       $(node.getChildrenUL()).show();
-    } 
-    else 
-    {
-      $(node.getChildrenUL()).slideDown("fast",showRoot);
+      if (node.isLast) {
+        node.plus_img.src = node.relpath+"ftv2mlastnode.png";
+      } else {
+        node.plus_img.src = node.relpath+"ftv2mnode.png";
+      }
+      node.expanded = true;
+      var n = node.children[o.breadcrumbs[index]];
+      if (index+1<o.breadcrumbs.length) {
+        showNode(o,n,index+1);
+      } else {
+        if (typeof(n.childrenData)==='string') {
+          var varName = n.childrenData;
+          getScript(n.relpath+varName,function(){
+            n.childrenData = getData(varName);
+            node.expanded=false;
+            showNode(o,node,index); // retry with child node expanded
+          },true);
+        } else {
+          var rootBase = o.toroot.replace(/\..+$/, '');
+          if (rootBase=="index" || rootBase=="pages") {
+            expandNode(o, n, true, true);
+          }
+          selectAndHighlight(n);
+        }
+      }
     }
-    if (node.isLast)
-    {
-      node.plus_img.src = node.relpath+"ftv2mlastnode.png";
-    }
-    else
-    {
-      node.plus_img.src = node.relpath+"ftv2mnode.png";
-    }
-    node.expanded = true;
+  } else {
+    selectAndHighlight();
   }
 }
 
@@ -368,35 +374,57 @@ function getNode(o, po)
 {
   po.childrenVisited = true;
   var l = po.childrenData.length-1;
-  for (var i in po.childrenData) 
-  {
+  for (var i in po.childrenData) {
     var nodeData = po.childrenData[i];
     po.children[i] = newNode(o, po, nodeData[0], nodeData[1], nodeData[2],
-        i==l);
+      i==l);
   }
 }
 
-function findNavTreePage(url, data)
+function gotoNode(o,subIndex,root,hash)
 {
-  var nodes = data;
-  var result = null;
-  for (var i in nodes) 
+  var nti = navTreeSubIndices[subIndex][root+hash];
+  o.breadcrumbs = nti ? nti : navTreeSubIndices[subIndex][root];
+  if (o.breadcrumbs)
   {
-    var d = nodes[i];
-    if (d[1] == url) 
-    {
-      return new Array(i);
-    }
-    else if (d[2] != null) // array of children
-    {
-      result = findNavTreePage(url, d[2]);
-      if (result != null) 
-      {
-        return (new Array(i).concat(result));
-      }
-    }
+    o.breadcrumbs.unshift(0); // add 0 for root node
+    showNode(o, o.node, 0);
   }
-  return null;
+}
+
+function gotoSubIndex(o,root,hash,relpath)
+{
+  if (hash.match(/^#l\d+$/)) 
+  {
+    hash=''; // strip line number anchors
+  }
+  var url=root+hash;
+  var i=-1;
+  while (navTreeIndex[i+1]<=url) i++;
+  if (navTreeSubIndices[i]) {
+    gotoNode(o,i,root,hash)
+  } else {
+    getScript(relpath+'navtreeindex'+i,function(){
+      navTreeSubIndices[i] = eval('NAVTREEINDEX'+i);
+      if (navTreeSubIndices[i]) {
+        gotoNode(o,i,root,hash);
+      }
+    },true);
+  }
+}
+
+function navTo(o,root,hash,relpath)
+{
+  if (navTreeIndex){
+    gotoSubIndex(o,root,hash,relpath);
+  } else {
+    getScript(relpath+"navtreeindex",function(){
+      navTreeIndex = eval('NAVTREEINDEX');
+      if (navTreeIndex){
+        gotoSubIndex(o,root,hash,relpath);
+      }
+    },true);
+  } 
 }
 
 function initNavTree(toroot,relpath)
@@ -412,26 +440,32 @@ function initNavTree(toroot,relpath)
   o.node.li.appendChild(o.node.childrenUL);
   o.node.depth = 0;
   o.node.relpath = relpath;
+  o.node.expanded = false;
+  o.node.isLast = true;
+  o.node.plus_img = document.createElement("img");
+  o.node.plus_img.src = relpath+"ftv2pnode.png";
+  o.node.plus_img.width = 16;
+  o.node.plus_img.height = 22;
 
-  getNode(o, o.node);
+  navTo(o,toroot,window.location.hash,relpath);
 
-  o.breadcrumbs = findNavTreePage(toroot, NAVTREE);
-  if (o.breadcrumbs == null)
-  {
-    o.breadcrumbs = findNavTreePage("index.html",NAVTREE);
-  }
-  if (o.breadcrumbs != null && o.breadcrumbs.length>0)
-  {
-    var p = o.node;
-    for (var i in o.breadcrumbs) 
-    {
-      var j = o.breadcrumbs[i];
-      p = p.children[j];
-      expandNode(o,p,true);
-    }
-    p.itemDiv.className = p.itemDiv.className + " selected";
-    p.itemDiv.id = "selected";
-    $(window).load(showRoot);
-  }
+  $(window).bind('hashchange', function(){
+     if (window.location.hash && window.location.hash.length>1){
+       var a;
+       if ($(location).attr('hash')){
+         var clslink=stripPath($(location).attr('pathname'))+':'+
+                               $(location).attr('hash').substring(1);
+         a=$('.item a[class$="'+clslink+'"]');
+       }
+       if (a==null || !$(a).parent().parent().hasClass('selected')){
+         $('.item').removeClass('selected');
+         $('.item').removeAttr('id');
+       }
+       var link=stripPath2($(location).attr('pathname'));
+       navTo(o,link,$(location).attr('hash'),relpath);
+     }
+  })
+
+  $(window).load(showRoot);
 }
 

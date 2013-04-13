@@ -1,10 +1,12 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_sttcl_mutex_8h.html" title="sttcl/include/SttclMutex.h" alt="" coords="294,80,465,107"/>
-<area shape="rect" id="node5" href="$_active_state_8h.html" title="sttcl/include/ActiveState.h" alt="" coords="473,155,646,181"/>
-<area shape="rect" id="node17" href="$_event_queue_8h.html" title="sttcl/include/EventQueue.h" alt="" coords="671,155,847,181"/>
-<area shape="rect" id="node20" href="$_sttcl_semaphore_8h.html" title="sttcl/include/SttclSemaphore.h" alt="" coords="559,80,759,107"/>
-<area shape="rect" id="node7" href="$_region_8h.html" title="sttcl/include/Region.h" alt="" coords="486,229,633,256"/>
-<area shape="rect" id="node11" href="$_class_method_thread_8h.html" title="sttcl/include/ClassMethodThread.h" alt="" coords="24,155,246,181"/>
-<area shape="rect" id="node13" href="$_ref_count_ptr_8h.html" title="sttcl/include/RefCountPtr.h" alt="" coords="271,155,447,181"/>
-<area shape="rect" id="node9" href="$_concurrent_composite_state_8h.html" title="sttcl/include/ConcurrentCompositeState.h" alt="" coords="428,304,690,331"/>
+<area shape="rect" id="node3" href="$_sttcl_mutex_8h.html" title="include/SttclMutex.h" alt="" coords="418,80,568,107"/>
+<area shape="rect" id="node5" href="$_active_state_8h.html" title="include/ActiveState.h" alt="" coords="5,163,163,189"/>
+<area shape="rect" id="node17" href="$_event_queue_8h.html" title="include/EventQueue.h" alt="" coords="238,163,399,189"/>
+<area shape="rect" id="node20" href="$_sttcl_semaphore_8h.html" title="include/SttclSemaphore.h" alt="" coords="121,80,308,107"/>
+<area shape="rect" id="node27" href="$_sttcl_posix_mutex_8h.html" title="PosixThreads/SttclPosixMutex.h" alt="" coords="751,80,973,107"/>
+<area shape="rect" id="node7" href="$_region_8h.html" title="include/Region.h" alt="" coords="256,245,381,272"/>
+<area shape="rect" id="node11" href="$_class_method_thread_8h.html" title="include/ClassMethodThread.h" alt="" coords="423,163,632,189"/>
+<area shape="rect" id="node13" href="$_ref_count_ptr_8h.html" title="include/RefCountPtr.h" alt="" coords="657,163,815,189"/>
+<area shape="rect" id="node9" href="$_concurrent_composite_state_8h.html" title="include/ConcurrentComposite\lState.h" alt="" coords="213,321,423,362"/>
+<area shape="rect" id="node29" href="$_sttcl_posix_mutex_8cpp.html" title="PosixThreads/src/SttclPosix\lMutex.cpp" alt="" coords="889,155,1084,197"/>
 </map>

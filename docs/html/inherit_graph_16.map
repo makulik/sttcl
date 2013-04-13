@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_ref_count_ptr_base.html" title="sttcl::internal::RefCountPtrBase\&lt; MutexType \&gt;" alt="" coords="5,5,299,32"/>
-<area shape="rect" id="node3" href="$classsttcl_1_1_ref_count_ptr.html" title="sttcl::RefCountPtr\&lt; T, MutexType \&gt;" alt="" coords="347,5,575,32"/>
+<area shape="rect" id="node1" href="$classsttcl_1_1internal_1_1_ref_count_ptr_base.html" title="sttcl::internal::RefCount\lPtrBase\&lt; MutexType \&gt;" alt="" coords="5,5,176,46"/>
+<area shape="rect" id="node3" href="$classsttcl_1_1_ref_count_ptr.html" title="sttcl::RefCountPtr\l\&lt; T, MutexType \&gt;" alt="" coords="225,5,359,46"/>
 </map>
