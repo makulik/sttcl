@@ -129,7 +129,7 @@ public:
 
 	void join()
 	{
-		if(!isSelf(*this))
+		if(!this->isSelf(*this))
 		{
 			sttcl::internal::SttclThread<ThreadImpl>::join();
 		}

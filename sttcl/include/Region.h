@@ -574,7 +574,7 @@ public:
 		if(state)
 		{
 			RegionContainerImpl* regionContainerContext = static_cast<RegionContainerImpl*>(context);
-			queueDispatchedEvent(sttcl::internal::DispatchedEvent<RegionContainerImpl,IInnerState,void>(regionContainerContext,state,eventHandler,RefCountPtr()));
+			this->queueDispatchedEvent(sttcl::internal::DispatchedEvent<RegionContainerImpl,IInnerState,void>(regionContainerContext,state,eventHandler,RefCountPtr()));
 		}
 	}
 
