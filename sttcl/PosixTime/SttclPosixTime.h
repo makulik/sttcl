@@ -207,7 +207,7 @@ private:
 	}
 	inline long total_nanoseconds() const
 	{
-		return td.tv_sec * 1000000 + td.tv_nsec / 1000;
+		return td.tv_sec * 10000000 + td.tv_nsec;
 	}
 
 	NativeTimeDuration td;

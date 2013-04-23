@@ -22,8 +22,8 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "../../include/SttclConfig.h"
 #include "../SttclBoostThread.h"
-
 #if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 using namespace sttcl;
 using namespace sttcl::internal;
@@ -72,4 +72,10 @@ bool SttclBoostThread::isSelf(const SttclBoostThread& otherThread)
 {
 	return boost::this_thread::get_id() == otherThread.thread.get_id();
 }
+
+void SttclBoostThread::sleep(const TimeDuration<>& duration)
+{
+    boost::this_thread::sleep_for(duration.getNativeValue());
+}
+
 #endif

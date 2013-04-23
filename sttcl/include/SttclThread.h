@@ -42,6 +42,8 @@
 #endif
 #endif
 
+#include "SttclTime.h"
+
 namespace sttcl
 {
 
@@ -109,6 +111,15 @@ public:
 	static bool isSelf(const Impl& otherThread)
 	{
 		return Impl::isSelf(otherThread);
+	}
+
+	/**
+	 * Blocks the current thead at least for the specified \em duration.
+	 * @param duration The minimum duration to block the currently running thread.
+	 */
+	static void sleep(const TimeDuration<>& duration)
+	{
+        Impl::sleep(duration);
 	}
 
 private:

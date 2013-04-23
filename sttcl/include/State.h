@@ -28,7 +28,13 @@
 namespace sttcl
 {
 
-template<class StateMachineImpl, class IState>
+template
+    < class StateMachineImpl
+    , class IState
+#if defined(STTCL_THREADSAFE_IMPL)
+    , class StateMachineMutexType
+#endif
+    >
 class StateMachine;
 
 /**
@@ -42,7 +48,11 @@ template<class StateMachineImpl,class IState>
 class StateBase
 : public IState
 {
+#if defined(STTCL_THREADSAFE_IMPL)
+    friend class StateMachine<StateMachineImpl,IState,typename StateMachineImpl::MutexType>;
+#else
     friend class StateMachine<StateMachineImpl,IState>;
+#endif
 
 public:
     /**
@@ -91,13 +101,19 @@ public:
     virtual void endDo(Context* context) = 0;
 
     /**
+     * Called by the containig state machine to pickup finished asynchronous doAction threads.
+     * @param context A pointer to the containing state machine.
+     */
+    virtual void joinDoAction(Context* context) = 0;
+
+    /**
      * Default implementation for the changeState() method.
      * @param context A pointer to the containing state machine.
      * @param newState The new sibling state the containing state machine should change to.
      */
     void changeStateImpl(Context* context,StateBase<StateMachineImpl,IState>* newState)
     {
-    	context->changeState(newState);
+		context->changeState(newState);
     }
 
     /**
@@ -191,6 +207,14 @@ public:
      * @param context A pointer to the containing state machine.
      */
     inline void endDoImpl(Context* context)
+    {
+    }
+
+    /**
+     * Default implementation for the joinDoAction() method.
+     * @param context A pointer to the containing state machine.
+     */
+    inline void joinDoActionImpl(Context* context)
     {
     }
 
@@ -317,6 +341,11 @@ private:
     virtual void endDo(Context* context)
     {
         static_cast<Implementation*>(this)->endDoImpl(context);
+    }
+
+    virtual void joinDoAction(Context* context)
+    {
+        static_cast<Implementation*>(this)->joinDoActionImpl(context);
     }
 
     virtual void finalizeSubStateMachines(bool recursive)

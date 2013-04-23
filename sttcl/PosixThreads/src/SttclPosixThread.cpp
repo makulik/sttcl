@@ -22,7 +22,9 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "../../include/SttclConfig.h"
 #include "../SttclPosixThread.h"
+#include <unistd.h>
 
 #if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
@@ -77,6 +79,16 @@ void SttclPosixThread::detach()
 bool SttclPosixThread::isSelf(const SttclPosixThread& otherThread)
 {
 	return pthread_equal(pthread_self(),otherThread.pthreadHandle) != 0;
+}
+
+void SttclPosixThread::sleep(const TimeDuration<>& duration)
+{
+#if defined(STTCL_POSIX_NANOSLEEP)
+    TimeDuration<>::NativeTimeDuration retval;
+    nanosleep(&duration.getNativeValue(),&retval);
+#else
+    usleep(duration.microseconds());
+#endif
 }
 
 #endif

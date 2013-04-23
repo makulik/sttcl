@@ -234,11 +234,22 @@ public:
      */
     inline void joinDoActionThreadImpl()
     {
-    	if(!StateThreadType::isSelf(stateThread))
-    	{
-    		stateThread.join();
-    	}
+        if(!StateThreadType::isSelf(stateThread))
+        {
+            stateThread.join();
+        }
     }
+
+    /**
+     * Default implementation for the joinDoAction() method.
+     * @param context A pointer to the containing state machine.
+     */
+    inline void joinDoActionImpl(Context* context)
+    {
+        static_cast<StateImpl*>(this)->joinDoActionThreadImpl();
+        context->unregisterActiveStateRunning(this);
+    }
+
 
     /**
      * Default implementation called to unblock any blocking methods waiting in the do action
@@ -255,12 +266,12 @@ public:
     inline void endDoImpl(Context* context)
     {
 		endDoActionSemaphore.post();
+        if(isDoActionRunning())
+        {
+            static_cast<StateImpl*>(this)->unblockDoActionImpl();
+        }
     	if(!StateThreadType::isSelf(stateThread))
     	{
-    		if(isDoActionRunning())
-    		{
-    			static_cast<StateImpl*>(this)->unblockDoActionImpl();
-    		}
 			static_cast<Implementation*>(this)->joinDoActionThreadImpl();
 			currentContext = 0;
     	}
@@ -282,11 +293,8 @@ public:
      */
     inline void startDoImpl(Context* context)
     {
-//        if(doAction)
-//        {
-			currentContext = context;
-        	stateThread.run(this);
-//        }
+		currentContext = context;
+		stateThread.run(this);
     }
 
     inline bool isDoActionRunning() const
@@ -361,10 +369,15 @@ protected:
      */
     virtual ~ActiveState()
     {
-    	if(isDoActionRunning())
-    	{
-    		endDo(currentContext);
-    	}
+    	bool joinStateThread = false;
+    	{ sttcl::internal::AutoLocker<ActiveStateMutexType> lock(activeStateMutex);
+			joinStateThread = doActionRunning;
+		}
+    	if(joinStateThread && !StateThreadType::isSelf(stateThread))
+		{
+			unblockDoActionImpl();
+			joinDoActionThreadImpl();
+		}
     }
 
     /**
@@ -374,7 +387,10 @@ protected:
      */
     void changeState(Context* context,StateBase<StateMachineImpl,IState>* newState)
     {
-    	static_cast<Implementation*>(this)->changeStateImpl(context,newState);
+    	if(context && context->getState() == this)
+    	{
+			static_cast<Implementation*>(this)->changeStateImpl(context,newState);
+    	}
     }
 
     /**
@@ -407,6 +423,15 @@ private:
         static_cast<Implementation*>(this)->endDoImpl(context);
     }
 
+    /**
+     * Default implementation for the joinDoAction() method.
+     * @param context A pointer to the containing state machine.
+     */
+    virtual void joinDoAction(Context* context)
+    {
+        static_cast<Implementation*>(this)->joinDoActionImpl(context);
+    }
+
     void setDoActionRunning(bool value)
     {
     	sttcl::internal::AutoLocker<ActiveStateMutexType> lock(activeStateMutex);
@@ -420,6 +445,10 @@ private:
     	bool directTransitionTriggered = false;
     	do
     	{
+    	    if(context && (context->isFinalizing() || context->isFinalized()))
+    	    {
+    	        break;
+    	    }
     		// Run the do action
     		if(doAction)
     		{
@@ -442,12 +471,13 @@ private:
     			else if(nextState)
     			{
     				changeState(context,nextState);
-    				directTransitionTriggered = true;
     			}
+				directTransitionTriggered = true;
     		}
     	} while(!endDoActionRequested() && !runDoActionOnce && !directTransitionTriggered);
+        setDoActionRunning(false);
         static_cast<Implementation*>(this)->exitingDoActionImpl();
-    	setDoActionRunning(false);
+        context->registerActiveStateRunning(this);
     }
 
     virtual void finalizeSubStateMachines(bool recursive)

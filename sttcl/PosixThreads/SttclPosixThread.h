@@ -28,6 +28,7 @@
 #if defined(STTCL_POSIX_THREADS) or defined(STTCL_POSIX_IMPL)
 
 #include <pthread.h>
+#include "../include/SttclTime.h"
 
 namespace sttcl
 {
@@ -50,6 +51,8 @@ public:
 	void join();
 	void detach();
 	static bool isSelf(const SttclPosixThread& otherThread);
+    static void sleep(const TimeDuration<>& duration);
+
 private:
 	ThreadMethodPtr threadMethod;
 	pthread_t pthreadHandle;

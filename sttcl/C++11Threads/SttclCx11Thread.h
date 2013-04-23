@@ -27,6 +27,7 @@
 
 #if defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
 #include <thread>
+#include "../include/SttclTime.h"
 
 namespace sttcl
 {
@@ -50,7 +51,8 @@ public:
 	bool run(void* args);
 	void join();
 	void detach();
-	static bool isSelf(const SttclCx11Thread& otherThread);
+    static bool isSelf(const SttclCx11Thread& otherThread);
+    static void sleep(const TimeDuration<>& duration);
 
 private:
 	ThreadMethodPtr threadMethod;

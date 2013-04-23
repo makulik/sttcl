@@ -27,6 +27,8 @@
 
 #if defined(STTCL_BOOST_THREADS) or defined(STTCL_BOOST_IMPL)
 #include <boost/thread.hpp>
+#include "../include/SttclTime.h"
+
 namespace sttcl
 {
 namespace internal
@@ -50,6 +52,7 @@ public:
 	void join();
 	void detach();
 	static bool isSelf(const SttclBoostThread& otherThread);
+    static void sleep(const TimeDuration<>& duration);
 
 private:
 	ThreadMethodPtr threadMethod;

@@ -31,11 +31,18 @@
 #include <cassert>
 #if defined(STTCL_DEBUG)
 #include <iostream>
-//#if defined(STTCL_HAVE_RTTI)
+#if defined(STTCL_HAVE_RTTI)
 #include <typeinfo>
-//#endif
+#endif
 #endif
 
+#if defined(STTCL_USE_STL)
+#include <set>
+#endif
+
+#if defined(STTCL_THREADSAFE_IMPL)
+#include "SttclMutex.h"
+#endif
 
 namespace sttcl
 {
@@ -47,10 +54,39 @@ namespace sttcl
  * @tparam IState Specifies the internal interface of state implementations for the state
  *                machine.
  */
-template<class StateMachineImpl, class IState>
+template
+	< class StateMachineImpl
+	, class IState
+#if defined(STTCL_THREADSAFE_IMPL)
+	, class StateMachineMutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL>
+#endif
+	>
 class StateMachine
 {
-	/**
+
+#if defined(STTCL_THREADSAFE_IMPL) && !defined(STTCL_STATEMACHINE_SAFE_RETURN)
+#define STTCL_STATEMACHINE_SAFE_RETURN(_ReturnValue_) \
+        sttcl::internal::AutoLocker<StateMachineMutexType> lock(internalLockGuard); \
+        return (_ReturnValue_);
+#else
+#define STTCL_STATEMACHINE_SAFE_RETURN(_ReturnValue_)
+#endif
+
+#if defined(STTCL_THREADSAFE_IMPL) && !defined(STTCL_STATEMACHINE_SAFESECTION_START)
+#define STTCL_STATEMACHINE_SAFESECTION_START \
+        { sttcl::internal::AutoLocker<StateMachineMutexType> lock(internalLockGuard);
+#else
+#define STTCL_STATEMACHINE_SAFESECTION_START
+#endif
+
+#if defined(STTCL_THREADSAFE_IMPL) && !defined(STTCL_STATEMACHINE_SAFESECTION_END)
+#define STTCL_STATEMACHINE_SAFESECTION_END \
+        }
+#else
+#define STTCL_STATEMACHINE_SAFESECTION_END
+#endif
+
+    /**
 	 * State machine flags bitfield.
 	 */
     struct StateMachineFlags
@@ -85,6 +121,9 @@ class StateMachine
     };
 
 public:
+#if defined(STTCL_THREADSAFE_IMPL)
+    typedef StateMachineMutexType MutexType;
+#endif
     /**
      * The state machine implementation type.
      */
@@ -105,7 +144,7 @@ public:
      */
     ~StateMachine()
     {
-    	if(isInitialized())
+    	if(isInitialized() && !isFinalizing() && !isFinalized())
     	{
     		finalize();
     	}
@@ -131,7 +170,9 @@ public:
     {
     	if(!isFinalizing())
     	{
-			flags.finalizing = true;
+    	    STTCL_STATEMACHINE_SAFESECTION_START;
+                flags.finalizing = true;
+            STTCL_STATEMACHINE_SAFESECTION_END;
 			static_cast<Context*>(this)->finalizeImpl(finalizeSubStateMachines);
 			flags.finalizing = false;
     	}
@@ -147,12 +188,22 @@ public:
     }
 
     /**
+     * Default implementation for isReady().
+     *
+     * @return \c true if the state machine is ready to process events, \c false otherwise.
+     */
+    inline bool isReadyImpl() const
+    {
+        STTCL_STATEMACHINE_SAFE_RETURN(flags.initialized && flags.finalized);
+    }
+
+    /**
      * Indicates that the state machine is initialized.
      * @return \c true if the state machine is initialized, \c false otherwise.
      */
     bool isInitialized() const
     {
-        return flags.initialized;
+        STTCL_STATEMACHINE_SAFE_RETURN(flags.initialized);
     }
 
     /**
@@ -161,7 +212,7 @@ public:
      */
     bool isInitalizing() const
     {
-        return flags.initializing;
+        STTCL_STATEMACHINE_SAFE_RETURN(flags.initializing);
     }
 
     /**
@@ -170,7 +221,7 @@ public:
      */
     bool isFinalized() const
     {
-        return flags.finalized;
+        STTCL_STATEMACHINE_SAFE_RETURN(flags.finalized);
     }
 
     /**
@@ -179,7 +230,7 @@ public:
      */
     bool isFinalizing() const
     {
-        return flags.finalizing;
+        STTCL_STATEMACHINE_SAFE_RETURN(flags.finalizing);
     }
 
     /**
@@ -189,7 +240,7 @@ public:
      */
     inline StateBaseClass* getState() const
     {
-        return state;
+        STTCL_STATEMACHINE_SAFE_RETURN(state);
     }
 
     /**
@@ -201,7 +252,9 @@ public:
     {
         if(force || (!isInitialized() && !isInitalizing()))
         {
+            STTCL_STATEMACHINE_SAFESECTION_START;
             flags.initializing = true;
+            STTCL_STATEMACHINE_SAFESECTION_END;
             if(force)
             {
             	StateBaseClass* currentState = getState();
@@ -225,9 +278,11 @@ public:
         	{
         		currentState->initSubStateMachines(force);
         	}
-            flags.initializing = false;
-            flags.finalized = false;
-            flags.initialized = true;
+            STTCL_STATEMACHINE_SAFESECTION_START;
+                flags.initializing = false;
+                flags.finalized = false;
+                flags.initialized = true;
+            STTCL_STATEMACHINE_SAFESECTION_END;
         }
         return isReady();
     }
@@ -246,10 +301,13 @@ public:
                 state->finalizeSubStateMachines(true);
             }
             exitCurrentState();
+            pickUpRunningActiveStates();
         }
         setState(0);
-        flags.finalized = true;
-        flags.initialized = false;
+        STTCL_STATEMACHINE_SAFESECTION_START;
+            flags.finalized = true;
+            flags.initialized = false;
+        STTCL_STATEMACHINE_SAFESECTION_END;
     }
 
     /**
@@ -269,6 +327,25 @@ public:
     {
     }
 
+    inline void registerActiveStateRunning(StateBaseClass* state)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START;
+            if(activeStatesRunning.find(state) == activeStatesRunning.end())
+            {
+                activeStatesRunning.insert(state);
+            }
+        STTCL_STATEMACHINE_SAFESECTION_END;
+    }
+
+    inline void unregisterActiveStateRunning(StateBaseClass* state)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START;
+            if(activeStatesRunning.find(state) != activeStatesRunning.end())
+            {
+                activeStatesRunning.erase(state);
+            }
+        STTCL_STATEMACHINE_SAFESECTION_END;
+    }
 protected:
     /**
      * Constructor for class StateMachine.
@@ -284,7 +361,11 @@ protected:
      *
      * @param newState The new target state.
      */
+#if defined(STTCL_THREADSAFE_IMPL)
+    void changeState(typename StateMachine<StateMachineImpl,IState,StateMachineMutexType>::StateBaseClass* newState);
+#else
     void changeState(typename StateMachine<StateMachineImpl,IState>::StateBaseClass* newState);
+#endif
 
     /**
      * Sets the state machines current state without calling any state operations.
@@ -292,7 +373,9 @@ protected:
      */
     inline void setState(StateBaseClass* newState)
     {
-    	state = newState;
+        STTCL_STATEMACHINE_SAFESECTION_START;
+            state = newState;
+        STTCL_STATEMACHINE_SAFESECTION_END;
     }
 
     /**
@@ -325,28 +408,30 @@ protected:
         return 0;
     }
 
-    /**
-     * Default implementation for isReady().
-     *
-     * @return \c true if the state machine is ready to process events, \c false otherwise.
-     */
-    inline bool isReadyImpl() const
-    {
-        return flags.initialized && !isFinalized();
-    }
-
-
     void exitCurrentState();
     void enterNewState();
+
+    void pickUpRunningActiveStates();
 
 private:
     StateBaseClass* state;
     StateMachineFlags flags;
+#if defined(STTCL_USE_STL)
+    std::set<StateBaseClass*> activeStatesRunning;
+#endif
+#if defined(STTCL_THREADSAFE_IMPL)
+    mutable StateMachineMutexType internalLockGuard;
+#endif
 
 };
 
+#if defined(STTCL_THREADSAFE_IMPL)
+template<class StateMachineImpl, class IState, class StateMachineMutexType>
+void StateMachine<StateMachineImpl,IState,StateMachineMutexType>::changeState(typename StateMachine<StateMachineImpl,IState,StateMachineMutexType>::StateBaseClass* newState)
+#else
 template<class StateMachineImpl, class IState>
 void StateMachine<StateMachineImpl,IState>::changeState(typename StateMachine<StateMachineImpl,IState>::StateBaseClass* newState)
+#endif
 {
     if(isInitalizing() || !isFinalized())
     {
@@ -366,7 +451,25 @@ void StateMachine<StateMachineImpl,IState>::changeState(typename StateMachine<St
     }
 }
 
-template<class StateMachineImpl, class IState>
+#if defined(STTCL_THREADSAFE_IMPL)
+template
+    < class StateMachineImpl
+    , class IState
+    , class StateMachineMutexType
+    >
+void StateMachine<StateMachineImpl,IState,StateMachineMutexType>::exitCurrentState()
+{
+    if(state)
+    {
+        state->endDo(static_cast<StateMachine<StateMachineImpl,IState,StateMachineMutexType>::Context*>(this));
+        state->exit(static_cast<StateMachine<StateMachineImpl,IState,StateMachineMutexType>::Context*>(this));
+    }
+}
+#else
+template
+    < class StateMachineImpl
+    , class IState
+    >
 void StateMachine<StateMachineImpl,IState>::exitCurrentState()
 {
     if(state)
@@ -375,12 +478,67 @@ void StateMachine<StateMachineImpl,IState>::exitCurrentState()
         state->exit(static_cast<StateMachine<StateMachineImpl,IState>::Context*>(this));
     }
 }
+#endif
 
-template<class StateMachineImpl, class IState>
+#if defined(STTCL_THREADSAFE_IMPL)
+template
+    < class StateMachineImpl
+    , class IState
+    , class StateMachineMutexType
+    >
+void StateMachine<StateMachineImpl,IState,StateMachineMutexType>::enterNewState()
+{
+    state->entry(static_cast<StateMachine<StateMachineImpl,IState,StateMachineMutexType>::Context*>(this));
+    state->startDo(static_cast<StateMachine<StateMachineImpl,IState,StateMachineMutexType>::Context*>(this));
+}
+#else
+template
+    < class StateMachineImpl
+    , class IState
+    >
 void StateMachine<StateMachineImpl,IState>::enterNewState()
 {
     state->entry(static_cast<StateMachine<StateMachineImpl,IState>::Context*>(this));
     state->startDo(static_cast<StateMachine<StateMachineImpl,IState>::Context*>(this));
+}
+#endif
+
+#if defined(STTCL_THREADSAFE_IMPL)
+template
+    < class StateMachineImpl
+    , class IState
+    , class StateMachineMutexType
+    >
+void StateMachine<StateMachineImpl,IState,StateMachineMutexType>::pickUpRunningActiveStates()
+#else
+template
+    < class StateMachineImpl
+    , class IState
+    >
+void StateMachine<StateMachineImpl,IState>::pickUpRunningActiveStates()
+#endif
+{
+    bool allRunningActiveStatesJoined = false;
+    do
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START;
+            allRunningActiveStatesJoined = activeStatesRunning.empty();
+        STTCL_STATEMACHINE_SAFESECTION_END;
+        if(!allRunningActiveStatesJoined)
+        {
+            StateBaseClass* activeStateToJoin = NULL;
+            STTCL_STATEMACHINE_SAFESECTION_START;
+                if(!activeStatesRunning.empty())
+                {
+                    activeStateToJoin = *(activeStatesRunning.begin());
+                }
+            STTCL_STATEMACHINE_SAFESECTION_END;
+            if(activeStateToJoin)
+            {
+                activeStateToJoin->joinDoAction(static_cast<Context*>(this));
+            }
+        }
+    } while(!allRunningActiveStatesJoined);
 }
 
 }

@@ -41,32 +41,50 @@ namespace cx11_impl
 {
 class Cx11SemaphoreSurrogate {
      private:
-         std::mutex mMutex;
-         std::condition_variable v;
-         int mV;
+         std::mutex condMutex;
+         std::condition_variable condVar;
+         int countValue;
      public:
-         Cx11SemaphoreSurrogate(int v): mV(v){}
-         void post(int count=1){
-             std::unique_lock<std::mutex> lock(mMutex);
-             mV+=count;
-             if (mV > 0) v.notify_all();
+         Cx11SemaphoreSurrogate(int v)
+         : countValue(v)
+         {
          }
-         void wait(int count = 1){
-             std::unique_lock<std::mutex> lock(mMutex);
-             mV-= count;
-             while (mV < 0)
-                 v.wait(lock);
+         virtual ~Cx11SemaphoreSurrogate()
+         {
+         }
+         void post(int count=1)
+         {
+             std::unique_lock<std::mutex> lock(condMutex);
+             countValue+=count;
+             if (countValue > 0)
+             {
+                 condVar.notify_all();
+             }
+         }
+         void wait(int count = 1)
+         {
+             std::unique_lock<std::mutex> lock(condMutex);
+             countValue-= count;
+             while (countValue < 0)
+             {
+                 condVar.wait(lock);
+             }
          }
          template<typename T>
-         bool try_wait(int count = 1, T duration = T()){
-             std::unique_lock<std::mutex> lock(mMutex);
-             mV-= count;
-             while (mV < 0)
+         bool try_wait(int count = 1, T duration = T())
+         {
+             std::unique_lock<std::mutex> lock(condMutex);
+             countValue-= count;
+             while (countValue < 0)
              {
-            	 if (v.wait_for(lock,duration) == std::cv_status::timeout)
+                 std::cv_status status = condVar.wait_for(lock,duration);
+            	 switch(status)
             	 {
-                     mV+= count;
-            		 return false;
+                 case std::cv_status::no_timeout:
+                     return true;
+                 case std::cv_status::timeout:
+                     countValue+= count;
+                     return false;
             	 }
 			 }
              return true;

@@ -22,6 +22,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include "../../include/SttclConfig.h"
 #include "../SttclCx11Thread.h"
 #if defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
 
@@ -40,10 +41,10 @@ SttclCx11Thread::SttclCx11Thread(ThreadMethodPtr argThreadMethod)
 
 SttclCx11Thread::~SttclCx11Thread()
 {
-//	if(thread.joinable())
-//	{
-//		thread.join();
-//	}
+	if(thread.joinable())
+	{
+		thread.join();
+	}
 }
 
 bool SttclCx11Thread::run(void* args)
@@ -71,5 +72,10 @@ void SttclCx11Thread::detach()
 bool SttclCx11Thread::isSelf(const SttclCx11Thread& otherThread)
 {
 	return std::this_thread::get_id() == otherThread.thread.get_id();
+}
+
+void SttclCx11Thread::sleep(const TimeDuration<>& duration)
+{
+    std::this_thread::sleep_for(duration.getNativeValue());
 }
 #endif
