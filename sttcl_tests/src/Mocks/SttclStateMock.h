@@ -103,64 +103,43 @@ protected:
 
     void entryImplCall(StateMachineContext* context)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::entryImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::entryImpl( context = " << context << ") ...");
 		StateBaseClass::entryImpl(context);
 	}
 
 	void exitImplCall(StateMachineContext* context)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::exitImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::exitImpl( context = " << context << ") ...");
 		StateBaseClass::exitImpl(context);
 	}
 
 	void startDoImplCall(StateMachineContext* context)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::startDoImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::startDoImpl( context = " << context << ") ...");
 		StateBaseClass::startDoImpl(context);
 	}
 
 	void endDoImplCall(StateMachineContext* context)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::endDoImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::endDoImpl( context = " << context << ") ...");
 		StateBaseClass::endDoImpl(context);
 	}
 
 	void finalizeSubStateMachinesImplCall(bool recursive)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
 		StateBaseClass::finalizeSubStateMachinesImpl(recursive);
 	}
 
 	void initSubStateMachinesImplCall(bool recursive)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
 		StateBaseClass::initSubStateMachinesImpl(recursive);
 	}
 
 	bool checkDirectTransitionImplCall(StateMachineContext* context, bool& finalize, typename StateBaseClass::StateBaseType*& nextState)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
 		sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
 		if(!StateBaseClass::checkDirectTransitionImpl(context,finalize,nextState))
 		{
@@ -187,18 +166,12 @@ protected:
 
 	void doActionImplCall(StateMachineContext* context, bool firstCall)
 	{
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " SttclStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " SttclStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
 	}
 
     void joinDoActionImplCall(StateMachineContext* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclStateMock::StateBaseClass::joinDoActionImpl(" << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMock::StateBaseClass::joinDoActionImpl(" << context << ") ...");
         StateBaseClass::joinDoActionImpl(context);
     }
 

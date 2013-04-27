@@ -56,34 +56,22 @@ public:
 protected:
     void handleEvent1Call(TestCompositeStateMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestInnerStateInterfaceMock::handleEvent1Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent1Call( context = " << context << ") ...");
     }
 
     void handleEvent2Call(TestCompositeStateMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestInnerStateInterfaceMock::handleEvent2Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent2Call( context = " << context << ") ...");
     }
 
     void handleEvent3Call(TestCompositeStateMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestInnerStateInterfaceMock::handleEvent3Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent3Call( context = " << context << ") ...");
     }
 
     void handleEvent4Call(TestCompositeStateMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestInnerStateInterfaceMock::handleEvent4Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent4Call( context = " << context << ") ...");
     }
 };
 

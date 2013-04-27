@@ -82,6 +82,7 @@ public:
 	virtual ~SttclActiveStateMock() {}
 
 	const std::string& id() const { return stateId_; }
+
 	void setDirectTransitState(StateBaseClass::StateBaseType* directTransitState)
 	{
 		sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
@@ -99,6 +100,11 @@ public:
 	{
 		enableLogs_ = enable;
 	}
+
+    bool logsEnabled() const
+    {
+        return enableLogs_;
+    }
 
 	bool waitForDoActionExited(const sttcl::TimeDuration<>& checkFrequency, int retries = 1)
 	{
@@ -155,28 +161,19 @@ protected:
 
 	void entryImplCall(SttclStateMachineMock* context)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::entryImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::entryImpl( context = " << context << ") ...");
 		StateBaseClass::entryImpl(context);
 	}
 
 	void exitImplCall(SttclStateMachineMock* context)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::exitImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::exitImpl( context = " << context << ") ...");
 		StateBaseClass::exitImpl(context);
 	}
 
 	void startDoImplCall(SttclStateMachineMock* context)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::startDoImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::startDoImpl( context = " << context << ") ...");
 		StateBaseClass::startDoImpl(context);
         { sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalLockGuard);
             doActionExited = false;
@@ -185,37 +182,25 @@ protected:
 
 	void endDoImplCall(SttclStateMachineMock* context)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::endDoImpl( context = " << context << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::endDoImpl( context = " << context << ") ...");
 		StateBaseClass::endDoImpl(context);
 	}
 
 	void finalizeSubStateMachinesImplCall(bool recursive)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
 		StateBaseClass::finalizeSubStateMachinesImpl(recursive);
 	}
 
 	void initSubStateMachinesImplCall(bool recursive)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
 		StateBaseClass::initSubStateMachinesImpl(recursive);
 	}
 
 	bool checkDirectTransitionImplCall(SttclStateMachineMock* context, bool& finalize, sttcl::StateBase<SttclStateMachineMock,ITestStateInterface>*& nextState)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
 		sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
 		if(!StateBaseClass::checkDirectTransitionImpl(context,finalize,nextState))
 		{
@@ -237,18 +222,12 @@ protected:
 
 	void doActionImplCall(SttclStateMachineMock* context, bool firstCall)
 	{
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " SttclActiveStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " SttclActiveStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
 	}
 
     void exitingDoActionImplCall()
     {
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::exitingDoActionImplCall() ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::exitingDoActionImplCall() ...");
 		StateBaseClass::exitingDoActionImpl();
 		//doActionExitedSema.post();
 
@@ -259,28 +238,19 @@ protected:
 
     void joinDoActionThreadImplCall()
     {
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::joinDoActionThreadImpl() ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::joinDoActionThreadImpl() ...");
 		StateBaseClass::joinDoActionThreadImpl();
     }
 
     void joinDoActionImplCall(SttclStateMachineMock* context)
     {
-        if(enableLogs_)
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclActiveStateMock::StateBaseClass::joinDoActionImpl(" << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclActiveStateMock::StateBaseClass::joinDoActionImpl(" << context << ") ...");
         StateBaseClass::joinDoActionImpl(context);
     }
 
     void unblockDoActionImplCall()
     {
-		if(enableLogs_)
-		{
-			STTCL_TEST_LOG(id() << "  Calling SttclActiveStateMock::StateBaseClass::unblockDoActionImpl() ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << "  Calling SttclActiveStateMock::StateBaseClass::unblockDoActionImpl() ...");
 		StateBaseClass::unblockDoActionImpl();
     }
 

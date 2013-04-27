@@ -12,7 +12,7 @@
 #include "IStateHooks.h"
 
 template
-    < class CompostiteStateImpl
+    < class CompositeStateImpl
     , class StateMachineContext
     , class InnerStateInterface
     >
@@ -20,7 +20,7 @@ class ICompositeStateHooks
 : public IStateHooks<StateMachineContext>
 {
 public:
-    typedef sttcl::StateBase<CompostiteStateImpl,InnerStateInterface> InnerStateBaseClass;
+    typedef sttcl::StateBase<CompositeStateImpl,InnerStateInterface> InnerStateBaseClass;
 
     virtual InnerStateBaseClass* getInitialStateImpl() const = 0;
 

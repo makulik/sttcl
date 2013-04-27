@@ -150,64 +150,43 @@ protected:
 private:
 	bool isReadyImplCall() const
     {
-		if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::isReadyImpl() ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::isReadyImpl() ...");
     	return SttclCompositeStateMock::StateMachineBaseClass::isReadyImpl();
     }
 
     bool initializeImplCall(bool force)
     {
-        if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::initializeImpl(" << force << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::initializeImpl(" << force << ") ...");
     	return StateMachineBaseClass::initializeImpl(force);
     }
 
     void finalizeImplCall(bool finalizeSubStateMachines)
     {
-        if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::finalizeImpl(" << finalizeSubStateMachines << ") ...");
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::finalizeImpl(" << finalizeSubStateMachines << ") ...");
 		StateMachineBaseClass::finalizeImpl(finalizeSubStateMachines);
     }
 
     void subStateMachineCompletedCall()
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompleted() ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompleted() ...");
         StateMachineBaseClass::subStateMachineCompleted();
     }
 
     void subStateMachineCompletedImplCall0()
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
         StateMachineBaseClass::subStateMachineCompletedImpl();
     }
 
     void subStateMachineCompletedImplCall1(IStateMachineHooks<ITestInnerStateInterface>::StateBaseClass* state)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
         StateMachineBaseClass::subStateMachineCompleted();
     }
 
     InnerStateClass* getInitialStateImplCall() const
     {
-        if(logsEnabled())
-		{
-			STTCL_TEST_LOG(id() << " SttclCompositeStateMock::getInitialStateImplCall(), initialState: = " << initialState_);
-		}
+        STTCL_TEST_LOG(logsEnabled(), id() << " SttclCompositeStateMock::getInitialStateImplCall(), initialState: = " << initialState_);
     	sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
     	return initialState_;
     }
@@ -215,66 +194,45 @@ private:
 
     void entryImplCall(StateMachineContext* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::entryImpl( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::::entryImpl( context = " << context << ") ...");
         StateMachineBaseClass::entryImpl(context);
     }
 
     void exitImplCall(StateMachineContext* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::exitImpl( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::::exitImpl( context = " << context << ") ...");
         StateMachineBaseClass::exitImpl(context);
     }
 
     void startDoImplCall(StateMachineContext* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::startDoImpl( context = " << context << ") ...");
-        }
-        StateBaseClass::startDoImpl(context);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::startDoImpl( context = " << context << ") ...");
+        StateMachineBaseClass::startDoImpl(context);
     }
 
     void endDoImplCall(StateMachineContext* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::endDoImpl( context = " << context << ") ...");
-        }
-        StateBaseClass::endDoImpl(context);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::endDoImpl( context = " << context << ") ...");
+        StateMachineBaseClass::endDoImpl(context);
     }
 
     void finalizeSubStateMachinesImplCall(bool recursive)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
-        }
-        StateBaseClass::finalizeSubStateMachinesImpl(recursive);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
+        StateMachineBaseClass::finalizeSubStateMachinesImpl(recursive);
     }
 
     void initSubStateMachinesImplCall(bool recursive)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
-        }
-        StateBaseClass::initSubStateMachinesImpl(recursive);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
+        StateMachineBaseClass::initSubStateMachinesImpl(recursive);
     }
 
     bool checkDirectTransitionImplCall(StateMachineContext* context, bool& finalize, sttcl::StateBase<StateMachineContext,ITestStateInterface>*& nextState)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
         sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
-        if(!StateBaseClass::checkDirectTransitionImpl(context,finalize,nextState))
+        if(!StateMachineBaseClass::checkDirectTransitionImpl(context,finalize,nextState))
         {
             if(directTransitState_)
             {
@@ -299,19 +257,13 @@ private:
 
     void doActionImplCall(StateMachineContext* context, bool firstCall)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " SttclCompositeStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " SttclCompositeStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
     }
 
     void joinDoActionImplCall(StateMachineContext* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " Calling SttclCompositeStateMock::StateBaseClass::joinDoActionImpl(" << context << ") ...");
-        }
-        StateBaseClass::joinDoActionImpl(context);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::joinDoActionImpl(" << context << ") ...");
+        StateMachineBaseClass::joinDoActionImpl(context);
     }
 
 };

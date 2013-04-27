@@ -55,68 +55,44 @@ public:
 protected:
     void handleEvent1Call(SttclStateMachineMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestCompositeStateMock::handleEvent1Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock::handleEvent1Call( context = " << context << ") ...");
         InnerStateBaseClass* currentState = getState();
         if(currentState != NULL)
         {
-            if(logsEnabled())
-            {
-                STTCL_TEST_LOG(id() << " TestCompositeStateMock calling currentState->handleEvent1() ...");
-            }
+            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock calling currentState->handleEvent1() ...");
             currentState->handleEvent1(this);
         }
     }
 
     void handleEvent2Call(SttclStateMachineMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestCompositeStateMock::handleEvent2Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock::handleEvent2Call( context = " << context << ") ...");
         InnerStateBaseClass* currentState = getState();
         if(currentState != NULL)
         {
-            if(logsEnabled())
-            {
-                STTCL_TEST_LOG(id() << " TestCompositeStateMock calling currentState->handleEvent2() ...");
-            }
+            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock calling currentState->handleEvent2() ...");
             currentState->handleEvent2(this);
         }
     }
 
     void handleEvent3Call(SttclStateMachineMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestCompositeStateMock::handleEvent3Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock::handleEvent3Call( context = " << context << ") ...");
         InnerStateBaseClass* currentState = getState();
         if(currentState != NULL)
         {
-            if(logsEnabled())
-            {
-                STTCL_TEST_LOG(id() << " TestCompositeStateMock calling currentState->handleEvent3() ...");
-            }
+            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock calling currentState->handleEvent3() ...");
             currentState->handleEvent3(this);
         }
     }
 
     void handleEvent4Call(SttclStateMachineMock* context)
     {
-        if(logsEnabled())
-        {
-            STTCL_TEST_LOG(id() << " TestCompositeStateMock::handleEvent4Call( context = " << context << ") ...");
-        }
+        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock::handleEvent4Call( context = " << context << ") ...");
         InnerStateBaseClass* currentState = getState();
         if(currentState != NULL)
         {
-            if(logsEnabled())
-            {
-                STTCL_TEST_LOG(id() << " TestCompositeStateMock calling currentState->handleEvent4() ...");
-            }
+            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateMock calling currentState->handleEvent4() ...");
             currentState->handleEvent4(this);
         }
     }

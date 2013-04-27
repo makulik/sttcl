@@ -65,6 +65,11 @@ public:
 		enableLogs_ = enable;
 	}
 
+    bool logsEnabled() const
+    {
+        return enableLogs_;
+    }
+
 	void triggerEvent1()
 	{
 	    StateBaseClass* currentState = getState();
@@ -118,7 +123,7 @@ private:
     {
 		if(enableLogs_)
 		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMachineMock::StateMachineBaseClass::isReadyImpl() ...");
+			STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMachineMock::StateMachineBaseClass::isReadyImpl() ...");
 		}
     	return SttclStateMachineMock::StateMachineBaseClass::isReadyImpl();
     }
@@ -127,7 +132,7 @@ private:
     {
 		if(enableLogs_)
 		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMachineMock::StateMachineBaseClass::initializeImpl(" << force << ") ...");
+			STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMachineMock::StateMachineBaseClass::initializeImpl(" << force << ") ...");
 		}
     	return SttclStateMachineMock::StateMachineBaseClass::initializeImpl(force);
     }
@@ -136,7 +141,7 @@ private:
     {
 		if(enableLogs_)
 		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMachineMock::StateMachineBaseClass::finalizeImpl(" << finalizeSubStateMachines << ") ...");
+			STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMachineMock::StateMachineBaseClass::finalizeImpl(" << finalizeSubStateMachines << ") ...");
 		}
 		SttclStateMachineMock::StateMachineBaseClass::finalizeImpl(finalizeSubStateMachines);
     }
@@ -145,7 +150,7 @@ private:
     {
 		if(enableLogs_)
 		{
-			STTCL_TEST_LOG(id() << " Calling SttclStateMachineMock::StateMachineBaseClass::subStateMachineCompletedImpl(" << state << ") ...");
+			STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMachineMock::StateMachineBaseClass::subStateMachineCompletedImpl(" << state << ") ...");
 		}
     	return SttclStateMachineMock::StateMachineBaseClass::subStateMachineCompletedImpl(state);
     }
@@ -154,7 +159,7 @@ private:
     {
 		if(enableLogs_)
 		{
-			STTCL_TEST_LOG(id() << " SttclStateMachineMock::getInitialStateImplCall(), initialState: = " << initialState_);
+			STTCL_TEST_LOG(logsEnabled(), id() << " SttclStateMachineMock::getInitialStateImplCall(), initialState: = " << initialState_);
 		}
     	sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
     	return initialState_;

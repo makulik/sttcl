@@ -15,9 +15,9 @@
 #endif
 
 #if STTCL_TEST_LOGS == 1
-#define STTCL_TEST_LOG(message) std::cout << message << std::endl
+#define STTCL_TEST_LOG(pred,message) if((pred)) { std::cout << message << std::endl; }
 #else
-#define STTCL_TEST_LOG(message)
+#define STTCL_TEST_LOG(pred,message)
 #endif
 
 #endif /* STTCLTESTLOG_H_ */
