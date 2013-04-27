@@ -14,8 +14,9 @@
 
 class ITestStateInterface;
 
+template<class StateMachineContext>
 class IActiveStateHooks
-: public IStateHooks
+: public IStateHooks<StateMachineContext>
 {
 public:
     virtual void exitingDoActionImpl() = 0;

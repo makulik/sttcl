@@ -13,6 +13,8 @@ class SttclStateMachineMock;
 class ITestStateInterface
 {
 public:
+    typedef SttclStateMachineMock Context;
+
 	virtual void handleEvent1(SttclStateMachineMock* context) = 0;
 	virtual void handleEvent2(SttclStateMachineMock* context) = 0;
 	virtual void handleEvent3(SttclStateMachineMock* context) = 0;

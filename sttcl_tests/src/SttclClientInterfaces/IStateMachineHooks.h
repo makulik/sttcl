@@ -12,10 +12,11 @@
 
 class SttclStateMachineMock;
 
+template <class StateInterface>
 class IStateMachineHooks
 {
 public:
-	typedef sttcl::StateBase<SttclStateMachineMock,ITestStateInterface> StateBaseClass;
+	typedef sttcl::StateBase<SttclStateMachineMock,StateInterface> StateBaseClass;
 
 	virtual bool initializeImpl(bool force) = 0;
 	virtual void finalizeImpl(bool finalizeSubStateMachines) = 0;

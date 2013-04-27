@@ -413,8 +413,10 @@ protected:
 
     void pickUpRunningActiveStates();
 
-private:
+protected:
     StateBaseClass* state;
+
+private:
     StateMachineFlags flags;
 #if defined(STTCL_USE_STL)
     std::set<StateBaseClass*> activeStatesRunning;

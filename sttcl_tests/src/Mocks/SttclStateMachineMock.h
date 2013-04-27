@@ -24,11 +24,12 @@ using ::testing::Invoke;
 
 class SttclStateMachineMock
 : public sttcl::StateMachine<SttclStateMachineMock,ITestStateInterface>
-, public IStateMachineHooks
+, public IStateMachineHooks<ITestStateInterface>
 {
 public:
 
 	typedef sttcl::StateMachine<SttclStateMachineMock,ITestStateInterface> StateMachineBaseClass;
+	typedef IStateMachineHooks<ITestStateInterface>::StateBaseClass StateBaseClass;
 
 	SttclStateMachineMock(const std::string& stateMachineId = "<anonymous>", IStateMachineHooks::StateBaseClass* initialState = NULL)
 	: initialState_(initialState)
@@ -53,7 +54,7 @@ public:
 	}
 
 	const std::string& id() const { return stateMachineId_; }
-	void setInitialState(IStateMachineHooks::StateBaseClass* initialState)
+	void setInitialState(IStateMachineHooks<ITestStateInterface>::StateBaseClass* initialState)
 	{
     	sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
 		initialState_ = initialState;
@@ -64,6 +65,42 @@ public:
 		enableLogs_ = enable;
 	}
 
+	void triggerEvent1()
+	{
+	    StateBaseClass* currentState = getState();
+	    if(currentState != NULL)
+	    {
+	        currentState->handleEvent1(this);
+	    }
+	}
+
+    void triggerEvent2()
+    {
+        StateBaseClass* currentState = getState();
+        if(currentState != NULL)
+        {
+            currentState->handleEvent2(this);
+        }
+    }
+
+    void triggerEvent3()
+    {
+        StateBaseClass* currentState = getState();
+        if(currentState != NULL)
+        {
+            currentState->handleEvent3(this);
+        }
+    }
+
+    void triggerEvent4()
+    {
+        StateBaseClass* currentState = getState();
+        if(currentState != NULL)
+        {
+            currentState->handleEvent4(this);
+        }
+    }
+
 	MOCK_METHOD1(initializeImpl, bool (bool force));
 	MOCK_METHOD1(finalizeImpl,void (bool finalizeSubStateMachines));
 	MOCK_METHOD1(subStateMachineCompletedImpl, void (IStateMachineHooks::StateBaseClass* state));
@@ -72,7 +109,7 @@ public:
 
 protected:
 	mutable sttcl::internal::SttclMutex<> internalGuard_;
-    IStateMachineHooks::StateBaseClass* initialState_;
+	IStateMachineHooks<ITestStateInterface>::StateBaseClass* initialState_;
     bool enableLogs_;
     std::string stateMachineId_;
 
@@ -104,7 +141,7 @@ private:
 		SttclStateMachineMock::StateMachineBaseClass::finalizeImpl(finalizeSubStateMachines);
     }
 
-    void subStateMachineCompletedImplCall(IStateMachineHooks::StateBaseClass* state)
+    void subStateMachineCompletedImplCall(IStateMachineHooks<ITestStateInterface>::StateBaseClass* state)
     {
 		if(enableLogs_)
 		{

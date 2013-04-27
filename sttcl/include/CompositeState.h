@@ -121,7 +121,11 @@ protected:
 	InnerStateType* finalizeStateHistory(CompositeStateImpl* compositeState)
 	{
 		InnerStateType* currentState = compositeState->getState();
-		return currentState;
+		if(currentState)
+        {
+            currentState->finalizeSubStateMachines(true);
+        }
+		return 0;
 	}
 
 };
@@ -353,7 +357,11 @@ template
 , class IInnerState
 , CompositeStateHistoryType::Values HistoryType = CompositeStateHistoryType::None
 , class StateBaseImpl = State<CompositeStateImpl,StateMachineImpl,typename StateMachineImpl::StateInterface>
-, class StateMachineBaseImpl = StateMachine<CompositeStateImpl, IInnerState>
+#if defined(STTCL_THREADSAFE_IMPL)
+    , class StateMachineBaseImpl = StateMachine<CompositeStateImpl, IInnerState, typename StateMachineImpl::MutexType>
+#else
+    , class StateMachineBaseImpl = StateMachine<CompositeStateImpl, IInnerState>
+#endif
 >
 class CompositeState
 : public StateBaseImpl
@@ -488,6 +496,10 @@ public:
     {
 		StateMachineBaseImpl::exitCurrentState();
     	StateMachineBaseImpl::setState(this->finalizeStateHistory(static_cast<CompositeStateImpl*>(this)));
+    	if(!StateMachineBaseImpl::getState())
+    	{
+    	    StateMachineBaseImpl::finalize(false);
+    	}
     	StateBaseImpl::exitImpl(context);
     }
 

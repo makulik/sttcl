@@ -8,7 +8,7 @@
 #include <gtest/gtest.h>
 
 #include "SttclStateMachineMock.h"
-#include "SttclStateMock.h"
+#include "TestStateInterfaceMock.h"
 
 class TestStateMachine : public ::testing::Test
 {
@@ -31,7 +31,7 @@ TEST_F(TestStateMachine,Constructor)
 
 TEST_F(TestStateMachine,Initialize1)
 {
-	::testing::NiceMock<SttclStateMock> state1;
+	::testing::NiceMock<TestStateInterfaceMock> state1;
 	::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
 	EXPECT_CALL(stateMachine, initializeImpl(false))
@@ -50,7 +50,7 @@ TEST_F(TestStateMachine,Initialize1)
 
 TEST_F(TestStateMachine,Initialize2)
 {
-	::testing::NiceMock<SttclStateMock> state1;
+	::testing::NiceMock<TestStateInterfaceMock> state1;
 	::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
 	EXPECT_CALL(stateMachine, initializeImpl(true))
@@ -71,7 +71,7 @@ TEST_F(TestStateMachine,Initialize2)
 
 TEST_F(TestStateMachine,Finalize)
 {
-	::testing::NiceMock<SttclStateMock> state1;
+	::testing::NiceMock<TestStateInterfaceMock> state1;
 	::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
 	EXPECT_CALL(stateMachine, initializeImpl(false))

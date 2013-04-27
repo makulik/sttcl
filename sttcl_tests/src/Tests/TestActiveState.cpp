@@ -1,37 +1,52 @@
 /*
- * TestState.cpp
+ * TestActiveState.cpp
  *
  *  Created on: Apr 15, 2013
  *      Author: user
  */
 
 #include <gtest/gtest.h>
+#include <unistd.h>
 
 #include "SttclStateMachineMock.h"
-#include "SttclStateMock.h"
+#include "TestStateInterfaceMock.h"
+#include "SttclActiveStateMock.h"
 
-class TestState : public ::testing::Test
+class TestActiveState : public ::testing::Test
 {
 public:
-	TestState()
+	TestActiveState()
 	{
 	}
 
-	~TestState()
+	~TestActiveState()
 	{
 	}
 
 private:
 };
 
-TEST_F(TestState,Constructor)
+// Specialize an action that synchronizes with the calling thread
+ACTION_P(ReturnFromAsyncCall,SemDone)
 {
-	::testing::NiceMock<SttclStateMock> state;
+    SemDone->post();
 }
 
-TEST_F(TestState,LifeCycle)
+// Specialize an action that synchronizes with the calling thread
+ACTION_P2(ReturnFromAsyncCall,RetVal,SemDone)
 {
-	::testing::NiceMock<SttclStateMock> state;
+    SemDone->post();
+    return RetVal;
+}
+
+TEST_F(TestActiveState,Constructor)
+{
+	::testing::NiceMock<SttclActiveStateMock> state;
+}
+
+TEST_F(TestActiveState,LifeCycle)
+{
+	::testing::NiceMock<SttclActiveStateMock> state;
 	::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
 	EXPECT_CALL(state, entryImpl(&stateMachine))
@@ -48,10 +63,10 @@ TEST_F(TestState,LifeCycle)
 	stateMachine.finalize();
 }
 
-TEST_F(TestState,DirectTransition)
+TEST_F(TestActiveState,DirectTransition)
 {
-	::testing::NiceMock<SttclStateMock> state1("state1");
-	::testing::NiceMock<SttclStateMock> state2("state2");
+	::testing::NiceMock<SttclActiveStateMock> state1("state1");
+	::testing::NiceMock<TestStateInterfaceMock> state2("state2");
 	::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
 	EXPECT_CALL(state1, entryImpl(&stateMachine))
@@ -62,6 +77,8 @@ TEST_F(TestState,DirectTransition)
 	    .Times(1);
 	EXPECT_CALL(state1, exitImpl(&stateMachine))
 	    .Times(1);
+	EXPECT_CALL(state1, exitingDoActionImpl())
+		.Times(1);
 
 	EXPECT_CALL(state2, entryImpl(&stateMachine))
 	    .Times(1);
@@ -80,5 +97,8 @@ TEST_F(TestState,DirectTransition)
 	state1.setDirectTransitState(&state2);
 
 	stateMachine.initialize();
+//	static_cast<SttclStateMachineMock::StateMachineBaseClass::StateBaseClass*>(&state1)->joinDoAction(&stateMachine);
+    ASSERT_TRUE(state1.waitForDoActionExited(sttcl::TimeDuration<>(0,0,0,100),20));
+//	sleep(2);
 	stateMachine.finalize();
 }

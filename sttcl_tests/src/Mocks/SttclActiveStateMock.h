@@ -1,5 +1,5 @@
 /*
- * SttclStateMock.h
+ * SttclActiveStateMock.h
  *
  *  Created on: Apr 15, 2013
  *      Author: user
@@ -29,7 +29,7 @@ using ::testing::Invoke;
 
 class SttclActiveStateMock
 : public sttcl::ActiveState<SttclActiveStateMock,SttclStateMachineMock,ITestStateInterface>
-, public IActiveStateHooks
+, public IActiveStateHooks<SttclStateMachineMock>
 {
 public:
 	typedef sttcl::ActiveState<SttclActiveStateMock,SttclStateMachineMock,ITestStateInterface> StateBaseClass;
