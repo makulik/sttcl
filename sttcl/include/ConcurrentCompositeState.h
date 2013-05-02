@@ -25,6 +25,10 @@
 #ifndef CONCURRENTCOMPOSITESTATE_H_
 #define CONCURRENTCOMPOSITESTATE_H_
 
+#if defined(STTCL_USE_STL)
+#include <set>
+#endif
+#include "SttclConfig.h"
 #include "CompositeState.h"
 #include "Region.h"
 
@@ -56,6 +60,7 @@ public:
      * @param region A pointer to the finalized region.
      */
     virtual void regionCompleted(RegionBaseType* region) = 0;
+
 };
 
 
@@ -164,6 +169,7 @@ public:
 //    {
 //    	StateBaseImpl::changeState(context,newState);
 //    }
+
 protected:
 
 	/**
@@ -255,7 +261,7 @@ struct ConcurrentCompositeBaseImplementationSelector
 	/**
 	 * The region base implementation type.
 	 */
-	typedef ConcurrentCompositeStateWithEventArgs<CompositeStateImpl,StateMachineImpl,IInnerState,NumOfRegions,EventArgs,StateBaseImpl> RESULT_TYPE;
+    typedef ConcurrentCompositeStateWithEventArgs<CompositeStateImpl,StateMachineImpl,IInnerState,NumOfRegions,EventArgs,StateBaseImpl> RESULT_TYPE;
 
 };
 
@@ -274,7 +280,7 @@ struct ConcurrentCompositeBaseImplementationSelector<CompositeStateImpl,StateMac
 	/**
 	 * The region base implementation type.
 	 */
-	typedef ConcurrentCompositeStateWithoutEventArgs<CompositeStateImpl,StateMachineImpl,IInnerState,NumOfRegions,StateBaseImpl> RESULT_TYPE;
+    typedef ConcurrentCompositeStateWithoutEventArgs<CompositeStateImpl,StateMachineImpl,IInnerState,NumOfRegions,StateBaseImpl> RESULT_TYPE;
 
 };
 
@@ -294,6 +300,9 @@ template
 , unsigned int NumOfRegions
 , class EventArgs
 , class StateBaseImpl
+#if defined(STTCL_THREADSAFE_IMPL)
+, class StateMachineMutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL>
+#endif
 >
 class ConcurrentCompositeStateBase
 : public ConcurrentCompositeBaseImplementationSelector
@@ -318,7 +327,16 @@ public:
 
 	typedef typename BaseClassSelectorType::RESULT_TYPE BaseClassType;
 
-	/**
+#if defined(STTCL_THREADSAFE_IMPL)
+    typedef StateMachineMutexType MutexType;
+#endif
+
+    /**
+     * The region container implementation base class type.
+     */
+    typedef RegionContainer<CompositeStateImpl,IInnerState,EventArgs> RegionContainerBase;
+
+    /**
 	 * The state implementation base class type.
 	 */
     typedef StateBaseImpl StateImplementationBase;
@@ -326,10 +344,12 @@ public:
 	 * The (outer) state interface class type.
 	 */
 	typedef typename StateMachineImpl::StateInterface StateInterface;
+
 	/**
-	 * The state base class type.
+	 * The region state base class type.
 	 */
-	typedef typename StateMachineImpl::StateBaseClass StateBaseClass;
+	typedef sttcl::StateBase<CompositeStateImpl,IInnerState> RegionStateBaseClass;
+
 	/**
 	 * The region base class type.
 	 */
@@ -360,6 +380,11 @@ public:
      */
 	typedef typename EventArgsSelectorType::InnerEventHandler InnerEventHandler;
 
+    /**
+     * The internal state implementation base type.
+     */
+    typedef StateBase<CompositeStateImpl,IInnerState> StateBaseClass;
+
 	/**
 	 * Constructor for class ConcurrentCompositeState.
 	 * @param argContextStateMachine The containing state machine context.
@@ -379,6 +404,47 @@ public:
 	{
 	}
 
+	RegionStateBaseClass* getState() const
+	{
+	    return 0;
+	}
+
+    /**
+     * Indicates that the state machine is initialized.
+     * @return \c true if the state machine is initialized, \c false otherwise.
+     */
+    bool isInitialized() const
+    {
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initialized);
+    }
+
+    /**
+     * Indicates that the state machine is currently initializing.
+     * @return \c true if the state machine is currently initializing, \c false otherwise.
+     */
+    bool isInitalizing() const
+    {
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initializing);
+    }
+
+    /**
+     * Indicates that the state machine is finalized.
+     * @return \c true if the state machine is finalized, \c false otherwise.
+     */
+    bool isFinalized() const
+    {
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.finalized);
+    }
+
+    /**
+     * Indicates that the state machine is currently finalizing.
+     * @return \c true if the state machine is currently finalizing, \c false otherwise.
+     */
+    bool isFinalizing() const
+    {
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.finalizing);
+    }
+
     /**
      * Default entry() implementation.
      *
@@ -389,7 +455,7 @@ public:
     	StateImplementationBase::entryImpl(context);
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(BaseClassType::regions[i]->isRegionInitialized())
+			if(BaseClassType::regions[i] && BaseClassType::regions[i]->isRegionInitialized())
 			{
 				BaseClassType::regions[i]->enterRegion(static_cast<CompositeStateImpl*>(this));
 			}
@@ -405,7 +471,7 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(BaseClassType::regions[i]->isRegionInitialized())
+			if(BaseClassType::regions[i] && BaseClassType::regions[i]->isRegionInitialized())
 			{
 				BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
 			}
@@ -441,7 +507,7 @@ public:
     	bool result = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(!BaseClassType::regions[i]->initializeRegion(recursive))
+			if(BaseClassType::regions[i] && !BaseClassType::regions[i]->initializeRegion(recursive))
 			{
 				result = false;
 			}
@@ -462,11 +528,12 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(!BaseClassType::regions[i]->isRegionFinalized())
+			if(BaseClassType::regions[i] && !BaseClassType::regions[i]->isRegionFinalized())
 			{
 				BaseClassType::regions[i]->finalizeRegion(recursive);
 			}
 		}
+		pickUpRunningRegions();
     }
 
     /**
@@ -478,7 +545,7 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			BaseClassType::regions[i]->startDoRegion(static_cast<CompositeStateImpl*>(this));
+		    BaseClassType::regions[i] && BaseClassType::regions[i]->startDoRegionContainerBaseRegion(static_cast<CompositeStateImpl*>(this));
 		}
     }
 
@@ -491,7 +558,7 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(BaseClassType::regions[i]->isRegionThreadRunning())
+			if(BaseClassType::regions[i] && BaseClassType::regions[i]->isRegionThreadRunning())
 			{
 				BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
 			}
@@ -507,7 +574,7 @@ public:
     	bool allRegionsCompleted = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(!BaseClassType::regions[i]->isRegionFinalized())
+			if(BaseClassType::regions[i] && !BaseClassType::regions[i]->isRegionFinalized())
 			{
 				allRegionsCompleted = false;
 			}
@@ -520,7 +587,38 @@ public:
 
     Context* context() const { return contextStateMachine_; }
 
+    inline void registerActiveStateRunning(RegionStateBaseClass* regionState)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            if(regionsRunning.find(regionState) == regionsRunning.end())
+            {
+                regionsRunning.insert(regionState);
+            }
+        STTCL_STATEMACHINE_SAFESECTION_END;
+    }
+
+    inline void unregisterActiveStateRunning(RegionStateBaseClass* regionState)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            if(regionsRunning.find(regionState) != regionsRunning.end())
+            {
+                regionsRunning.erase(regionState);
+            }
+        STTCL_STATEMACHINE_SAFESECTION_END;
+        reinterpret_cast<RegionBaseType*>(regionState)->joinRegionThread();
+    }
+
 private:
+    typename sttcl::StateMachineFlags flags;
+#if defined(STTCL_USE_STL)
+    std::set<RegionStateBaseClass*> regionsRunning;
+#endif
+#if defined(STTCL_THREADSAFE_IMPL)
+    void pickUpRunningRegions();
+
+    mutable StateMachineMutexType internalLockGuard;
+#endif
+
     virtual void regionCompleted(RegionBaseType* region)
     {
     	static_cast<CompositeStateImpl*>(this)->regionCompletedImpl(region);
@@ -529,6 +627,66 @@ private:
     Context* contextStateMachine_;
 };
 
+#if defined(STTCL_THREADSAFE_IMPL)
+template
+< class CompositeStateImpl
+, class StateMachineImpl
+, class IInnerState
+, unsigned int NumOfRegions
+, class EventArgs
+, class StateBaseImpl
+, class StateMachineMutexType
+>
+void ConcurrentCompositeStateBase
+    < CompositeStateImpl
+    , StateMachineImpl
+    , IInnerState
+    , NumOfRegions
+    , EventArgs
+    , StateBaseImpl
+    , StateMachineMutexType
+    >::pickUpRunningRegions()
+#else
+    template
+    < class CompositeStateImpl
+    , class StateMachineImpl
+    , class IInnerState
+    , unsigned int NumOfRegions
+    , class EventArgs
+    , class StateBaseImpl
+    >
+    void ConcurrentCompositeStateBase
+        < CompositeStateImpl
+        , StateMachineImpl
+        , IInnerState
+        , NumOfRegions
+        , EventArgs
+        , StateBaseImpl
+        >::pickUpRunningRegions()
+#endif
+{
+    bool allRunningRegionsJoined = false;
+    do
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            allRunningRegionsJoined = regionsRunning.empty();
+        STTCL_STATEMACHINE_SAFESECTION_END;
+        if(!allRunningRegionsJoined)
+        {
+            RegionStateBaseClass* regionToJoin = NULL;
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+                if(!regionsRunning.empty())
+                {
+                    regionToJoin = *(regionsRunning.begin());
+                }
+            STTCL_STATEMACHINE_SAFESECTION_END;
+            if(regionToJoin)
+            {
+                reinterpret_cast<RegionBaseType*>(regionToJoin)->joinRegionThread();
+            }
+        }
+    } while(!allRunningRegionsJoined);
+}
 }
 
 /**
@@ -548,6 +706,9 @@ template
 , unsigned int NumOfRegions = 1
 , class EventArgs = void
 , class StateBaseImpl = State<CompositeStateImpl,StateMachineImpl,typename StateMachineImpl::StateInterface>
+#if defined(STTCL_THREADSAFE_IMPL)
+, class StateMachineMutexType = sttcl::internal::SttclMutex<STTCL_DEFAULT_MUTEXIMPL>
+#endif
 >
 class ConcurrentCompositeState
 : public sttcl::internal::ConcurrentCompositeStateBase
@@ -571,14 +732,17 @@ public:
 
 	typedef StateMachineImpl StateMachineClass;
 
-	typedef typename ConcurrenCompositeStateBaseType::RegionBaseType RegionsBaseType;
+	typedef typename ConcurrenCompositeStateBaseType::RegionBaseType RegionBaseType;
 
 	typedef typename ConcurrenCompositeStateBaseType::RegionsArray RegionsArray;
 
 	typedef IInnerState InnerStateInterface;
 
 	typedef typename StateMachineImpl::StateInterface OuterStateInterface;
-	/**
+
+    typedef typename ConcurrenCompositeStateBaseType::RegionContainerBase RegionContainerBase;
+
+    /**
 	 * Constructor for class ConcurrentCompositeState.
 	 * @param context The containing state machine context.
 	 * @param argRegions A reference to the concrete array of regions in the concurrent composite
@@ -606,7 +770,9 @@ public:
     	static_cast<CompositeStateImpl*>(this)->changeStateImpl(context,newState);
     }
 
+protected:
 };
+
 }
 
 #endif /* CONCURRENTCOMPOSITESTATE_H_ */

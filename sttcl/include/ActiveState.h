@@ -247,7 +247,7 @@ public:
     inline void joinDoActionImpl(Context* context)
     {
         static_cast<StateImpl*>(this)->joinDoActionThreadImpl();
-        context->unregisterActiveStateRunning(this);
+        context->unregisterActiveStateRunning(static_cast<StateBaseType*>(this));
     }
 
 
@@ -477,7 +477,7 @@ private:
     	} while(!endDoActionRequested() && !runDoActionOnce && !directTransitionTriggered);
         setDoActionRunning(false);
         static_cast<Implementation*>(this)->exitingDoActionImpl();
-        context->registerActiveStateRunning(this);
+        context->registerActiveStateRunning(static_cast<StateBaseType*>(this));
     }
 
     virtual void finalizeSubStateMachines(bool recursive)

@@ -48,6 +48,40 @@ namespace sttcl
 {
 
 /**
+ * State machine flags bitfield.
+ */
+struct StateMachineFlags
+{
+    /**
+     * Indicates that the state machine is initialized.
+     */
+    unsigned char initialized:1;
+    /**
+     * Indicates that the state machine is currently initializing.
+     */
+    unsigned char initializing:1;
+    /**
+     * Indicates that the state machine is finalized.
+     */
+    unsigned char finalized:1;
+    /**
+     * Indicates that the state machine is currently finalizing.
+     */
+    unsigned char finalizing:1;
+
+    /**
+     * Constructor for StateMachineFlags.
+     */
+    inline StateMachineFlags()
+    : initialized(false)
+    , initializing(false)
+    , finalized(false)
+    , finalizing(false)
+    {
+    }
+};
+
+/**
  * Represents the base class for a state machine.
  *
  * @tparam StateMachineImpl Specifies the class implementing the state machine.
@@ -63,62 +97,6 @@ template
 	>
 class StateMachine
 {
-
-#if defined(STTCL_THREADSAFE_IMPL) && !defined(STTCL_STATEMACHINE_SAFE_RETURN)
-#define STTCL_STATEMACHINE_SAFE_RETURN(_ReturnValue_) \
-        sttcl::internal::AutoLocker<StateMachineMutexType> lock(internalLockGuard); \
-        return (_ReturnValue_);
-#else
-#define STTCL_STATEMACHINE_SAFE_RETURN(_ReturnValue_)
-#endif
-
-#if defined(STTCL_THREADSAFE_IMPL) && !defined(STTCL_STATEMACHINE_SAFESECTION_START)
-#define STTCL_STATEMACHINE_SAFESECTION_START \
-        { sttcl::internal::AutoLocker<StateMachineMutexType> lock(internalLockGuard);
-#else
-#define STTCL_STATEMACHINE_SAFESECTION_START
-#endif
-
-#if defined(STTCL_THREADSAFE_IMPL) && !defined(STTCL_STATEMACHINE_SAFESECTION_END)
-#define STTCL_STATEMACHINE_SAFESECTION_END \
-        }
-#else
-#define STTCL_STATEMACHINE_SAFESECTION_END
-#endif
-
-    /**
-	 * State machine flags bitfield.
-	 */
-    struct StateMachineFlags
-    {
-    	/**
-    	 * Indicates that the state machine is initialized.
-    	 */
-        unsigned char initialized:1;
-    	/**
-    	 * Indicates that the state machine is currently initializing.
-    	 */
-        unsigned char initializing:1;
-    	/**
-    	 * Indicates that the state machine is finalized.
-    	 */
-        unsigned char finalized:1;
-    	/**
-    	 * Indicates that the state machine is currently finalizing.
-    	 */
-        unsigned char finalizing:1;
-
-        /**
-         * Constructor for StateMachineFlags.
-         */
-        inline StateMachineFlags()
-        : initialized(false)
-        , initializing(false)
-        , finalized(false)
-        , finalizing(false)
-        {
-        }
-    };
 
 public:
 #if defined(STTCL_THREADSAFE_IMPL)
@@ -170,7 +148,7 @@ public:
     {
     	if(!isFinalizing())
     	{
-    	    STTCL_STATEMACHINE_SAFESECTION_START;
+    	    STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
                 flags.finalizing = true;
             STTCL_STATEMACHINE_SAFESECTION_END;
 			static_cast<Context*>(this)->finalizeImpl(finalizeSubStateMachines);
@@ -194,7 +172,7 @@ public:
      */
     inline bool isReadyImpl() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(flags.initialized && flags.finalized);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initialized && flags.finalized);
     }
 
     /**
@@ -203,7 +181,7 @@ public:
      */
     bool isInitialized() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(flags.initialized);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initialized);
     }
 
     /**
@@ -212,7 +190,7 @@ public:
      */
     bool isInitalizing() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(flags.initializing);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initializing);
     }
 
     /**
@@ -221,7 +199,7 @@ public:
      */
     bool isFinalized() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(flags.finalized);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.finalized);
     }
 
     /**
@@ -230,7 +208,7 @@ public:
      */
     bool isFinalizing() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(flags.finalizing);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.finalizing);
     }
 
     /**
@@ -240,7 +218,7 @@ public:
      */
     inline StateBaseClass* getState() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(state);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,state);
     }
 
     /**
@@ -252,7 +230,7 @@ public:
     {
         if(force || (!isInitialized() && !isInitalizing()))
         {
-            STTCL_STATEMACHINE_SAFESECTION_START;
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             flags.initializing = true;
             STTCL_STATEMACHINE_SAFESECTION_END;
             if(force)
@@ -278,7 +256,7 @@ public:
         	{
         		currentState->initSubStateMachines(force);
         	}
-            STTCL_STATEMACHINE_SAFESECTION_START;
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
                 flags.initializing = false;
                 flags.finalized = false;
                 flags.initialized = true;
@@ -304,7 +282,7 @@ public:
             pickUpRunningActiveStates();
         }
         setState(0);
-        STTCL_STATEMACHINE_SAFESECTION_START;
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             flags.finalized = true;
             flags.initialized = false;
         STTCL_STATEMACHINE_SAFESECTION_END;
@@ -329,7 +307,7 @@ public:
 
     inline void registerActiveStateRunning(StateBaseClass* state)
     {
-        STTCL_STATEMACHINE_SAFESECTION_START;
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             if(activeStatesRunning.find(state) == activeStatesRunning.end())
             {
                 activeStatesRunning.insert(state);
@@ -339,7 +317,7 @@ public:
 
     inline void unregisterActiveStateRunning(StateBaseClass* state)
     {
-        STTCL_STATEMACHINE_SAFESECTION_START;
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             if(activeStatesRunning.find(state) != activeStatesRunning.end())
             {
                 activeStatesRunning.erase(state);
@@ -373,7 +351,7 @@ protected:
      */
     inline void setState(StateBaseClass* newState)
     {
-        STTCL_STATEMACHINE_SAFESECTION_START;
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             state = newState;
         STTCL_STATEMACHINE_SAFESECTION_END;
     }
@@ -523,13 +501,13 @@ void StateMachine<StateMachineImpl,IState>::pickUpRunningActiveStates()
     bool allRunningActiveStatesJoined = false;
     do
     {
-        STTCL_STATEMACHINE_SAFESECTION_START;
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             allRunningActiveStatesJoined = activeStatesRunning.empty();
         STTCL_STATEMACHINE_SAFESECTION_END;
         if(!allRunningActiveStatesJoined)
         {
             StateBaseClass* activeStateToJoin = NULL;
-            STTCL_STATEMACHINE_SAFESECTION_START;
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
                 if(!activeStatesRunning.empty())
                 {
                     activeStateToJoin = *(activeStatesRunning.begin());
