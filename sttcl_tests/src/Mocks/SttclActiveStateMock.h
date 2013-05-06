@@ -119,6 +119,7 @@ public:
 	    } while(retries > 0);
 	    return false;
 	}
+
 	MOCK_METHOD1(handleEvent1, void (SttclStateMachineMock* context));
 	MOCK_METHOD1(handleEvent2, void (SttclStateMachineMock* context));
 	MOCK_METHOD1(handleEvent3, void (SttclStateMachineMock* context));

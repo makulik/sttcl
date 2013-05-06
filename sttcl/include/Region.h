@@ -874,7 +874,6 @@ public:
 	 */
 	void endingRegionThread()
 	{
-
 	}
 
 	/**
@@ -883,7 +882,16 @@ public:
 	 */
     void entryImpl(Context* context)
     {
-    	CompositeStateBase::entryImpl(context);
+        StateImplementationBase::entryImpl(context);
+    }
+
+    /**
+     * Default enterRegion() implementation.
+     * @param context
+     */
+    void enterRegionImpl(Context* context)
+    {
+        static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->entry(context);
     }
 
 	/**
@@ -892,7 +900,17 @@ public:
 	 */
     void exitImpl(Context* context)
     {
-    	CompositeStateBase::exitImpl(context);
+        StateImplementationBase::exitImpl(context);
+    }
+
+    /**
+     * Default exitRegion() implementation.
+     * @param context
+     */
+    void exitRegionImpl(Context* context)
+    {
+        RegionStateMachine::exitCurrentState();
+        static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->exit(context);
     }
 
     /**
@@ -902,7 +920,7 @@ public:
      */
     bool initializeImpl(bool force)
     {
-    	if(!RegionThreadImpl::isSelf(static_cast<StateImplementationBase*>(this)->getStateThread()))
+    	if(static_cast<StateImplementationBase*>(this)->isDoActionRunning())
     	{
 			// dispatch initialization to region thread
         	dispatchInternalEvent(&RegionBaseClass::internalInitialize,force);
@@ -988,23 +1006,25 @@ private:
 
 	virtual void enterRegion(RegionContainerImpl* context)
 	{
-		static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->entry(context);
+        static_cast<RegionImpl*>(this)->enterRegionImpl(context);
+        //static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->entry(context);
 	}
 
 	virtual void exitRegion(RegionContainerImpl* context)
 	{
-		static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->exit(context);
+        static_cast<RegionImpl*>(this)->exitRegionImpl(context);
+        //static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->exit(context);
 	}
 
 	virtual void startDoRegion(RegionContainerImpl* context)
 	{
 		static_cast<RegionImpl*>(this)->startingRegionThread();
-		static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->startDo(context);
+		this->startDo(context);
 	}
 
 	virtual void endDoRegion(RegionContainerImpl* context)
 	{
-		static_cast<StateBase<RegionContainerImpl,IInnerState>*>(this)->endDo(context);
+		this->endDo(context);
 	}
 
 	virtual void finalizeRegion(bool recursive)

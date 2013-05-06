@@ -217,7 +217,6 @@ public:
      */
     inline void exitImpl(Context* context)
     {
-
     }
 
 
@@ -249,7 +248,6 @@ public:
         static_cast<StateImpl*>(this)->joinDoActionThreadImpl();
         context->unregisterActiveStateRunning(static_cast<StateBaseType*>(this));
     }
-
 
     /**
      * Default implementation called to unblock any blocking methods waiting in the do action
@@ -381,6 +379,46 @@ protected:
     }
 
     /**
+     * Implements \c StateBaseType::entry()
+     * Called by the containing state machine when the state is entered.
+     * @param context A pointer to the containing state machine.
+     */
+    virtual void entry(Context* context)
+    {
+        static_cast<Implementation*>(this)->entryImpl(context);
+    }
+
+    /**
+     * Implements \c StateBaseType::exit()
+     * Called by the containing state machine when the state is left.
+     * @param context A pointer to the containing state machine.
+     */
+    virtual void exit(Context* context)
+    {
+        static_cast<Implementation*>(this)->exitImpl(context);
+    }
+
+    /**
+     * Implements \c StateBaseType::startDo()
+     * Called by the containing state machine after the state was entered.
+     * @param context A pointer to the containing state machine.
+     */
+    virtual void startDo(Context* context)
+    {
+        static_cast<StateImpl*>(this)->startDoImpl(context);
+    }
+
+    /**
+     * Implements \c StateBaseType::endDo()
+     * Called by the containing state machine before the state is left.
+     * @param context A pointer to the containing state machine.
+     */
+    virtual void endDo(Context* context)
+    {
+        static_cast<Implementation*>(this)->endDoImpl(context);
+    }
+
+    /**
      * Changes \em context state machine to another sibling state.
      * @param context A pointer to the containing state machine.
      * @param newState A pointer to the sibling state to change to.
@@ -403,26 +441,6 @@ protected:
     }
 
 private:
-    virtual void entry(Context* context)
-    {
-        static_cast<Implementation*>(this)->entryImpl(context);
-    }
-
-    virtual void exit(Context* context)
-    {
-        static_cast<Implementation*>(this)->exitImpl(context);
-    }
-
-    virtual void startDo(Context* context)
-    {
-        static_cast<Implementation*>(this)->startDoImpl(context);
-    }
-
-    virtual void endDo(Context* context)
-    {
-        static_cast<Implementation*>(this)->endDoImpl(context);
-    }
-
     /**
      * Default implementation for the joinDoAction() method.
      * @param context A pointer to the containing state machine.

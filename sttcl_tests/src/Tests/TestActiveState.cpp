@@ -11,6 +11,7 @@
 #include "SttclStateMachineMock.h"
 #include "TestStateInterfaceMock.h"
 #include "SttclActiveStateMock.h"
+#include "SttclTestAsyncActions.h"
 
 class TestActiveState : public ::testing::Test
 {
@@ -25,19 +26,6 @@ public:
 
 private:
 };
-
-// Specialize an action that synchronizes with the calling thread
-ACTION_P(ReturnFromAsyncCall,SemDone)
-{
-    SemDone->post();
-}
-
-// Specialize an action that synchronizes with the calling thread
-ACTION_P2(ReturnFromAsyncCall,RetVal,SemDone)
-{
-    SemDone->post();
-    return RetVal;
-}
 
 TEST_F(TestActiveState,Constructor)
 {

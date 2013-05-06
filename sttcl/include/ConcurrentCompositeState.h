@@ -481,7 +481,7 @@ public:
 
     /**
      * The StateBase::finalizeSubStateMachines() implementation.
-     * @param recursive Indicates to finalize nested sub state machines recursively.
+     * @param recursive Indicates to finalize nested sub state machines reRegionBaseTypecursively.
      */
     virtual void finalizeSubStateMachines(bool recursive)
     {
@@ -507,9 +507,15 @@ public:
     	bool result = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(BaseClassType::regions[i] && !BaseClassType::regions[i]->initializeRegion(recursive))
+			if(BaseClassType::regions[i])
 			{
-				result = false;
+                BaseClassType::regions[i]->initializeRegion(recursive);
+                result = BaseClassType::regions[i]->isRegionInitialized();
+                if(result)
+                {
+                    BaseClassType::regions[i]->enterRegion(static_cast<CompositeStateImpl*>(this));
+                    BaseClassType::regions[i]->startDoRegion(static_cast<CompositeStateImpl*>(this));
+                }
 			}
 		}
     	return result;
@@ -531,6 +537,8 @@ public:
 			if(BaseClassType::regions[i] && !BaseClassType::regions[i]->isRegionFinalized())
 			{
 				BaseClassType::regions[i]->finalizeRegion(recursive);
+//                BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
+	            BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
 			}
 		}
 		pickUpRunningRegions();

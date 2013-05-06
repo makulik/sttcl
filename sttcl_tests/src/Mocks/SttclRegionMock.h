@@ -48,6 +48,7 @@ public:
     , initialState_(initialState)
 	, enableLogs_(false)
 	, stateMachineId_(stateMachineId)
+    , doActionExited(true)
 	{
 		ON_CALL(*this, initializeImpl(_))
 			.WillByDefault(Invoke(this, &SttclRegionMock::initializeImplCall));
@@ -62,23 +63,15 @@ public:
 		ON_CALL(*this, isReadyImpl())
 			.WillByDefault(Invoke((const SttclRegionMock*)this, &SttclRegionMock::isReadyImplCall));
 
-        ON_CALL(*this, entryImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::entryImplCall));
-        ON_CALL(*this, exitImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::exitImplCall));
-        ON_CALL(*this, startDoImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::startDoImplCall));
-        ON_CALL(*this, endDoImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::endDoImplCall));
-        ON_CALL(*this, finalizeSubStateMachinesImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::finalizeSubStateMachinesImplCall));
-        ON_CALL(*this, initSubStateMachinesImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::initSubStateMachinesImplCall));
-        ON_CALL(*this, doActionImpl(_,_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::doActionImplCall));
-        ON_CALL(*this, joinDoActionThreadImpl())
-            .WillByDefault(Invoke(this, &SttclRegionMock::joinDoActionThreadImplCall));
-}
+        ON_CALL(*this, enterRegionImpl(_))
+            .WillByDefault(Invoke(this, &SttclRegionMock::enterRegionImplCall));
+        ON_CALL(*this, exitRegionImpl(_))
+            .WillByDefault(Invoke(this, &SttclRegionMock::exitRegionImplCall));
+        ON_CALL(*this, startingRegionThread())
+            .WillByDefault(Invoke(this, &SttclRegionMock::startingRegionThreadCall));
+        ON_CALL(*this, endingRegionThread())
+            .WillByDefault(Invoke(this, &SttclRegionMock::endingRegionThreadCall));
+	}
 
 	virtual ~SttclRegionMock()
 	{
@@ -116,56 +109,66 @@ public:
     MOCK_METHOD0(subStateMachineCompleted, void ());
     MOCK_METHOD0(subStateMachineCompletedImpl, void ());
 
-    MOCK_METHOD1_T(entryImpl, void (RegionContainer* context));
-    MOCK_METHOD1_T(exitImpl, void (RegionContainer* context));
-    MOCK_METHOD1_T(startDoImpl, void (RegionContainer* context));
-    MOCK_METHOD1_T(endDoImpl, void (RegionContainer* context));
-    MOCK_METHOD1(finalizeSubStateMachinesImpl, void (bool recursive));
-    MOCK_METHOD1(initSubStateMachinesImpl, void (bool recursive));
-    MOCK_METHOD2_T(doActionImpl, void (RegionContainer* context, bool firstCall));
-    MOCK_METHOD0(joinDoActionThreadImpl, void ());
+    MOCK_METHOD1_T(enterRegionImpl, void (RegionContainer* context));
+    MOCK_METHOD1_T(exitRegionImpl, void (RegionContainer* context));
+    MOCK_METHOD0(startingRegionThread, void ());
+    MOCK_METHOD0(endingRegionThread, void ());
 
+    bool waitForDoActionExited(const sttcl::TimeDuration<>& checkFrequency, int retries = 1)
+    {
+        do
+        {
+            if(doActionExited)
+            {
+                return true;
+            }
+            sttcl::internal::SttclThread<>::sleep(checkFrequency);
+            --retries;
+        } while(retries > 0);
+        return false;
+    }
 
 protected:
 	mutable sttcl::internal::SttclMutex<> internalGuard_;
 	InnerStateClass* initialState_;
     bool enableLogs_;
     std::string stateMachineId_;
+    bool doActionExited;
 
 private:
 	bool isReadyImplCall() const
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClassisReadyImpl() ...");
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::isReadyImpl() ...");
     	return SttclRegionMock::RegionBaseClass::isReadyImpl();
     }
 
     bool initializeImplCall(bool force)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClassinitializeImpl(" << force << ") ...");
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::initializeImpl(" << force << ") ...");
     	return RegionBaseClass::initializeImpl(force);
     }
 
     void finalizeImplCall(bool finalizeSubStateMachines)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClassfinalizeImpl(" << finalizeSubStateMachines << ") ...");
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::finalizeImpl(" << finalizeSubStateMachines << ") ...");
 		RegionBaseClass::finalizeImpl(finalizeSubStateMachines);
     }
 
     void subStateMachineCompletedCall()
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClasssubStateMachineCompleted() ...");
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::subStateMachineCompleted() ...");
         RegionBaseClass::subStateMachineCompleted();
     }
 
     void subStateMachineCompletedImplCall0()
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClasssubStateMachineCompletedImpl() ...");
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::subStateMachineCompletedImpl() ...");
         RegionBaseClass::subStateMachineCompletedImpl();
     }
 
     void subStateMachineCompletedImplCall1(IStateMachineHooks<ITestInnerStateInterface>::StateBaseClass* state)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClasssubStateMachineCompletedImpl() ...");
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::subStateMachineCompletedImpl() ...");
         RegionBaseClass::subStateMachineCompleted();
     }
 
@@ -177,51 +180,31 @@ private:
     }
 
 
-    void entryImplCall(RegionContainer* context)
+    void enterRegionImplCall(RegionContainer* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::entryImpl( context = " << context << ") ...");
-        RegionBaseClass::entryImpl(context);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::enterRegionImpl( context = " << context << ") ...");
+        RegionBaseClass::enterRegionImpl(context);
     }
 
-    void exitImplCall(RegionContainer* context)
+    void exitRegionImplCall(RegionContainer* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::exitImpl( context = " << context << ") ...");
-        RegionBaseClass::exitImpl(context);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::exitRegionImpl( context = " << context << ") ...");
+        RegionBaseClass::exitRegionImpl(context);
     }
 
-    void startDoImplCall(RegionContainer* context)
+    void startingRegionThreadCall()
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::startDoImpl( context = " << context << ") ...");
-        RegionBaseClass::startDoImpl(context);
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::startingRegionThread() ...");
+        RegionBaseClass::startingRegionThread();
     }
 
-    void endDoImplCall(RegionContainer* context)
+    void endingRegionThreadCall()
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::endDoImpl( context = " << context << ") ...");
-        RegionBaseClass::endDoImpl(context);
-    }
-
-    void finalizeSubStateMachinesImplCall(bool recursive)
-    {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
-        RegionBaseClass::finalizeSubStateMachinesImpl(recursive);
-    }
-
-    void initSubStateMachinesImplCall(bool recursive)
-    {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
-        RegionBaseClass::initSubStateMachinesImpl(recursive);
-    }
-
-    void doActionImplCall(RegionContainer* context, bool firstCall)
-    {
-        STTCL_TEST_LOG(logsEnabled(), id() << " SttclRegionMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
-    }
-
-    void joinDoActionThreadImplCall()
-    {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::joinDoActionThreadImpl() ...");
-        RegionBaseClass::joinDoActionThreadImpl();
+        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::endingRegionThread() ...");
+        RegionBaseClass::endingRegionThread();
+        { sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
+            doActionExited = true;
+        }
     }
 
 };

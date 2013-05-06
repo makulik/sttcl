@@ -29,14 +29,10 @@ public:
     virtual void subStateMachineCompletedImpl() = 0;
     virtual void subStateMachineCompleted() = 0;
 
-    virtual void entryImpl(RegionContainer* context) = 0;
-    virtual void exitImpl(RegionContainer* context) = 0;
-    virtual void startDoImpl(RegionContainer* context) = 0;
-    virtual void endDoImpl(RegionContainer* context) = 0;
-    virtual void finalizeSubStateMachinesImpl(bool recursive) = 0;
-    virtual void initSubStateMachinesImpl(bool recursive) = 0;
-    virtual void doActionImpl(RegionContainer* context, bool firstCall) = 0;
-    virtual void joinDoActionThreadImpl() = 0;
+    virtual void enterRegionImpl(RegionContainer* context) = 0;
+    virtual void exitRegionImpl(RegionContainer* context) = 0;
+    virtual void startingRegionThread() = 0;
+    virtual void endingRegionThread() = 0;
 
     virtual ~IRegionHooks() {}
 };
