@@ -537,11 +537,10 @@ public:
 			if(BaseClassType::regions[i] && !BaseClassType::regions[i]->isRegionFinalized())
 			{
 				BaseClassType::regions[i]->finalizeRegion(recursive);
-//                BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
+                BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
 	            BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
 			}
 		}
-		pickUpRunningRegions();
     }
 
     /**
@@ -597,33 +596,15 @@ public:
 
     inline void registerActiveStateRunning(RegionStateBaseClass* regionState)
     {
-        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            if(regionsRunning.find(regionState) == regionsRunning.end())
-            {
-                regionsRunning.insert(regionState);
-            }
-        STTCL_STATEMACHINE_SAFESECTION_END;
     }
 
     inline void unregisterActiveStateRunning(RegionStateBaseClass* regionState)
     {
-        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            if(regionsRunning.find(regionState) != regionsRunning.end())
-            {
-                regionsRunning.erase(regionState);
-            }
-        STTCL_STATEMACHINE_SAFESECTION_END;
-        reinterpret_cast<RegionBaseType*>(regionState)->joinRegionThread();
     }
 
 private:
     typename sttcl::StateMachineFlags flags;
-#if defined(STTCL_USE_STL)
-    std::set<RegionStateBaseClass*> regionsRunning;
-#endif
 #if defined(STTCL_THREADSAFE_IMPL)
-    void pickUpRunningRegions();
-
     mutable StateMachineMutexType internalLockGuard;
 #endif
 
@@ -635,66 +616,6 @@ private:
     Context* contextStateMachine_;
 };
 
-#if defined(STTCL_THREADSAFE_IMPL)
-template
-< class CompositeStateImpl
-, class StateMachineImpl
-, class IInnerState
-, unsigned int NumOfRegions
-, class EventArgs
-, class StateBaseImpl
-, class StateMachineMutexType
->
-void ConcurrentCompositeStateBase
-    < CompositeStateImpl
-    , StateMachineImpl
-    , IInnerState
-    , NumOfRegions
-    , EventArgs
-    , StateBaseImpl
-    , StateMachineMutexType
-    >::pickUpRunningRegions()
-#else
-    template
-    < class CompositeStateImpl
-    , class StateMachineImpl
-    , class IInnerState
-    , unsigned int NumOfRegions
-    , class EventArgs
-    , class StateBaseImpl
-    >
-    void ConcurrentCompositeStateBase
-        < CompositeStateImpl
-        , StateMachineImpl
-        , IInnerState
-        , NumOfRegions
-        , EventArgs
-        , StateBaseImpl
-        >::pickUpRunningRegions()
-#endif
-{
-    bool allRunningRegionsJoined = false;
-    do
-    {
-        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            allRunningRegionsJoined = regionsRunning.empty();
-        STTCL_STATEMACHINE_SAFESECTION_END;
-        if(!allRunningRegionsJoined)
-        {
-            RegionStateBaseClass* regionToJoin = NULL;
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-                if(!regionsRunning.empty())
-                {
-                    regionToJoin = *(regionsRunning.begin());
-                }
-            STTCL_STATEMACHINE_SAFESECTION_END;
-            if(regionToJoin)
-            {
-                reinterpret_cast<RegionBaseType*>(regionToJoin)->joinRegionThread();
-            }
-        }
-    } while(!allRunningRegionsJoined);
-}
 }
 
 /**

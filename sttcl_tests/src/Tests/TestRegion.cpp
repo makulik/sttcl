@@ -39,13 +39,13 @@ TEST_F(TestRegion,Constructor)
 TEST_F(TestRegion,LifeCycle)
 {
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
-    stateMachine.enableLogs(true);
+//    stateMachine.enableLogs(true);
     ::testing::NiceMock<TestConcurrentCompositeStateMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
-    concurrentCompositeState.enableLogs(true);
+//    concurrentCompositeState.enableLogs(true);
     ::testing::NiceMock<TestRegionInnerStateMock> regionInnerState("innerState");
-    regionInnerState.enableLogs(true);
+//    regionInnerState.enableLogs(true);
     ::testing::NiceMock<TestRegionMock> region1("region1",&concurrentCompositeState);
-    region1.enableLogs(true);
+//    region1.enableLogs(true);
 
     EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))
         .Times(1);
@@ -61,7 +61,53 @@ TEST_F(TestRegion,LifeCycle)
     concurrentCompositeState.setRegion(0,&region1);
 
     stateMachine.initialize();
-    sttcl::internal::SttclThread<>::sleep(sttcl::TimeDuration<>(0,0,1));
+//    sttcl::internal::SttclThread<>::sleep(sttcl::TimeDuration<>(0,0,1));
     stateMachine.finalize();
-    ASSERT_TRUE(region1.waitForDoActionExited(sttcl::TimeDuration<>(0,0,0,500),20));
+    EXPECT_TRUE(region1.waitForDoActionExited(sttcl::TimeDuration<>(0,0,2)));
+}
+
+TEST_F(TestRegion,LifeCycle_2)
+{
+    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+//    stateMachine.enableLogs(true);
+    ::testing::NiceMock<TestConcurrentCompositeStateMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+//    concurrentCompositeState.enableLogs(true);
+    ::testing::NiceMock<TestRegionInnerStateMock> region1InnerState("region1InnerState");
+//    region1InnerState.enableLogs(true);
+    ::testing::NiceMock<TestRegionInnerStateMock> region2InnerState("region2InnerState");
+//    region2InnerState.enableLogs(true);
+    ::testing::NiceMock<TestRegionMock> region1("region1",&concurrentCompositeState);
+//    region1.enableLogs(true);
+    ::testing::NiceMock<TestRegionMock> region2("region2",&concurrentCompositeState);
+//    region2.enableLogs(true);
+
+    EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))
+        .Times(1);
+    EXPECT_CALL(region1, startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region1, endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region1, exitRegionImpl(&concurrentCompositeState))
+        .Times(1);
+
+    EXPECT_CALL(region2, enterRegionImpl(&concurrentCompositeState))
+        .Times(1);
+    EXPECT_CALL(region2, startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region2, endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region2, exitRegionImpl(&concurrentCompositeState))
+        .Times(1);
+
+    stateMachine.setInitialState(&concurrentCompositeState);
+    region1.setInitialState(&region1InnerState);
+    region2.setInitialState(&region2InnerState);
+    concurrentCompositeState.setRegion(0,&region1);
+    concurrentCompositeState.setRegion(1,&region2);
+
+    stateMachine.initialize();
+//    sttcl::internal::SttclThread<>::sleep(sttcl::TimeDuration<>(0,0,1));
+    stateMachine.finalize();
+    EXPECT_TRUE(region1.waitForDoActionExited(sttcl::TimeDuration<>(0,0,2)));
+    EXPECT_TRUE(region2.waitForDoActionExited(sttcl::TimeDuration<>(0,0,2)));
 }

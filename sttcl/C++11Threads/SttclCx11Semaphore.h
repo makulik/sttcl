@@ -26,6 +26,8 @@
 #define STTCLCX11SEMAPHORE_H_
 
 #if defined(STTCL_CX11_THREADS) or defined(STTCL_CX11_IMPL)
+#include <chrono>
+#include <thread>
 #include <mutex>
 #include <condition_variable>
 #include <locale>
@@ -59,6 +61,7 @@ class Cx11SemaphoreSurrogate {
              if (countValue > 0)
              {
                  condVar.notify_all();
+                 std::this_thread::yield();
              }
          }
          void wait(int count = 1)

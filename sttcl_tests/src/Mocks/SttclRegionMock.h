@@ -48,7 +48,7 @@ public:
     , initialState_(initialState)
 	, enableLogs_(false)
 	, stateMachineId_(stateMachineId)
-    , doActionExited(true)
+    , doActionThreadExited_(0)
 	{
 		ON_CALL(*this, initializeImpl(_))
 			.WillByDefault(Invoke(this, &SttclRegionMock::initializeImplCall));
@@ -114,18 +114,9 @@ public:
     MOCK_METHOD0(startingRegionThread, void ());
     MOCK_METHOD0(endingRegionThread, void ());
 
-    bool waitForDoActionExited(const sttcl::TimeDuration<>& checkFrequency, int retries = 1)
+    bool waitForDoActionExited(const sttcl::TimeDuration<>& timeout)
     {
-        do
-        {
-            if(doActionExited)
-            {
-                return true;
-            }
-            sttcl::internal::SttclThread<>::sleep(checkFrequency);
-            --retries;
-        } while(retries > 0);
-        return false;
+        return doActionThreadExited_.try_wait(timeout);
     }
 
 protected:
@@ -133,7 +124,7 @@ protected:
 	InnerStateClass* initialState_;
     bool enableLogs_;
     std::string stateMachineId_;
-    bool doActionExited;
+    sttcl::internal::SttclSemaphore<> doActionThreadExited_;
 
 private:
 	bool isReadyImplCall() const
@@ -202,9 +193,7 @@ private:
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::endingRegionThread() ...");
         RegionBaseClass::endingRegionThread();
-        { sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
-            doActionExited = true;
-        }
+        doActionThreadExited_.post();
     }
 
 };
