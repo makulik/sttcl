@@ -1,12 +1,12 @@
 /*
- * SttclRegionMock.h
+ * SttclRegionWithArgsMock.h
  *
  *  Created on: Apr 15, 2013
  *      Author: user
  */
 
-#ifndef STTCLREGIONMOCK_H_
-#define STTCLREGIONMOCK_H_
+#ifndef STTCLREGIONWITHARGSMOCK_H_
+#define STTCLREGIONWITHARGSMOCK_H_
 
 #include <iostream>
 #include <gmock/gmock.h>
@@ -14,9 +14,9 @@
 #include <State.h>
 #include <SttclMutex.h>
 #include <SttclTime.h>
-#include "ITestStateInterface.h"
-#include "ITestInnerStateInterface.h"
-#include "IRegionHooks.h"
+#include "ITestStateInterfaceWithArgs.h"
+#include "ITestInnerStateInterfaceWithArgs.h"
+#include "IRegionWithArgsHooks.h"
 #include "SttclTestLog.h"
 
 using ::testing::_;
@@ -28,17 +28,17 @@ template
     , class RegionContainer
     , class InnerStateInterface
     >
-class SttclRegionMock
-: public sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface>
-, public IRegionHooks<RegionImpl,RegionContainer,InnerStateInterface>
+class SttclRegionWithArgsMock
+: public sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,EventArgs>
+, public IRegionWithArgsHooks<RegionImpl,RegionContainer,InnerStateInterface>
 {
 public:
 
-	typedef sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface> RegionBaseClass;
+	typedef sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,EventArgs> RegionBaseClass;
     typedef typename RegionBaseClass::StateImplementationBase StateBaseClass;
     typedef typename RegionBaseClass::InnerStateClass InnerStateClass;
 
-	SttclRegionMock
+	SttclRegionWithArgsMock
 	    ( const std::string& stateMachineId
         , RegionContainer* regionContainer
 	    , InnerStateClass* initialState = NULL
@@ -51,29 +51,29 @@ public:
     , doActionThreadExited_(0)
 	{
 		ON_CALL(*this, initializeImpl(_))
-			.WillByDefault(Invoke(this, &SttclRegionMock::initializeImplCall));
+			.WillByDefault(Invoke(this, &SttclRegionWithArgsMock::initializeImplCall));
 		ON_CALL(*this, finalizeImpl(_))
-			.WillByDefault(Invoke(this, &SttclRegionMock::finalizeImplCall));
+			.WillByDefault(Invoke(this, &SttclRegionWithArgsMock::finalizeImplCall));
 		ON_CALL(*this, subStateMachineCompleted())
-			.WillByDefault(Invoke(this, &SttclRegionMock::subStateMachineCompletedCall));
+			.WillByDefault(Invoke(this, &SttclRegionWithArgsMock::subStateMachineCompletedCall));
         ON_CALL(*this, subStateMachineCompletedImpl())
-            .WillByDefault(Invoke(this, &SttclRegionMock::subStateMachineCompletedImplCall0));
+            .WillByDefault(Invoke(this, &SttclRegionWithArgsMock::subStateMachineCompletedImplCall0));
 		ON_CALL(*this, getInitialStateImpl())
-			.WillByDefault(Invoke((const SttclRegionMock*)this, &SttclRegionMock::getInitialStateImplCall));
+			.WillByDefault(Invoke((const SttclRegionWithArgsMock*)this, &SttclRegionWithArgsMock::getInitialStateImplCall));
 		ON_CALL(*this, isReadyImpl())
-			.WillByDefault(Invoke((const SttclRegionMock*)this, &SttclRegionMock::isReadyImplCall));
+			.WillByDefault(Invoke((const SttclRegionWithArgsMock*)this, &SttclRegionWithArgsMock::isReadyImplCall));
 
         ON_CALL(*this, enterRegionImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::enterRegionImplCall));
+            .WillByDefault(Invoke(this, &SttclRegionWithArgsMock::enterRegionImplCall));
         ON_CALL(*this, exitRegionImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::exitRegionImplCall));
+            .WillByDefault(Invoke(this, &SttclRegionWithArgsMock::exitRegionImplCall));
         ON_CALL(*this, startingRegionThread())
-            .WillByDefault(Invoke(this, &SttclRegionMock::startingRegionThreadCall));
+            .WillByDefault(Invoke(this, &SttclRegionWithArgsMock::startingRegionThreadCall));
         ON_CALL(*this, endingRegionThread())
-            .WillByDefault(Invoke(this, &SttclRegionMock::endingRegionThreadCall));
+            .WillByDefault(Invoke(this, &SttclRegionWithArgsMock::endingRegionThreadCall));
 	}
 
-	virtual ~SttclRegionMock()
+	virtual ~SttclRegionWithArgsMock()
 	{
 	}
 
@@ -95,13 +95,7 @@ public:
 		initialState_ = initialState;
 	}
 
-	// ITestStateInterface
-    MOCK_METHOD1_T(handleEvent1, void (RegionContainer* context));
-    MOCK_METHOD1_T(handleEvent2, void (RegionContainer* context));
-    MOCK_METHOD1_T(handleEvent3, void (RegionContainer* context));
-    MOCK_METHOD1_T(handleEvent4, void (RegionContainer* context));
-
-    // IRegionHooks
+    // IRegionWithArgsHooks
     MOCK_CONST_METHOD0_T(getInitialStateImpl, InnerStateClass* ());
     MOCK_CONST_METHOD0(isReadyImpl, bool ());
 	MOCK_METHOD1(initializeImpl, bool (bool force));
@@ -116,7 +110,12 @@ public:
 
     bool waitForDoActionExited(const sttcl::TimeDuration<>& timeout)
     {
-        return doActionThreadExited_.try_wait(timeout);
+        if(!doActionThreadExited_.try_wait(timeout))
+        {
+            finalizeImpl(true);
+            return false;
+        }
+        return true;
     }
 
 protected:
@@ -130,7 +129,7 @@ private:
 	bool isReadyImplCall() const
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::isReadyImpl() ...");
-    	return SttclRegionMock::RegionBaseClass::isReadyImpl();
+    	return SttclRegionWithArgsMock::RegionBaseClass::isReadyImpl();
     }
 
     bool initializeImplCall(bool force)
@@ -157,7 +156,7 @@ private:
         RegionBaseClass::subStateMachineCompletedImpl();
     }
 
-    void subStateMachineCompletedImplCall1(IStateMachineHooks<ITestInnerStateInterface>::StateBaseClass* state)
+    void subStateMachineCompletedImplCall1(IStateMachineWithArgsHooks<ITestInnerStateInterfaceWithArgs>::StateBaseClass* state)
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::subStateMachineCompletedImpl() ...");
         RegionBaseClass::subStateMachineCompleted();
@@ -165,7 +164,7 @@ private:
 
     InnerStateClass* getInitialStateImplCall() const
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " SttclRegionMock::getInitialStateImplCall(), initialState: = " << initialState_);
+        STTCL_TEST_LOG(logsEnabled(), id() << " SttclRegionWithArgsMock::getInitialStateImplCall(), initialState: = " << initialState_);
     	sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
     	return initialState_;
     }
@@ -197,4 +196,4 @@ private:
     }
 
 };
-#endif /* STTCLREGIONMOCK_H_ */
+#endif /* STTCLREGIONWITHARGSMOCK_H_ */

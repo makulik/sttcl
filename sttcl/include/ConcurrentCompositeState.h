@@ -130,19 +130,19 @@ protected:
 		bool allRegionsFinalized = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(!regions[i]->isRegionFinalized())
-			{
-				allRegionsFinalized = false;
-				regions[i]->handleBroadcastedEvent(static_cast<CompositeStateImpl*>(this),eventHandler,eventArgs);
-			}
-			else
-			{
-				if(regions[i]->isRegionThreadRunning())
-				{
-					regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
-					regions[i]->joinRegionThread();
-				}
-			}
+		    if(regions[i])
+		    {
+                if(!regions[i]->isRegionFinalized())
+                {
+                    allRegionsFinalized = false;
+                    regions[i]->handleBroadcastedEvent(static_cast<CompositeStateImpl*>(this),eventHandler,eventArgs);
+                }
+                else if(regions[i]->isRegionThreadRunning())
+                {
+                    regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
+                    regions[i]->joinRegionThread();
+                }
+		    }
 		}
 		if(allRegionsFinalized)
 		{
@@ -219,19 +219,19 @@ protected:
 		bool allRegionsFinalized = true;
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(!regions[i]->isRegionFinalized())
-			{
-				allRegionsFinalized = false;
-				regions[i]->handleBroadcastedEvent(static_cast<CompositeStateImpl*>(this),eventHandler);
-			}
-			else
-			{
-				if(regions[i]->isRegionThreadRunning())
-				{
-					regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
-					regions[i]->joinRegionThread();
-				}
-			}
+		    if(regions[i])
+		    {
+                if(!regions[i]->isRegionFinalized())
+                {
+                    allRegionsFinalized = false;
+                    regions[i]->handleBroadcastedEvent(static_cast<CompositeStateImpl*>(this),eventHandler);
+                }
+                else if(regions[i]->isRegionThreadRunning())
+                {
+                    regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
+                    regions[i]->joinRegionThread();
+                }
+		    }
 		}
 		if(allRegionsFinalized)
 		{

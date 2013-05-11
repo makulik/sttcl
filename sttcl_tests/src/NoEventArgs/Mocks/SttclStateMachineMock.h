@@ -152,7 +152,7 @@ private:
 		{
 			STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclStateMachineMock::StateMachineBaseClass::subStateMachineCompletedImpl(" << state << ") ...");
 		}
-    	return SttclStateMachineMock::StateMachineBaseClass::subStateMachineCompletedImpl(state);
+    	SttclStateMachineMock::StateMachineBaseClass::subStateMachineCompletedImpl(state);
     }
 
     IStateMachineHooks::StateBaseClass* getInitialStateImplCall() const

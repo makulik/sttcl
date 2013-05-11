@@ -7,33 +7,33 @@
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "TestCompositeStateMock.h"
-#include "SttclStateMachineMock.h"
-#include "TestInnerStateInterfaceMock.h"
+#include "TestCompositeStateWithArgsMock.h"
+#include "SttclStateMachineWithArgsMock.h"
+#include "TestInnerStateInterfaceWithArgsMock.h"
 
-class TestCompositeState : public ::testing::Test
+class TestCompositeStateWithArgs: public ::testing::Test
 {
 public:
-	TestCompositeState()
-	{
-	}
+    TestCompositeStateWithArgs()
+    {
+    }
 
-	~TestCompositeState()
-	{
-	}
+    ~TestCompositeStateWithArgs()
+    {
+    }
 
 private:
 };
 
-TEST_F(TestCompositeState,Constructor)
+TEST_F(TestCompositeStateWithArgs,Constructor)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateWithArgsMock> compositeState;
 }
 
-TEST_F(TestCompositeState,LifeCycle)
+TEST_F(TestCompositeStateWithArgs,LifeCycle)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
-    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+    ::testing::NiceMock<TestCompositeStateWithArgsMock> compositeState;
+    ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
         .Times(1);
@@ -53,11 +53,11 @@ TEST_F(TestCompositeState,LifeCycle)
 
 }
 
-TEST_F(TestCompositeState,EventPropagation)
+TEST_F(TestCompositeStateWithArgs,EventPropagation)
 {
-    ::testing::NiceMock<TestInnerStateInterfaceMock> innerState("innerState");
-    ::testing::NiceMock<TestCompositeStateMock> compositeState("compositeState");
-    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+    ::testing::NiceMock<TestInnerStateInterfaceWithArgsMock> innerState("innerState");
+    ::testing::NiceMock<TestCompositeStateWithArgsMock> compositeState("compositeState");
+    ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
         .Times(1);
@@ -72,13 +72,13 @@ TEST_F(TestCompositeState,EventPropagation)
         .Times(1);
     EXPECT_CALL(innerState, startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState, handleEvent1(&compositeState))
+    EXPECT_CALL(innerState, handleEvent1(&compositeState,42,"Hello!"))
         .Times(1);
-    EXPECT_CALL(innerState, handleEvent2(&compositeState))
+    EXPECT_CALL(innerState, handleEvent2(&compositeState,3.1415))
         .Times(1);
     EXPECT_CALL(innerState, handleEvent3(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState, handleEvent4(&compositeState))
+    EXPECT_CALL(innerState, handleEvent4(&compositeState,12345))
         .Times(1);
     EXPECT_CALL(innerState, endDoImpl(&compositeState))
         .Times(1);
@@ -92,10 +92,10 @@ TEST_F(TestCompositeState,EventPropagation)
     compositeState.setInitialState(&innerState);
     stateMachine.setInitialState(&compositeState);
     stateMachine.initialize();
-    stateMachine.triggerEvent1();
-    stateMachine.triggerEvent2();
+    stateMachine.triggerEvent1(42,"Hello!");
+    stateMachine.triggerEvent2(3.1415);
     stateMachine.triggerEvent3();
-    stateMachine.triggerEvent4();
+    stateMachine.triggerEvent4(12345);
     stateMachine.finalize();
 
 }

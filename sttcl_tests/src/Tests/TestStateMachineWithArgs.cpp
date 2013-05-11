@@ -1,5 +1,5 @@
 /*
- * TestStateMachine.cpp
+ * TestStateMachineWithArgs.cpp
  *
  *  Created on: Apr 15, 2013
  *      Author: user
@@ -7,32 +7,32 @@
 
 #include <gtest/gtest.h>
 
-#include "SttclStateMachineMock.h"
-#include "TestStateInterfaceMock.h"
+#include "SttclStateMachineWithArgsMock.h"
+#include "TestStateInterfaceWithArgsMock.h"
 
-class TestStateMachine : public ::testing::Test
+class TestStateMachineWithArgs : public ::testing::Test
 {
 public:
-	TestStateMachine()
+	TestStateMachineWithArgs()
 	{
 	}
 
-	~TestStateMachine()
+	~TestStateMachineWithArgs()
 	{
 	}
 
 protected:
 };
 
-TEST_F(TestStateMachine,Constructor)
+TEST_F(TestStateMachineWithArgs,Constructor)
 {
-	::testing::NiceMock<SttclStateMachineMock> stateMachine;
+	::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 }
 
-TEST_F(TestStateMachine,Initialize1)
+TEST_F(TestStateMachineWithArgs,Initialize1)
 {
-	::testing::NiceMock<TestStateInterfaceMock> state1;
-	::testing::NiceMock<SttclStateMachineMock> stateMachine;
+	::testing::NiceMock<TestStateInterfaceWithArgsMock> state1;
+	::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
 	EXPECT_CALL(stateMachine, initializeImpl(false))
 	    .Times(1);
@@ -48,10 +48,10 @@ TEST_F(TestStateMachine,Initialize1)
 	stateMachine.finalize();
 }
 
-TEST_F(TestStateMachine,Initialize2)
+TEST_F(TestStateMachineWithArgs,Initialize2)
 {
-	::testing::NiceMock<TestStateInterfaceMock> state1;
-	::testing::NiceMock<SttclStateMachineMock> stateMachine;
+	::testing::NiceMock<TestStateInterfaceWithArgsMock> state1;
+	::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
 	EXPECT_CALL(stateMachine, initializeImpl(true))
 	    .Times(1);
@@ -69,10 +69,10 @@ TEST_F(TestStateMachine,Initialize2)
 	stateMachine.finalize();
 }
 
-TEST_F(TestStateMachine,Finalize)
+TEST_F(TestStateMachineWithArgs,Finalize)
 {
-	::testing::NiceMock<TestStateInterfaceMock> state1;
-	::testing::NiceMock<SttclStateMachineMock> stateMachine;
+	::testing::NiceMock<TestStateInterfaceWithArgsMock> state1;
+	::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
 	EXPECT_CALL(stateMachine, initializeImpl(false))
 	    .Times(1);
@@ -92,10 +92,10 @@ TEST_F(TestStateMachine,Finalize)
 	stateMachine.finalize();
 }
 
-TEST_F(TestStateMachine,EventPropagation)
+TEST_F(TestStateMachineWithArgs,EventPropagation)
 {
-    ::testing::NiceMock<TestStateInterfaceMock> state1;
-    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+    ::testing::NiceMock<TestStateInterfaceWithArgsMock> state1;
+    ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(stateMachine, initializeImpl(false))
         .Times(1);
@@ -105,13 +105,13 @@ TEST_F(TestStateMachine,EventPropagation)
         .Times(1);
     EXPECT_CALL(stateMachine, isReadyImpl())
         .Times(1);
-    EXPECT_CALL(state1, handleEvent1(_))
+    EXPECT_CALL(state1, handleEvent1(_,42,"Hello!"))
         .Times(1);
-    EXPECT_CALL(state1, handleEvent2(_))
+    EXPECT_CALL(state1, handleEvent2(_,3.1415))
         .Times(1);
     EXPECT_CALL(state1, handleEvent3(_))
         .Times(1);
-    EXPECT_CALL(state1, handleEvent4(_))
+    EXPECT_CALL(state1, handleEvent4(_,4679))
         .Times(1);
     EXPECT_CALL(stateMachine, finalizeImpl(true))
         .Times(1);
@@ -120,9 +120,9 @@ TEST_F(TestStateMachine,EventPropagation)
 
     stateMachine.setInitialState(&state1);
     stateMachine.initialize();
-    stateMachine.triggerEvent1();
-    stateMachine.triggerEvent2();
+    stateMachine.triggerEvent1(42,"Hello!");
+    stateMachine.triggerEvent2(3.1415);
     stateMachine.triggerEvent3();
-    stateMachine.triggerEvent4();
+    stateMachine.triggerEvent4(4679);
     stateMachine.finalize();
 }

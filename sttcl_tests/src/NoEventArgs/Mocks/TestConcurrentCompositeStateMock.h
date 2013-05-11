@@ -56,21 +56,25 @@ protected:
     void handleEvent1Call(SttclStateMachineMock* context)
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateMock::handleEvent1Call( context = " << context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachine::handleEvent1);
     }
 
     void handleEvent2Call(SttclStateMachineMock* context)
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateMock::handleEvent2Call( context = " << context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachine::handleEvent2);
     }
 
     void handleEvent3Call(SttclStateMachineMock* context)
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateMock::handleEvent3Call( context = " << context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachine::handleEvent3);
     }
 
     void handleEvent4Call(SttclStateMachineMock* context)
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateMock::handleEvent4Call( context = " << context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachine::handleEvent4);
     }
 };
 

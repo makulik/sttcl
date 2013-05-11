@@ -1,5 +1,5 @@
 /*
- * TestRegion.cpp
+ * TestRegionWithArgs.cpp
  *
  *  Created on: Apr 15, 2013
  *      Author: user
@@ -9,42 +9,42 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include <unistd.h>
-#include "SttclStateMachineMock.h"
-#include "TestRegionMock.h"
-#include "TestConcurrentCompositeStateMock.h"
-#include "TestRegionInnerStateMock.h"
+#include "SttclStateMachineWithArgsMock.h"
+#include "TestRegionWithArgsMock.h"
+#include "TestConcurrentCompositeStateWithArgsMock.h"
+#include "TestRegionInnerStateWithArgsMock.h"
 #include "SttclTestAsyncActions.h"
 
-class TestRegion : public ::testing::Test
+class TestRegionWithArgs : public ::testing::Test
 {
 public:
-	TestRegion()
+	TestRegionWithArgs()
 	{
 	}
 
-	~TestRegion()
+	~TestRegionWithArgs()
 	{
 	}
 
 private:
 };
 
-TEST_F(TestRegion,Constructor)
+TEST_F(TestRegionWithArgs,Constructor)
 {
-    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
-    ::testing::NiceMock<TestConcurrentCompositeStateMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
-    ::testing::NiceMock<TestRegionMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
 }
 
-TEST_F(TestRegion,LifeCycle)
+TEST_F(TestRegionWithArgs,LifeCycle)
 {
-    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+    ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 //    stateMachine.enableLogs(true);
-    ::testing::NiceMock<TestConcurrentCompositeStateMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
 //    concurrentCompositeState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateMock> regionInnerState("innerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> regionInnerState("innerState");
 //    regionInnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
 //    region1.enableLogs(true);
 
     EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))
@@ -65,19 +65,19 @@ TEST_F(TestRegion,LifeCycle)
     EXPECT_TRUE(region1.waitForDoActionExited(sttcl::TimeDuration<>(0,0,2)));
 }
 
-TEST_F(TestRegion,LifeCycle_2)
+TEST_F(TestRegionWithArgs,LifeCycle_2)
 {
-    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+    ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 //    stateMachine.enableLogs(true);
-    ::testing::NiceMock<TestConcurrentCompositeStateMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
 //    concurrentCompositeState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateMock> region1InnerState("region1InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region1InnerState("region1InnerState");
 //    region1InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateMock> region2InnerState("region2InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region2InnerState("region2InnerState");
 //    region2InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
 //    region1.enableLogs(true);
-    ::testing::NiceMock<TestRegionMock> region2("region2",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock> region2("region2",&concurrentCompositeState);
 //    region2.enableLogs(true);
 
     EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))
@@ -111,19 +111,19 @@ TEST_F(TestRegion,LifeCycle_2)
     EXPECT_TRUE(region2.waitForDoActionExited(sttcl::TimeDuration<>(0,0,2)));
 }
 
-TEST_F(TestRegion,EventPropagation)
+TEST_F(TestRegionWithArgs,EventPropagation)
 {
-    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+    ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 //    stateMachine.enableLogs(true);
-    ::testing::NiceMock<TestConcurrentCompositeStateMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
     concurrentCompositeState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateMock> region1InnerState("region1InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region1InnerState("region1InnerState");
 //    region1InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateMock> region2InnerState("region2InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region2InnerState("region2InnerState");
 //    region2InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
 //    region1.enableLogs(true);
-    ::testing::NiceMock<TestRegionMock> region2("region2",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock> region2("region2",&concurrentCompositeState);
 //    region2.enableLogs(true);
 
     EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))
@@ -137,13 +137,13 @@ TEST_F(TestRegion,EventPropagation)
 
     EXPECT_CALL(region1InnerState, entryImpl(&region1))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent1(_,_))
+    EXPECT_CALL(region1InnerState, handleEvent1(&concurrentCompositeState,&region1,EqualsEvent1Args(42,"Hello!")))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent2(_,_))
+    EXPECT_CALL(region1InnerState, handleEvent2(&concurrentCompositeState,&region1,EqualsEvent2Args(3.1415)))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent3(_,_))
+    EXPECT_CALL(region1InnerState, handleEvent3(&concurrentCompositeState,&region1,EqualsEvent3Args()))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent4(_,_))
+    EXPECT_CALL(region1InnerState, handleEvent4(_,_,EqualsEvent4Args(12345)))
         .Times(1);
     EXPECT_CALL(region1InnerState, exitImpl(&region1))
         .Times(1);
@@ -159,13 +159,13 @@ TEST_F(TestRegion,EventPropagation)
 
     EXPECT_CALL(region2InnerState, entryImpl(&region2))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent1(_,_))
+    EXPECT_CALL(region2InnerState, handleEvent1(&concurrentCompositeState,&region2,EqualsEvent1Args(42,"Hello!")))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent2(_,_))
+    EXPECT_CALL(region2InnerState, handleEvent2(&concurrentCompositeState,&region2,EqualsEvent2Args(3.1415)))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent3(_,_))
+    EXPECT_CALL(region2InnerState, handleEvent3(&concurrentCompositeState,&region2,EqualsEvent3Args()))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent4(_,_))
+    EXPECT_CALL(region2InnerState, handleEvent4(&concurrentCompositeState,&region2,EqualsEvent4Args(12345)))
         .Times(1);
     EXPECT_CALL(region2InnerState, exitImpl(&region2))
         .Times(1);
@@ -177,10 +177,10 @@ TEST_F(TestRegion,EventPropagation)
     concurrentCompositeState.setRegion(1,&region2);
 
     stateMachine.initialize();
-    stateMachine.triggerEvent1();
-    stateMachine.triggerEvent2();
+    stateMachine.triggerEvent1(42,"Hello!");
+    stateMachine.triggerEvent2(3.1415);
     stateMachine.triggerEvent3();
-    stateMachine.triggerEvent4();
+    stateMachine.triggerEvent4(12345);
     stateMachine.finalize();
     EXPECT_TRUE(region1.waitForDoActionExited(sttcl::TimeDuration<>(0,0,2)));
     EXPECT_TRUE(region2.waitForDoActionExited(sttcl::TimeDuration<>(0,0,2)));
