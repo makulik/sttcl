@@ -27,14 +27,15 @@ template
     < class CompositeStateImpl
     , class StateMachineContext
     , class InnerStateInterface
+    , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::Shallow
     >
 class SttclCompositeStateMock
-: public sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface>
+: public sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface,HistoryType>
 , public ICompositeStateHooks<CompositeStateImpl,StateMachineContext,InnerStateInterface>
 {
 public:
 
-	typedef sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface> StateMachineBaseClass;
+	typedef sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface,HistoryType> StateMachineBaseClass;
     typedef typename StateMachineBaseClass::StateImplementationBase StateBaseClass;
     typedef typename StateMachineBaseClass::InnerStateClass InnerStateClass;
 

@@ -168,7 +168,7 @@ typedef sttcl::RefCountPtr<Event2Args> Event2ArgsPtr;
 typedef sttcl::RefCountPtr<Event3Args> Event3ArgsPtr;
 typedef sttcl::RefCountPtr<Event4Args> Event4ArgsPtr;
 
-MATCHER_P2(EqualsEvent1Args, arg1, arg2, "")
+MATCHER_P2(MatchesEvent1Args, arg1, arg2, "")
 {
     Event1Args* argsValue = dynamic_cast<Event1Args*>(arg.get());
     if(argsValue)
@@ -178,7 +178,7 @@ MATCHER_P2(EqualsEvent1Args, arg1, arg2, "")
     return false;
 }
 
-MATCHER_P(EqualsEvent2Args, arg1, "")
+MATCHER_P(MatchesEvent2Args, arg1, "")
 {
     Event2Args* argsValue = dynamic_cast<Event2Args*>(arg.get());
     if(argsValue)
@@ -188,7 +188,7 @@ MATCHER_P(EqualsEvent2Args, arg1, "")
     return false;
 }
 
-MATCHER(EqualsEvent3Args, "")
+MATCHER(MatchesEvent3Args, "")
 {
     Event3Args* argsValue = dynamic_cast<Event3Args*>(arg.get());
     if(argsValue)
@@ -198,7 +198,7 @@ MATCHER(EqualsEvent3Args, "")
     return false;
 }
 
-MATCHER_P(EqualsEvent4Args, arg1, "")
+MATCHER_P(MatchesEvent4Args, arg1, "")
 {
     Event4Args* argsValue = dynamic_cast<Event4Args*>(arg.get());
     if(argsValue)

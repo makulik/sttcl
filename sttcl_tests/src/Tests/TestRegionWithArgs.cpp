@@ -137,13 +137,13 @@ TEST_F(TestRegionWithArgs,EventPropagation)
 
     EXPECT_CALL(region1InnerState, entryImpl(&region1))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent1(&concurrentCompositeState,&region1,EqualsEvent1Args(42,"Hello!")))
+    EXPECT_CALL(region1InnerState, handleEvent1(&concurrentCompositeState,&region1,MatchesEvent1Args(42,"Hello!")))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent2(&concurrentCompositeState,&region1,EqualsEvent2Args(3.1415)))
+    EXPECT_CALL(region1InnerState, handleEvent2(&concurrentCompositeState,&region1,MatchesEvent2Args(3.1415)))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent3(&concurrentCompositeState,&region1,EqualsEvent3Args()))
+    EXPECT_CALL(region1InnerState, handleEvent3(&concurrentCompositeState,&region1,MatchesEvent3Args()))
         .Times(1);
-    EXPECT_CALL(region1InnerState, handleEvent4(_,_,EqualsEvent4Args(12345)))
+    EXPECT_CALL(region1InnerState, handleEvent4(_,_,MatchesEvent4Args(12345)))
         .Times(1);
     EXPECT_CALL(region1InnerState, exitImpl(&region1))
         .Times(1);
@@ -159,13 +159,13 @@ TEST_F(TestRegionWithArgs,EventPropagation)
 
     EXPECT_CALL(region2InnerState, entryImpl(&region2))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent1(&concurrentCompositeState,&region2,EqualsEvent1Args(42,"Hello!")))
+    EXPECT_CALL(region2InnerState, handleEvent1(&concurrentCompositeState,&region2,MatchesEvent1Args(42,"Hello!")))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent2(&concurrentCompositeState,&region2,EqualsEvent2Args(3.1415)))
+    EXPECT_CALL(region2InnerState, handleEvent2(&concurrentCompositeState,&region2,MatchesEvent2Args(3.1415)))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent3(&concurrentCompositeState,&region2,EqualsEvent3Args()))
+    EXPECT_CALL(region2InnerState, handleEvent3(&concurrentCompositeState,&region2,MatchesEvent3Args()))
         .Times(1);
-    EXPECT_CALL(region2InnerState, handleEvent4(&concurrentCompositeState,&region2,EqualsEvent4Args(12345)))
+    EXPECT_CALL(region2InnerState, handleEvent4(&concurrentCompositeState,&region2,MatchesEvent4Args(12345)))
         .Times(1);
     EXPECT_CALL(region2InnerState, exitImpl(&region2))
         .Times(1);
