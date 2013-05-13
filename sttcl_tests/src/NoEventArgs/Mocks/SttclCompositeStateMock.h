@@ -27,7 +27,7 @@ template
     < class CompositeStateImpl
     , class StateMachineContext
     , class InnerStateInterface
-    , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::Shallow
+    , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::None
     >
 class SttclCompositeStateMock
 : public sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface,HistoryType>
@@ -105,6 +105,11 @@ public:
     {
         sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
         directTransitState_ = directTransitState;
+    }
+
+    void doStateChange(StateMachineContext* context,typename StateBaseClass::StateBaseType* newState)
+    {
+        StateBaseClass::changeState(context,newState);
     }
 
     void finalizeOnNextDirectTransitCheck()

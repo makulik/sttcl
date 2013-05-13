@@ -96,6 +96,11 @@ public:
 		directTransitState_ = NULL;
 	}
 
+	void doStateChange(SttclStateMachineMock* context, StateBaseClass::StateBaseType* newState)
+	{
+	    StateBaseClass::changeState(context,newState);
+	}
+
 	void enableLogs(bool enable)
 	{
 		enableLogs_ = enable;

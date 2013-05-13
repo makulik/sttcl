@@ -9,6 +9,7 @@
 
 #include "SttclStateMachineMock.h"
 #include "TestStateInterfaceMock.h"
+#include "SttclTestActions.h"
 
 class TestState : public ::testing::Test
 {
@@ -81,4 +82,42 @@ TEST_F(TestState,DirectTransition)
 
 	stateMachine.initialize();
 	stateMachine.finalize();
+}
+
+TEST_F(TestState,ChangeState)
+{
+    ::testing::NiceMock<TestStateInterfaceMock> state1("state1");
+    ::testing::NiceMock<TestStateInterfaceMock> state2("state2");
+    ::testing::NiceMock<SttclStateMachineMock> stateMachine;
+
+    EXPECT_CALL(state1, entryImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(state1, startDoImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(state1, handleEvent1(&stateMachine))
+        .Times(1)
+        .WillOnce(DoStateChange(&state1,&state2));
+    EXPECT_CALL(state1, endDoImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(state1, exitImpl(&stateMachine))
+        .Times(1);
+
+    EXPECT_CALL(state2, entryImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(state2, startDoImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(state2, endDoImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(state2, exitImpl(&stateMachine))
+        .Times(1);
+
+//  stateMachine.enableLogs(true);
+//  state1.enableLogs(true);
+//  state2.enableLogs(true);
+
+    stateMachine.setInitialState(&state1);
+
+    stateMachine.initialize();
+    stateMachine.triggerEvent1();
+    stateMachine.finalize();
 }

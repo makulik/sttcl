@@ -62,6 +62,11 @@ public:
 		directTransitState_ = NULL;
 	}
 
+	void doStateChange(StateMachineContext* context, typename StateBaseClass::StateBaseType* newState)
+	{
+	    StateBaseClass::changeState(context,newState);
+	}
+
 	MOCK_METHOD1_T(entryImpl, void (StateMachineContext* context));
 	MOCK_METHOD1_T(exitImpl, void (StateMachineContext* context));
 	MOCK_METHOD1_T(startDoImpl, void (StateMachineContext* context));

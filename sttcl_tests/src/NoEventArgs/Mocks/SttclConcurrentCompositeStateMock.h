@@ -100,6 +100,11 @@ public:
         directTransitState_ = directTransitState;
     }
 
+    void doStateChange(StateMachineContext* context, typename StateBaseClass::StateBaseType* newState)
+    {
+        StateBaseClass::changeState(context,newState);
+    }
+
     void finalizeOnNextDirectTransitCheck()
     {
         sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);

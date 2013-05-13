@@ -413,7 +413,7 @@ template<class StateMachineImpl, class IState>
 void StateMachine<StateMachineImpl,IState>::changeState(typename StateMachine<StateMachineImpl,IState>::StateBaseClass* newState)
 #endif
 {
-    if(isInitalizing() || !isFinalized())
+    if(!isFinalizing())
     {
     	if(newState)
 		{

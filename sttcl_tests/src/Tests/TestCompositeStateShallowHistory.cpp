@@ -1,5 +1,5 @@
 /*
- * TestCompositeState.cpp
+ * TestCompositeStateShallowHistory.cpp
  *
  *  Created on: Apr 15, 2013
  *      Author: user
@@ -8,33 +8,33 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "TestStateInterfaceMock.h"
-#include "TestCompositeStateMock.h"
+#include "TestCompositeStateShallowHistoryMock.h"
 #include "SttclStateMachineMock.h"
-#include "TestInnerStateInterfaceMock.h"
+#include "TestInnerStateInterfaceShallowHistoryMock.h"
 #include "SttclTestActions.h"
 
-class TestCompositeState : public ::testing::Test
+class TestCompositeStateShallowHistory : public ::testing::Test
 {
 public:
-	TestCompositeState()
+	TestCompositeStateShallowHistory()
 	{
 	}
 
-	~TestCompositeState()
+	~TestCompositeStateShallowHistory()
 	{
 	}
 
 private:
 };
 
-TEST_F(TestCompositeState,Constructor)
+TEST_F(TestCompositeStateShallowHistory,Constructor)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateShallowHistoryMock> compositeState;
 }
 
-TEST_F(TestCompositeState,LifeCycle)
+TEST_F(TestCompositeStateShallowHistory,LifeCycle)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateShallowHistoryMock> compositeState;
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -55,10 +55,10 @@ TEST_F(TestCompositeState,LifeCycle)
 
 }
 
-TEST_F(TestCompositeState,EventPropagation)
+TEST_F(TestCompositeStateShallowHistory,EventPropagation)
 {
-    ::testing::NiceMock<TestInnerStateInterfaceMock> innerState("innerState");
-    ::testing::NiceMock<TestCompositeStateMock> compositeState("compositeState");
+    ::testing::NiceMock<TestInnerStateInterfaceShallowHistoryMock> innerState("innerState");
+    ::testing::NiceMock<TestCompositeStateShallowHistoryMock> compositeState("compositeState");
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -110,9 +110,9 @@ TEST_F(TestCompositeState,EventPropagation)
 
 }
 
-TEST_F(TestCompositeState,ChangeState)
+TEST_F(TestCompositeStateShallowHistory,ChangeState)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateShallowHistoryMock> compositeState;
     ::testing::NiceMock<TestStateInterfaceMock> state;
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
@@ -147,12 +147,12 @@ TEST_F(TestCompositeState,ChangeState)
 
 }
 
-TEST_F(TestCompositeState,ResumeStateHistory)
+TEST_F(TestCompositeStateShallowHistory,ResumeStateHistory)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateShallowHistoryMock> compositeState;
     ::testing::NiceMock<TestStateInterfaceMock> state;
-    ::testing::NiceMock<TestInnerStateInterfaceMock> innerState1;
-    ::testing::NiceMock<TestInnerStateInterfaceMock> innerState2;
+    ::testing::NiceMock<TestInnerStateInterfaceShallowHistoryMock> innerState1;
+    ::testing::NiceMock<TestInnerStateInterfaceShallowHistoryMock> innerState2;
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -179,27 +179,27 @@ TEST_F(TestCompositeState,ResumeStateHistory)
     EXPECT_CALL(state, exitImpl(&stateMachine))
         .Times(1);
 
-    // Expect innerState1 is resumed after turning back to compositeState (event3)
     EXPECT_CALL(innerState1, entryImpl(&compositeState))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(innerState1, startDoImpl(&compositeState))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(innerState1, handleEvent1(&compositeState))
         .Times(1)
         .WillOnce(DoStateChange(&innerState1,&innerState2));
     EXPECT_CALL(innerState1, endDoImpl(&compositeState))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(innerState1, exitImpl(&compositeState))
-        .Times(2);
+        .Times(1);
 
+    // Expect innerState2 is resumed after turning back to compositeState (event3)
     EXPECT_CALL(innerState2, entryImpl(&compositeState))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState2, startDoImpl(&compositeState))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState2, endDoImpl(&compositeState))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState2, exitImpl(&compositeState))
-        .Times(1);
+        .Times(2);
 
     //    stateMachine.enableLogs(true);
 //    compositeState.enableLogs(true);

@@ -182,7 +182,6 @@ protected:
 		if(lastState != 0)
 		{
 			compositeState->changeState(lastState);
-
 		}
 		else
 		{
@@ -275,6 +274,11 @@ protected:
 			compositeState->initialize();
 		}
 		InnerStateType* currentState = compositeState->getState();
+		if(!currentState)
+        {
+            compositeState->finalize(false);
+        }
+
 		if(currentState)
 		{
 			currentState->initSubStateMachines(false);

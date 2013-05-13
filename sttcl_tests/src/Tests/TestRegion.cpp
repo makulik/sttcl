@@ -116,7 +116,7 @@ TEST_F(TestRegion,EventPropagation)
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 //    stateMachine.enableLogs(true);
     ::testing::NiceMock<TestConcurrentCompositeStateMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
-    concurrentCompositeState.enableLogs(true);
+//    concurrentCompositeState.enableLogs(true);
     ::testing::NiceMock<TestRegionInnerStateMock> region1InnerState("region1InnerState");
 //    region1InnerState.enableLogs(true);
     ::testing::NiceMock<TestRegionInnerStateMock> region2InnerState("region2InnerState");
