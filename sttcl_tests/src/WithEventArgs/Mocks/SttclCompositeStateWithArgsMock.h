@@ -27,14 +27,15 @@ template
     < class CompositeStateImpl
     , class StateMachineContext
     , class InnerStateInterface
+    , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::None
     >
 class SttclCompositeStateWithArgsMock
-: public sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface>
+: public sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface,HistoryType>
 , public ICompositeStateWithArgsHooks<CompositeStateImpl,StateMachineContext,InnerStateInterface>
 {
 public:
+    typedef sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface,HistoryType> StateMachineBaseClass;
 
-	typedef sttcl::CompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface> StateMachineBaseClass;
     typedef typename StateMachineBaseClass::StateImplementationBase StateBaseClass;
     typedef typename StateMachineBaseClass::InnerStateClass InnerStateClass;
 
@@ -113,11 +114,16 @@ public:
         directTransitState_ = NULL;
     }
 
+    void doStateChange(StateMachineContext* context, typename StateBaseClass::StateBaseType* newState)
+    {
+        StateBaseClass::changeState(context,newState);
+    }
+
 	// ITestStateInterfaceWithArgs
-    MOCK_METHOD1_T(handleEvent1, void (StateMachineContext* context));
-    MOCK_METHOD1_T(handleEvent2, void (StateMachineContext* context));
+    MOCK_METHOD3_T(handleEvent1, void (StateMachineContext* context, int arg1, const std::string& arg2 ));
+    MOCK_METHOD2_T(handleEvent2, void (StateMachineContext* context, double arg1));
     MOCK_METHOD1_T(handleEvent3, void (StateMachineContext* context));
-    MOCK_METHOD1_T(handleEvent4, void (StateMachineContext* context));
+    MOCK_METHOD2_T(handleEvent4, void (StateMachineContext* context, int arg1));
 
 	// IStateMachineWithArgsHooks
 	MOCK_METHOD1(initializeImpl, bool (bool force));

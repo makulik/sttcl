@@ -27,6 +27,7 @@ template
     < class CompositeStateImpl
     , class StateMachineContext
     , class InnerStateInterface
+    , unsigned int NestingLevel = 0
     , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::None
     >
 class SttclCompositeStateMock
@@ -156,43 +157,72 @@ protected:
 private:
 	bool isReadyImplCall() const
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::isReadyImpl() ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling SttclCompositeStateMock::StateMachineBaseClass::isReadyImpl() ...");
     	return SttclCompositeStateMock::StateMachineBaseClass::isReadyImpl();
     }
 
     bool initializeImplCall(bool force)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::initializeImpl(" << force << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+            " Calling SttclCompositeStateMock::StateMachineBaseClass::initializeImpl(" << force << ") ...");
     	return StateMachineBaseClass::initializeImpl(force);
     }
 
     void finalizeImplCall(bool finalizeSubStateMachines)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::finalizeImpl(" << finalizeSubStateMachines << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+            " Calling SttclCompositeStateMock::StateMachineBaseClass::finalizeImpl(" << finalizeSubStateMachines << ") ...");
 		StateMachineBaseClass::finalizeImpl(finalizeSubStateMachines);
     }
 
     void subStateMachineCompletedCall()
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompleted() ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompleted() ...");
         StateMachineBaseClass::subStateMachineCompleted();
     }
 
     void subStateMachineCompletedImplCall0()
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
         StateMachineBaseClass::subStateMachineCompletedImpl();
     }
 
-    void subStateMachineCompletedImplCall1(IStateMachineHooks<ITestInnerStateInterface>::StateBaseClass* state)
+    void subStateMachineCompletedImplCall1(typename IStateMachineHooks<ITestInnerStateInterface<NestingLevel + 1> >::StateBaseClass* state)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
+
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling SttclCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
         StateMachineBaseClass::subStateMachineCompleted();
     }
 
     InnerStateClass* getInitialStateImplCall() const
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " SttclCompositeStateMock::getInitialStateImplCall(), initialState: = " << initialState_);
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " SttclCompositeStateMock::getInitialStateImplCall(), initialState: = " << initialState_);
     	sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
     	return initialState_;
     }
@@ -200,43 +230,71 @@ private:
 
     void entryImplCall(StateMachineContext* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::::entryImpl( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling SttclCompositeStateMock::::entryImpl( context = " << context << ") ...");
         StateMachineBaseClass::entryImpl(context);
     }
 
     void exitImplCall(StateMachineContext* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateMock::::exitImpl( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling SttclCompositeStateMock::::exitImpl( context = " << context << ") ...");
         StateMachineBaseClass::exitImpl(context);
     }
 
     void startDoImplCall(StateMachineContext* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::startDoImpl( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling StateMachineBaseClass::startDoImpl( context = " << context << ") ...");
         StateMachineBaseClass::startDoImpl(context);
     }
 
     void endDoImplCall(StateMachineContext* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::endDoImpl( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling StateMachineBaseClass::endDoImpl( context = " << context << ") ...");
         StateMachineBaseClass::endDoImpl(context);
     }
 
     void finalizeSubStateMachinesImplCall(bool recursive)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling StateMachineBaseClass::finalizeSubStateMachinesImpl(" << recursive << ") ...");
         StateMachineBaseClass::finalizeSubStateMachinesImpl(recursive);
     }
 
     void initSubStateMachinesImplCall(bool recursive)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling StateMachineBaseClass::initSubStateMachinesImpl(" << recursive << ") ...");
         StateMachineBaseClass::initSubStateMachinesImpl(recursive);
     }
 
     bool checkDirectTransitionImplCall(StateMachineContext* context, bool& finalize, sttcl::StateBase<StateMachineContext,ITestStateInterface>*& nextState)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling StateMachineBaseClass::checkDirectTransitionImpl( context = " << context << ", finalize = " << finalize << ", nextState = " << nextState << ") ...");
         sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
         if(!StateMachineBaseClass::checkDirectTransitionImpl(context,finalize,nextState))
         {
@@ -263,12 +321,20 @@ private:
 
     void doActionImplCall(StateMachineContext* context, bool firstCall)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " SttclCompositeStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " SttclCompositeStateMock::doActionImplCall( context = " << context << ", firstCall = " << firstCall);
     }
 
     void joinDoActionImplCall(StateMachineContext* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling StateMachineBaseClass::joinDoActionImpl(" << context << ") ...");
+        STTCL_TEST_LOG
+            ( logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              id() <<
+              " Calling StateMachineBaseClass::joinDoActionImpl(" << context << ") ...");
         StateMachineBaseClass::joinDoActionImpl(context);
     }
 

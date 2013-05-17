@@ -29,12 +29,12 @@ private:
 
 TEST_F(TestCompositeState,Constructor)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateMock<> > compositeState;
 }
 
 TEST_F(TestCompositeState,LifeCycle)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateMock<> > compositeState;
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -57,8 +57,8 @@ TEST_F(TestCompositeState,LifeCycle)
 
 TEST_F(TestCompositeState,EventPropagation)
 {
-    ::testing::NiceMock<TestInnerStateInterfaceMock> innerState("innerState");
-    ::testing::NiceMock<TestCompositeStateMock> compositeState("compositeState");
+    ::testing::NiceMock<TestInnerStateInterfaceMock<> > innerState("innerState");
+    ::testing::NiceMock<TestCompositeStateMock<> > compositeState("compositeState");
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -112,7 +112,7 @@ TEST_F(TestCompositeState,EventPropagation)
 
 TEST_F(TestCompositeState,ChangeState)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateMock<> > compositeState;
     ::testing::NiceMock<TestStateInterfaceMock> state;
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
@@ -149,10 +149,10 @@ TEST_F(TestCompositeState,ChangeState)
 
 TEST_F(TestCompositeState,ResumeStateHistory)
 {
-    ::testing::NiceMock<TestCompositeStateMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateMock<> > compositeState;
     ::testing::NiceMock<TestStateInterfaceMock> state;
-    ::testing::NiceMock<TestInnerStateInterfaceMock> innerState1;
-    ::testing::NiceMock<TestInnerStateInterfaceMock> innerState2;
+    ::testing::NiceMock<TestInnerStateInterfaceMock<> > innerState1;
+    ::testing::NiceMock<TestInnerStateInterfaceMock<> > innerState2;
     ::testing::NiceMock<SttclStateMachineMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))

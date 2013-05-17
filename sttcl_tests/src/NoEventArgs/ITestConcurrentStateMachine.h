@@ -10,17 +10,20 @@
 
 #include "Region.h"
 
+template<unsigned int NestingLevel>
 class TestConcurrentCompositeStateMock;
 
+template<unsigned int NestingLevel>
 class ITestConcurrentStateMachine
 {
 public:
-	typedef sttcl::RegionBase<TestConcurrentCompositeStateMock,ITestConcurrentStateMachine> RegionContext;
+	typedef sttcl::RegionBase<TestConcurrentCompositeStateMock<NestingLevel - 1>,ITestConcurrentStateMachine<NestingLevel> > RegionContext;
+	typedef TestConcurrentCompositeStateMock<NestingLevel - 1> Context;
 
-	virtual void handleEvent1(TestConcurrentCompositeStateMock* context,RegionContext* regionContext) = 0;
-	virtual void handleEvent2(TestConcurrentCompositeStateMock* context,RegionContext* regionContext) = 0;
-	virtual void handleEvent3(TestConcurrentCompositeStateMock* context,RegionContext* regionContext) = 0;
-	virtual void handleEvent4(TestConcurrentCompositeStateMock* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent1(Context* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent2(Context* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent3(Context* context,RegionContext* regionContext) = 0;
+	virtual void handleEvent4(Context* context,RegionContext* regionContext) = 0;
 	virtual ~ITestConcurrentStateMachine() {}
 };
 

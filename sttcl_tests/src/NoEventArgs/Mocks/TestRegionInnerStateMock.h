@@ -25,52 +25,72 @@ using ::testing::_;
 using ::testing::AtLeast;
 using ::testing::Invoke;
 
+template<unsigned int NestingLevel = 1>
 class TestRegionInnerStateMock
-: public SttclStateMock<TestRegionMock,ITestConcurrentStateMachine>
+: public SttclStateMock<TestRegionMock<NestingLevel>,ITestConcurrentStateMachine<NestingLevel> >
 {
 public:
-    typedef ITestConcurrentStateMachine StateInterface;
+    typedef SttclStateMock<TestRegionMock<NestingLevel>,ITestConcurrentStateMachine<NestingLevel> > SttclStateMockBase;
+    typedef ITestConcurrentStateMachine<NestingLevel> StateInterface;
+    typedef typename ITestConcurrentStateMachine<NestingLevel>::Context Context;
+    typedef typename ITestConcurrentStateMachine<NestingLevel>::RegionContext RegionContext;
 
     virtual ~TestRegionInnerStateMock() {}
 
-    MOCK_METHOD2(handleEvent1, void (TestConcurrentCompositeStateMock* context,RegionContext* regionContext));
-    MOCK_METHOD2(handleEvent2, void (TestConcurrentCompositeStateMock* context,RegionContext* regionContext));
-    MOCK_METHOD2(handleEvent3, void (TestConcurrentCompositeStateMock* context,RegionContext* regionContext));
-    MOCK_METHOD2(handleEvent4, void (TestConcurrentCompositeStateMock* context,RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent1, void (Context* context,RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent2, void (Context* context,RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent3, void (Context* context,RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent4, void (Context* context,RegionContext* regionContext));
 
     TestRegionInnerStateMock(const std::string& stateId = "<anonymous>")
-    : SttclStateMock<TestRegionMock,ITestConcurrentStateMachine>(stateId)
+    : SttclStateMock<TestRegionMock<NestingLevel>,ITestConcurrentStateMachine<NestingLevel> >(stateId)
     {
         ON_CALL(*this, handleEvent1(_,_))
-            .WillByDefault(Invoke(this, &TestRegionInnerStateMock::handleEvent1Call));
+            .WillByDefault(Invoke(this, &TestRegionInnerStateMock<NestingLevel>::handleEvent1Call));
         ON_CALL(*this, handleEvent2(_,_))
-            .WillByDefault(Invoke(this, &TestRegionInnerStateMock::handleEvent2Call));
+            .WillByDefault(Invoke(this, &TestRegionInnerStateMock<NestingLevel>::handleEvent2Call));
         ON_CALL(*this, handleEvent3(_,_))
-            .WillByDefault(Invoke(this, &TestRegionInnerStateMock::handleEvent3Call));
+            .WillByDefault(Invoke(this, &TestRegionInnerStateMock<NestingLevel>::handleEvent3Call));
         ON_CALL(*this, handleEvent4(_,_))
-            .WillByDefault(Invoke(this, &TestRegionInnerStateMock::handleEvent4Call));
+            .WillByDefault(Invoke(this, &TestRegionInnerStateMock<NestingLevel>::handleEvent4Call));
 
     }
 
 protected:
-    void handleEvent1Call(TestConcurrentCompositeStateMock* context,RegionContext* regionContext)
+    void handleEvent1Call(Context* context,RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionInnerStateMock::handleEvent1Call( context = " << context << ", regionContext = " << regionContext << " ) ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , SttclStateMockBase::id() <<
+              " TestRegionInnerStateMock::handleEvent1Call( context = " << context <<
+              ", regionContext = " << regionContext << " ) ...");
     }
 
-    void handleEvent2Call(TestConcurrentCompositeStateMock* context,RegionContext* regionContext)
+    void handleEvent2Call(Context* context,RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionInnerStateMock::handleEvent2Call( context = " << context << ", regionContext = " << regionContext << " ) ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , SttclStateMockBase::id() <<
+              " TestRegionInnerStateMock::handleEvent2Call( context = " << context <<
+              ", regionContext = " << regionContext << " ) ...");
     }
 
-    void handleEvent3Call(TestConcurrentCompositeStateMock* context,RegionContext* regionContext)
+    void handleEvent3Call(Context* context,RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionInnerStateMock::handleEvent3Call( context = " << context << ", regionContext = " << regionContext << " ) ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , SttclStateMockBase::id() <<
+              " TestRegionInnerStateMock::handleEvent3Call( context = " << context <<
+              ", regionContext = " << regionContext << " ) ...");
     }
 
-    void handleEvent4Call(TestConcurrentCompositeStateMock* context,RegionContext* regionContext)
+    void handleEvent4Call(Context* context,RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionInnerStateMock::handleEvent4Call( context = " << context << ", regionContext = " << regionContext << " ) ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , SttclStateMockBase::id() <<
+              " TestRegionInnerStateMock::handleEvent4Call( context = " << context <<
+              ", regionContext = " << regionContext << " ) ...");
     }
 };
 

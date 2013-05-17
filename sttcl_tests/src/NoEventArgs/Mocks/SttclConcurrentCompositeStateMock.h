@@ -27,6 +27,7 @@ template
     < class CompositeStateImpl
     , class StateMachineContext
     , class InnerStateInterface
+    , unsigned int NestingLevel = 0
     >
 class SttclConcurrentCompositeStateMock
 : public sttcl::ConcurrentCompositeState<CompositeStateImpl,StateMachineContext,InnerStateInterface,255>
@@ -198,12 +199,12 @@ private:
 //        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclConcurrentCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
 //        StateMachineBaseClass::subStateMachineCompletedImpl();
 //    }
-
-    void subStateMachineCompletedImplCall1(IStateMachineHooks<ITestConcurrentStateMachine>::StateBaseClass* state)
-    {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclConcurrentCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
-        StateMachineBaseClass::subStateMachineCompleted();
-    }
+//
+//    void subStateMachineCompletedImplCall1(IStateMachineHooks<typename ITestConcurrentStateMachine<NestingLevel + 1> >::StateBaseClass* state)
+//    {
+//        STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclConcurrentCompositeStateMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
+//        StateMachineBaseClass::subStateMachineCompleted();
+//    }
 
     void entryImplCall(StateMachineContext* context)
     {

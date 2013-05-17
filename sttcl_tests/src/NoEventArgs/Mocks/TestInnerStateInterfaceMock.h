@@ -26,21 +26,23 @@ using ::testing::_;
 using ::testing::AtLeast;
 using ::testing::Invoke;
 
+template<unsigned int NestingLevel = 1>
 class TestInnerStateInterfaceMock
-: public SttclStateMock<TestCompositeStateMock,ITestInnerStateInterface>
+: public SttclStateMock<TestCompositeStateMock<NestingLevel - 1>,ITestInnerStateInterface<NestingLevel> >
 {
 public:
-    typedef ITestInnerStateInterface StateInterface;
+    typedef ITestInnerStateInterface<NestingLevel> StateInterface;
+    typedef SttclStateMock<TestCompositeStateMock<NestingLevel - 1>,ITestInnerStateInterface<NestingLevel> > SttclStateMockBase;
 
     virtual ~TestInnerStateInterfaceMock() {}
 
-    MOCK_METHOD1(handleEvent1, void (TestCompositeStateMock* context));
-    MOCK_METHOD1(handleEvent2, void (TestCompositeStateMock* context));
-    MOCK_METHOD1(handleEvent3, void (TestCompositeStateMock* context));
-    MOCK_METHOD1(handleEvent4, void (TestCompositeStateMock* context));
+    MOCK_METHOD1_T(handleEvent1, void (TestCompositeStateMock<NestingLevel -1>* context));
+    MOCK_METHOD1_T(handleEvent2, void (TestCompositeStateMock<NestingLevel -1>* context));
+    MOCK_METHOD1_T(handleEvent3, void (TestCompositeStateMock<NestingLevel -1>* context));
+    MOCK_METHOD1_T(handleEvent4, void (TestCompositeStateMock<NestingLevel -1>* context));
 
     TestInnerStateInterfaceMock(const std::string& stateId = "<anonymous>")
-    : SttclStateMock<TestCompositeStateMock,ITestInnerStateInterface>(stateId)
+    : SttclStateMock<TestCompositeStateMock<NestingLevel - 1>,ITestInnerStateInterface<NestingLevel> >(stateId)
     {
         ON_CALL(*this, handleEvent1(_))
             .WillByDefault(Invoke(this, &TestInnerStateInterfaceMock::handleEvent1Call));
@@ -54,24 +56,44 @@ public:
     }
 
 protected:
-    void handleEvent1Call(TestCompositeStateMock* context)
+    void handleEvent1Call(TestCompositeStateMock<NestingLevel -1>* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent1Call( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              SttclStateMockBase::id() <<
+              " TestInnerStateInterfaceMock::handleEvent1Call( context = " <<
+              context << ") ...");
     }
 
-    void handleEvent2Call(TestCompositeStateMock* context)
+    void handleEvent2Call(TestCompositeStateMock<NestingLevel -1>* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent2Call( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              SttclStateMockBase::id() <<
+              " TestInnerStateInterfaceMock::handleEvent2Call( context = " <<
+              context << ") ...");
     }
 
-    void handleEvent3Call(TestCompositeStateMock* context)
+    void handleEvent3Call(TestCompositeStateMock<NestingLevel -1>* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent3Call( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              SttclStateMockBase::id() <<
+              " TestInnerStateInterfaceMock::handleEvent3Call( context = " <<
+              context << ") ...");
     }
 
-    void handleEvent4Call(TestCompositeStateMock* context)
+    void handleEvent4Call(TestCompositeStateMock<NestingLevel -1>* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestInnerStateInterfaceMock::handleEvent4Call( context = " << context << ") ...");
+        STTCL_TEST_LOG
+            ( SttclStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              SttclStateMockBase::id() <<
+              " TestInnerStateInterfaceMock::handleEvent4Call( context = " <<
+              context << ") ...");
     }
 };
 

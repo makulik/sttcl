@@ -8,17 +8,19 @@
 #ifndef ITESTINNERSTATEINTERFACE_H_
 #define ITESTINNERSTATEINTERFACE_H_
 
+template<unsigned int NestingLevel>
 class TestCompositeStateMock;
 
+template<unsigned int NestingLevel = 1>
 class ITestInnerStateInterface
 {
 public:
-    typedef TestCompositeStateMock Context;
+    typedef TestCompositeStateMock<NestingLevel -1> Context;
 
-    virtual void handleEvent1(TestCompositeStateMock* context) = 0;
-	virtual void handleEvent2(TestCompositeStateMock* context) = 0;
-	virtual void handleEvent3(TestCompositeStateMock* context) = 0;
-	virtual void handleEvent4(TestCompositeStateMock* context) = 0;
+    virtual void handleEvent1(Context* context) = 0;
+	virtual void handleEvent2(Context* context) = 0;
+	virtual void handleEvent3(Context* context) = 0;
+	virtual void handleEvent4(Context* context) = 0;
 
 	virtual ~ITestInnerStateInterface() {}
 };

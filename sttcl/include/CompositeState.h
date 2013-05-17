@@ -89,7 +89,7 @@ protected:
 	 * Gets the last saved state.
 	 * @return
 	 */
-	InnerStateType* getStateHistory()
+	InnerStateType* getStateHistory() const
 	{
 		return 0;
 	}
@@ -127,7 +127,6 @@ protected:
         }
 		return 0;
 	}
-
 };
 
 /**
@@ -152,7 +151,7 @@ protected:
 	{
 	}
 
-	/**
+    /**
 	 * Saves the current inner state of the composite state.
 	 * @param currentState
 	 */
@@ -165,7 +164,7 @@ protected:
 	 * Gets the last saved state.
 	 * @return
 	 */
-	InnerStateType* getStateHistory()
+	InnerStateType* getStateHistory() const
 	{
 		return lastState;
 	}
@@ -213,6 +212,8 @@ protected:
 		return 0;
 	}
 
+
+
 	InnerStateType* lastState;
 };
 
@@ -251,7 +252,7 @@ protected:
 	 * Gets the last saved state.
 	 * @return
 	 */
-	InnerStateType* getStateHistory()
+	InnerStateType* getStateHistory() const
 	{
 		return lastState;
 	}
@@ -265,7 +266,7 @@ protected:
 	template<class CompositeStateImpl>
 	InnerStateType* resumeStateHistory(CompositeStateImpl* compositeState)
 	{
-		if(lastState != 0)
+		if(lastState)
 		{
 			compositeState->changeState(lastState);
 		}
@@ -278,8 +279,7 @@ protected:
         {
             compositeState->finalize(false);
         }
-
-		if(currentState)
+		else
 		{
 			currentState->initSubStateMachines(false);
 		}
@@ -388,7 +388,7 @@ public:
      */
     typedef StateBaseImpl StateImplementationBase;
 
-    /**
+    /**StateMachineBaseImpl::
      * The composite states base state machine implementation type class.
      */
     typedef StateMachineBaseImpl StateMachineImplementationBase;
@@ -505,6 +505,17 @@ public:
     	    StateMachineBaseImpl::finalize(false);
     	}
     	StateBaseImpl::exitImpl(context);
+    }
+
+    /**
+     * Default implementation for isReady().
+     *
+     * @return \c true if the state machine is ready to process events, \c false otherwise.
+     */
+    inline bool isReadyImpl() const
+    {
+        return (CompositeStateHistoryBaseClass::getStateHistory() ||
+                StateMachineImplementationBase::isReadyImpl());
     }
 
 protected:

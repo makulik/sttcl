@@ -172,7 +172,7 @@ public:
      */
     inline bool isReadyImpl() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initialized && flags.finalized);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initialized && !flags.finalized);
     }
 
     /**

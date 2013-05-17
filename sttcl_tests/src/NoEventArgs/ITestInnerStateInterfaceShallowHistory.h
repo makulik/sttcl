@@ -8,17 +8,19 @@
 #ifndef ITESTINNERSTATEINTERFACESHALLOWHISTORY_H_
 #define ITESTINNERSTATEINTERFACESHALLOWHISTORY_H_
 
+template<unsigned int NestingLevel>
 class TestCompositeStateShallowHistoryMock;
 
+template<unsigned int NestingLevel = 1>
 class ITestInnerStateInterfaceShallowHistory
 {
 public:
-    typedef TestCompositeStateShallowHistoryMock Context;
+    typedef TestCompositeStateShallowHistoryMock<NestingLevel -1> Context;
 
-    virtual void handleEvent1(TestCompositeStateShallowHistoryMock* context) = 0;
-	virtual void handleEvent2(TestCompositeStateShallowHistoryMock* context) = 0;
-	virtual void handleEvent3(TestCompositeStateShallowHistoryMock* context) = 0;
-	virtual void handleEvent4(TestCompositeStateShallowHistoryMock* context) = 0;
+    virtual void handleEvent1(Context* context) = 0;
+	virtual void handleEvent2(Context* context) = 0;
+	virtual void handleEvent3(Context* context) = 0;
+	virtual void handleEvent4(Context* context) = 0;
 
 	virtual ~ITestInnerStateInterfaceShallowHistory() {}
 };

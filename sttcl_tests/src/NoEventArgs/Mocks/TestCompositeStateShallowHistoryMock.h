@@ -24,11 +24,14 @@ using ::testing::_;
 using ::testing::AtLeast;
 using ::testing::Invoke;
 
+template<unsigned int NestingLevel = 0>
 class TestCompositeStateShallowHistoryMock
-: public SttclCompositeStateMock<TestCompositeStateShallowHistoryMock,SttclStateMachineMock,ITestInnerStateInterfaceShallowHistory,sttcl::CompositeStateHistoryType::Shallow>
+: public SttclCompositeStateMock<TestCompositeStateShallowHistoryMock<NestingLevel>,SttclStateMachineMock,ITestInnerStateInterfaceShallowHistory<NestingLevel + 1>, NestingLevel, sttcl::CompositeStateHistoryType::Shallow>
 {
 public:
-    typedef SttclCompositeStateMock<TestCompositeStateShallowHistoryMock,SttclStateMachineMock,ITestInnerStateInterfaceShallowHistory,sttcl::CompositeStateHistoryType::Shallow> CompositeStateMockBase;
+    typedef SttclCompositeStateMock<TestCompositeStateShallowHistoryMock<NestingLevel>,SttclStateMachineMock,ITestInnerStateInterfaceShallowHistory<NestingLevel + 1>, NestingLevel, sttcl::CompositeStateHistoryType::Shallow> CompositeStateMockBase;
+    typedef typename CompositeStateMockBase::InnerStateBaseClass InnerStateBaseClass;
+
     virtual ~TestCompositeStateShallowHistoryMock()
     {
     }
@@ -55,44 +58,72 @@ public:
 protected:
     void handleEvent1Call(SttclStateMachineMock* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock::handleEvent1Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , CompositeStateMockBase::id() <<
+              " TestCompositeStateShallowHistoryMock::handleEvent1Call( context = " <<
+              context << ") ...");
+        InnerStateBaseClass* currentState = CompositeStateMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock calling currentState->handleEvent1() ...");
+            STTCL_TEST_LOG
+                ( CompositeStateMockBase::logsEnabled()
+                , CompositeStateMockBase::id() <<
+                  " TestCompositeStateShallowHistoryMock calling currentState->handleEvent1() ...");
             currentState->handleEvent1(this);
         }
     }
 
     void handleEvent2Call(SttclStateMachineMock* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock::handleEvent2Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , CompositeStateMockBase::id() <<
+              " TestCompositeStateShallowHistoryMock::handleEvent2Call( context = " <<
+              context << ") ...");
+        InnerStateBaseClass* currentState = CompositeStateMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock calling currentState->handleEvent2() ...");
+            STTCL_TEST_LOG
+                ( CompositeStateMockBase::logsEnabled()
+                , CompositeStateMockBase::id() <<
+                  " TestCompositeStateShallo-wHistoryMock calling currentState->handleEvent2() ...");
             currentState->handleEvent2(this);
         }
     }
 
     void handleEvent3Call(SttclStateMachineMock* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock::handleEvent3Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , CompositeStateMockBase::id() <<
+              " TestCompositeStateShallowHistoryMock::handleEvent3Call( context = " <<
+              context << ") ...");
+        InnerStateBaseClass* currentState = CompositeStateMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock calling currentState->handleEvent3() ...");
+            STTCL_TEST_LOG
+                ( CompositeStateMockBase::logsEnabled()
+                , CompositeStateMockBase::id() <<
+                  " TestCompositeStateShallowHistoryMock calling currentState->handleEvent3() ...");
             currentState->handleEvent3(this);
         }
     }
 
     void handleEvent4Call(SttclStateMachineMock* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock::handleEvent4Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , CompositeStateMockBase::id() <<
+              " TestCompositeStateShallowHistoryMock::handleEvent4Call( context = " <<
+              context << ") ...");
+        InnerStateBaseClass* currentState = CompositeStateMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestCompositeStateShallowHistoryMock calling currentState->handleEvent4() ...");
+            STTCL_TEST_LOG
+                ( CompositeStateMockBase::logsEnabled()
+                , CompositeStateMockBase::id() <<
+                  " TestCompositeStateShallowHistoryMock calling currentState->handleEvent4() ...");
             currentState->handleEvent4(this);
         }
     }

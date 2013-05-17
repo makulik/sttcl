@@ -27,6 +27,7 @@ template
     < class RegionImpl
     , class RegionContainer
     , class InnerStateInterface
+    , unsigned int NestingLevel = 0
     >
 class SttclRegionMock
 : public sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface>
@@ -162,7 +163,7 @@ private:
         RegionBaseClass::subStateMachineCompletedImpl();
     }
 
-    void subStateMachineCompletedImplCall1(IStateMachineHooks<ITestInnerStateInterface>::StateBaseClass* state)
+    void subStateMachineCompletedImplCall1(typename IStateMachineHooks<ITestInnerStateInterface<NestingLevel> >::StateBaseClass* state)
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::subStateMachineCompletedImpl() ...");
         RegionBaseClass::subStateMachineCompleted();

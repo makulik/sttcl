@@ -26,76 +26,103 @@ using ::testing::_;
 using ::testing::AtLeast;
 using ::testing::Invoke;
 
+template<unsigned int NestingLevel = 1>
 class TestRegionMock
-: public SttclRegionMock<TestRegionMock,TestConcurrentCompositeStateMock,ITestConcurrentStateMachine>
+: public SttclRegionMock<TestRegionMock<NestingLevel>,TestConcurrentCompositeStateMock<NestingLevel - 1>,ITestConcurrentStateMachine<NestingLevel>,NestingLevel>
 {
 public:
-    typedef SttclRegionMock<TestRegionMock,TestConcurrentCompositeStateMock,ITestConcurrentStateMachine> RegionMockBase;
+    typedef SttclRegionMock<TestRegionMock,TestConcurrentCompositeStateMock<NestingLevel - 1>,ITestConcurrentStateMachine<NestingLevel>,NestingLevel> RegionMockBase;
+    typedef typename RegionMockBase::InnerStateClass InnerStateBaseClass;
+
     virtual ~TestRegionMock()
     {
     }
 
-    MOCK_METHOD2(handleEvent1, void (TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext));
-    MOCK_METHOD2(handleEvent2, void (TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext));
-    MOCK_METHOD2(handleEvent3, void (TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext));
-    MOCK_METHOD2(handleEvent4, void (TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent1, void (TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent2, void (TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent3, void (TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext));
+    MOCK_METHOD2_T(handleEvent4, void (TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext));
 
-    TestRegionMock(const std::string& stateId, TestConcurrentCompositeStateMock* regionContainer)
+    TestRegionMock(const std::string& stateId, TestConcurrentCompositeStateMock<NestingLevel - 1>* regionContainer)
     : RegionMockBase(stateId,regionContainer)
     {
         ON_CALL(*this, handleEvent1(_,_))
-            .WillByDefault(Invoke(this, &TestRegionMock::handleEvent1Call));
+            .WillByDefault(Invoke(this, &TestRegionMock<NestingLevel>::handleEvent1Call));
         ON_CALL(*this, handleEvent2(_,_))
-            .WillByDefault(Invoke(this, &TestRegionMock::handleEvent2Call));
+            .WillByDefault(Invoke(this, &TestRegionMock<NestingLevel>::handleEvent2Call));
         ON_CALL(*this, handleEvent3(_,_))
-            .WillByDefault(Invoke(this, &TestRegionMock::handleEvent3Call));
+            .WillByDefault(Invoke(this, &TestRegionMock<NestingLevel>::handleEvent3Call));
         ON_CALL(*this, handleEvent4(_,_))
-            .WillByDefault(Invoke(this, &TestRegionMock::handleEvent4Call));
+            .WillByDefault(Invoke(this, &TestRegionMock<NestingLevel>::handleEvent4Call));
 
     }
 
 protected:
-    void handleEvent1Call(TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext)
+    void handleEvent1Call(TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock::handleEvent1Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( RegionMockBase::logsEnabled()
+            , RegionMockBase::id() <<
+              " TestRegionMock::handleEvent1Call( context = " << context << ") ...");
+        InnerStateBaseClass* currentState = RegionMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
-            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine::handleEvent1);
+            STTCL_TEST_LOG
+                ( RegionMockBase::logsEnabled()
+                , RegionMockBase::id() <<
+                  " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
+            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine<NestingLevel>::handleEvent1);
         }
     }
 
-    void handleEvent2Call(TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext)
+    void handleEvent2Call(TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock::handleEvent2Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( RegionMockBase::logsEnabled()
+            , RegionMockBase::id() <<
+              " TestRegionMock::handleEvent2Call( context = " << context << ") ...");
+        InnerStateBaseClass* currentState = RegionMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
-            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine::handleEvent2);
+            STTCL_TEST_LOG
+                ( RegionMockBase::logsEnabled()
+                , RegionMockBase::id() <<
+                  " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
+            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine<NestingLevel>::handleEvent2);
         }
     }
 
-    void handleEvent3Call(TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext)
+    void handleEvent3Call(TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock::handleEvent3Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( RegionMockBase::logsEnabled()
+            , RegionMockBase::id() <<
+              " TestRegionMock::handleEvent3Call( context = " << context << ") ...");
+        InnerStateBaseClass* currentState = RegionMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
-            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine::handleEvent3);
+            STTCL_TEST_LOG
+                ( RegionMockBase::logsEnabled()
+                , RegionMockBase::id() <<
+                  " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
+            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine<NestingLevel>::handleEvent3);
         }
     }
 
-    void handleEvent4Call(TestConcurrentCompositeStateMock* context, ITestConcurrentStateMachine::RegionContext* regionContext)
+    void handleEvent4Call(TestConcurrentCompositeStateMock<NestingLevel - 1>* context, typename ITestConcurrentStateMachine<NestingLevel>::RegionContext* regionContext)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock::handleEvent4Call( context = " << context << ") ...");
-        InnerStateBaseClass* currentState = getState();
+        STTCL_TEST_LOG
+            ( RegionMockBase::logsEnabled()
+            , RegionMockBase::id() <<
+              " TestRegionMock::handleEvent4Call( context = " << context << ") ...");
+        InnerStateBaseClass* currentState = RegionMockBase::getState();
         if(currentState != NULL)
         {
-            STTCL_TEST_LOG(logsEnabled(), id() << " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
-            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine::handleEvent4);
+            STTCL_TEST_LOG
+                ( RegionMockBase::logsEnabled()
+                , RegionMockBase::id() <<
+                  " TestRegionMock calling RegionMockBase::dispatchEvent() ...");
+            RegionMockBase::dispatchEvent(context,currentState,&ITestConcurrentStateMachine<NestingLevel>::handleEvent4);
         }
     }
 };
