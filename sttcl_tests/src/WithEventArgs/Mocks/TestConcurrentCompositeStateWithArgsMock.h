@@ -24,11 +24,12 @@ using ::testing::_;
 using ::testing::AtLeast;
 using ::testing::Invoke;
 
+template<unsigned int NestingLevel = 0>
 class TestConcurrentCompositeStateWithArgsMock
-: public SttclConcurrentCompositeStateWithArgsMock<TestConcurrentCompositeStateWithArgsMock,SttclStateMachineWithArgsMock,ITestConcurrentStateMachineWithArgs>
+: public SttclConcurrentCompositeStateWithArgsMock<TestConcurrentCompositeStateWithArgsMock<NestingLevel>,SttclStateMachineWithArgsMock,ITestConcurrentStateMachineWithArgs<NestingLevel + 1> >
 {
 public:
-    typedef SttclConcurrentCompositeStateWithArgsMock<TestConcurrentCompositeStateWithArgsMock,SttclStateMachineWithArgsMock,ITestConcurrentStateMachineWithArgs> CompositeStateMockBase;
+    typedef SttclConcurrentCompositeStateWithArgsMock<TestConcurrentCompositeStateWithArgsMock<NestingLevel>,SttclStateMachineWithArgsMock,ITestConcurrentStateMachineWithArgs<NestingLevel + 1> > CompositeStateMockBase;
     typedef SttclStateMachineWithArgsMock StateMachineContext;
 
     virtual ~TestConcurrentCompositeStateWithArgsMock()
@@ -59,26 +60,46 @@ public:
 protected:
     void handleEvent1Call(SttclStateMachineWithArgsMock* context, int arg1, const std::string& arg2)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateWithArgsMock::handleEvent1Call( context = " << context << ") ...");
-        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs::handleEvent1,EventArgsPtr(new Event1Args(arg1,arg2)));
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              CompositeStateMockBase::id() <<
+              " TestConcurrentCompositeStateWithArgsMock::handleEvent1Call( context = " <<
+              context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs<NestingLevel + 1>::handleEvent1,EventArgsPtr(new Event1Args(arg1,arg2)));
     }
 
     void handleEvent2Call(SttclStateMachineWithArgsMock* context, double arg1)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateWithArgsMock::handleEvent2Call( context = " << context << ") ...");
-        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs::handleEvent2,EventArgsPtr(new Event2Args(arg1)));
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              CompositeStateMockBase::id() <<
+              " TestConcurrentCompositeStateWithArgsMock::handleEvent2Call( context = " <<
+              context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs<NestingLevel + 1>::handleEvent2,EventArgsPtr(new Event2Args(arg1)));
     }
 
     void handleEvent3Call(SttclStateMachineWithArgsMock* context)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateWithArgsMock::handleEvent3Call( context = " << context << ") ...");
-        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs::handleEvent3,EventArgsPtr(new Event3Args()));
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              CompositeStateMockBase::id() <<
+              " TestConcurrentCompositeStateWithArgsMock::handleEvent3Call( context = " <<
+              context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs<NestingLevel + 1>::handleEvent3,EventArgsPtr(new Event3Args()));
     }
 
     void handleEvent4Call(SttclStateMachineWithArgsMock* context, int arg1)
     {
-        STTCL_TEST_LOG(logsEnabled(), id() << " TestConcurrentCompositeStateWithArgsMock::handleEvent4Call( context = " << context << ") ...");
-        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs::handleEvent4,EventArgsPtr(new Event4Args(arg1)));
+        STTCL_TEST_LOG
+            ( CompositeStateMockBase::logsEnabled()
+            , "(lvl: " << NestingLevel << ") " <<
+              CompositeStateMockBase::id() <<
+              " TestConcurrentCompositeStateWithArgsMock::handleEvent4Call( context = " <<
+              context << ") ...");
+        CompositeStateMockBase::broadcastEvent(context,&ITestConcurrentStateMachineWithArgs<NestingLevel + 1>::handleEvent4,EventArgsPtr(new Event4Args(arg1)));
     }
 };
 

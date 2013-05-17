@@ -27,6 +27,7 @@ template
     < class RegionImpl
     , class RegionContainer
     , class InnerStateInterface
+    , unsigned int NestingLevel = 0
     >
 class SttclRegionWithArgsMock
 : public sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,EventArgs>
@@ -34,7 +35,7 @@ class SttclRegionWithArgsMock
 {
 public:
 
-	typedef sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,EventArgs> RegionBaseClass;
+    typedef sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,EventArgs> RegionBaseClass;
     typedef typename RegionBaseClass::StateImplementationBase StateBaseClass;
     typedef typename RegionBaseClass::InnerStateClass InnerStateClass;
 
@@ -156,11 +157,11 @@ private:
         RegionBaseClass::subStateMachineCompletedImpl();
     }
 
-    void subStateMachineCompletedImplCall1(IStateMachineWithArgsHooks<ITestInnerStateInterfaceWithArgs>::StateBaseClass* state)
-    {
-        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::subStateMachineCompletedImpl() ...");
-        RegionBaseClass::subStateMachineCompleted();
-    }
+//    void subStateMachineCompletedImplCall1(typename IStateMachineHooks<ITestInnerStateInterfaceWithArgs<NestingLevel> >::StateBaseClass* state)
+//    {
+//        STTCL_TEST_LOG(logsEnabled(), id() << " Calling RegionBaseClass::subStateMachineCompletedImpl() ...");
+//        RegionBaseClass::subStateMachineCompleted();
+//    }
 
     InnerStateClass* getInitialStateImplCall() const
     {

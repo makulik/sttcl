@@ -11,17 +11,20 @@
 #include "Region.h"
 #include "EventArgs.h"
 
+template<unsigned int NestingLevel>
 class TestConcurrentCompositeStateWithArgsMock;
 
+template<unsigned int NestingLevel>
 class ITestConcurrentStateMachineWithArgs
 {
 public:
-	typedef sttcl::RegionBase<TestConcurrentCompositeStateWithArgsMock,ITestConcurrentStateMachineWithArgs,EventArgs> RegionContext;
+	typedef sttcl::RegionBase<TestConcurrentCompositeStateWithArgsMock<NestingLevel -1>,ITestConcurrentStateMachineWithArgs<NestingLevel>,EventArgs> RegionContext;
+    typedef TestConcurrentCompositeStateWithArgsMock<NestingLevel - 1> Context;
 
-	virtual void handleEvent1(TestConcurrentCompositeStateWithArgsMock* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
-	virtual void handleEvent2(TestConcurrentCompositeStateWithArgsMock* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
-	virtual void handleEvent3(TestConcurrentCompositeStateWithArgsMock* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
-	virtual void handleEvent4(TestConcurrentCompositeStateWithArgsMock* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
+	virtual void handleEvent1(Context* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
+	virtual void handleEvent2(Context* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
+	virtual void handleEvent3(Context* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
+	virtual void handleEvent4(Context* context,RegionContext* regionContext, EventArgsPtr eventArgs) = 0;
 	virtual ~ITestConcurrentStateMachineWithArgs() {}
 };
 

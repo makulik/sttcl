@@ -32,19 +32,19 @@ private:
 TEST_F(TestRegionWithArgs,Constructor)
 {
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
-    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
-    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock<> > concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestRegionWithArgsMock<> > region1("region1",&concurrentCompositeState);
 }
 
 TEST_F(TestRegionWithArgs,LifeCycle)
 {
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 //    stateMachine.enableLogs(true);
-    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock<> > concurrentCompositeState(&stateMachine,"concurrentCompositeState");
 //    concurrentCompositeState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> regionInnerState("innerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock<> > regionInnerState("innerState");
 //    regionInnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock<> > region1("region1",&concurrentCompositeState);
 //    region1.enableLogs(true);
 
     EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))
@@ -69,15 +69,15 @@ TEST_F(TestRegionWithArgs,LifeCycle_2)
 {
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 //    stateMachine.enableLogs(true);
-    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock<> > concurrentCompositeState(&stateMachine,"concurrentCompositeState");
 //    concurrentCompositeState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region1InnerState("region1InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock<> > region1InnerState("region1InnerState");
 //    region1InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region2InnerState("region2InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock<> > region2InnerState("region2InnerState");
 //    region2InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock<> > region1("region1",&concurrentCompositeState);
 //    region1.enableLogs(true);
-    ::testing::NiceMock<TestRegionWithArgsMock> region2("region2",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock<> > region2("region2",&concurrentCompositeState);
 //    region2.enableLogs(true);
 
     EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))
@@ -115,15 +115,15 @@ TEST_F(TestRegionWithArgs,EventPropagation)
 {
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 //    stateMachine.enableLogs(true);
-    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine,"concurrentCompositeState");
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock<> > concurrentCompositeState(&stateMachine,"concurrentCompositeState");
 //    concurrentCompositeState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region1InnerState("region1InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock<> > region1InnerState("region1InnerState");
 //    region1InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionInnerStateWithArgsMock> region2InnerState("region2InnerState");
+    ::testing::NiceMock<TestRegionInnerStateWithArgsMock<> > region2InnerState("region2InnerState");
 //    region2InnerState.enableLogs(true);
-    ::testing::NiceMock<TestRegionWithArgsMock> region1("region1",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock<> > region1("region1",&concurrentCompositeState);
 //    region1.enableLogs(true);
-    ::testing::NiceMock<TestRegionWithArgsMock> region2("region2",&concurrentCompositeState);
+    ::testing::NiceMock<TestRegionWithArgsMock<> > region2("region2",&concurrentCompositeState);
 //    region2.enableLogs(true);
 
     EXPECT_CALL(region1, enterRegionImpl(&concurrentCompositeState))

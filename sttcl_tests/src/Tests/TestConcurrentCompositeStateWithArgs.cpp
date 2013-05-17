@@ -28,13 +28,13 @@ private:
 TEST_F(TestConcurrentCompositeStateWithArgs,Constructor)
 {
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
-    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine);
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock<> > concurrentCompositeState(&stateMachine);
 }
 
 TEST_F(TestConcurrentCompositeStateWithArgs,LifeCycle)
 {
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
-    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock> concurrentCompositeState(&stateMachine);
+    ::testing::NiceMock<TestConcurrentCompositeStateWithArgsMock<> > concurrentCompositeState(&stateMachine);
 
     EXPECT_CALL(concurrentCompositeState, entryImpl(&stateMachine))
         .Times(1);
