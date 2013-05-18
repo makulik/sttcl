@@ -1,5 +1,5 @@
 /*
- * TestCompositeStateWithArgsShallowHistory.cpp
+ * TestCompositeStateWithArgsDeepHistory.cpp
  *
  *  Created on: Apr 15, 2013
  *      Author: user
@@ -8,33 +8,33 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 #include "TestStateInterfaceWithArgsMock.h"
-#include "TestCompositeStateWithArgsShallowHistoryMock.h"
+#include "TestCompositeStateWithArgsDeepHistoryMock.h"
 #include "SttclStateMachineWithArgsMock.h"
-#include "TestInnerStateInterfaceWithArgsShallowHistoryMock.h"
+#include "TestInnerStateInterfaceWithArgsDeepHistoryMock.h"
 #include "SttclTestActions.h"
 
-class TestCompositeStateWithArgsShallowHistory : public ::testing::Test
+class TestCompositeStateWithArgsDeepHistory : public ::testing::Test
 {
 public:
-	TestCompositeStateWithArgsShallowHistory()
+	TestCompositeStateWithArgsDeepHistory()
 	{
 	}
 
-	~TestCompositeStateWithArgsShallowHistory()
+	~TestCompositeStateWithArgsDeepHistory()
 	{
 	}
 
 private:
 };
 
-TEST_F(TestCompositeStateWithArgsShallowHistory,Constructor)
+TEST_F(TestCompositeStateWithArgsDeepHistory,Constructor)
 {
-    ::testing::NiceMock<TestCompositeStateWithArgsShallowHistoryMock<> > compositeState;
+    ::testing::NiceMock<TestCompositeStateWithArgsDeepHistoryMock<> > compositeState;
 }
 
-TEST_F(TestCompositeStateWithArgsShallowHistory,LifeCycle)
+TEST_F(TestCompositeStateWithArgsDeepHistory,LifeCycle)
 {
-    ::testing::NiceMock<TestCompositeStateWithArgsShallowHistoryMock<> > compositeState;
+    ::testing::NiceMock<TestCompositeStateWithArgsDeepHistoryMock<> > compositeState;
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -55,10 +55,10 @@ TEST_F(TestCompositeStateWithArgsShallowHistory,LifeCycle)
 
 }
 
-TEST_F(TestCompositeStateWithArgsShallowHistory,EventPropagation)
+TEST_F(TestCompositeStateWithArgsDeepHistory,EventPropagation)
 {
-    ::testing::NiceMock<TestInnerStateInterfaceWithArgsShallowHistoryMock<> > innerState("innerState");
-    ::testing::NiceMock<TestCompositeStateWithArgsShallowHistoryMock<> > compositeState("compositeState");
+    ::testing::NiceMock<TestInnerStateInterfaceWithArgsDeepHistoryMock<> > innerState("innerState");
+    ::testing::NiceMock<TestCompositeStateWithArgsDeepHistoryMock<> > compositeState("compositeState");
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -110,9 +110,9 @@ TEST_F(TestCompositeStateWithArgsShallowHistory,EventPropagation)
 
 }
 
-TEST_F(TestCompositeStateWithArgsShallowHistory,ChangeState)
+TEST_F(TestCompositeStateWithArgsDeepHistory,ChangeState)
 {
-    ::testing::NiceMock<TestCompositeStateWithArgsShallowHistoryMock<> > compositeState;
+    ::testing::NiceMock<TestCompositeStateWithArgsDeepHistoryMock<> > compositeState;
     ::testing::NiceMock<TestStateInterfaceWithArgsMock> state;
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
@@ -147,12 +147,12 @@ TEST_F(TestCompositeStateWithArgsShallowHistory,ChangeState)
 
 }
 
-TEST_F(TestCompositeStateWithArgsShallowHistory,ResumeStateHistory)
+TEST_F(TestCompositeStateWithArgsDeepHistory,ResumeStateHistory)
 {
-    ::testing::NiceMock<TestCompositeStateWithArgsShallowHistoryMock<> > compositeState;
+    ::testing::NiceMock<TestCompositeStateWithArgsDeepHistoryMock<> > compositeState;
     ::testing::NiceMock<TestStateInterfaceWithArgsMock> state;
-    ::testing::NiceMock<TestInnerStateInterfaceWithArgsShallowHistoryMock<> > innerState1;
-    ::testing::NiceMock<TestInnerStateInterfaceWithArgsShallowHistoryMock<> > innerState2;
+    ::testing::NiceMock<TestInnerStateInterfaceWithArgsDeepHistoryMock<> > innerState1;
+    ::testing::NiceMock<TestInnerStateInterfaceWithArgsDeepHistoryMock<> > innerState2;
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))

@@ -27,6 +27,7 @@ template
     < class CompositeStateImpl
     , class StateMachineContext
     , class InnerStateInterface
+    , unsigned int NestingLevel = 0
     , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::None
     >
 class SttclCompositeStateWithArgsMock
@@ -184,7 +185,7 @@ private:
         StateMachineBaseClass::subStateMachineCompletedImpl();
     }
 
-    void subStateMachineCompletedImplCall1(IStateMachineWithArgsHooks<ITestInnerStateInterfaceWithArgs>::StateBaseClass* state)
+    void subStateMachineCompletedImplCall1(typename IStateMachineWithArgsHooks<ITestInnerStateInterfaceWithArgs<NestingLevel + 1> >::StateBaseClass* state)
     {
         STTCL_TEST_LOG(logsEnabled(), id() << " Calling SttclCompositeStateWithArgsMock::StateMachineBaseClass::subStateMachineCompletedImpl() ...");
         StateMachineBaseClass::subStateMachineCompleted();

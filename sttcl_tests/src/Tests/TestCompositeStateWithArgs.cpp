@@ -27,12 +27,12 @@ private:
 
 TEST_F(TestCompositeStateWithArgs,Constructor)
 {
-    ::testing::NiceMock<TestCompositeStateWithArgsMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateWithArgsMock<> > compositeState;
 }
 
 TEST_F(TestCompositeStateWithArgs,LifeCycle)
 {
-    ::testing::NiceMock<TestCompositeStateWithArgsMock> compositeState;
+    ::testing::NiceMock<TestCompositeStateWithArgsMock<> > compositeState;
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
@@ -55,8 +55,8 @@ TEST_F(TestCompositeStateWithArgs,LifeCycle)
 
 TEST_F(TestCompositeStateWithArgs,EventPropagation)
 {
-    ::testing::NiceMock<TestInnerStateInterfaceWithArgsMock> innerState("innerState");
-    ::testing::NiceMock<TestCompositeStateWithArgsMock> compositeState("compositeState");
+    ::testing::NiceMock<TestInnerStateInterfaceWithArgsMock<> > innerState("innerState");
+    ::testing::NiceMock<TestCompositeStateWithArgsMock<> > compositeState("compositeState");
     ::testing::NiceMock<SttclStateMachineWithArgsMock> stateMachine;
 
     EXPECT_CALL(compositeState, entryImpl(&stateMachine))
