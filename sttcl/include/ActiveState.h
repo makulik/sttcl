@@ -270,7 +270,7 @@ public:
         }
     	if(!StateThreadType::isSelf(stateThread))
     	{
-			static_cast<Implementation*>(this)->joinDoActionThreadImpl();
+			joinDoAction(context);
 			currentContext = 0;
     	}
     }
@@ -495,7 +495,7 @@ private:
     	} while(!endDoActionRequested() && !runDoActionOnce && !directTransitionTriggered);
         setDoActionRunning(false);
         static_cast<Implementation*>(this)->exitingDoActionImpl();
-        context->registerActiveStateRunning(static_cast<StateBaseType*>(this));
+        context->unregisterActiveStateRunning(static_cast<StateBaseType*>(this));
     }
 
     virtual void finalizeSubStateMachines(bool recursive)

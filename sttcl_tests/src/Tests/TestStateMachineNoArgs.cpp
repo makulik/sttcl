@@ -1,5 +1,5 @@
 /*
- * TestStateMachineWithArgs.cpp
+ * TestStateMachineNoArgs.cpp
  *
  *  Created on: May 21, 2013
  *      Author: user
@@ -12,27 +12,27 @@
 #include "TestStateMocks.h"
 #include "SttclTestActions.h"
 
-class TestStateMachineWithArgs
+class TestStateMachineNoArgs
 : public ::testing::Test
 {
 public:
-    TestStateMachineWithArgs()
+    TestStateMachineNoArgs()
     {
     }
 
-    ~TestStateMachineWithArgs()
+    ~TestStateMachineNoArgs()
     {
     }
 };
 
-TEST_F(TestStateMachineWithArgs,Constructor)
+TEST_F(TestStateMachineNoArgs,Constructor)
 {
-    ::testing::NiceMock<TestStateMachineWithEventArgsMock> stateMachine;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
 }
 
-TEST_F(TestStateMachineWithArgs,Initialize1)
+TEST_F(TestStateMachineNoArgs,Initialize1)
 {
-    ::testing::NiceMock<TestStateMachineWithEventArgsMock> stateMachine;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
 //    stateMachine.enableLogging(true);
 
     // Setup mock call expectations
@@ -47,9 +47,9 @@ TEST_F(TestStateMachineWithArgs,Initialize1)
     stateMachine.initialize();
 }
 
-TEST_F(TestStateMachineWithArgs,Initialize2)
+TEST_F(TestStateMachineNoArgs,Initialize2)
 {
-    ::testing::NiceMock<TestStateMachineWithEventArgsMock> stateMachine;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
 
     // Setup mock call expectations
     //----------------------------------------------------------------------------
@@ -63,9 +63,9 @@ TEST_F(TestStateMachineWithArgs,Initialize2)
     stateMachine.initialize(true);
 }
 
-TEST_F(TestStateMachineWithArgs,Finalize1)
+TEST_F(TestStateMachineNoArgs,Finalize1)
 {
-    ::testing::NiceMock<TestStateMachineWithEventArgsMock> stateMachine;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
     stateMachine.autoFinalize(false);
 
     // Setup mock call expectations
@@ -79,9 +79,9 @@ TEST_F(TestStateMachineWithArgs,Finalize1)
     stateMachine.finalize();
 }
 
-TEST_F(TestStateMachineWithArgs,Finalize2)
+TEST_F(TestStateMachineNoArgs,Finalize2)
 {
-    ::testing::NiceMock<TestStateMachineWithEventArgsMock> stateMachine;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
     stateMachine.autoFinalize(false);
 
     // Setup mock call expectations
@@ -95,11 +95,11 @@ TEST_F(TestStateMachineWithArgs,Finalize2)
     stateMachine.finalize(false);
 }
 
-TEST_F(TestStateMachineWithArgs,EventPropagation)
+TEST_F(TestStateMachineNoArgs,EventPropagation)
 {
-    ::testing::NiceMock<TestStateMachineWithEventArgsMock> stateMachine;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
     ::testing::NiceMock
-        < TestSimpleStateWithArgsMock<TestStateMachineWithEventArgsMock>
+        < TestSimpleStateNoArgsMock<TestStateMachineNoEventArgsMock>
         > state;
 
     stateMachine.autoFinalize(false);
@@ -107,33 +107,33 @@ TEST_F(TestStateMachineWithArgs,EventPropagation)
 
     // Setup mock call expectations
     //----------------------------------------------------------------------------
-    EXPECT_CALL(state,handleEvent1(&stateMachine,"Hello!",42))
+    EXPECT_CALL(state,handleEvent1(&stateMachine))
         .Times(1);
-    EXPECT_CALL(state,handleEvent2(&stateMachine,3.1415))
+    EXPECT_CALL(state,handleEvent2(&stateMachine))
         .Times(1);
     EXPECT_CALL(state,handleEvent3(&stateMachine))
         .Times(1);
-    EXPECT_CALL(state,handleEvent4(&stateMachine,12345))
+    EXPECT_CALL(state,handleEvent4(&stateMachine))
         .Times(1);
 
     // Run the state machine
     //----------------------------------------------------------------------------
     stateMachine.initialize();
-    stateMachine.triggerEvent1("Hello!",42);
-    stateMachine.triggerEvent2(3.1415);
+    stateMachine.triggerEvent1();
+    stateMachine.triggerEvent2();
     stateMachine.triggerEvent3();
-    stateMachine.triggerEvent4(12345);
+    stateMachine.triggerEvent4();
     stateMachine.finalize(false);
 }
 
-TEST_F(TestStateMachineWithArgs,ChangeState)
+TEST_F(TestStateMachineNoArgs,ChangeState)
 {
-    ::testing::NiceMock<TestStateMachineWithEventArgsMock> stateMachine;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
     ::testing::NiceMock
-        < TestSimpleStateWithArgsMock<TestStateMachineWithEventArgsMock>
+        < TestSimpleStateNoArgsMock<TestStateMachineNoEventArgsMock>
         > state1;
     ::testing::NiceMock
-        < TestSimpleStateWithArgsMock<TestStateMachineWithEventArgsMock>
+        < TestSimpleStateNoArgsMock<TestStateMachineNoEventArgsMock>
         > state2;
 
     stateMachine.autoFinalize(false);
@@ -145,7 +145,7 @@ TEST_F(TestStateMachineWithArgs,ChangeState)
         .Times(1);
     EXPECT_CALL(state1,startDoImpl(&stateMachine))
         .Times(1);
-    EXPECT_CALL(state1,handleEvent1(&stateMachine,"Hello!",42))
+    EXPECT_CALL(state1,handleEvent1(&stateMachine))
         .Times(1)
         .WillOnce(DoStateChange(&state1,&state2));
     EXPECT_CALL(state1,endDoImpl(&stateMachine))
@@ -157,7 +157,7 @@ TEST_F(TestStateMachineWithArgs,ChangeState)
         .Times(1);
     EXPECT_CALL(state2,startDoImpl(&stateMachine))
         .Times(1);
-    EXPECT_CALL(state2,handleEvent2(&stateMachine,3.1415))
+    EXPECT_CALL(state2,handleEvent2(&stateMachine))
         .Times(1);
     EXPECT_CALL(state2,endDoImpl(&stateMachine))
         .Times(1);
@@ -167,7 +167,7 @@ TEST_F(TestStateMachineWithArgs,ChangeState)
     // Run the state machine
     //----------------------------------------------------------------------------
     stateMachine.initialize();
-    stateMachine.triggerEvent1("Hello!",42);
-    stateMachine.triggerEvent2(3.1415);
+    stateMachine.triggerEvent1();
+    stateMachine.triggerEvent2();
     stateMachine.finalize(false);
 }
