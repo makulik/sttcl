@@ -168,7 +168,10 @@ protected:
 };
 
 class TestStateMachineNoEventArgsMock
-: public TestStateMachineMock<TestStateMachineNoEventArgsMock,ITestStateInterfaceNoArgs<TestStateMachineNoEventArgsMock> >
+: public TestStateMachineMock
+  < TestStateMachineNoEventArgsMock
+  , ITestStateInterfaceNoArgs<TestStateMachineNoEventArgsMock>
+  >
 {
 public:
     typedef TestStateMachineMock<TestStateMachineNoEventArgsMock, ITestStateInterfaceNoArgs<TestStateMachineNoEventArgsMock> > MockBaseClass;

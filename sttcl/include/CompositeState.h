@@ -388,7 +388,7 @@ public:
      */
     typedef StateBaseImpl StateImplementationBase;
 
-    /**StateMachineBaseImpl::
+    /**
      * The composite states base state machine implementation type class.
      */
     typedef StateMachineBaseImpl StateMachineImplementationBase;
