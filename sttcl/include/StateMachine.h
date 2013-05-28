@@ -167,7 +167,7 @@ public:
 
     /**
      * Default implementation for isReady().
-     *
+
      * @return \c true if the state machine is ready to process events, \c false otherwise.
      */
     inline bool isReadyImpl() const
@@ -324,6 +324,26 @@ public:
             }
         STTCL_STATEMACHINE_SAFESECTION_END;
     }
+
+    /**
+     * Default implementation to set the state machine to \c isReady() conditions.
+     */
+    virtual void setReady()
+    {
+        static_cast<StateMachineImpl*>(this)->setReadyImpl();
+    }
+
+    /**
+     * Default implementation to set the state machine to \c isReady() conditions.
+     */
+    inline void setReadyImpl()
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            flags.finalized = false;
+            flags.initialized = true;
+        STTCL_STATEMACHINE_SAFESECTION_END;
+    }
+
 protected:
     /**
      * Constructor for class StateMachine.

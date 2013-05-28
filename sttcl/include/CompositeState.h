@@ -87,7 +87,7 @@ protected:
 
 	/**
 	 * Gets the last saved state.
-	 * @return
+	 * @return The last saved state.
 	 */
 	InnerStateType* getStateHistory() const
 	{
@@ -106,6 +106,7 @@ protected:
 		if(!compositeState->isReady())
 		{
 			compositeState->initialize();
+			compositeState->setReady();
 		}
 		InnerStateType* currentState = compositeState->getState();
 		return currentState;
@@ -185,12 +186,9 @@ protected:
 		else
 		{
 			compositeState->initialize();
+            compositeState->setReady();
 		}
 		InnerStateType* currentState = compositeState->getState();
-		if(currentState)
-		{
-			currentState->initSubStateMachines(true);
-		}
 		return currentState;
 	}
 
@@ -273,16 +271,13 @@ protected:
 		else
 		{
 			compositeState->initialize();
+            compositeState->setReady();
 		}
 		InnerStateType* currentState = compositeState->getState();
 		if(!currentState)
         {
             compositeState->finalize(false);
         }
-		else
-		{
-			currentState->initSubStateMachines(false);
-		}
 		return currentState;
 	}
 
@@ -557,12 +552,9 @@ protected:
     			StateMachineBaseImpl::initialize(true);
     		}
     	}
-    	else if(StateMachineBaseImpl::isReady())
+    	else if(currentState)
     	{
-    		if(currentState)
-    		{
-    			currentState->initSubStateMachines(recursive);
-    		}
+            currentState->initSubStateMachines(recursive);
     	}
     	else
     	{

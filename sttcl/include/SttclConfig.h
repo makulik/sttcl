@@ -42,7 +42,7 @@
 #define STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard) \
         { sttcl::internal::AutoLocker<StateMachineMutexType> lock(internalLockGuard);
 #else
-#define STTCL_STATEMACHINE_SAFESECTION_START
+#define STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard)
 #endif
 
 #if defined(STTCL_THREADSAFE_IMPL) && !defined(STTCL_STATEMACHINE_SAFESECTION_END)

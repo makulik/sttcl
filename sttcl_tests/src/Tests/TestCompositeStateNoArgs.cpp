@@ -338,7 +338,7 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_ShallowHistory_Interactions1
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(false))
         .Times(1);
     EXPECT_CALL(innerState,endDoImpl(&compositeState))
         .Times(1);
@@ -347,6 +347,9 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_ShallowHistory_Interactions1
 
     // Run the state machine
     //----------------------------------------------------------------------------
+    compositeState.enableLogging(true);
+    innerState.enableLogging(true);
+
     stateMachine.initialize();
     stateMachine.finalize(false);
 }
@@ -384,7 +387,7 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_ShallowHistory_Interactions2
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(false))
         .Times(1);
     EXPECT_CALL(innerState,endDoImpl(&compositeState))
         .Times(1);
