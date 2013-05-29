@@ -131,28 +131,28 @@ private:
 #define STTCL_LOGDEBUG1(message) STTCL_LOGDEBUG2(true, message)
 #define STTCL_MOCK_LOGDEBUG(mock_class_name,message) \
             STTCL_LOGDEBUG2( mock_class_name :: loggingEnabled() \
-                , "[DEBUG] " << #mock_class_name << "(" << mock_class_name :: id() << "): " << \
+                , "[DEBUG]   "  << mock_class_name :: id() << "(" << #mock_class_name << "): " << \
                   message )
 
 #define STTCL_LOGINFO2(pred,message) STTCL_TEST_LOG(pred,SttclTestLogLevel::Info, message)
 #define STTCL_LOGINFO1(message) STTCL_LOGINFO2(true, message)
 #define STTCL_MOCK_LOGINFO(mock_class_name,message) \
             STTCL_LOGINFO2( mock_class_name :: loggingEnabled() \
-                , "[INFO] " << #mock_class_name << "(" << mock_class_name :: id() << "): " << \
+                , "[INFO]    "  << mock_class_name :: id() << "(" << #mock_class_name << "): " << \
                   message )
 
 #define STTCL_LOGWARNING2(pred,message) STTCL_TEST_LOG(pred,SttclTestLogLevel::Warning, message)
 #define STTCL_LOGWARNING1(message) STTCL_LOGWARNING2(true, message)
 #define STTCL_MOCK_LOGWARNING(mock_class_name,message) \
             STTCL_LOGWARNING2( mock_class_name :: loggingEnabled() \
-                , "[WARNING] " << #mock_class_name << "(" << mock_class_name :: id() << "): " << \
+                , "[WARNING] " << mock_class_name :: id() << "(" << #mock_class_name << "): " << \
                   message )
 
 #define STTCL_LOGERROR2(pred,message) STTCL_TEST_LOG(pred,SttclTestLogLevel::Error, message)
 #define STTCL_LOGERROR1(message) STTCL_LOGERROR2(true, message)
 #define STTCL_MOCK_LOGERROR(mock_class_name,message) \
             STTCL_LOGERROR2( mock_class_name :: loggingEnabled() \
-                , "[ERROR] " << #mock_class_name << "(" << mock_class_name :: id() << "): " << \
+                , "[ERROR]   " << mock_class_name :: id() << "(" << #mock_class_name << "): " << \
                   message )
 
 #define STTCL_TEST_LOG_START(enableAllLogClients) { \
@@ -170,6 +170,6 @@ private:
           "********** End test case: " << \
           ::testing::UnitTest::GetInstance()->current_test_info()->test_case_name() << \
           "." << ::testing::UnitTest::GetInstance()->current_test_info()->name() << \
-          " **********") }
+          " **********" << std::endl) }
 
 #endif /* STTCLTESTLOG_H_ */

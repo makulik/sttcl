@@ -267,6 +267,7 @@ protected:
 		if(lastState)
 		{
 			compositeState->changeState(lastState);
+			lastState->initSubStateMachines(true);
 		}
 		else
 		{
@@ -552,13 +553,13 @@ protected:
     			StateMachineBaseImpl::initialize(true);
     		}
     	}
-    	else if(currentState)
+    	else if(!currentState)
+    	{
+			StateMachineBaseImpl::initialize(recursive);
+    	}
+    	else if(currentState && static_cast<StateMachineBaseImpl*>(this)->isInitalizing())
     	{
             currentState->initSubStateMachines(recursive);
-    	}
-    	else
-    	{
-			StateMachineBaseImpl::initialize(true);
     	}
     }
 };
