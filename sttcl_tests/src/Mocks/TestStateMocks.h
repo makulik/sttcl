@@ -227,8 +227,6 @@ public:
     MOCK_METHOD1_T(handleEvent3, void (StateMachineContext* context));
     MOCK_METHOD1_T(handleEvent4, void (StateMachineContext* context));
 
-protected:
-
     virtual void handleEvent1Call(StateMachineContext* context)
     {
         STTCL_MOCK_LOGDEBUG
@@ -291,8 +289,6 @@ public:
     MOCK_METHOD2_T(handleEvent2, void (StateMachineContext* context, double arg1));
     MOCK_METHOD1_T(handleEvent3, void (StateMachineContext* context));
     MOCK_METHOD2_T(handleEvent4, void (StateMachineContext* context, int arg1));
-
-protected:
 
     virtual void handleEvent1Call(StateMachineContext* context, const std::string& arg1, int arg2)
     {

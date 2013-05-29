@@ -9,9 +9,15 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
+#include "SttclTestLog.h"
+
 int main(int argc, char* argv[])
 {
 	::testing::InitGoogleTest(&argc, argv);
 	::testing::FLAGS_gmock_verbose = "error";
+
+	SttclTestLogManager::instance().logFilename("sttcl_tests.log");
+	SttclTestLogManager::logLevelEnabled(SttclTestLogLevel::All);
+
 	return RUN_ALL_TESTS();
 }

@@ -147,7 +147,7 @@ TEST_F(TestStateMachineNoArgs,ChangeState)
         .Times(1);
     EXPECT_CALL(state1,handleEvent1(&stateMachine))
         .Times(1)
-        .WillOnce(DoStateChange(&state1,&state2));
+        .WillOnce( TRIGGER_STATE_CHANGE(TestSimpleStateNoArgsMock<TestStateMachineNoEventArgsMock>, handleEvent1, &state1, &state2) );
     EXPECT_CALL(state1,endDoImpl(&stateMachine))
         .Times(1);
     EXPECT_CALL(state1,exitImpl(&stateMachine))

@@ -305,6 +305,7 @@ public:
             , HistoryType
             > MockBaseClass;
     typedef ITestStateInterfaceNoArgs<TestCompositeStateNoArgsMock<StateMachineContext,HistoryType> > InnerStateInterface;
+    typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
 
     TestCompositeStateNoArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
     : MockBaseClass(id,enableLogging)
@@ -326,14 +327,23 @@ public:
     MOCK_METHOD1_T(handleEvent3, void (StateMachineContext* context));
     MOCK_METHOD1_T(handleEvent4, void (StateMachineContext* context));
 
-protected:
-
     virtual void handleEvent1Call(StateMachineContext* context)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestCompositeStateNoArgsMock
             , "handleEvent1Call( context = " << context <<  ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateNoArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent1( " <<
+                  this << ") ..."
+                );
+            currentState->handleEvent1(this);
+        }
     }
 
     virtual void handleEvent2Call(StateMachineContext* context)
@@ -342,6 +352,17 @@ protected:
             ( TestCompositeStateNoArgsMock
             , "handleEvent2Call( context = " << context <<  ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateNoArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent2( " <<
+                  this << ") ..."
+                );
+            currentState->handleEvent2(this);
+        }
     }
 
     virtual void handleEvent3Call(StateMachineContext* context)
@@ -350,14 +371,36 @@ protected:
             ( TestCompositeStateNoArgsMock
             , "handleEvent3Call( context = " << context <<  ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateNoArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent3( " <<
+                  this << ") ..."
+                );
+            currentState->handleEvent3(this);
+        }
     }
 
     virtual void handleEvent4Call(StateMachineContext* context)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestCompositeStateNoArgsMock
-            , "handleEvent2Call( context = " << context <<  ") called ..."
+            , "handleEvent4Call( context = " << context <<  ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateNoArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent4( " <<
+                  this << ") ..."
+                );
+            currentState->handleEvent4(this);
+        }
     }
 
 };
@@ -383,6 +426,7 @@ public:
             , ITestStateInterfaceNoArgs<TestCompositeStateWithArgsMock<StateMachineContext,HistoryType> >
             , HistoryType
             > MockBaseClass;
+    typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
 
     TestCompositeStateWithArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
     : MockBaseClass(id,enableLogging)
@@ -404,8 +448,6 @@ public:
     MOCK_METHOD1_T(handleEvent3, void (StateMachineContext* context));
     MOCK_METHOD2_T(handleEvent4, void (StateMachineContext* context, int arg1));
 
-protected:
-
     virtual void handleEvent1Call(StateMachineContext* context, const std::string& arg1, int arg2)
     {
         STTCL_MOCK_LOGDEBUG
@@ -415,6 +457,20 @@ protected:
               ", arg2 = " << arg2 <<
               ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateWithArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent1( " <<
+                  this <<
+                  ", arg1 = " << arg1 <<
+                  ", arg2 = " << arg2 <<
+                  ") ..."
+                );
+            currentState->handleEvent1(this,arg1,arg2);
+        }
     }
 
     virtual void handleEvent2Call(StateMachineContext* context, double arg1)
@@ -425,6 +481,19 @@ protected:
               ", arg1 = " << arg1 <<
               ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateWithArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent2( " <<
+                  this <<
+                  ", arg1 = " << arg1 <<
+                  ") ..."
+                );
+            currentState->handleEvent2(this,arg1);
+        }
     }
 
     virtual void handleEvent3Call(StateMachineContext* context)
@@ -433,16 +502,41 @@ protected:
             ( TestCompositeStateWithArgsMock
             , "handleEvent3Call( context = " << context <<  ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateWithArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent3( " <<
+                  this <<
+                  ") ..."
+                );
+            currentState->handleEvent3(this);
+        }
     }
 
     virtual void handleEvent4Call(StateMachineContext* context, int arg1)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestCompositeStateWithArgsMock
-            , "handleEvent2Call( context = " << context <<
+            , "handleEvent4Call( context = " << context <<
               ", arg1 = " << arg1 <<
               ") called ..."
             );
+        // Propagate event to the current state
+        InnerStateBaseClass* currentState = MockBaseClass::getState();
+        if(currentState)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestCompositeStateWithArgsMock
+                , "Calling currentState[" << currentState << "]->handleEvent4( " <<
+                  this <<
+                  ", arg1 = " << arg1 <<
+                  ") ..."
+                );
+            currentState->handleEvent4(this,arg1);
+        }
     }
 
 };
