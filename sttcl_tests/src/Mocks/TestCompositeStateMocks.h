@@ -413,8 +413,8 @@ class TestCompositeStateWithArgsMock
 : public TestCompositeStateMock
       < TestCompositeStateWithArgsMock<StateMachineContext,HistoryType>
       , StateMachineContext
-      , ITestStateInterfaceNoArgs<StateMachineContext>
-      , ITestStateInterfaceNoArgs<TestCompositeStateWithArgsMock<StateMachineContext,HistoryType> >
+      , ITestStateInterfaceWithArgs<StateMachineContext>
+      , ITestStateInterfaceWithArgs<TestCompositeStateWithArgsMock<StateMachineContext,HistoryType> >
       , HistoryType
       >
 {
@@ -422,8 +422,8 @@ public:
     typedef TestCompositeStateMock
             < TestCompositeStateWithArgsMock<StateMachineContext,HistoryType>
             , StateMachineContext
-            , ITestStateInterfaceNoArgs<StateMachineContext>
-            , ITestStateInterfaceNoArgs<TestCompositeStateWithArgsMock<StateMachineContext,HistoryType> >
+            , ITestStateInterfaceWithArgs<StateMachineContext>
+            , ITestStateInterfaceWithArgs<TestCompositeStateWithArgsMock<StateMachineContext,HistoryType> >
             , HistoryType
             > MockBaseClass;
     typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
