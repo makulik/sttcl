@@ -552,7 +552,10 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-		    BaseClassType::regions[i] && BaseClassType::regions[i]->startDoRegionContainerBaseRegion(static_cast<CompositeStateImpl*>(this));
+		    if(BaseClassType::regions[i])
+            {
+		        BaseClassType::regions[i]->startDoRegion(static_cast<CompositeStateImpl*>(this));
+            }
 		}
     }
 

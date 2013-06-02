@@ -5,8 +5,8 @@
  *      Author: user
  */
 
-#ifndef IACTIVESTATECLIENT_H_
-#define IACTIVESTATECLIENT_H_
+#ifndef ICOMPOSiTESTATECLIENT_H_
+#define ICOMPOSiTESTATECLIENT_H_
 
 #include "ISimpleStateClient.h"
 
@@ -30,4 +30,4 @@ struct ICompositeStateClient
 };
 
 
-#endif /* IACTIVESTATECLIENT_H_ */
+#endif /* ICOMPOSiTESTATECLIENT_H_ */

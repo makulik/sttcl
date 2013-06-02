@@ -11,15 +11,16 @@
 #include "EventArgs.h"
 
 template
-    < typename StateMachineType
-    , typename RegionContextType
+    < typename RegionContainerType
     >
 struct ITestInnerConcurrentStateInterfaceWithArgs
 {
-    void handleEvent1(StateMachineType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
-    void handleEvent2(StateMachineType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
-    void handleEvent3(StateMachineType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
-    void handleEvent4(StateMachineType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    typedef typename RegionContainerType::RegionBaseType RegionContextType;
+
+    void handleEvent1(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    void handleEvent2(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    void handleEvent3(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    void handleEvent4(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
 };
 
 

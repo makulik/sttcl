@@ -9,15 +9,16 @@
 #define ITESTINNERCONCURRENTSTATEINTERFACENOARGS_H_
 
 template
-    < typename StateMachineType
-    , typename RegionContextType
+    < typename RegionContainerType
     >
 struct ITestInnerConcurrentStateInterfaceNoArgs
 {
-    void handleEvent1(StateMachineType* context, RegionContextType* regionContext) = 0;
-    void handleEvent2(StateMachineType* context, RegionContextType* regionContext) = 0;
-    void handleEvent3(StateMachineType* context, RegionContextType* regionContext) = 0;
-    void handleEvent4(StateMachineType* context, RegionContextType* regionContext) = 0;
+    typedef typename RegionContainerType::RegionBaseType RegionContextType;
+
+    virtual void handleEvent1(RegionContainerType* context, RegionContextType* regionContext) = 0;
+    virtual void handleEvent2(RegionContainerType* context, RegionContextType* regionContext) = 0;
+    virtual void handleEvent3(RegionContainerType* context, RegionContextType* regionContext) = 0;
+    virtual void handleEvent4(RegionContainerType* context, RegionContextType* regionContext) = 0;
 };
 
 

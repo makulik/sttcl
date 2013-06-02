@@ -444,21 +444,23 @@ public:
      * @param force Indicates to finalize the state machine before (re-)initializing.
      * @return The ready state of the state machine.
      */
-    bool initializeImpl(bool force)
-    {
-    	return static_cast<StateMachineBaseImpl*>(this)->initializeImpl(force);
-    }
+// TODO: Check if this is really needed
+//    bool initializeImpl(bool force)
+//    {
+//    	return static_cast<StateMachineBaseImpl*>(this)->initializeImpl(force);
+//    }
 
     /**
      * Default implementation for the finalize() method.
      *
      * @param finalizeSubStateMachines Indicates to finalize any sub state machines.
      */
-    inline void finalizeImpl(bool finalizeSubStateMachines)
-    {
-    	static_cast<StateMachineBaseImpl*>(this)->finalizeImpl(finalizeSubStateMachines);
-    	subStateMachineCompleted();
-    }
+// TODO: Check if this is really needed
+//    inline void finalizeImpl(bool finalizeSubStateMachines)
+//    {
+//    	static_cast<StateMachineBaseImpl*>(this)->finalizeImpl(finalizeSubStateMachines);
+//    	subStateMachineCompleted();
+//    }
 
     /**
      * Default implementation of the subStateMachineCompleted() method.

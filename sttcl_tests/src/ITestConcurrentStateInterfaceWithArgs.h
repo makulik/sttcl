@@ -13,10 +13,10 @@
 template<typename StateMachineType>
 struct ITestConcurrentStateInterfaceWithArgs
 {
-    void handleEvent1(StateMachineType* context, EventArgsPtr eventArgs) = 0;
-    void handleEvent2(StateMachineType* context, EventArgsPtr eventArgs) = 0;
-    void handleEvent3(StateMachineType* context, EventArgsPtr eventArgs) = 0;
-    void handleEvent4(StateMachineType* context, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent1(StateMachineType* context, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent2(StateMachineType* context, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent3(StateMachineType* context, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent4(StateMachineType* context, EventArgsPtr eventArgs) = 0;
 };
 
 
