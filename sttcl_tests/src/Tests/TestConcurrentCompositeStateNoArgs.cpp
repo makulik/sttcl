@@ -11,6 +11,7 @@
 #include "TestStateMachineMocks.h"
 #include "TestConcurrentCompositeStateMocks.h"
 #include "TestStateMocks.h"
+#include "TestRegionMocks.h"
 #include "SttclTestActions.h"
 
 class TestConcurrentCompositeStateNoArgs
@@ -119,10 +120,10 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     ::testing::NiceMock
         < ConcurrentCompositeStateMockType
         > compositeState(&stateMachine);
-// TODO: Replace wirh region
-//    ::testing::NiceMock
-//        < TestSimpleStateNoArgsMock<ConcurrentCompositeStateMockType>
-//        > innerState;
+
+    ::testing::NiceMock
+        < TestRegionNoArgsMock<ConcurrentCompositeStateMockType>
+        > region(&compositeState);
 
     stateMachine.autoFinalize(false);
 //    compositeState.initialState(&innerState);
@@ -139,17 +140,19 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     EXPECT_CALL(compositeState,exitImpl(&stateMachine))
         .Times(1);
 
-// TODO: Check region calls
-//    EXPECT_CALL(innerState,entryImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,startDoImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
-//        .Times(1);
-//    EXPECT_CALL(innerState,endDoImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,exitImpl(&compositeState))
-//        .Times(1);
+    // Check region calls
+    EXPECT_CALL(region,enterRegionImpl(&compositeState))
+        .Times(1);
+    EXPECT_CALL(region,startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,initializeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,exitRegionImpl(&compositeState))
+        .Times(1);
 
     // Run the state machine
     //----------------------------------------------------------------------------
@@ -167,10 +170,9 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
         < ConcurrentCompositeStateMockType
         > compositeState(&stateMachine);
 
-// TODO: Replace wirh region
-//    ::testing::NiceMock
-//        < TestSimpleStateNoArgsMock<ConcurrentCompositeStateMockType>
-//        > innerState;
+    ::testing::NiceMock
+        < TestRegionNoArgsMock<ConcurrentCompositeStateMockType>
+        > region(&compositeState);
 
     stateMachine.autoFinalize(false);
 //    compositeState.initialState(&innerState);
@@ -187,17 +189,19 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     EXPECT_CALL(compositeState,exitImpl(&stateMachine))
         .Times(1);
 
-// TODO: Check region calls
-//    EXPECT_CALL(innerState,entryImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,startDoImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
-//        .Times(1);
-//    EXPECT_CALL(innerState,endDoImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,exitImpl(&compositeState))
-//        .Times(1);
+    // Check region calls
+    EXPECT_CALL(region,enterRegionImpl(&compositeState))
+        .Times(1);
+    EXPECT_CALL(region,startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,initializeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,exitRegionImpl(&compositeState))
+        .Times(1);
 
     // Run the state machine
     //----------------------------------------------------------------------------
@@ -214,10 +218,9 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     ::testing::NiceMock
         < ConcurrentCompositeStateMockType
         > compositeState(&stateMachine);
-// TODO: Replace wirh region
-//    ::testing::NiceMock
-//        < TestSimpleStateNoArgsMock<ConcurrentCompositeStateMockType>
-//        > innerState;
+    ::testing::NiceMock
+        < TestRegionNoArgsMock<ConcurrentCompositeStateMockType>
+        > region(&compositeState);
 
     stateMachine.autoFinalize(false);
 //    compositeState.initialState(&innerState);
@@ -234,17 +237,19 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     EXPECT_CALL(compositeState,exitImpl(&stateMachine))
         .Times(1);
 
-// TODO: Check region calls
-//    EXPECT_CALL(innerState,entryImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,startDoImpl(&compositeState))
-//        .Times(1);
-////    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
-////        .Times(1);
-//    EXPECT_CALL(innerState,endDoImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,exitImpl(&compositeState))
-//        .Times(1);
+    // Check region calls
+    EXPECT_CALL(region,enterRegionImpl(&compositeState))
+        .Times(1);
+    EXPECT_CALL(region,startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,initializeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,exitRegionImpl(&compositeState))
+        .Times(1);
 
     // Run the state machine
     //----------------------------------------------------------------------------
@@ -261,10 +266,9 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     ::testing::NiceMock
         < ConcurrentCompositeStateMockType
         > compositeState(&stateMachine);
-// TODO: Replace with region
-//    ::testing::NiceMock
-//        < TestSimpleStateNoArgsMock<ConcurrentCompositeStateMockType>
-//        > innerState;
+    ::testing::NiceMock
+        < TestRegionNoArgsMock<ConcurrentCompositeStateMockType>
+        > region(&compositeState);
 
     stateMachine.autoFinalize(false);
 //    compositeState.initialState(&innerState);
@@ -281,17 +285,19 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     EXPECT_CALL(compositeState,exitImpl(&stateMachine))
         .Times(1);
 
-// TODO: Check region calls
-//    EXPECT_CALL(innerState,entryImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,startDoImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,initSubStateMachinesImpl(false))
-//        .Times(1);
-//    EXPECT_CALL(innerState,endDoImpl(&compositeState))
-//        .Times(1);
-//    EXPECT_CALL(innerState,exitImpl(&compositeState))
-//        .Times(1);
+    // Check region calls
+    EXPECT_CALL(region,enterRegionImpl(&compositeState))
+        .Times(1);
+    EXPECT_CALL(region,startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,initializeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region,endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region,exitRegionImpl(&compositeState))
+        .Times(1);
 
     // Run the state machine
     //----------------------------------------------------------------------------

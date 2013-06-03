@@ -21,29 +21,29 @@
 template
     < typename RegionImpl
     , typename RegionContainer
-    , typename OuterStateInterface
     , typename InnerStateInterface
-    , sttcl::RegionHistoryType::Values HistoryType
+    , typename EventArgsType
+    , sttcl::CompositeStateHistoryType::Values HistoryType
     >
 class TestRegionMock
 : public SttclTestMockBaseClass
-, public sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,HistoryType>
+, public sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,EventArgsType,HistoryType>
 , public IRegionClient
-    < RegionContainer
-    , sttcl::StateBase<RegionContainer,OuterStateInterface>
-    , sttcl::StateBase<RegionImpl,InnerStateInterface>
+    < RegionImpl
+    , RegionContainer
+    , InnerStateInterface
     >
 {
 public:
-    typedef TestRegionMock<RegionImpl,RegionContainer,OuterStateInterface,InnerStateInterface,HistoryType> SelfClassType;
-    typedef sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,HistoryType> SttclRegionBaseClass;
+    typedef TestRegionMock<RegionImpl,RegionContainer,InnerStateInterface,EventArgsType,HistoryType> SelfClassType;
+    typedef sttcl::Region<RegionImpl,RegionContainer,InnerStateInterface,EventArgsType,HistoryType> SttclRegionBaseClass;
     typedef sttcl::StateMachine<RegionImpl,InnerStateInterface> SttclCompsiteStateMachineBaseClass;
-    typedef sttcl::StateBase<RegionContainer,OuterStateInterface> StateBaseClass;
+//    typedef sttcl::StateBase<RegionContainer,OuterStateInterface> StateBaseClass;
     //typedef SttclRegionBaseClass StateBaseType;
     typedef sttcl::StateBase<RegionImpl,InnerStateInterface> InnerStateBaseClass;
     typedef RegionContainer Context;
 
-    MOCK_CONST_METHOD0_T(getInitialStateImpl, InnerStateClass* ());
+    MOCK_CONST_METHOD0_T(getInitialStateImpl, InnerStateBaseClass* ());
     MOCK_CONST_METHOD0(isReadyImpl, bool ());
     MOCK_METHOD1(initializeImpl, bool (bool force));
     MOCK_METHOD1(finalizeImpl,void (bool finalizeSubStateMachines));
@@ -63,64 +63,59 @@ public:
             );
     }
 
-    void doStateChange(Context* context, StateBaseClass* newState)
-    {
-        STTCL_MOCK_LOGDEBUG
-            ( TestRegionMock
-            , "Changing to state = " << newState << " ..."
-            );
-        SttclRegionBaseClass::changeState(context,newState);
-    }
-
-    void setDirectTransitState(StateBaseClass* directTransitState)
-    {
-        directTransitState_ = directTransitState;
-    }
-
-    bool finalizeOnNextDirectTransit() const { return finalizeOnNextDirectTransit_; }
-    void finalizeOnNextDirectTransit(bool value) { finalizeOnNextDirectTransit_ = value; }
-
     InnerStateBaseClass* initialState() const { return initialState_; }
     void initialState(InnerStateBaseClass* value) { initialState_ = value; }
 
+    bool waitForDoActionExited(const sttcl::TimeDuration<>& checkFrequency, int retries = 1)
+    {
+        do
+        {
+            if(doActionExited_)
+            {
+                return true;
+            }
+            sttcl::internal::SttclThread<>::sleep(checkFrequency);
+            --retries;
+        } while(retries > 0);
+        return false;
+    }
 
 protected:
-    StateBaseClass* directTransitState_;
-    bool finalizeOnNextDirectTransit_;
     InnerStateBaseClass* initialState_;
+    volatile bool doActionExited_;
 
     TestRegionMock
-        ( const std::string& id = "<anonymous>"
+        ( RegionContainer* regionContainer
+        , const std::string& id = "<anonymous>"
         , sttcl::TimeDuration<> doActionFrequency = sttcl::TimeDuration<>(0,0,0,10)
         , bool loggingEnabled = false
         )
     : SttclTestMockBaseClass(id,loggingEnabled)
     , SttclRegionBaseClass(regionContainer,doActionFrequency)
-    , directTransitState_(0)
-    , finalizeOnNextDirectTransit_(false)
     , initialState_(0)
+    , doActionExited_(false)
     {
         ON_CALL(*this, initializeImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::initializeImplCall));
+            .WillByDefault(Invoke(this, &TestRegionMock::initializeImplCall));
         ON_CALL(*this, finalizeImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::finalizeImplCall));
+            .WillByDefault(Invoke(this, &TestRegionMock::finalizeImplCall));
         ON_CALL(*this, subStateMachineCompleted())
-            .WillByDefault(Invoke(this, &SttclRegionMock::subStateMachineCompletedCall));
+            .WillByDefault(Invoke(this, &TestRegionMock::subStateMachineCompletedCall));
         ON_CALL(*this, subStateMachineCompletedImpl())
-            .WillByDefault(Invoke(this, &SttclRegionMock::subStateMachineCompletedImplCall0));
+            .WillByDefault(Invoke(this, &TestRegionMock::subStateMachineCompletedImplCall0));
         ON_CALL(*this, getInitialStateImpl())
-            .WillByDefault(Invoke((const SttclRegionMock*)this, &SttclRegionMock::getInitialStateImplCall));
+            .WillByDefault(Invoke((const TestRegionMock*)this, &TestRegionMock::getInitialStateImplCall));
         ON_CALL(*this, isReadyImpl())
-            .WillByDefault(Invoke((const SttclRegionMock*)this, &SttclRegionMock::isReadyImplCall));
+            .WillByDefault(Invoke((const TestRegionMock*)this, &TestRegionMock::isReadyImplCall));
 
         ON_CALL(*this, enterRegionImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::enterRegionImplCall));
+            .WillByDefault(Invoke(this, &TestRegionMock::enterRegionImplCall));
         ON_CALL(*this, exitRegionImpl(_))
-            .WillByDefault(Invoke(this, &SttclRegionMock::exitRegionImplCall));
+            .WillByDefault(Invoke(this, &TestRegionMock::exitRegionImplCall));
         ON_CALL(*this, startingRegionThread())
-            .WillByDefault(Invoke(this, &SttclRegionMock::startingRegionThreadCall));
+            .WillByDefault(Invoke(this, &TestRegionMock::startingRegionThreadCall));
         ON_CALL(*this, endingRegionThread())
-            .WillByDefault(Invoke(this, &SttclRegionMock::endingRegionThreadCall));
+            .WillByDefault(Invoke(this, &TestRegionMock::endingRegionThreadCall));
     }
 
     bool isReadyImplCall() const
@@ -178,19 +173,38 @@ protected:
         SttclRegionBaseClass::subStateMachineCompletedImpl();
     }
 
-    void subStateMachineCompletedImplCall1(typename IStateMachineHooks<ITestInnerStateInterface<NestingLevel> >::StateBaseClass* state)
+    void subStateMachineCompletedImplCall1(InnerStateBaseClass* state)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionMock
             , "Calling SttclRegionBaseClass::subStateMachineCompleted() ..."
             );
-        RegionBaseClass::subStateMachineCompleted();
+        SttclRegionBaseClass::subStateMachineCompleted();
     }
 
-    InnerStateClass* getInitialStateImplCall() const
+    InnerStateBaseClass* getInitialStateImplCall() const
     {
-        sttcl::internal::AutoLocker<sttcl::internal::SttclMutex<> > lock(internalGuard_);
-        return initialState_;
+        InnerStateBaseClass* result = initialState();
+        if(!result)
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestRegionMock
+                , "calling SttclRegionBaseClass::getInitialStateImpl() ..."
+                );
+            result = SttclRegionBaseClass::getInitialStateImpl();
+            STTCL_MOCK_LOGDEBUG
+                ( TestRegionMock
+                , "Using base class result = " << result
+                );
+        }
+        else
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestRegionMock
+                , "Using mock initial state property: " << result
+                );
+        }
+        return result;
     }
 
 
@@ -219,6 +233,7 @@ protected:
             , "Calling SttclRegionBaseClass::startingRegionThread() ..."
             );
         SttclRegionBaseClass::startingRegionThread();
+        doActionExited_ = false;
     }
 
     void endingRegionThreadCall()
@@ -228,20 +243,20 @@ protected:
             , "Calling SttclRegionBaseClass::endingRegionThread() ..."
             );
         SttclRegionBaseClass::endingRegionThread();
-        doActionThreadExited_.post();
+        doActionExited_ = false;
     }
 };
 
 template
     < typename RegionContainer
-    , sttcl::RegionHistoryType::Values HistoryType = sttcl::RegionHistoryType::None
+    , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::None
     >
 class TestRegionNoArgsMock
 : public TestRegionMock
       < TestRegionNoArgsMock<RegionContainer,HistoryType>
       , RegionContainer
-      , ITestStateInterfaceNoArgs<RegionContainer>
-      , ITestStateInterfaceNoArgs<TestRegionNoArgsMock<RegionContainer,HistoryType> >
+      , ITestInnerConcurrentStateInterfaceNoArgs<RegionContainer>
+      , void
       , HistoryType
       >
 {
@@ -249,106 +264,111 @@ public:
     typedef TestRegionMock
             < TestRegionNoArgsMock<RegionContainer,HistoryType>
             , RegionContainer
-            , ITestStateInterfaceNoArgs<RegionContainer>
-            , ITestStateInterfaceNoArgs<TestRegionNoArgsMock<RegionContainer,HistoryType> >
+            , ITestInnerConcurrentStateInterfaceNoArgs<RegionContainer>
+            , void
             , HistoryType
             > MockBaseClass;
-    typedef ITestStateInterfaceNoArgs<TestRegionNoArgsMock<RegionContainer,HistoryType> > InnerStateInterface;
+    typedef ITestInnerConcurrentStateInterfaceNoArgs<RegionContainer> InnerStateInterface;
     typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
+    typedef typename InnerStateInterface::RegionContextType RegionContextType;
 
-    TestRegionNoArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
-    : MockBaseClass(id,enableLogging)
+    TestRegionNoArgsMock(RegionContainer* regionContainer, const std::string& id = "<anonymous>", bool enableLogging = false)
+    : MockBaseClass(regionContainer,id,enableLogging)
     {
-        ON_CALL(*this,handleEvent1(_))
+        ON_CALL(*this,handleEvent1(_,_))
             .WillByDefault(Invoke(this, &TestRegionNoArgsMock::handleEvent1Call));
-        ON_CALL(*this,handleEvent2(_))
+        ON_CALL(*this,handleEvent2(_,_))
             .WillByDefault(Invoke(this, &TestRegionNoArgsMock::handleEvent2Call));
-        ON_CALL(*this,handleEvent3(_))
+        ON_CALL(*this,handleEvent3(_,_))
             .WillByDefault(Invoke(this, &TestRegionNoArgsMock::handleEvent3Call));
-        ON_CALL(*this,handleEvent4(_))
+        ON_CALL(*this,handleEvent4(_,_))
             .WillByDefault(Invoke(this, &TestRegionNoArgsMock::handleEvent4Call));
     }
 
     virtual ~TestRegionNoArgsMock() {}
 
-    MOCK_METHOD1_T(handleEvent1, void (RegionContainer* context));
-    MOCK_METHOD1_T(handleEvent2, void (RegionContainer* context));
-    MOCK_METHOD1_T(handleEvent3, void (RegionContainer* context));
-    MOCK_METHOD1_T(handleEvent4, void (RegionContainer* context));
+    MOCK_METHOD2_T(handleEvent1, void (RegionContainer* context, RegionContextType* regionContext));
+    MOCK_METHOD2_T(handleEvent2, void (RegionContainer* context, RegionContextType* regionContext));
+    MOCK_METHOD2_T(handleEvent3, void (RegionContainer* context, RegionContextType* regionContext));
+    MOCK_METHOD2_T(handleEvent4, void (RegionContainer* context, RegionContextType* regionContext));
 
-    virtual void handleEvent1Call(RegionContainer* context)
+    virtual void handleEvent1Call(RegionContainer* context, RegionContextType* regionContext)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionNoArgsMock
             , "handleEvent1Call( context = " << context <<  ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionNoArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent1( " <<
-                  this << ") ..."
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent1 << ") ..."
                 );
-            currentState->handleEvent1(this);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent1);
         }
     }
 
-    virtual void handleEvent2Call(RegionContainer* context)
+    virtual void handleEvent2Call(RegionContainer* context, RegionContextType* regionContext)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionNoArgsMock
             , "handleEvent2Call( context = " << context <<  ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionNoArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent2( " <<
-                  this << ") ..."
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent2 << ") ..."
                 );
-            currentState->handleEvent2(this);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent2);
         }
     }
 
-    virtual void handleEvent3Call(RegionContainer* context)
+    virtual void handleEvent3Call(RegionContainer* context, RegionContextType* regionContext)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionNoArgsMock
             , "handleEvent3Call( context = " << context <<  ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionNoArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent3( " <<
-                  this << ") ..."
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent3 << ") ..."
                 );
-            currentState->handleEvent3(this);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent3);
         }
     }
 
-    virtual void handleEvent4Call(RegionContainer* context)
+    virtual void handleEvent4Call(RegionContainer* context, RegionContextType* regionContext)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionNoArgsMock
             , "handleEvent4Call( context = " << context <<  ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionNoArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent4( " <<
-                  this << ") ..."
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent3 << ") ..."
                 );
-            currentState->handleEvent4(this);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent4);
         }
     }
 
@@ -356,135 +376,146 @@ public:
 
 template
     < typename RegionContainer
-    , sttcl::RegionHistoryType::Values HistoryType = sttcl::RegionHistoryType::None
+    , sttcl::CompositeStateHistoryType::Values HistoryType = sttcl::CompositeStateHistoryType::None
     >
 class TestRegionWithArgsMock
 : public TestRegionMock
-      < TestRegionWithArgsMock<RegionContainer,HistoryType>
+      < TestRegionNoArgsMock<RegionContainer,HistoryType>
       , RegionContainer
-      , ITestStateInterfaceWithArgs<RegionContainer>
-      , ITestStateInterfaceWithArgs<TestRegionWithArgsMock<RegionContainer,HistoryType> >
+      , ITestInnerConcurrentStateInterfaceNoArgs<RegionContainer>
+      , EventArgs
       , HistoryType
       >
 {
 public:
     typedef TestRegionMock
-            < TestRegionWithArgsMock<RegionContainer,HistoryType>
+            < TestRegionNoArgsMock<RegionContainer,HistoryType>
             , RegionContainer
-            , ITestStateInterfaceWithArgs<RegionContainer>
-            , ITestStateInterfaceWithArgs<TestRegionWithArgsMock<RegionContainer,HistoryType> >
+            , ITestInnerConcurrentStateInterfaceWithArgs<RegionContainer>
+            , EventArgs
             , HistoryType
             > MockBaseClass;
+    typedef ITestInnerConcurrentStateInterfaceWithArgs<RegionContainer> InnerStateInterface;
     typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
+    typedef typename InnerStateInterface::RegionContextType RegionContextType;
 
-    TestRegionWithArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
-    : MockBaseClass(id,enableLogging)
+    TestRegionWithArgsMock(RegionContainer* regionContainer, const std::string& id = "<anonymous>", bool enableLogging = false)
+    : MockBaseClass(regionContainer,id,enableLogging)
     {
         ON_CALL(*this,handleEvent1(_,_,_))
             .WillByDefault(Invoke(this, &TestRegionWithArgsMock::handleEvent1Call));
-        ON_CALL(*this,handleEvent2(_,_))
+        ON_CALL(*this,handleEvent2(_,_,_))
             .WillByDefault(Invoke(this, &TestRegionWithArgsMock::handleEvent2Call));
-        ON_CALL(*this,handleEvent3(_))
+        ON_CALL(*this,handleEvent3(_,_,_))
             .WillByDefault(Invoke(this, &TestRegionWithArgsMock::handleEvent3Call));
-        ON_CALL(*this,handleEvent4(_,_))
+        ON_CALL(*this,handleEvent4(_,_,_))
             .WillByDefault(Invoke(this, &TestRegionWithArgsMock::handleEvent4Call));
     }
 
     virtual ~TestRegionWithArgsMock() {}
 
-    MOCK_METHOD3_T(handleEvent1, void (RegionContainer* context, const std::string& arg1, int arg2));
-    MOCK_METHOD2_T(handleEvent2, void (RegionContainer* context, double arg1));
-    MOCK_METHOD1_T(handleEvent3, void (RegionContainer* context));
-    MOCK_METHOD2_T(handleEvent4, void (RegionContainer* context, int arg1));
+    MOCK_METHOD3_T(handleEvent1, void (RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs));
+    MOCK_METHOD3_T(handleEvent2, void (RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs));
+    MOCK_METHOD3_T(handleEvent3, void (RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs));
+    MOCK_METHOD3_T(handleEvent4, void (RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs));
 
-    virtual void handleEvent1Call(RegionContainer* context, const std::string& arg1, int arg2)
+    void handleEvent1Call(RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionWithArgsMock
             , "handleEvent1Call( context = " << context <<
-              ", arg1 = " << arg1 <<
-              ", arg2 = " << arg2 <<
+              ", regionContext = " << regionContext <<
+              ", eventArgs = " << eventArgs.get() <<
               ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionWithArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent1( " <<
-                  this <<
-                  ", arg1 = " << arg1 <<
-                  ", arg2 = " << arg2 <<
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent1 <<
+                  ", eventArgs = " << eventArgs.get() <<
                   ") ..."
                 );
-            currentState->handleEvent1(this,arg1,arg2);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent1,eventArgs);
         }
     }
 
-    virtual void handleEvent2Call(RegionContainer* context, double arg1)
+    void handleEvent2Call(RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionWithArgsMock
             , "handleEvent2Call( context = " << context <<
-              ", arg1 = " << arg1 <<
+              ", regionContext = " << regionContext <<
+              ", eventArgs = " << eventArgs.get() <<
               ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionWithArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent2( " <<
-                  this <<
-                  ", arg1 = " << arg1 <<
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent2 <<
+                  ", eventArgs = " << eventArgs.get() <<
                   ") ..."
                 );
-            currentState->handleEvent2(this,arg1);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent2,eventArgs);
         }
     }
 
-    virtual void handleEvent3Call(RegionContainer* context)
+    void handleEvent3Call(RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionWithArgsMock
-            , "handleEvent3Call( context = " << context <<  ") called ..."
+            , "handleEvent3Call( context = " << context <<
+              ", regionContext = " << regionContext <<
+              ", eventArgs = " << eventArgs.get() <<
+              ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionWithArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent3( " <<
-                  this <<
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent3 <<
+                  ", eventArgs = " << eventArgs.get() <<
                   ") ..."
                 );
-            currentState->handleEvent3(this);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent3,eventArgs);
         }
     }
 
-    virtual void handleEvent4Call(RegionContainer* context, int arg1)
+    void handleEvent4Call(RegionContainer* context, RegionContextType* regionContext, EventArgsPtr eventArgs)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionWithArgsMock
             , "handleEvent4Call( context = " << context <<
-              ", arg1 = " << arg1 <<
+              ", regionContext = " << regionContext <<
+              ", eventArgs = " << eventArgs.get() <<
               ") called ..."
             );
-        // Propagate event to the current state
+        // Propagate event to the current inner state
         InnerStateBaseClass* currentState = MockBaseClass::getState();
         if(currentState)
         {
             STTCL_MOCK_LOGDEBUG
                 ( TestRegionWithArgsMock
-                , "Calling currentState[" << currentState << "]->handleEvent4( " <<
-                  this <<
-                  ", arg1 = " << arg1 <<
+                , "MockBaseClass::dispatchEvent( context = " << context <<
+                  ", currentState = " << currentState <<
+                  ", eventHandler = " << &InnerStateInterface::handleEvent4 <<
+                  ", eventArgs = " << eventArgs.get() <<
                   ") ..."
                 );
-            currentState->handleEvent4(this,arg1);
+            MockBaseClass::dispatchEvent(context,currentState,&InnerStateInterface::handleEvent4,eventArgs);
         }
     }
 
