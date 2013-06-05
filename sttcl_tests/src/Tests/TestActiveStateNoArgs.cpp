@@ -217,7 +217,7 @@ TEST_F(TestActiveStateNoArgs,DirectTransition2)
     EXPECT_CALL(state,endDoImpl(_))
         .Times(1);
     EXPECT_CALL(stateMachine,finalizeImpl(_))
-        .Times(2);
+        .Times(1);
 
     // Run the state machine
     //----------------------------------------------------------------------------

@@ -271,12 +271,12 @@ protected:
     {
         STTCL_MOCK_LOGDEBUG
             ( TestConcurrentCompositeStateMock
-            , "calling SttclCompsiteStateMachineBaseClass::initializeImpl( force = " << force <<  ") ..."
+            , "calling SttclConcurrentCompositeStateBaseClass::initializeImpl( force = " << force <<  ") ..."
             );
-        bool result = SttclCompsiteStateMachineBaseClass::initializeImpl(force);
+        bool result = SttclConcurrentCompositeStateBaseClass::initializeImpl(force);
         STTCL_MOCK_LOGDEBUG
             ( TestConcurrentCompositeStateMock
-            , "returning result = " << result << " ..."
+            , "returning initializeImpl() result = " << result << " ..."
             );
         return result;
     }
@@ -459,12 +459,12 @@ public:
 
     virtual ~TestConcurrentCompositeStateWithArgsMock() {}
 
-    MOCK_METHOD3_T(handleEvent1, void (StateMachineContext* context, int arg1, const std::string& arg2));
+    MOCK_METHOD3_T(handleEvent1, void (StateMachineContext* context, const std::string& arg1, int arg2));
     MOCK_METHOD2_T(handleEvent2, void (StateMachineContext* context, double arg1));
     MOCK_METHOD1_T(handleEvent3, void (StateMachineContext* context));
     MOCK_METHOD2_T(handleEvent4, void (StateMachineContext* context, int arg1));
 
-    virtual void handleEvent1Call(StateMachineContext* context , int arg1, const std::string& arg2)
+    virtual void handleEvent1Call(StateMachineContext* context , const std::string& arg1, int arg2)
     {
         STTCL_MOCK_LOGDEBUG
             ( TestConcurrentCompositeStateWithArgsMock
@@ -479,11 +479,11 @@ public:
             ( TestConcurrentCompositeStateWithArgsMock
             , "Calling MockBaseClass::broadcastEvent( " <<
               " context = " << context <<
-              ", handler = " << (void*)(&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent1) <<
+              ", handler = " << &InnerStateInterface::handleEvent1 <<
               ", eventArgs = " << eventArgs.get() <<
               ") ..."
             );
-        MockBaseClass::broadcastEvent(context,&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent1,eventArgs);
+        MockBaseClass::broadcastEvent(context,&InnerStateInterface::handleEvent1,eventArgs);
     }
 
     virtual void handleEvent2Call(StateMachineContext* context, double arg1)
@@ -500,11 +500,11 @@ public:
             ( TestConcurrentCompositeStateWithArgsMock
             , "Calling MockBaseClass::broadcastEvent( " <<
               " context = " << context <<
-              ", handler = " << (&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent2) <<
+              ", handler = " << &InnerStateInterface::handleEvent2 <<
               ", eventArgs = " << eventArgs.get() <<
               ") ..."
             );
-        MockBaseClass::broadcastEvent(context,&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent2,eventArgs);
+        MockBaseClass::broadcastEvent(context,&InnerStateInterface::handleEvent2,eventArgs);
     }
 
     virtual void handleEvent3Call(StateMachineContext* context)
@@ -520,11 +520,11 @@ public:
             ( TestConcurrentCompositeStateWithArgsMock
             , "Calling MockBaseClass::broadcastEvent( " <<
               " context = " << context <<
-              ", handler = " << (&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent3) <<
+              ", handler = " << &InnerStateInterface::handleEvent3 <<
               ", eventArgs = " << eventArgs.get() <<
               ") ..."
             );
-        MockBaseClass::broadcastEvent(context,&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent3,eventArgs);
+        MockBaseClass::broadcastEvent(context,&InnerStateInterface::handleEvent3,eventArgs);
     }
 
     virtual void handleEvent4Call(StateMachineContext* context, int arg1)
@@ -541,11 +541,11 @@ public:
             ( TestConcurrentCompositeStateWithArgsMock
             , "Calling MockBaseClass::broadcastEvent( " <<
               " context = " << context <<
-              ", handler = " << (&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent3) <<
+              ", handler = " << &InnerStateInterface::handleEvent4 <<
               ", eventArgs = " << eventArgs.get() <<
               ") ..."
             );
-        MockBaseClass::broadcastEvent(context,&ITestInnerConcurrentStateInterfaceWithArgs<TestConcurrentCompositeStateWithArgsMock<StateMachineContext,EventArgsType,NumOfRegions> >::handleEvent3,eventArgs);
+        MockBaseClass::broadcastEvent(context,&InnerStateInterface::handleEvent4,eventArgs);
     }
 
 };

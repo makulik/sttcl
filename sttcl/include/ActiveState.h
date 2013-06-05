@@ -291,8 +291,11 @@ public:
      */
     inline void startDoImpl(Context* context)
     {
-		currentContext = context;
-		stateThread.run(this);
+        if(!isDoActionRunning())
+        {
+            currentContext = context;
+            stateThread.run(this);
+        }
     }
 
     inline bool isDoActionRunning() const

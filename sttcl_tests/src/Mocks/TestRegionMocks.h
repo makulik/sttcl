@@ -61,11 +61,25 @@ public:
             ( TestRegionMock
             , "Destructor called ..."
             );
+        if(autoFinalize() &&
+           !SttclRegionBaseClass::isFinalized() &&
+           !SttclRegionBaseClass::isFinalizing() &&
+           !SttclRegionBaseClass::isInitalizing()
+          )
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestRegionMock
+                , "Auto finalize, calling SttclStateMachineBaseType::finalize(true) ..."
+                );
+            SttclRegionBaseClass::finalize(true);
+        }
     }
 
     InnerStateBaseClass* initialState() const { return initialState_; }
     void initialState(InnerStateBaseClass* value) { initialState_ = value; }
 
+    // TODO: Implementation is f***ing brittle. Using a simple semaphore and timeout would be preferred
+    //       but didn't work well
     bool waitForDoActionExited(const sttcl::TimeDuration<>& checkFrequency, int retries = 1)
     {
         do
@@ -80,9 +94,13 @@ public:
         return false;
     }
 
+    bool autoFinalize() const { return autoFinalize_; }
+    void autoFinalize(bool value) { autoFinalize_ = value; }
+
 protected:
     InnerStateBaseClass* initialState_;
     volatile bool doActionExited_;
+    bool autoFinalize_;
 
     TestRegionMock
         ( RegionContainer* regionContainer
@@ -94,6 +112,7 @@ protected:
     , SttclRegionBaseClass(regionContainer,doActionFrequency)
     , initialState_(0)
     , doActionExited_(false)
+    , autoFinalize_(true)
     {
         ON_CALL(*this, initializeImpl(_))
             .WillByDefault(Invoke(this, &TestRegionMock::initializeImplCall));
@@ -127,7 +146,7 @@ protected:
         bool result = SttclRegionBaseClass::isReadyImpl();
         STTCL_MOCK_LOGDEBUG
             ( TestRegionMock
-            , "returning reult = " << result <<  ") ..."
+            , "returning isReadyImpl() result = " << result <<  " ..."
             );
         return result;
     }
@@ -141,7 +160,7 @@ protected:
         bool result = SttclRegionBaseClass::initializeImpl(force);
         STTCL_MOCK_LOGDEBUG
             ( TestRegionMock
-            , "returning reult = " << result <<  ") ..."
+            , "returning initializeImpl() result = " << result <<  " ..."
             );
         return result;
     }
@@ -230,9 +249,8 @@ protected:
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionMock
-            , "Calling SttclRegionBaseClass::startingRegionThread() ..."
+            , "startingRegionThread() called ..."
             );
-        SttclRegionBaseClass::startingRegionThread();
         doActionExited_ = false;
     }
 
@@ -240,10 +258,9 @@ protected:
     {
         STTCL_MOCK_LOGDEBUG
             ( TestRegionMock
-            , "Calling SttclRegionBaseClass::endingRegionThread() ..."
+            , "endingRegionThread() called ..."
             );
-        SttclRegionBaseClass::endingRegionThread();
-        doActionExited_ = false;
+        doActionExited_ = true;
     }
 };
 
@@ -380,16 +397,16 @@ template
     >
 class TestRegionWithArgsMock
 : public TestRegionMock
-      < TestRegionNoArgsMock<RegionContainer,HistoryType>
+      < TestRegionWithArgsMock<RegionContainer,HistoryType>
       , RegionContainer
-      , ITestInnerConcurrentStateInterfaceNoArgs<RegionContainer>
+      , ITestInnerConcurrentStateInterfaceWithArgs<RegionContainer>
       , EventArgs
       , HistoryType
       >
 {
 public:
     typedef TestRegionMock
-            < TestRegionNoArgsMock<RegionContainer,HistoryType>
+            < TestRegionWithArgsMock<RegionContainer,HistoryType>
             , RegionContainer
             , ITestInnerConcurrentStateInterfaceWithArgs<RegionContainer>
             , EventArgs

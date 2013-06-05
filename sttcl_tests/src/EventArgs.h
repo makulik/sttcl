@@ -27,10 +27,10 @@ protected:
 struct Event1Args
 : public EventArgs
 {
-    int arg1_;
-    std::string arg2_;
+     std::string arg1_;
+     int arg2_;
 
-    Event1Args(int arg1, const std::string& arg2)
+    Event1Args(const std::string& arg1, int arg2)
     : EventArgs()
     , arg1_(arg1)
     , arg2_(arg2)

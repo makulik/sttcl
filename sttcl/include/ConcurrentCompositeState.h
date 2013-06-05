@@ -455,9 +455,13 @@ public:
     	StateImplementationBase::entryImpl(context);
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(BaseClassType::regions[i] && BaseClassType::regions[i]->isRegionInitialized())
-			{
-				BaseClassType::regions[i]->enterRegion(static_cast<CompositeStateImpl*>(this));
+			if(BaseClassType::regions[i])
+            {
+			    if(!BaseClassType::regions[i]->isRegionInitialized())
+			    {
+	                BaseClassType::regions[i]->initializeRegion(true);
+			    }
+	            BaseClassType::regions[i]->enterRegion(static_cast<CompositeStateImpl*>(this));
 			}
 		}
     }
@@ -471,7 +475,9 @@ public:
     {
 		for(unsigned int i = 0; i < NumOfRegions; ++i)
 		{
-			if(BaseClassType::regions[i] && BaseClassType::regions[i]->isRegionInitialized())
+			if(BaseClassType::regions[i] &&
+			   BaseClassType::regions[i]->isRegionInitialized() &&
+			   !BaseClassType::regions[i]->isRegionFinalized())
 			{
 				BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
 			}
@@ -504,21 +510,37 @@ public:
      */
     bool initializeImpl(bool recursive)
     {
-    	bool result = true;
-		for(unsigned int i = 0; i < NumOfRegions; ++i)
-		{
-			if(BaseClassType::regions[i])
-			{
-                BaseClassType::regions[i]->initializeRegion(recursive);
-                result = BaseClassType::regions[i]->isRegionInitialized();
-                if(result)
+        bool result = true;
+        if(!isInitialized() && !isInitalizing())
+        {
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            flags.initializing = true;
+            STTCL_STATEMACHINE_SAFESECTION_END;
+
+            if(recursive)
+            {
+                for(unsigned int i = 0; i < NumOfRegions; ++i)
                 {
-                    BaseClassType::regions[i]->enterRegion(static_cast<CompositeStateImpl*>(this));
-                    BaseClassType::regions[i]->startDoRegion(static_cast<CompositeStateImpl*>(this));
+                    if(BaseClassType::regions[i])
+                    {
+                        result = BaseClassType::regions[i]->initializeRegion(recursive);
+                        if(!result)
+                        {
+                            break;
+                        }
+                    }
                 }
-			}
-		}
-    	return result;
+            }
+        }
+        if(result)
+        {
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            flags.initializing = false;
+            flags.finalized = false;
+            flags.initialized = true;
+            STTCL_STATEMACHINE_SAFESECTION_END;
+        }
+        return result;
     }
 
     void finalize(bool finalizeSubStateMachines = true)
@@ -532,15 +554,28 @@ public:
      */
     void finalizeImpl(bool recursive)
     {
-		for(unsigned int i = 0; i < NumOfRegions; ++i)
-		{
-			if(BaseClassType::regions[i] && !BaseClassType::regions[i]->isRegionFinalized())
-			{
-				BaseClassType::regions[i]->finalizeRegion(recursive);
-                BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
-	            BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
-			}
-		}
+        if(!isFinalizing() && !isFinalized())
+        {
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            flags.finalizing = true;
+            STTCL_STATEMACHINE_SAFESECTION_END;
+
+            for(unsigned int i = 0; i < NumOfRegions; ++i)
+            {
+                if(BaseClassType::regions[i] && !BaseClassType::regions[i]->isRegionFinalized())
+                {
+                    BaseClassType::regions[i]->finalizeRegion(recursive);
+                    BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
+                    BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
+                }
+            }
+
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+            flags.finalizing = false;
+            flags.finalized = true;
+            flags.initialized = false;
+            STTCL_STATEMACHINE_SAFESECTION_END;
+        }
     }
 
     /**

@@ -17,10 +17,10 @@ struct ITestInnerConcurrentStateInterfaceWithArgs
 {
     typedef typename RegionContainerType::RegionBaseType RegionContextType;
 
-    void handleEvent1(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
-    void handleEvent2(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
-    void handleEvent3(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
-    void handleEvent4(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent1(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent2(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent3(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
+    virtual void handleEvent4(RegionContainerType* context, RegionContextType* regionContext, EventArgsPtr eventArgs) = 0;
 };
 
 

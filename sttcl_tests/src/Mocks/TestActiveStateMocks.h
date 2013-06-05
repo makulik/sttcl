@@ -77,6 +77,8 @@ public:
     bool finalizeOnNextDirectTransit() const { return finalizeOnNextDirectTransit_; }
     void finalizeOnNextDirectTransit(bool value) { finalizeOnNextDirectTransit_ = value; }
 
+    // TODO: Implementation is f***ing brittle. Using a simple semaphore and timeout would be preferred
+    //       but didn't work well
     bool waitForDoActionExited(const sttcl::TimeDuration<>& checkFrequency, int retries = 1)
     {
         do

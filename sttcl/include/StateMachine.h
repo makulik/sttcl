@@ -146,13 +146,16 @@ public:
      */
     void finalize(bool finalizeSubStateMachines = true)
     {
-    	if(!isFinalizing())
+    	if(!isFinalized() && !isFinalizing())
     	{
     	    STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
                 flags.finalizing = true;
             STTCL_STATEMACHINE_SAFESECTION_END;
 			static_cast<Context*>(this)->finalizeImpl(finalizeSubStateMachines);
-			flags.finalizing = false;
+            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+                flags.finalizing = false;
+                flags.finalized = true;
+            STTCL_STATEMACHINE_SAFESECTION_END;
     	}
     }
 
@@ -272,20 +275,16 @@ public:
      */
     inline void finalizeImpl(bool finalizeSubStateMachines)
     {
-        if(!isFinalized() && state)
+        if(state)
         {
             if(finalizeSubStateMachines)
             {
                 state->finalizeSubStateMachines(true);
             }
             exitCurrentState();
-            pickUpRunningActiveStates();
         }
         setState(0);
-        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            flags.finalized = true;
-            flags.initialized = false;
-        STTCL_STATEMACHINE_SAFESECTION_END;
+        pickUpRunningActiveStates();
     }
 
     /**

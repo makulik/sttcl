@@ -663,14 +663,14 @@ TEST_F(TestCompositeStateWithArgs,BasicCompositeState_ShallowHistory_Resume2)
     // Run the state machine
     //----------------------------------------------------------------------------
 
-    STTCL_TEST_LOG_ALL();
+//    STTCL_TEST_LOG_ALL();
 
     stateMachine.initialize(true);
     stateMachine.triggerEvent1("Hello!",42);
     stateMachine.triggerEvent2(3.1415);
     stateMachine.finalize(true);
 
-    STTCL_TEST_LOG_END();
+//    STTCL_TEST_LOG_END();
 }
 
 TEST_F(TestCompositeStateWithArgs,BasicCompositeState_DeepHistory_Interactions1)
@@ -1022,12 +1022,12 @@ TEST_F(TestCompositeStateWithArgs,BasicCompositeState_DeepHistory_Resume2)
     // Run the state machine
     //----------------------------------------------------------------------------
 
-    STTCL_TEST_LOG_ALL();
+//    STTCL_TEST_LOG_ALL();
 
     stateMachine.initialize(true);
     stateMachine.triggerEvent1("Hello!",42);
     stateMachine.triggerEvent2(3.1415);
     stateMachine.finalize(true);
 
-    STTCL_TEST_LOG_END();
+//    STTCL_TEST_LOG_END();
 }
