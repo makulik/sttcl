@@ -8,7 +8,7 @@
 #ifndef DEMOSTATE3C_H_
 #define DEMOSTATE3C_H_
 
-#include "IDemoState3.h"
+#include "DemoState3.h"
 #include "State.h"
 
 namespace Application

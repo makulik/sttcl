@@ -29,6 +29,7 @@
 #include <set>
 #endif
 #include "SttclConfig.h"
+#include "StateMachine.h"
 #include "CompositeState.h"
 #include "Region.h"
 
