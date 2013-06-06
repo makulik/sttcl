@@ -415,3 +415,100 @@ TEST_F(TestConcurrentCompositeStateNoArgs,EventPropagation)
 
 //    STTCL_TEST_LOG_END();
 }
+
+TEST_F(TestConcurrentCompositeStateNoArgs,MultipleRegions)
+{
+    typedef TestConcurrentCompositeStateNoArgsMock
+            < TestStateMachineNoEventArgsMock
+            > ConcurrentCompositeStateMockType;
+    ::testing::NiceMock<TestStateMachineNoEventArgsMock> stateMachine;
+    ::testing::NiceMock
+        < ConcurrentCompositeStateMockType
+        > compositeState(&stateMachine);
+    ::testing::NiceMock
+        < TestRegionNoArgsMock<ConcurrentCompositeStateMockType>
+        > region1(&compositeState);
+    ::testing::NiceMock
+        < TestRegionNoArgsMock<ConcurrentCompositeStateMockType>
+        > region2(&compositeState);
+
+    stateMachine.autoFinalize(false);
+    compositeState.setRegion(0,&region1);
+    compositeState.setRegion(1,&region2);
+    stateMachine.initialState(&compositeState);
+
+    // Setup mock call expectations
+    //----------------------------------------------------------------------------
+    EXPECT_CALL(compositeState,entryImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(compositeState,startDoImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(compositeState,endDoImpl(&stateMachine))
+        .Times(1);
+    EXPECT_CALL(compositeState,exitImpl(&stateMachine))
+        .Times(1);
+
+    // Check region calls
+    EXPECT_CALL(region1,enterRegionImpl(&compositeState))
+        .Times(1);
+    EXPECT_CALL(region1,startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region1,initializeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region1,handleEvent1(&compositeState,&region1))
+        .Times(1);
+    EXPECT_CALL(region1,handleEvent2(&compositeState,&region1))
+        .Times(1);
+    EXPECT_CALL(region1,handleEvent3(&compositeState,&region1))
+        .Times(1);
+    EXPECT_CALL(region1,handleEvent4(&compositeState,&region1))
+        .Times(1);
+    EXPECT_CALL(region1,finalizeImpl(_))
+        .Times(2);
+    EXPECT_CALL(region1,endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region1,exitRegionImpl(&compositeState))
+        .Times(1);
+
+    EXPECT_CALL(region2,enterRegionImpl(&compositeState))
+        .Times(1);
+    EXPECT_CALL(region2,startingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region2,initializeImpl(_))
+        .Times(1);
+    EXPECT_CALL(region2,handleEvent1(&compositeState,&region2))
+        .Times(1);
+    EXPECT_CALL(region2,handleEvent2(&compositeState,&region2))
+        .Times(1);
+    EXPECT_CALL(region2,handleEvent3(&compositeState,&region2))
+        .Times(1);
+    EXPECT_CALL(region2,handleEvent4(&compositeState,&region2))
+        .Times(1);
+    EXPECT_CALL(region2,finalizeImpl(_))
+        .Times(2);
+    EXPECT_CALL(region2,endingRegionThread())
+        .Times(1);
+    EXPECT_CALL(region2,exitRegionImpl(&compositeState))
+        .Times(1);
+
+    // Run the state machine
+    //----------------------------------------------------------------------------
+
+//    STTCL_TEST_LOG_ALL();
+
+//    compositeState.enableLogging(true);
+//    innerState.enableLogging(true);
+
+    stateMachine.initialize();
+    // Give the region thread(s) a chance to run
+    sttcl::internal::SttclThread<>::sleep(sttcl::TimeDuration<>(0,0,0,100));
+    stateMachine.triggerEvent1();
+    stateMachine.triggerEvent2();
+    stateMachine.triggerEvent3();
+    stateMachine.triggerEvent4();
+    stateMachine.finalize();
+
+    EXPECT_TRUE(region1.waitForDoActionExited(sttcl::TimeDuration<>(0,0,0,100),10));
+
+//    STTCL_TEST_LOG_END();
+}
