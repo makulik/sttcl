@@ -7,7 +7,6 @@
 
 #include <iostream>
 
-#include "../DemoState3.h"
 #include "../DemoState3b.h"
 #include "../DemoState3c.h"
 #include "../DemoState3b_1.h"

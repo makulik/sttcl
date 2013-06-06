@@ -7,8 +7,7 @@
 
 #include <iostream>
 
-#include "../DemoState3c.h"
-#include "../DemoState3.h"
+#include "DemoState3c.h"
 
 using namespace std;
 using namespace Application;
