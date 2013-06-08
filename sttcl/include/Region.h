@@ -674,7 +674,7 @@ class Region
 	  , SemaphoreType
 	  , MutexType
 	  >
-	, StateMachine<RegionImpl, IInnerState>
+	, StateMachine<RegionImpl, IInnerState, MutexType>
 	>
 , public internal::RegionBaseImplementationSelector
 	< RegionImpl
@@ -734,7 +734,7 @@ public:
     		, IInnerState
     		, HistoryType
     		, ActiveStateImpl
-    		, StateMachine<RegionImpl, IInnerState>
+    		, StateMachine<RegionImpl, IInnerState, MutexType>
     		> CompositeStateBase;
 
     /**
@@ -920,15 +920,18 @@ public:
      */
     bool initializeImpl(bool force)
     {
-    	if(static_cast<StateImplementationBase*>(this)->isDoActionRunning())
-    	{
-			// dispatch initialization to region thread
-        	dispatchInternalEvent(&RegionBaseClass::internalInitialize,force);
-    	}
-    	else
-    	{
-    		internalInitialize(force);
-    	}
+        if(force || !isRegionInitialized())
+        {
+            if(static_cast<StateImplementationBase*>(this)->isDoActionRunning())
+            {
+                // dispatch initialization to region thread
+                dispatchInternalEvent(&RegionBaseClass::internalInitialize,force);
+            }
+            else
+            {
+                internalInitialize(force);
+            }
+        }
     	return true;
     }
 
@@ -939,15 +942,18 @@ public:
      */
     inline void finalizeImpl(bool finalizeSubStateMachines)
     {
-    	if(!RegionThreadImpl::isSelf(static_cast<StateImplementationBase*>(this)->getStateThread()))
-    	{
-			// dispatch finalization to region thread
-			dispatchInternalEvent(&RegionBaseClass::internalFinalize,finalizeSubStateMachines);
-    	}
-    	else
-    	{
-    		internalFinalize(finalizeSubStateMachines);
-    	}
+        if(!isRegionFinalizing() && !isRegionFinalized())
+        {
+            if(!RegionThreadImpl::isSelf(static_cast<StateImplementationBase*>(this)->getStateThread()))
+            {
+                // dispatch finalization to region thread
+                dispatchInternalEvent(&RegionBaseClass::internalFinalize,finalizeSubStateMachines);
+            }
+            else
+            {
+                internalFinalize(finalizeSubStateMachines);
+            }
+        }
     }
 
     /**
@@ -1038,15 +1044,25 @@ private:
 		return static_cast<RegionImpl*>(this)->isReady();
 	}
 
+//    virtual bool isRegionInitializing()
+//    {
+//        return static_cast<RegionImpl*>(this)->isInitializing();
+//    }
+
 	virtual bool isRegionInitialized()
 	{
 		return static_cast<RegionImpl*>(this)->isInitialized();
 	}
 
-	virtual bool isRegionFinalized()
+	virtual bool isRegionFinalizing()
 	{
-		return static_cast<RegionImpl*>(this)->isFinalized();
+		return static_cast<RegionImpl*>(this)->isFinalizing();
 	}
+
+    virtual bool isRegionFinalized()
+    {
+        return static_cast<RegionImpl*>(this)->isFinalized();
+    }
 
 	virtual bool isRegionThreadRunning() const
 	{
@@ -1060,15 +1076,27 @@ private:
 
 	virtual void internalInitialize(bool recursive)
 	{
-    	static_cast<RegionStateMachine*>(this)->initializeImpl(recursive);
+        if(/* !CompositeStateBase::isInitializing() && */ !CompositeStateBase::isInitialized())
+        {
+            CompositeStateBase::setInitializing(true);
+            static_cast<RegionStateMachine*>(this)->initializeImpl(recursive);
+            CompositeStateBase::setInitializing(false);
+            CompositeStateBase::setInitialized(true);
+        }
 	}
 
 	virtual void internalFinalize(bool recursive)
 	{
-    	static_cast<RegionStateMachine*>(this)->finalizeImpl(recursive);
-    	typedef sttcl::internal::RegionContainer<RegionContainerImpl,IInnerState,EventArgs> IRegionContainer;
-    	IRegionContainer* iregionContainer = static_cast<IRegionContainer*>(RegionBaseClass::regionContainer);
-    	iregionContainer->regionCompleted(static_cast<RegionBase<RegionContainerImpl,IInnerState,EventArgs>*>(this));
+	    if(!CompositeStateBase::isFinalizing() && !CompositeStateBase::isFinalized())
+	    {
+	        CompositeStateBase::setFinalizing(true);
+            static_cast<RegionStateMachine*>(this)->finalizeImpl(recursive);
+            typedef sttcl::internal::RegionContainer<RegionContainerImpl,IInnerState,EventArgs> IRegionContainer;
+            IRegionContainer* iregionContainer = static_cast<IRegionContainer*>(RegionBaseClass::regionContainer);
+            iregionContainer->regionCompleted(static_cast<RegionBase<RegionContainerImpl,IInnerState,EventArgs>*>(this));
+            CompositeStateBase::setFinalizing(false);
+            CompositeStateBase::setFinalized(true);
+	    }
 	}
 
 	void unblockEventsAvailable()

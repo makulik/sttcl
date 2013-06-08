@@ -188,12 +188,32 @@ public:
     }
 
     /**
+     * Sets the initialized flag of the state machine.
+     */
+    void setInitialized(bool value)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+        flags.initialized = value;
+        STTCL_STATEMACHINE_SAFESECTION_END;
+    }
+
+    /**
      * Indicates that the state machine is currently initializing.
      * @return \c true if the state machine is currently initializing, \c false otherwise.
      */
     bool isInitalizing() const
     {
         STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initializing);
+    }
+
+    /**
+     * Sets the initializing flag of the state machine.
+     */
+    void setInitializing(bool value)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+        flags.initializing = value;
+        STTCL_STATEMACHINE_SAFESECTION_END;
     }
 
     /**
@@ -206,12 +226,32 @@ public:
     }
 
     /**
+     * Sets the finalized flag of the state machine.
+     */
+    void setFinalized(bool value)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+        flags.finalized = value;
+        STTCL_STATEMACHINE_SAFESECTION_END;
+    }
+
+    /**
      * Indicates that the state machine is currently finalizing.
      * @return \c true if the state machine is currently finalizing, \c false otherwise.
      */
     bool isFinalizing() const
     {
         STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.finalizing);
+    }
+
+    /**
+     * Sets the finalizing flag of the state machine.
+     */
+    void setFinalizing(bool value)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+        flags.finalizing = value;
+        STTCL_STATEMACHINE_SAFESECTION_END;
     }
 
     /**

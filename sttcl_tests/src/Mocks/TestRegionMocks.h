@@ -41,6 +41,7 @@ public:
 //    typedef sttcl::StateBase<RegionContainer,OuterStateInterface> StateBaseClass;
     //typedef SttclRegionBaseClass StateBaseType;
     typedef sttcl::StateBase<RegionImpl,InnerStateInterface> InnerStateBaseClass;
+    typedef typename SttclRegionBaseClass::MutexType MutexType;
     typedef RegionContainer Context;
 
     MOCK_CONST_METHOD0_T(getInitialStateImpl, InnerStateBaseClass* ());
@@ -287,6 +288,7 @@ public:
             > MockBaseClass;
     typedef ITestInnerConcurrentStateInterfaceNoArgs<RegionContainer> InnerStateInterface;
     typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
+    typedef typename MockBaseClass::MutexType MutexType;
     typedef typename InnerStateInterface::RegionContextType RegionContextType;
 
     TestRegionNoArgsMock(RegionContainer* regionContainer, const std::string& id = "<anonymous>", bool enableLogging = false)
@@ -415,6 +417,7 @@ public:
     typedef ITestInnerConcurrentStateInterfaceWithArgs<RegionContainer> InnerStateInterface;
     typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
     typedef typename InnerStateInterface::RegionContextType RegionContextType;
+    typedef typename MockBaseClass::MutexType MutexType;
 
     TestRegionWithArgsMock(RegionContainer* regionContainer, const std::string& id = "<anonymous>", bool enableLogging = false)
     : MockBaseClass(regionContainer,id,enableLogging)

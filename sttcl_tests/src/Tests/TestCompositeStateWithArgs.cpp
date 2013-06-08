@@ -246,8 +246,8 @@ TEST_F(TestCompositeStateWithArgs,BasicCompositeStateInteractions3)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&compositeState))
         .Times(1);
-//    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
-//        .Times(1);
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
+        .Times(1);
     EXPECT_CALL(innerState,endDoImpl(&compositeState))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&compositeState))

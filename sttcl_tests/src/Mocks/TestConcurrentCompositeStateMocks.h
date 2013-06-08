@@ -95,7 +95,22 @@ public:
             ( TestConcurrentCompositeStateMock
             , "Destructor called ..."
             );
+        if(autoFinalize() &&
+           !SttclCompsiteStateMachineBaseClass::isFinalized() &&
+           !SttclCompsiteStateMachineBaseClass::isFinalizing() &&
+           !SttclCompsiteStateMachineBaseClass::isInitalizing()
+          )
+        {
+            STTCL_MOCK_LOGDEBUG
+                ( TestConcurrentCompositeStateMock
+                , "Auto finalize, calling RegionBaseType::finalize(true) ..."
+                );
+            SttclCompsiteStateMachineBaseClass::finalize(true);
+        }
     }
+
+    bool autoFinalize() const { return autoFinalize_; }
+    void autoFinalize(bool value) { autoFinalize_ = value; }
 
     void clearRegions()
     {
@@ -133,6 +148,7 @@ protected:
     StateBaseClass* directTransitState_;
     bool finalizeOnNextDirectTransit_;
     typename SttclConcurrentCompositeStateBaseClass::RegionsArray regions_;
+    bool autoFinalize_;
 
     TestConcurrentCompositeStateMock
      ( StateMachineContext* context, const std::string& id = "<anonymous>", bool loggingEnabled = false)
@@ -140,6 +156,7 @@ protected:
     , SttclConcurrentCompositeStateBaseClass(context,regions_)
     , directTransitState_(0)
     , finalizeOnNextDirectTransit_(false)
+    , autoFinalize_(false)
     {
         ON_CALL(*this, entryImpl(_))
             .WillByDefault(Invoke(this, &TestConcurrentCompositeStateMock::entryImplCall));

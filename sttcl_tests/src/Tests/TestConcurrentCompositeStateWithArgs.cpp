@@ -263,7 +263,7 @@ TEST_F(TestConcurrentCompositeStateWithArgs,BasicConcurrentCompositeStateInterac
     EXPECT_CALL(region,initializeImpl(_))
         .Times(2);
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(3);
+        .Times(2);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -320,7 +320,7 @@ TEST_F(TestConcurrentCompositeStateWithArgs,BasicConcurrentCompositeStateInterac
     EXPECT_CALL(region,initializeImpl(_))
         .Times(2);
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(3);
+        .Times(2);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
