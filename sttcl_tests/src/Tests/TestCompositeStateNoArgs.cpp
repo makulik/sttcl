@@ -247,7 +247,7 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeStateInteractions3)
     EXPECT_CALL(innerState,startDoImpl(&compositeState))
         .Times(1);
     EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&compositeState))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&compositeState))
@@ -292,8 +292,8 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeStateInteractions4)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState,initSubStateMachinesImpl(false))
-        .Times(1);
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&compositeState))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&compositeState))
@@ -436,8 +436,8 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_ShallowHistory_Interactions3
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState,initSubStateMachinesImpl(false))
-        .Times(1);
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&compositeState))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&compositeState))
@@ -637,10 +637,8 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_ShallowHistory_Resume2)
         .Times(1);
     EXPECT_CALL(innerState1,startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState1,initSubStateMachinesImpl(false))
-        .Times(1);
-//    EXPECT_CALL(innerState1,initSubStateMachinesImpl(true))
-//        .Times(1);
+    EXPECT_CALL(innerState1,initSubStateMachinesImpl(_))
+        .Times(2);
     EXPECT_CALL(innerState1,handleEvent1(&compositeState))
         .Times(1)
         .WillOnce( TRIGGER_STATE_CHANGE(TestSimpleStateNoArgsMock<CompositeStateMockType>, handleEvent1, &innerState1, &innerState2) );
@@ -649,8 +647,8 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_ShallowHistory_Resume2)
     EXPECT_CALL(innerState1,exitImpl(&compositeState))
         .Times(1);
 
-//    EXPECT_CALL(innerState2,entryImpl(&compositeState))
-//        .Times(2);
+    EXPECT_CALL(innerState2,entryImpl(&compositeState))
+        .Times(2);
     EXPECT_CALL(innerState2,startDoImpl(&compositeState))
         .Times(2);
     EXPECT_CALL(innerState2,initSubStateMachinesImpl(true))
@@ -801,10 +799,8 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_DeepHistory_Interactions3)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState,initSubStateMachinesImpl(false))
-        .Times(1);
-//    EXPECT_CALL(innerState,initSubStateMachinesImpl(true))
-//        .Times(1);
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&compositeState))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&compositeState))
@@ -930,7 +926,7 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_DeepHistory_Resume1)
     EXPECT_CALL(innerState2,startDoImpl(&compositeState))
         .Times(2);
     EXPECT_CALL(innerState2,initSubStateMachinesImpl(_))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState2,endDoImpl(&compositeState))
         .Times(2);
     EXPECT_CALL(innerState2,exitImpl(&compositeState))
@@ -998,8 +994,8 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_DeepHistory_Resume2)
         .Times(1);
     EXPECT_CALL(innerState1,startDoImpl(&compositeState))
         .Times(1);
-    EXPECT_CALL(innerState1,initSubStateMachinesImpl(false))
-        .Times(1);
+    EXPECT_CALL(innerState1,initSubStateMachinesImpl(_))
+        .Times(2);
     EXPECT_CALL(innerState1,handleEvent1(&compositeState))
         .Times(1)
         .WillOnce( TRIGGER_STATE_CHANGE(TestSimpleStateNoArgsMock<CompositeStateMockType>, handleEvent1, &innerState1, &innerState2) );

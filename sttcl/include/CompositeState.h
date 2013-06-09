@@ -557,7 +557,7 @@ protected:
     	{
 			StateMachineBaseImpl::initialize(recursive);
     	}
-    	else if(currentState && static_cast<StateMachineBaseImpl*>(this)->isInitalizing())
+    	else if(currentState /*&& static_cast<StateMachineBaseImpl*>(this)->isInitalizing()*/)
     	{
             currentState->initSubStateMachines(recursive);
     	}
