@@ -423,7 +423,7 @@ public:
      * Indicates that the state machine is currently initializing.
      * @return \c true if the state machine is currently initializing, \c false otherwise.
      */
-    bool isInitalizing() const
+    bool isInitializing() const
     {
         STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initializing);
     }
@@ -512,7 +512,7 @@ public:
     bool initializeImpl(bool recursive)
     {
         bool result = true;
-        if(!isInitialized() && !isInitalizing())
+        if(!isInitialized() && !isInitializing())
         {
             STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             flags.initializing = true;
@@ -524,10 +524,13 @@ public:
                 {
                     if(BaseClassType::regions[i])
                     {
-                        result = BaseClassType::regions[i]->initializeRegion(recursive);
-                        if(!result)
+                        if(!BaseClassType::regions[i]->isRegionInitialized())
                         {
-                            break;
+                            result = BaseClassType::regions[i]->initializeRegion(recursive);
+                            if(!result)
+                            {
+                                break;
+                            }
                         }
                     }
                 }

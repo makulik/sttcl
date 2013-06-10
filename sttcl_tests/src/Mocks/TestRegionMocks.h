@@ -65,7 +65,7 @@ public:
         if(autoFinalize() &&
            !SttclRegionBaseClass::isFinalized() &&
            !SttclRegionBaseClass::isFinalizing() &&
-           !SttclRegionBaseClass::isInitalizing()
+           !SttclRegionBaseClass::isInitializing()
           )
         {
             STTCL_MOCK_LOGDEBUG

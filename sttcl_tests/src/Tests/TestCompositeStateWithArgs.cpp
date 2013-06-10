@@ -930,7 +930,7 @@ TEST_F(TestCompositeStateWithArgs,BasicCompositeState_DeepHistory_Resume1)
     EXPECT_CALL(innerState2,startDoImpl(&compositeState))
         .Times(2);
     EXPECT_CALL(innerState2,initSubStateMachinesImpl(_))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState2,endDoImpl(&compositeState))
         .Times(2);
     EXPECT_CALL(innerState2,exitImpl(&compositeState))

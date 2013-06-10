@@ -51,7 +51,7 @@ public:
         if(autoFinalize() &&
            !SttclStateMachineBaseType::isFinalized() &&
            !SttclStateMachineBaseType::isFinalizing() &&
-           !SttclStateMachineBaseType::isInitalizing()
+           !SttclStateMachineBaseType::isInitializing()
           )
         {
             STTCL_MOCK_LOGDEBUG

@@ -79,6 +79,43 @@ struct StateMachineFlags
     , finalizing(false)
     {
     }
+
+    inline StateMachineFlags(bool initialized_, bool initializing_, bool finalized_, bool finalizing_)
+    : initialized(initialized_)
+    , initializing(initializing_)
+    , finalized(finalized_)
+    , finalizing(finalizing_)
+    {
+    }
+
+    inline StateMachineFlags(const StateMachineFlags& rhs)
+    : initialized(rhs.initialized)
+    , initializing(rhs.initializing)
+    , finalized(rhs.finalized)
+    , finalizing(rhs.finalizing)
+    {
+    }
+
+    inline StateMachineFlags& operator=(const StateMachineFlags& rhs)
+    {
+        initialized = rhs.initialized;
+        initializing= rhs.initializing;
+        finalized = rhs.finalized;
+        finalizing = rhs.finalizing;
+        return *this;
+    }
+
+    static const StateMachineFlags& Initializing()
+    {
+        static StateMachineFlags initializingFlags(false,true,false,false);
+        return initializingFlags;
+    }
+
+    static const StateMachineFlags& Initialized()
+    {
+        static StateMachineFlags initializedFlags(true,false,false,false);
+        return initializedFlags;
+    }
 };
 
 /**
@@ -201,9 +238,16 @@ public:
      * Indicates that the state machine is currently initializing.
      * @return \c true if the state machine is currently initializing, \c false otherwise.
      */
-    bool isInitalizing() const
+    bool isInitializing() const
     {
         STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initializing);
+    }
+
+    void setStateMachineFlags(const StateMachineFlags& value)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+        flags = value;
+        STTCL_STATEMACHINE_SAFESECTION_END;
     }
 
     /**
@@ -271,7 +315,7 @@ public:
      */
     inline bool initializeImpl(bool force)
     {
-        if(force || (!isInitialized() && !isInitalizing()))
+        if(force || (!isInitialized() && !isInitializing()))
         {
             STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             flags.initializing = true;

@@ -261,7 +261,7 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     EXPECT_CALL(region,startingRegionThread())
         .Times(1);
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,finalizeImpl(_))
         .Times(2);
     EXPECT_CALL(region,endingRegionThread())
@@ -272,7 +272,7 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     // Run the state machine
     //----------------------------------------------------------------------------
 
-    STTCL_TEST_LOG_ALL();
+//    STTCL_TEST_LOG_ALL();
 
     stateMachine.initialize(true);
     // Give the region thread(s) a chance to run
@@ -281,7 +281,7 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
 
     EXPECT_TRUE(region.waitForDoActionExited(sttcl::TimeDuration<>(0,0,0,100),10));
 
-    STTCL_TEST_LOG_END();
+//    STTCL_TEST_LOG_END();
 }
 
 TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteractions4)
@@ -318,7 +318,7 @@ TEST_F(TestConcurrentCompositeStateNoArgs,BasicConcurrentCompositeStateInteracti
     EXPECT_CALL(region,startingRegionThread())
         .Times(1);
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,finalizeImpl(_))
         .Times(2);
     EXPECT_CALL(region,endingRegionThread())

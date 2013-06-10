@@ -182,6 +182,11 @@ protected:
 		if(lastState != 0)
 		{
 			compositeState->changeState(lastState);
+			InnerStateType* currentState = compositeState->getState();
+			if(currentState)
+			{
+			    currentState->initSubStateMachines(false);
+			}
 		}
 		else
 		{
@@ -267,7 +272,11 @@ protected:
 		if(lastState)
 		{
 			compositeState->changeState(lastState);
-			lastState->initSubStateMachines(true);
+            InnerStateType* currentState = compositeState->getState();
+            if(currentState)
+            {
+                currentState->initSubStateMachines(true);
+            }
 		}
 		else
 		{
@@ -477,6 +486,14 @@ public:
     }
 
     /**
+     * Overriden implementation of StateBase::entry.
+     */
+//    virtual void entry(Context* context)
+//    {
+//        static_cast<CompositeStateImpl*>(this)->entryImpl(context);
+//    }
+
+    /**
      * Called when this state is entered.
      *
      * @param context The state machine context.
@@ -484,7 +501,9 @@ public:
     void entryImpl(Context* context)
     {
     	StateBaseImpl::entryImpl(context);
-    	StateMachineBaseImpl::setState(this->resumeStateHistory(static_cast<CompositeStateImpl*>(this)));
+//    	StateMachineBaseImpl::setState(
+    	        this->resumeStateHistory(static_cast<CompositeStateImpl*>(this));
+//    	        );
     }
 
     /**
@@ -512,6 +531,15 @@ public:
     {
         return (CompositeStateHistoryBaseClass::getStateHistory() ||
                 StateMachineImplementationBase::isReadyImpl());
+    }
+
+    /**
+     * Indicates that the composite state machine is currently initializing.
+     * @return \c true if the state machine is currently initializing, \c false otherwise.
+     */
+    bool isInitializing() const
+    {
+        return StateMachineImplementationBase::isInitializing();
     }
 
 protected:
@@ -557,10 +585,10 @@ protected:
     	{
 			StateMachineBaseImpl::initialize(recursive);
     	}
-    	else if(currentState /*&& static_cast<StateMachineBaseImpl*>(this)->isInitalizing()*/)
-    	{
-            currentState->initSubStateMachines(recursive);
-    	}
+//    	else if(currentState /*&& static_cast<StateMachineBaseImpl*>(this)->isInitializing()*/)
+//    	{
+//            currentState->initSubStateMachines(recursive);
+//    	}
     }
 };
 

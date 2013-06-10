@@ -98,7 +98,7 @@ public:
         if(autoFinalize() &&
            !SttclCompsiteStateMachineBaseClass::isFinalized() &&
            !SttclCompsiteStateMachineBaseClass::isFinalizing() &&
-           !SttclCompsiteStateMachineBaseClass::isInitalizing()
+           !SttclCompsiteStateMachineBaseClass::isInitializing()
           )
         {
             STTCL_MOCK_LOGDEBUG

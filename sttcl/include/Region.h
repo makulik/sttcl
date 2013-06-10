@@ -883,6 +883,7 @@ public:
     void entryImpl(Context* context)
     {
         StateImplementationBase::entryImpl(context);
+        CompositeStateBase::entryImpl(context);
     }
 
     /**
@@ -918,20 +919,26 @@ public:
      * @param force
      * @return
      */
-    bool initializeImpl(bool force)
+    bool initializeImpl(bool recursive)
     {
-        if(force || !isRegionInitialized())
+        if(isRegionInitializing())
         {
+            return false;
+        }
+        else if(!isRegionInitialized())
+        {
+            RegionStateMachine::setStateMachineFlags(StateMachineFlags::Initializing());
             if(static_cast<StateImplementationBase*>(this)->isDoActionRunning())
             {
                 // dispatch initialization to region thread
-                dispatchInternalEvent(&RegionBaseClass::internalInitialize,force);
+                dispatchInternalEvent(&RegionBaseClass::internalInitialize,recursive);
             }
             else
             {
-                internalInitialize(force);
+                internalInitialize(recursive);
             }
         }
+        RegionStateMachine::setStateMachineFlags(StateMachineFlags::Initialized());
     	return true;
     }
 
@@ -1044,10 +1051,10 @@ private:
 		return static_cast<RegionImpl*>(this)->isReady();
 	}
 
-//    virtual bool isRegionInitializing()
-//    {
-//        return static_cast<RegionImpl*>(this)->isInitializing();
-//    }
+    virtual bool isRegionInitializing()
+    {
+        return static_cast<RegionStateMachine*>(this)->isInitializing();
+    }
 
 	virtual bool isRegionInitialized()
 	{
@@ -1076,13 +1083,13 @@ private:
 
 	virtual void internalInitialize(bool recursive)
 	{
-        if(/* !CompositeStateBase::isInitializing() && */ !CompositeStateBase::isInitialized())
-        {
+//        if(!isRegionInitializing() && !CompositeStateBase::isInitialized())
+//        {
             CompositeStateBase::setInitializing(true);
             static_cast<RegionStateMachine*>(this)->initializeImpl(recursive);
             CompositeStateBase::setInitializing(false);
             CompositeStateBase::setInitialized(true);
-        }
+//        }
 	}
 
 	virtual void internalFinalize(bool recursive)
