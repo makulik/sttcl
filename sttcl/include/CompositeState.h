@@ -109,6 +109,11 @@ protected:
 			compositeState->setReady();
 		}
 		InnerStateType* currentState = compositeState->getState();
+//		if(!currentState)
+//		{
+//		    currentState = compositeState->getInitialState();
+//		    compositeState->changeState(currentState);
+//		}
 		return currentState;
 	}
 
@@ -502,8 +507,15 @@ public:
     {
     	StateBaseImpl::entryImpl(context);
 //    	StateMachineBaseImpl::setState(
+    	InnerStateClass* currentState =
     	        this->resumeStateHistory(static_cast<CompositeStateImpl*>(this));
 //    	        );
+
+        if(!currentState)
+        {
+            currentState = static_cast<CompositeStateImpl*>(this)->getInitialState();
+            static_cast<CompositeStateImpl*>(this)->changeState(currentState);
+        }
     }
 
     /**
@@ -514,11 +526,9 @@ public:
     void exitImpl(Context* context)
     {
 		StateMachineBaseImpl::exitCurrentState();
-    	StateMachineBaseImpl::setState(this->finalizeStateHistory(static_cast<CompositeStateImpl*>(this)));
-    	if(!StateMachineBaseImpl::getState())
-    	{
-    	    StateMachineBaseImpl::finalize(false);
-    	}
+    	StateMachineBaseImpl::setState
+    	    (this->finalizeStateHistory(static_cast<CompositeStateImpl*>(this)));
+    	StateMachineBaseImpl::finalize(false);
     	StateBaseImpl::exitImpl(context);
     }
 
@@ -574,20 +584,25 @@ protected:
     virtual void initSubStateMachines(bool recursive)
     {
 		InnerStateClass* currentState = StateMachineBaseImpl::getState();
-    	if(!recursive)
-    	{
-    		if(currentState != static_cast<CompositeStateImpl*>(this)->getInitialState())
-    		{
-    			StateMachineBaseImpl::initialize(true);
-    		}
-    	}
-    	else if(!currentState)
-    	{
-			StateMachineBaseImpl::initialize(recursive);
-    	}
-//    	else if(currentState /*&& static_cast<StateMachineBaseImpl*>(this)->isInitializing()*/)
+//    	if(!recursive)
 //    	{
-//            currentState->initSubStateMachines(recursive);
+//    		if(currentState != static_cast<CompositeStateImpl*>(this)->getInitialState())
+//    		{
+//                currentState->initSubStateMachines(recursive);
+////    			StateMachineBaseImpl::initialize(true);
+//    		}
+//    	}
+//    	else
+    	if(!currentState && !isInitializing())
+    	{
+            StateMachineBaseImpl::initialize(true);
+    	}
+//    	if(currentState && recursive)
+//    	{
+//    	    if(currentState != static_cast<CompositeStateImpl*>(this)->getInitialState())
+//            {
+//                currentState->initSubStateMachines(recursive);
+//            }
 //    	}
     }
 };

@@ -287,6 +287,11 @@ public:
 	 * @return \c true if the region is initialized, \c false otherwise.
 	 */
 	virtual bool isRegionInitialized() = 0;
+    /**
+     * Indicates that the region is initialized.
+     * @return \c true if the region is initialized, \c false otherwise.
+     */
+    virtual bool isRegionInitializing() = 0;
 	/**
 	 * Indicates that the region is finalized.
 	 * @return \c true if the region is finalized, \c false otherwise.
@@ -883,7 +888,6 @@ public:
     void entryImpl(Context* context)
     {
         StateImplementationBase::entryImpl(context);
-        CompositeStateBase::entryImpl(context);
     }
 
     /**
@@ -919,26 +923,20 @@ public:
      * @param force
      * @return
      */
-    bool initializeImpl(bool recursive)
+    bool initializeImpl(bool force)
     {
-        if(isRegionInitializing())
+        if(force || !isRegionInitialized())
         {
-            return false;
-        }
-        else if(!isRegionInitialized())
-        {
-            RegionStateMachine::setStateMachineFlags(StateMachineFlags::Initializing());
             if(static_cast<StateImplementationBase*>(this)->isDoActionRunning())
             {
                 // dispatch initialization to region thread
-                dispatchInternalEvent(&RegionBaseClass::internalInitialize,recursive);
+                dispatchInternalEvent(&RegionBaseClass::internalInitialize,force);
             }
             else
             {
-                internalInitialize(recursive);
+                internalInitialize(force);
             }
         }
-        RegionStateMachine::setStateMachineFlags(StateMachineFlags::Initialized());
     	return true;
     }
 
@@ -1051,15 +1049,20 @@ private:
 		return static_cast<RegionImpl*>(this)->isReady();
 	}
 
-    virtual bool isRegionInitializing()
-    {
-        return static_cast<RegionStateMachine*>(this)->isInitializing();
-    }
+//    virtual bool isRegionInitializing()
+//    {
+//        return static_cast<RegionImpl*>(this)->isInitializing();
+//    }
 
 	virtual bool isRegionInitialized()
 	{
 		return static_cast<RegionImpl*>(this)->isInitialized();
 	}
+
+    virtual bool isRegionInitializing()
+    {
+        return static_cast<RegionImpl*>(this)->isInitializing();
+    }
 
 	virtual bool isRegionFinalizing()
 	{
@@ -1083,26 +1086,24 @@ private:
 
 	virtual void internalInitialize(bool recursive)
 	{
-//        if(!isRegionInitializing() && !CompositeStateBase::isInitialized())
-//        {
-            CompositeStateBase::setInitializing(true);
+        if(/* !CompositeStateBase::isInitializing() && */ !CompositeStateBase::isInitialized())
+        {
+            CompositeStateBase::setStateMachineFlags(StateMachineFlags::Initializing());
             static_cast<RegionStateMachine*>(this)->initializeImpl(recursive);
-            CompositeStateBase::setInitializing(false);
-            CompositeStateBase::setInitialized(true);
-//        }
+            CompositeStateBase::setStateMachineFlags(StateMachineFlags::Initialized());
+        }
 	}
 
 	virtual void internalFinalize(bool recursive)
 	{
 	    if(!CompositeStateBase::isFinalizing() && !CompositeStateBase::isFinalized())
 	    {
-	        CompositeStateBase::setFinalizing(true);
+            CompositeStateBase::setStateMachineFlags(StateMachineFlags::Finalizing());
             static_cast<RegionStateMachine*>(this)->finalizeImpl(recursive);
             typedef sttcl::internal::RegionContainer<RegionContainerImpl,IInnerState,EventArgs> IRegionContainer;
             IRegionContainer* iregionContainer = static_cast<IRegionContainer*>(RegionBaseClass::regionContainer);
             iregionContainer->regionCompleted(static_cast<RegionBase<RegionContainerImpl,IInnerState,EventArgs>*>(this));
-            CompositeStateBase::setFinalizing(false);
-            CompositeStateBase::setFinalized(true);
+            CompositeStateBase::setStateMachineFlags(StateMachineFlags::Finalized());
 	    }
 	}
 

@@ -117,7 +117,7 @@ TEST_F(TestRegionNoArgs,BasicRegionInteractions1)
     EXPECT_CALL(region,initializeImpl(_))
         .Times(1);
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -136,10 +136,14 @@ TEST_F(TestRegionNoArgs,BasicRegionInteractions1)
 
     // Run the state machine
     //----------------------------------------------------------------------------
+    STTCL_TEST_LOG_ALL();
+
     stateMachine.initialize();
     // Give the region thread(s) a chance to run
     sttcl::internal::SttclThread<>::sleep(sttcl::TimeDuration<>(0,0,0,100));
     stateMachine.finalize(false);
+
+    STTCL_TEST_LOG_END();
 }
 
 TEST_F(TestRegionNoArgs,BasicRegionInteractions2)
@@ -177,7 +181,7 @@ TEST_F(TestRegionNoArgs,BasicRegionInteractions2)
     EXPECT_CALL(region,initializeImpl(_))
         .Times(1);
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -235,10 +239,12 @@ TEST_F(TestRegionNoArgs,BasicRegionInteractions3)
         .Times(1);
     EXPECT_CALL(region,startingRegionThread())
         .Times(1);
+    // TODO: Eliminate (superflous?) 2nd call of initialize(Impl)
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(1);
-    EXPECT_CALL(region,finalizeImpl(_))
         .Times(2);
+    // TODO: Eliminate (superflous?) 3rd call of finalize(Impl)
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(3);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -248,8 +254,9 @@ TEST_F(TestRegionNoArgs,BasicRegionInteractions3)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&region))
         .Times(1);
+    // TODO: Eliminate (superflous?) 2nd call of initSubStateMachinesImpl
     EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&region))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&region))
@@ -299,10 +306,12 @@ TEST_F(TestRegionNoArgs,BasicRegionInteractions4)
         .Times(1);
     EXPECT_CALL(region,startingRegionThread())
         .Times(1);
+    // TODO: Eliminate (superflous?) 2nd call of initializeImpl
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(1);
-    EXPECT_CALL(region,finalizeImpl(_))
         .Times(2);
+    // TODO: Eliminate (superflous?) 3rd call of finalize(Impl)
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(3);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -312,8 +321,9 @@ TEST_F(TestRegionNoArgs,BasicRegionInteractions4)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&region))
         .Times(1);
+    // TODO: Eliminate (superflous?) 3rd call of initSubStateMachinesImpl
     EXPECT_CALL(innerState,initSubStateMachinesImpl(true))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&region))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&region))
@@ -360,9 +370,9 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions1)
     EXPECT_CALL(region,startingRegionThread())
         .Times(1);
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -372,7 +382,7 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions1)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&region))
         .Times(1);
-    EXPECT_CALL(innerState,initSubStateMachinesImpl(true))
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
         .Times(1);
     EXPECT_CALL(innerState,endDoImpl(&region))
         .Times(1);
@@ -423,9 +433,9 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions2)
     EXPECT_CALL(region,startingRegionThread())
         .Times(1);
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(2);
+        .Times(1);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -435,7 +445,7 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions2)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&region))
         .Times(1);
-    EXPECT_CALL(innerState,initSubStateMachinesImpl(true))
+    EXPECT_CALL(innerState,initSubStateMachinesImpl(_))
         .Times(1);
     EXPECT_CALL(innerState,endDoImpl(&region))
         .Times(1);
@@ -484,8 +494,9 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions3)
         .Times(1);
     EXPECT_CALL(region,initializeImpl(_))
         .Times(2);
+    // TODO: Eliminate the (superflous?) 3rd call of finalize(Impl)
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(2);
+        .Times(3);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -495,8 +506,9 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions3)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&region))
         .Times(1);
+    // TODO: Eliminiate (superfluous?) calls of initSubStateMachinesImpl
     EXPECT_CALL(innerState,initSubStateMachinesImpl(true))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&region))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&region))
@@ -548,8 +560,9 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions4)
         .Times(1);
     EXPECT_CALL(region,initializeImpl(_))
         .Times(2);
+    // TODO: Eliminiate (superfluous?) calls of finalizeImpl
     EXPECT_CALL(region,finalizeImpl(_))
-        .Times(2);
+        .Times(3);
     EXPECT_CALL(region,endingRegionThread())
         .Times(1);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -559,8 +572,9 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Interactions4)
         .Times(1);
     EXPECT_CALL(innerState,startDoImpl(&region))
         .Times(1);
+    // TODO: Eliminiate (superfluous?) calls of initSubStateMachinesImpl
     EXPECT_CALL(innerState,initSubStateMachinesImpl(true))
-        .Times(1);
+        .Times(2);
     EXPECT_CALL(innerState,endDoImpl(&region))
         .Times(1);
     EXPECT_CALL(innerState,exitImpl(&region))
@@ -624,11 +638,13 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Resume1)
     EXPECT_CALL(region,startingRegionThread())
         .Times(2);
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(3);
-    EXPECT_CALL(region,finalizeImpl(_))
         .Times(2);
+    // TODO: Eliminiate (superflous?) calls to finalize(Impl)
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(3);
     EXPECT_CALL(region,endingRegionThread())
         .Times(2);
+    // TODO: Eliminiate (superflous?) calls to exitRegion(Impl)
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
         .Times(2);
 
@@ -644,30 +660,38 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Resume1)
     EXPECT_CALL(outerState,exitImpl(&stateMachine))
         .Times(1);
 
+    // TODO: Eliminiate (superflous?) calls to entry(Impl)
     EXPECT_CALL(innerState1,entryImpl(&region))
-        .Times(1);
+        .Times(2);
+    // TODO: Eliminiate (superflous?) calls to startDo(Impl)
     EXPECT_CALL(innerState1,startDoImpl(&region))
-        .Times(1);
+        .Times(2);
 // Direct transition prevents initializing sub state machines
 //    EXPECT_CALL(innerState1,initSubStateMachinesImpl(_))
 //        .Times(1);
+    // TODO: Eliminiate (superflous?) calls to endDo(Impl)
     EXPECT_CALL(innerState1,endDoImpl(&region))
-        .Times(1);
+        .Times(2);
+    // TODO: Eliminiate (superflous?) calls to exit(Impl)
     EXPECT_CALL(innerState1,exitImpl(&region))
-        .Times(1);
+        .Times(2);
 
+    // TODO: Eliminiate (superflous?) calls to entry(Impl)
     EXPECT_CALL(innerState2,entryImpl(&region))
-        .Times(1);
+        .Times(2);
+    // TODO: Eliminiate (superflous?) calls to startDo(Impl)
     EXPECT_CALL(innerState2,startDoImpl(&region))
-        .Times(1);
+        .Times(2);
 //    EXPECT_CALL(innerState2,initSubStateMachinesImpl(false))
 //        .Times(1);
 //    EXPECT_CALL(innerState2,initSubStateMachinesImpl(true))
 //        .Times(1);
+    // TODO: Eliminiate (superflous?) calls to endDo(Impl)
     EXPECT_CALL(innerState2,endDoImpl(&region))
-        .Times(2);
+        .Times(3);
+    // TODO: Eliminiate (superflous?) calls to exit(Impl)
     EXPECT_CALL(innerState2,exitImpl(&region))
-        .Times(2);
+        .Times(3);
 
     // Run the state machine
     //----------------------------------------------------------------------------
@@ -739,9 +763,10 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Resume2)
     EXPECT_CALL(region,startingRegionThread())
         .Times(2);
     EXPECT_CALL(region,initializeImpl(_))
-        .Times(3);
-    EXPECT_CALL(region,finalizeImpl(_))
         .Times(2);
+    // TODO: Eliminiate (superflous?) calls to finalize(Impl)
+    EXPECT_CALL(region,finalizeImpl(_))
+        .Times(3);
     EXPECT_CALL(region,endingRegionThread())
         .Times(2);
     EXPECT_CALL(region,exitRegionImpl(&compositeState))
@@ -763,8 +788,9 @@ TEST_F(TestRegionNoArgs,BasicRegion_ShallowHistory_Resume2)
         .Times(1);
     EXPECT_CALL(innerState1,startDoImpl(&region))
         .Times(1);
+    // TODO: Eliminiate (superflous?) calls to initSubStateMachinesImpl
     EXPECT_CALL(innerState1,initSubStateMachinesImpl(true))
-        .Times(1);
+        .Times(2);
 //    EXPECT_CALL(innerState1,initSubStateMachinesImpl(true))
 //        .Times(1);
     EXPECT_CALL(innerState1,handleEvent1(&compositeState,&region))

@@ -5,8 +5,8 @@
  *      Author: user
  */
 
-#ifndef TESTCOMPOSITESTATEMOCKS_H_
-#define TESTCOMPOSITESTATEMOCKS_H_
+#ifndef TESTREGIONMOCKS_H_
+#define TESTREGIONMOCKS_H_
 
 #include <gmock/gmock.h>
 #include <StateMachine.h>
@@ -540,4 +540,4 @@ public:
     }
 
 };
-#endif /* TESTCOMPOSITESTATEMOCKS_H_ */
+#endif /* TESTREGIONMOCKS_H_ */

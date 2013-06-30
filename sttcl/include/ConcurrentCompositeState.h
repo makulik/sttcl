@@ -141,6 +141,7 @@ protected:
                 else if(regions[i]->isRegionThreadRunning())
                 {
                     regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
+                    regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
                     regions[i]->joinRegionThread();
                 }
 		    }
@@ -394,8 +395,9 @@ public:
 	 */
     ConcurrentCompositeStateBase(Context* argContextStateMachine, const RegionsArray& argRegions)
 	: BaseClassType(argRegions)
-	, contextStateMachine_(argContextStateMachine)
-	{
+	, flags(StateMachineFlags::Empty())
+    , contextStateMachine_(argContextStateMachine)
+    {
 	}
 
 	/**
@@ -410,6 +412,12 @@ public:
 	    return 0;
 	}
 
+    void setStateMachineFlags(const StateMachineFlags& value)
+    {
+        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+        flags = value;
+        STTCL_STATEMACHINE_SAFESECTION_END;
+    }
     /**
      * Indicates that the state machine is initialized.
      * @return \c true if the state machine is initialized, \c false otherwise.
@@ -417,15 +425,6 @@ public:
     bool isInitialized() const
     {
         STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initialized);
-    }
-
-    /**
-     * Indicates that the state machine is currently initializing.
-     * @return \c true if the state machine is currently initializing, \c false otherwise.
-     */
-    bool isInitializing() const
-    {
-        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initializing);
     }
 
     /**
@@ -447,6 +446,15 @@ public:
     }
 
     /**
+     * Indicates that the state machine is currently finalizing.
+     * @return \c true if the state machine is currently finalizing, \c false otherwise.
+     */
+    bool isInitializing() const
+    {
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initializing);
+    }
+
+    /**
      * Default entry() implementation.
      *
      * @param context The state machine context.
@@ -458,9 +466,14 @@ public:
 		{
 			if(BaseClassType::regions[i])
             {
-			    if(!BaseClassType::regions[i]->isRegionInitialized())
+			    if(!BaseClassType::regions[i]->isRegionInitializing() &&
+			       !BaseClassType::regions[i]->isRegionInitialized()
+			      )
 			    {
-	                BaseClassType::regions[i]->initializeRegion(true);
+	                BaseClassType::regions[i]->initializeRegion
+	                    ( !context->isInitializing() &&
+	                      !context->isInitialized()
+	                    );
 			    }
 	            BaseClassType::regions[i]->enterRegion(static_cast<CompositeStateImpl*>(this));
 			}
@@ -492,7 +505,7 @@ public:
      */
     virtual void finalizeSubStateMachines(bool recursive)
     {
-    	static_cast<CompositeStateImpl*>(this)->finalizeImpl(recursive);
+    	static_cast<CompositeStateImpl*>(this)->finalizeImpl(contextStateMachine_->isFinalizing() && recursive);
     }
 
     /**
@@ -514,23 +527,17 @@ public:
         bool result = true;
         if(!isInitialized() && !isInitializing())
         {
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            flags.initializing = true;
-            STTCL_STATEMACHINE_SAFESECTION_END;
-
+            setStateMachineFlags(StateMachineFlags::Initializing());
             if(recursive)
             {
                 for(unsigned int i = 0; i < NumOfRegions; ++i)
                 {
                     if(BaseClassType::regions[i])
                     {
-                        if(!BaseClassType::regions[i]->isRegionInitialized())
+                        result = BaseClassType::regions[i]->initializeRegion(recursive);
+                        if(!result)
                         {
-                            result = BaseClassType::regions[i]->initializeRegion(recursive);
-                            if(!result)
-                            {
-                                break;
-                            }
+                            break;
                         }
                     }
                 }
@@ -538,11 +545,7 @@ public:
         }
         if(result)
         {
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            flags.initializing = false;
-            flags.finalized = false;
-            flags.initialized = true;
-            STTCL_STATEMACHINE_SAFESECTION_END;
+            setStateMachineFlags(StateMachineFlags::Initialized());
         }
         return result;
     }
@@ -560,25 +563,19 @@ public:
     {
         if(!isFinalizing() && !isFinalized())
         {
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            flags.finalizing = true;
-            STTCL_STATEMACHINE_SAFESECTION_END;
+            setStateMachineFlags(StateMachineFlags::Finalizing());
 
             for(unsigned int i = 0; i < NumOfRegions; ++i)
             {
                 if(BaseClassType::regions[i] && !BaseClassType::regions[i]->isRegionFinalized())
                 {
-                    BaseClassType::regions[i]->finalizeRegion(recursive);
                     BaseClassType::regions[i]->endDoRegion(static_cast<CompositeStateImpl*>(this));
                     BaseClassType::regions[i]->exitRegion(static_cast<CompositeStateImpl*>(this));
+                    BaseClassType::regions[i]->finalizeRegion(recursive);
                 }
             }
 
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            flags.finalizing = false;
-            flags.finalized = true;
-            flags.initialized = false;
-            STTCL_STATEMACHINE_SAFESECTION_END;
+            setStateMachineFlags(StateMachineFlags::Finalized());
         }
     }
 

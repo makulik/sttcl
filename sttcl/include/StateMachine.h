@@ -69,24 +69,6 @@ struct StateMachineFlags
      */
     unsigned char finalizing:1;
 
-    /**
-     * Constructor for StateMachineFlags.
-     */
-    inline StateMachineFlags()
-    : initialized(false)
-    , initializing(false)
-    , finalized(false)
-    , finalizing(false)
-    {
-    }
-
-    inline StateMachineFlags(bool initialized_, bool initializing_, bool finalized_, bool finalizing_)
-    : initialized(initialized_)
-    , initializing(initializing_)
-    , finalized(finalized_)
-    , finalizing(finalizing_)
-    {
-    }
 
     inline StateMachineFlags(const StateMachineFlags& rhs)
     : initialized(rhs.initialized)
@@ -116,6 +98,45 @@ struct StateMachineFlags
         static StateMachineFlags initializedFlags(true,false,false,false);
         return initializedFlags;
     }
+
+    static const StateMachineFlags& Finalizing()
+    {
+        static StateMachineFlags finalizingFlags(false,false,false,true);
+        return finalizingFlags;
+    }
+
+    static const StateMachineFlags& Finalized()
+    {
+        static StateMachineFlags finalizedFlags(false,false,true,false);
+        return finalizedFlags;
+    }
+
+    static const StateMachineFlags& Empty()
+    {
+        static StateMachineFlags emptyFlags;
+        return emptyFlags;
+    }
+
+protected:
+    /**
+     * Constructor for StateMachineFlags.
+     */
+    inline StateMachineFlags()
+    : initialized(false)
+    , initializing(false)
+    , finalized(false)
+    , finalizing(false)
+    {
+    }
+
+    inline StateMachineFlags(bool initialized_, bool initializing_, bool finalized_, bool finalizing_)
+    : initialized(initialized_)
+    , initializing(initializing_)
+    , finalized(finalized_)
+    , finalizing(finalizing_)
+    {
+    }
+
 };
 
 /**
@@ -159,7 +180,7 @@ public:
      */
     ~StateMachine()
     {
-    	if(isInitialized() && !isFinalizing() && !isFinalized())
+    	if(isInitialized() && !isFinalizing() && !isFinalized() && getState())
     	{
     		finalize();
     	}
@@ -172,7 +193,21 @@ public:
      */
     bool initialize(bool force = false)
     {
-        bool result = static_cast<Context*>(this)->initializeImpl(force);
+        bool result = false;
+        if(force || (!isInitialized() && !isInitializing()) )
+        {
+            setStateMachineFlags(StateMachineFlags::Initializing());
+            result = static_cast<Context*>(this)->initializeImpl(force);
+        }
+        if(result)
+        {
+            setStateMachineFlags(StateMachineFlags::Initialized());
+            result = isReady();
+        }
+        else
+        {
+            setStateMachineFlags(StateMachineFlags::Empty());
+        }
         return result;
     }
 
@@ -185,14 +220,9 @@ public:
     {
     	if(!isFinalized() && !isFinalizing())
     	{
-    	    STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-                flags.finalizing = true;
-            STTCL_STATEMACHINE_SAFESECTION_END;
+            setStateMachineFlags(StateMachineFlags::Finalizing());
 			static_cast<Context*>(this)->finalizeImpl(finalizeSubStateMachines);
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-                flags.finalizing = false;
-                flags.finalized = true;
-            STTCL_STATEMACHINE_SAFESECTION_END;
+            setStateMachineFlags(StateMachineFlags::Finalized());
     	}
     }
 
@@ -221,18 +251,18 @@ public:
      */
     bool isInitialized() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.initialized);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,(flags.initialized && !flags.initializing && !flags.finalizing && !flags.finalized));
     }
 
     /**
      * Sets the initialized flag of the state machine.
      */
-    void setInitialized(bool value)
-    {
-        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-        flags.initialized = value;
-        STTCL_STATEMACHINE_SAFESECTION_END;
-    }
+//    void setInitialized(bool value)
+//    {
+//        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+//        flags.initialized = value;
+//        STTCL_STATEMACHINE_SAFESECTION_END;
+//    }
 
     /**
      * Indicates that the state machine is currently initializing.
@@ -253,12 +283,12 @@ public:
     /**
      * Sets the initializing flag of the state machine.
      */
-    void setInitializing(bool value)
-    {
-        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-        flags.initializing = value;
-        STTCL_STATEMACHINE_SAFESECTION_END;
-    }
+//    void setInitializing(bool value)
+//    {
+//        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+//        flags.initializing = value;
+//        STTCL_STATEMACHINE_SAFESECTION_END;
+//    }
 
     /**
      * Indicates that the state machine is finalized.
@@ -266,18 +296,18 @@ public:
      */
     bool isFinalized() const
     {
-        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,flags.finalized);
+        STTCL_STATEMACHINE_SAFE_RETURN(internalLockGuard,(flags.finalized && !flags.initializing && !flags.initialized));
     }
 
     /**
      * Sets the finalized flag of the state machine.
      */
-    void setFinalized(bool value)
-    {
-        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-        flags.finalized = value;
-        STTCL_STATEMACHINE_SAFESECTION_END;
-    }
+//    void setFinalized(bool value)
+//    {
+//        STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
+//        flags.finalized = value;
+//        STTCL_STATEMACHINE_SAFESECTION_END;
+//    }
 
     /**
      * Indicates that the state machine is currently finalizing.
@@ -315,41 +345,31 @@ public:
      */
     inline bool initializeImpl(bool force)
     {
-        if(force || (!isInitialized() && !isInitializing()))
+        if(force)
         {
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-            flags.initializing = true;
-            STTCL_STATEMACHINE_SAFESECTION_END;
-            if(force)
+            StateBaseClass* currentState = getState();
+            if(currentState)
             {
-            	StateBaseClass* currentState = getState();
-            	if(currentState)
-            	{
-            		currentState->finalizeSubStateMachines(true);
-            	}
-            	if(!isFinalized())
-            	{
-            		finalize(true);
-            	}
+                currentState->finalizeSubStateMachines(true);
             }
-
-            StateBaseClass* initialState = getInitialState();
-            if(initialState)
+            if(!isFinalized())
             {
-				changeState(initialState);
+                finalize(true);
             }
-        	StateBaseClass* currentState = getState();
-        	if(currentState)
-        	{
-        		currentState->initSubStateMachines(force);
-        	}
-            STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
-                flags.initializing = false;
-                flags.finalized = false;
-                flags.initialized = true;
-            STTCL_STATEMACHINE_SAFESECTION_END;
         }
-        return isReady();
+
+        StateBaseClass* initialState = getInitialState();
+        if(initialState)
+        {
+            changeState(initialState);
+        }
+        StateBaseClass* currentState = getState();
+        if(currentState)
+        {
+            currentState->initSubStateMachines(force);
+        }
+
+        return true;
     }
 
     /**
@@ -433,7 +453,7 @@ protected:
      */
     StateMachine()
     : state(0)
-    , flags()
+    , flags(StateMachineFlags::Empty())
     {
     }
 
