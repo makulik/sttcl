@@ -26,6 +26,12 @@ protected:
     {
     }
 
+    SttclTestMockBaseClass(const SttclTestMockBaseClass& rhs)
+    : id_(rhs.id_)
+    , loggingEnabled_(rhs.loggingEnabled_)
+    {
+    }
+
     std::string id_;
     bool loggingEnabled_;
 };

@@ -80,22 +80,7 @@ protected:
     , directTransitState_(0)
     , finalizeOnNextDirectTransit_(false)
     {
-        ON_CALL(*this, entryImpl(_))
-            .WillByDefault(Invoke(this, &TestStateMock::entryImplCall));
-        ON_CALL(*this, exitImpl(_))
-            .WillByDefault(Invoke(this, &TestStateMock::exitImplCall));
-        ON_CALL(*this, startDoImpl(_))
-            .WillByDefault(Invoke(this, &TestStateMock::startDoImplCall));
-        ON_CALL(*this, endDoImpl(_))
-            .WillByDefault(Invoke(this, &TestStateMock::endDoImplCall));
-        ON_CALL(*this, joinDoActionImpl(_))
-            .WillByDefault(Invoke(this, &TestStateMock::joinDoActionImplCall));
-        ON_CALL(*this, finalizeSubStateMachinesImpl(_))
-            .WillByDefault(Invoke(this, &TestStateMock::finalizeSubStateMachinesImplCall));
-        ON_CALL(*this, initSubStateMachinesImpl(_))
-            .WillByDefault(Invoke(this, &TestStateMock::initSubStateMachinesImplCall));
-        ON_CALL(*this, checkDirectTransitionImpl(_,_,_))
-            .WillByDefault(Invoke(this, &TestStateMock::checkDirectTransitionImplCall));
+        initDefaultCalls();
     }
 
     void entryImplCall(Context* context)
@@ -196,6 +181,27 @@ protected:
         }
         return result;
     }
+
+private:
+    void initDefaultCalls()
+    {
+        ON_CALL(*this, entryImpl(_))
+            .WillByDefault(Invoke(this, &TestStateMock::entryImplCall));
+        ON_CALL(*this, exitImpl(_))
+            .WillByDefault(Invoke(this, &TestStateMock::exitImplCall));
+        ON_CALL(*this, startDoImpl(_))
+            .WillByDefault(Invoke(this, &TestStateMock::startDoImplCall));
+        ON_CALL(*this, endDoImpl(_))
+            .WillByDefault(Invoke(this, &TestStateMock::endDoImplCall));
+        ON_CALL(*this, joinDoActionImpl(_))
+            .WillByDefault(Invoke(this, &TestStateMock::joinDoActionImplCall));
+        ON_CALL(*this, finalizeSubStateMachinesImpl(_))
+            .WillByDefault(Invoke(this, &TestStateMock::finalizeSubStateMachinesImplCall));
+        ON_CALL(*this, initSubStateMachinesImpl(_))
+            .WillByDefault(Invoke(this, &TestStateMock::initSubStateMachinesImplCall));
+        ON_CALL(*this, checkDirectTransitionImpl(_,_,_))
+            .WillByDefault(Invoke(this, &TestStateMock::checkDirectTransitionImplCall));
+    }
 };
 
 template
@@ -210,14 +216,13 @@ public:
     TestSimpleStateNoArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
     : MockBaseClass(id,enableLogging)
     {
-        ON_CALL(*this,handleEvent1(_))
-            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent1Call));
-        ON_CALL(*this,handleEvent2(_))
-            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent2Call));
-        ON_CALL(*this,handleEvent3(_))
-            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent3Call));
-        ON_CALL(*this,handleEvent4(_))
-            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent4Call));
+        initDefaultCalls();
+    }
+
+    TestSimpleStateNoArgsMock(const TestSimpleStateNoArgsMock<StateMachineContext>& rhs)
+    : MockBaseClass(rhs)
+    {
+        initDefaultCalls();
     }
 
     virtual ~TestSimpleStateNoArgsMock() {}
@@ -259,6 +264,18 @@ public:
             );
     }
 
+private:
+    void initDefaultCalls()
+    {
+        ON_CALL(*this,handleEvent1(_))
+            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent1Call));
+        ON_CALL(*this,handleEvent2(_))
+            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent2Call));
+        ON_CALL(*this,handleEvent3(_))
+            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent3Call));
+        ON_CALL(*this,handleEvent4(_))
+            .WillByDefault(Invoke(this, &TestSimpleStateNoArgsMock::handleEvent4Call));
+    }
 };
 
 template
@@ -273,14 +290,13 @@ public:
     TestSimpleStateWithArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
     : MockBaseClass(id,enableLogging)
     {
-        ON_CALL(*this,handleEvent1(_,_,_))
-            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent1Call));
-        ON_CALL(*this,handleEvent2(_,_))
-            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent2Call));
-        ON_CALL(*this,handleEvent3(_))
-            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent3Call));
-        ON_CALL(*this,handleEvent4(_,_))
-            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent4Call));
+        initDefaultCalls();
+    }
+
+    TestSimpleStateWithArgsMock(const TestSimpleStateWithArgsMock<StateMachineContext>& rhs)
+    : MockBaseClass(rhs)
+    {
+        initDefaultCalls();
     }
 
     virtual ~TestSimpleStateWithArgsMock() {}
@@ -329,5 +345,17 @@ public:
             );
     }
 
+private:
+    void initDefaultCalls()
+    {
+        ON_CALL(*this,handleEvent1(_,_,_))
+            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent1Call));
+        ON_CALL(*this,handleEvent2(_,_))
+            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent2Call));
+        ON_CALL(*this,handleEvent3(_))
+            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent3Call));
+        ON_CALL(*this,handleEvent4(_,_))
+            .WillByDefault(Invoke(this, &TestSimpleStateWithArgsMock::handleEvent4Call));
+    }
 };
 #endif /* TESTSTATEMOCKS_H_ */

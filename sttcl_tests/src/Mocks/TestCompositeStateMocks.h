@@ -18,6 +18,8 @@
 #include "ITestStateInterfaceNoArgs.h"
 #include "ITestStateInterfaceWithArgs.h"
 
+using ::testing::_;
+
 template
     < typename CompositeStateImpl
     , typename StateMachineContext
@@ -99,31 +101,7 @@ protected:
     , finalizeOnNextDirectTransit_(false)
     , initialState_(0)
     {
-        ON_CALL(*this, entryImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::entryImplCall));
-        ON_CALL(*this, exitImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::exitImplCall));
-        ON_CALL(*this, startDoImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::startDoImplCall));
-        ON_CALL(*this, endDoImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::endDoImplCall));
-        ON_CALL(*this, joinDoActionImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::joinDoActionImplCall));
-        ON_CALL(*this, finalizeSubStateMachinesImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::finalizeSubStateMachinesImplCall));
-        ON_CALL(*this, initSubStateMachinesImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::initSubStateMachinesImplCall));
-        ON_CALL(*this, checkDirectTransitionImpl(_,_,_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::checkDirectTransitionImplCall));
-
-        ON_CALL(*this, initializeImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::initializeImplCall));
-        ON_CALL(*this, finalizeImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::finalizeImplCall));
-        ON_CALL(*this, subStateMachineCompletedImpl(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::subStateMachineCompletedImplCall));
-        ON_CALL(*this, getInitialStateImpl())
-            .WillByDefault(Invoke(this, &TestCompositeStateMock::getInitialStateImplCall));
+        initDefaultCalls();
     }
 
     void entryImplCall(Context* context)
@@ -281,6 +259,36 @@ protected:
         }
         return result;
     }
+
+private:
+    void initDefaultCalls()
+    {
+        ON_CALL(*this, entryImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::entryImplCall));
+        ON_CALL(*this, exitImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::exitImplCall));
+        ON_CALL(*this, startDoImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::startDoImplCall));
+        ON_CALL(*this, endDoImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::endDoImplCall));
+        ON_CALL(*this, joinDoActionImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::joinDoActionImplCall));
+        ON_CALL(*this, finalizeSubStateMachinesImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::finalizeSubStateMachinesImplCall));
+        ON_CALL(*this, initSubStateMachinesImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::initSubStateMachinesImplCall));
+        ON_CALL(*this, checkDirectTransitionImpl(_,_,_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::checkDirectTransitionImplCall));
+
+        ON_CALL(*this, initializeImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::initializeImplCall));
+        ON_CALL(*this, finalizeImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::finalizeImplCall));
+        ON_CALL(*this, subStateMachineCompletedImpl(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::subStateMachineCompletedImplCall));
+        ON_CALL(*this, getInitialStateImpl())
+            .WillByDefault(Invoke(this, &TestCompositeStateMock::getInitialStateImplCall));
+    }
 };
 
 template
@@ -306,18 +314,18 @@ public:
             > MockBaseClass;
     typedef ITestStateInterfaceNoArgs<TestCompositeStateNoArgsMock<StateMachineContext,HistoryType> > InnerStateInterface;
     typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
+    typedef TestCompositeStateNoArgsMock<StateMachineContext,HistoryType> SelfClassType;
 
     TestCompositeStateNoArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
     : MockBaseClass(id,enableLogging)
     {
-        ON_CALL(*this,handleEvent1(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent1Call));
-        ON_CALL(*this,handleEvent2(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent2Call));
-        ON_CALL(*this,handleEvent3(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent3Call));
-        ON_CALL(*this,handleEvent4(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent4Call));
+        initDefaultCalls();
+    }
+
+    TestCompositeStateNoArgsMock(const SelfClassType& rhs)
+    : MockBaseClass(rhs)
+    {
+        initDefaultCalls();
     }
 
     virtual ~TestCompositeStateNoArgsMock() {}
@@ -403,6 +411,18 @@ public:
         }
     }
 
+private:
+    void initDefaultCalls()
+    {
+        ON_CALL(*this,handleEvent1(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent1Call));
+        ON_CALL(*this,handleEvent2(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent2Call));
+        ON_CALL(*this,handleEvent3(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent3Call));
+        ON_CALL(*this,handleEvent4(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateNoArgsMock::handleEvent4Call));
+    }
 };
 
 template
@@ -427,18 +447,18 @@ public:
             , HistoryType
             > MockBaseClass;
     typedef typename MockBaseClass::InnerStateBaseClass InnerStateBaseClass;
+    typedef TestCompositeStateWithArgsMock<StateMachineContext,HistoryType> SelfClassType;
 
     TestCompositeStateWithArgsMock(const std::string& id = "<anonymous>", bool enableLogging = false)
     : MockBaseClass(id,enableLogging)
     {
-        ON_CALL(*this,handleEvent1(_,_,_))
-            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent1Call));
-        ON_CALL(*this,handleEvent2(_,_))
-            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent2Call));
-        ON_CALL(*this,handleEvent3(_))
-            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent3Call));
-        ON_CALL(*this,handleEvent4(_,_))
-            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent4Call));
+        initDefaultCalls();
+    }
+
+    TestCompositeStateWithArgsMock(const SelfClassType& rhs)
+    : MockBaseClass(rhs)
+    {
+        initDefaultCalls();
     }
 
     virtual ~TestCompositeStateWithArgsMock() {}
@@ -539,5 +559,17 @@ public:
         }
     }
 
+private:
+    void initDefaultCalls()
+    {
+        ON_CALL(*this,handleEvent1(_,_,_))
+            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent1Call));
+        ON_CALL(*this,handleEvent2(_,_))
+            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent2Call));
+        ON_CALL(*this,handleEvent3(_))
+            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent3Call));
+        ON_CALL(*this,handleEvent4(_,_))
+            .WillByDefault(Invoke(this, &TestCompositeStateWithArgsMock::handleEvent4Call));
+    }
 };
 #endif /* TESTCOMPOSITESTATEMOCKS_H_ */
