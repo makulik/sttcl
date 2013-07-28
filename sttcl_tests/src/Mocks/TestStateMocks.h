@@ -55,9 +55,12 @@ public:
 
     void doStateChange(Context* context, StateBaseClass* newState)
     {
+        SttclTestMockBaseClass* newStateBase = dynamic_cast<SttclTestMockBaseClass*>(newState);
+        std::string newStateId = newStateBase ? newStateBase->id() : std::string("<anonymous>");
+
         STTCL_MOCK_LOGDEBUG
             ( TestStateMock
-            , "Changing to state = " << newState << " ..."
+            , "Changing to state = " << newStateId << "(" << newState << ")" << " ..."
             );
         SttclStateBaseClass::changeState(context,newState);
     }
