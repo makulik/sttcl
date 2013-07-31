@@ -951,6 +951,7 @@ TEST_F(TestCompositeStateNoArgs,BasicCompositeState_DeepHistory_Resume1)
         .Times(2);
     EXPECT_CALL(innerState2,startDoImpl(&compositeState))
         .Times(2);
+    // TODO: Check why initSubStateMachinesImpl() is called 3 times here.
     EXPECT_CALL(innerState2,initSubStateMachinesImpl(_))
         .Times(3);
     EXPECT_CALL(innerState2,endDoImpl(&compositeState))
