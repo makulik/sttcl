@@ -518,7 +518,7 @@ public:
     }
 
     /**
-     * The default initSubStateMachines() implementation.
+     * The default initialize() implementation.
      * @param recursive Indicates to initialize nested sub state machines recursively.
      * @return \c true if all contained regions were successfully initialized, \c false otherwise.
      */
