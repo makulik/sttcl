@@ -179,6 +179,7 @@ TEST_F(TestActiveStateWithArgs,DirectTransition1)
         .Times(1);
     EXPECT_CALL(state2,startDoImpl(&stateMachine))
         .Times(1);
+// Direct transition prevents initializing sub state machines
 //    EXPECT_CALL(state2,initSubStateMachinesImpl(_))
 //        .Times(1);
     EXPECT_CALL(state2,finalizeSubStateMachinesImpl(true))

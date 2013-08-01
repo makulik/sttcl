@@ -447,6 +447,23 @@ public:
         STTCL_STATEMACHINE_SAFESECTION_END;
     }
 
+    /**
+     * Gets the initial state of the state machine.
+     *
+     * @return The initial state of the state machine.
+     */
+    StateBaseClass* getInitialState() const
+    {
+        StateBaseClass* result = static_cast<const Context*>(this)->getInitialStateImpl();
+#if defined(STTCL_DEBUG) // && defined(STTCL_HAVE_RTTI)
+        if(!result)
+        {
+            std::cerr << "WARNING: " << typeid(static_cast<const Context*>(this)).name() << ".getInitialStateImpl() returned NULL" << std::endl;
+        }
+#endif
+        return result;
+    }
+
 protected:
     /**
      * Constructor for class StateMachine.
@@ -477,23 +494,6 @@ protected:
         STTCL_STATEMACHINE_SAFESECTION_START(internalLockGuard);
             state = newState;
         STTCL_STATEMACHINE_SAFESECTION_END;
-    }
-
-    /**
-     * Gets the initial state of the state machine.
-     *
-     * @return The initial state of the state machine.
-     */
-    StateBaseClass* getInitialState() const
-    {
-    	StateBaseClass* result = static_cast<const Context*>(this)->getInitialStateImpl();
-#if defined(STTCL_DEBUG) // && defined(STTCL_HAVE_RTTI)
-    	if(!result)
-    	{
-    		std::cout << "WARNING: " << typeid(static_cast<const Context*>(this)).name() << ".getInitialStateImpl() returned NULL" << std::endl;
-    	}
-#endif
-    	return result;
     }
 
     // Default implementations
