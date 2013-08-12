@@ -263,3 +263,68 @@ TEST_F(TestDemo3aStateMachine,UseCaseScenario2)
 
     STTCL_TEST_LOG_END();
 }
+
+TEST_F(TestDemo3aStateMachine,UseCaseScenario3)
+{
+
+    STTCL_TEST_LOG_ALL();
+
+    resetAllActionStates();
+    demo3bStateMachine.initialize();
+    EXPECT_EQ(&demoState1,demo3bStateMachine.getState());
+
+    // ** Step 1
+    resetAllActionStates();
+    demo3bStateMachine.x(4); // Fulfill the guard condition
+    demo3bStateMachine.triggerEvent2();
+    EXPECT_EQ(&demoState3,demo3bStateMachine.getState());
+    EXPECT_EQ(&demoState3a,demoState3.getState());
+
+    // ** Step 2
+    resetAllActionStates();
+    demo3bStateMachine.triggerEvent5();
+    EXPECT_EQ(&demoState3,demo3bStateMachine.getState());
+    EXPECT_EQ(&demoState3b,demoState3.getState());
+    EXPECT_EQ(&demoState3b_1,demoState3b.getState());
+
+    // ** Step 3
+    resetAllActionStates();
+    demo3bStateMachine.triggerEvent2();
+    EXPECT_EQ(&demoState3,demo3bStateMachine.getState());
+    EXPECT_EQ(&demoState3b,demoState3.getState());
+    EXPECT_EQ(&demoState3b_2,demoState3b.getState());
+
+    // ** Step 4
+    resetAllActionStates();
+    demoState3.z(3); // Fulfill the guard condition
+    demo3bStateMachine.triggerEvent1();
+    EXPECT_EQ(&demoState3,demo3bStateMachine.getState());
+    EXPECT_EQ(&demoState3c,demoState3.getState());
+
+    // ** Step 5
+    resetAllActionStates();
+    demo3bStateMachine.triggerEvent4();
+    EXPECT_EQ(&demoState3,demo3bStateMachine.getState());
+    EXPECT_TRUE(demoState3.isFinalized());
+
+    // ** Step 6
+    resetAllActionStates();
+    demo3bStateMachine.triggerEvent3();
+    EXPECT_EQ(&demoState1,demo3bStateMachine.getState());
+
+    // ** Step 7
+    resetAllActionStates();
+    demo3bStateMachine.triggerEvent1();
+    EXPECT_EQ(&demoState2,demo3bStateMachine.getState());
+
+    // ** Step 4
+    resetAllActionStates();
+    demo3bStateMachine.y(3); // Fulfill the guard condition
+    demo3bStateMachine.triggerEvent1();
+    EXPECT_EQ(&demoState3,demo3bStateMachine.getState());
+    EXPECT_EQ(&demoState3a,demoState3.getState());
+
+    demo3bStateMachine.finalize(true);
+
+    STTCL_TEST_LOG_END();
+}
